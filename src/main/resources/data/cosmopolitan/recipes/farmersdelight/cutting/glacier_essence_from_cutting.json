@@ -1,0 +1,37 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "twilightforest"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "twilightforest:ice_bomb"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool_action",
+    "action": "pickaxe_dig"
+  },
+  "result": [
+    {
+      "item": "cosmopolitan:glacier_essence",
+      "count": 3
+    },
+    {
+      "item": "cosmopolitan:glacier_essence",
+      "chance": 0.5
+    }
+  ]
+}

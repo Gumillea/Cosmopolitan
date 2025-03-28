@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "ars_nouveau:sourceberry_bush"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "ars_nouveau:sourceberry_bush"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:source_berry_ice_cream_cone",
+    "count": 3
+  }
+}

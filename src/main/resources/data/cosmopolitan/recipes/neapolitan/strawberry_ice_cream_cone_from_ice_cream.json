@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "neapolitan:strawberry_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:strawberry_ice_cream_cone",
+    "count": 3
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "twilightdelight"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "twilightdelight:phytochemical_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:phytochemical_ice_cream_cone",
+    "count": 3
+  }
+}

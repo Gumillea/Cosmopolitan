@@ -1,0 +1,69 @@
+{
+  "block.cosmopolitan.chiseled_adzuki_ice_cream_block": "Chiseled Adzuki Ice Cream Block",
+  "block.cosmopolitan.chiseled_banana_ice_cream_block": "Chiseled Banana Ice Cream Block",
+  "block.cosmopolitan.chiseled_chocolate_ice_cream_block": "Chiseled Chocolate Ice Cream Block",
+  "block.cosmopolitan.chiseled_mint_ice_cream_block": "Chiseled Mint Ice Cream Block",
+  "block.cosmopolitan.chiseled_strawberry_ice_cream_block": "Chiseled Strawberry Ice Cream Block",
+  "block.cosmopolitan.chiseled_vanilla_ice_cream_block": "Chiseled Vanilla Ice Cream Block",
+
+  "block.cosmopolitan.enchanted_fruit_ice_cream_block": "Enchanted Fruit Ice Cream Block",
+  "block.cosmopolitan.kabloom_ice_cream_block": "Kabloom Ice Cream Block",
+  "block.cosmopolitan.source_berry_ice_cream_block": "Sourceberry Ice Cream Block",
+
+  "effect.cosmopolitan.exuberant": "Exuberant",
+  "effect.cosmopolitan.exuberant.description": "This effect is removed when the user takes damage. Gives the user a small amount of additional health points at the end of the duration.",
+
+  "item.cosmopolitan.potato_slices": "Cut Potatoes",
+  "item.cosmopolitan.baked_potato_slices": "Potato Wedges",
+  "item.cosmopolitan.potato_pancakes": "Potato Pancakes",
+  "item.cosmopolitan.mashed_potato": "Mashed Potato",
+
+  "item.cosmopolitan.wafer": "Wafer",
+  "item.cosmopolitan.wafer_cone": "Wafer Cone",
+  "item.cosmopolitan.mashed_potato_cone": "Mashed Potato Cone",
+  "item.cosmopolitan.snow_cone": "Snow Cone",
+
+  "item.cosmopolitan.adzuki_ice_cream_cone": "Adzuki Ice Cream Cone",
+  "item.cosmopolitan.banana_ice_cream_cone": "Banana Ice Cream Cone",
+  "item.cosmopolitan.chocolate_ice_cream_cone": "Chocolate Ice Cream Cone",
+  "item.cosmopolitan.mint_ice_cream_cone": "Mint Ice Cream Cone",
+  "item.cosmopolitan.strawberry_ice_cream_cone": "Strawberry Ice Cream Cone",
+  "item.cosmopolitan.vanilla_ice_cream_cone": "Vanilla Ice Cream Cone",
+  "item.cosmopolitan.neapolitan_ice_cream_sandwich": "Neapolitan Ice Cream Sandwich",
+
+  "item.cosmopolitan.chorus_ice_cream_cone": "Chorus Fruit Ice Cream Cone",
+  "item.cosmopolitan.warzipan_ice_cream_cone": "Warzipan Ice Cream Cone",
+  "item.cosmopolitan.jelly_ring_ice_cream_cone": "Jelly Ring Ice Cream Cone",
+  "item.cosmopolitan.azure_berry_ice_cream_cone": "Azure Berry Ice Cream Cone",
+  "item.cosmopolitan.midnight_ice_cream_cone": "Midnight Flavoured Ice Cream Cone",
+  "item.cosmopolitan.starcloud_ice_cream_cone": "Starcloud Flavoured Ice Cream Cone",
+
+  "item.cosmopolitan.beetroot_ice_cream_cone": "Beetroot Ice Cream Cone",
+  "item.cosmopolitan.pumpkin_ice_cream_cone": "Pumpkin Ice Cream Cone",
+  "item.cosmopolitan.sweet_berry_ice_cream_cone": "Sweet Berry Ice Cream Cone",
+
+  "item.cosmopolitan.apple_ice_cream": "Apple Ice Cream",
+  "item.cosmopolitan.apple_ice_cream_cone": "Apple Ice Cream Cone",
+  "item.cosmopolitan.carrot_ice_cream": "Carrot Ice Cream",
+  "item.cosmopolitan.carrot_ice_cream_cone": "Carrot Ice Cream Cone",
+  "item.cosmopolitan.glow_berry_ice_cream": "Glow Berry Ice Cream",
+  "item.cosmopolitan.glow_berry_ice_cream_cone": "Glow Berry Ice Cream Cone",
+
+  "item.cosmopolitan.enchanted_fruit_ice_cream": "Enchanted Fruit Ice Cream",
+  "item.cosmopolitan.enchanted_fruit_ice_cream_cone": "Enchanted Fruit Ice Cream Cone",
+
+  "item.cosmopolitan.kabloom_ice_cream": "Kabloom Ice Cream",
+  "item.cosmopolitan.kabloom_ice_cream_cone": "Kabloom Ice Cream Cone",
+
+  "item.cosmopolitan.source_berry_ice_cream": "Sourceberry Ice Cream",
+  "item.cosmopolitan.source_berry_ice_cream_cone": "Sourceberry Ice Cream Cone",
+
+  "item.cosmopolitan.aurora_kohakutou": "Aurora Kohakutou",
+  "item.cosmopolitan.glacier_essence": "Glacier Essence",
+  "item.cosmopolitan.steeleaf_nectar": "Steeleaf Nectar",
+
+  "item.cosmopolitan.aurora_ice_cream_cone": "Aurora Ice Cream Cone",
+  "item.cosmopolitan.glacier_ice_cream_cone": "Glacier Ice Cream Cone",
+  "item.cosmopolitan.phytochemical_ice_cream_cone": "Phytochemical Ice Cream Cone",
+  "item.cosmopolitan.torchberry_ice_cream_cone": "Torchberry Ice Cream Cone"
+}

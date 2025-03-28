@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "ars_nouveau:sourceberry_bush"
+        }
+      ]
+    }
+  ],
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "X": {
+      "item": "cosmopolitan:source_berry_ice_cream"
+    },
+    "#": {
+      "item": "minecraft:snow_block"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:source_berry_ice_cream_block",
+    "count": 8
+  }
+}

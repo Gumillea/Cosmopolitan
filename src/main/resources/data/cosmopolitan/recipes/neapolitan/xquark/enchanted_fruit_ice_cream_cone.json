@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "quark:ancient_fruit"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "quark:ancient_fruit"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:enchanted_fruit_ice_cream_cone",
+    "count": 3
+  }
+}

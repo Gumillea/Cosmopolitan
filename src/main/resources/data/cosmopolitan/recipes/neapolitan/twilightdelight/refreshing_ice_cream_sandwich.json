@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "twilightdelight"
+        }
+      ]
+    }
+  ],
+  "key": {
+    "A": {
+      "item": "cosmopolitan:wafer"
+    },
+    "B": {
+      "item": "twilightdelight:refreshing_ice_cream"
+    }
+  },
+  "pattern": [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "cosmopolitan:refreshing_ice_cream_sandwich",
+    "count": 2
+  }
+}

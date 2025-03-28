@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smelting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredient": {
+    "item": "cosmopolitan:potato_slices"
+  },
+  "result": "cosmopolitan:baked_potato_slices",
+  "experience": 0.35,
+  "cookingtime": 200
+}

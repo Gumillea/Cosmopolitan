@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "habitat:kabloom_pulp"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:kabloom_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:kabloom_ice_cream_cone",
+    "count": 3
+  }
+}

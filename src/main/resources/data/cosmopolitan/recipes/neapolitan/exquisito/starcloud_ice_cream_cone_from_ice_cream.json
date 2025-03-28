@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "exquisito"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "exquisito:starcloud_ingredients"
+          }
+        },
+        {
+          "type": "exquisito:config",
+          "value": "enable_ether_bulb_flavor"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "exquisito:ether_bulb_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:starcloud_ice_cream_cone",
+    "count": 3
+  }
+}

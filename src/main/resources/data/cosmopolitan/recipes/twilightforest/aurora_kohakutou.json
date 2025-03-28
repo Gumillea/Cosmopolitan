@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "ingredients": [
+    [
+      {
+        "item": "twilightforest:aurora_block"
+      },
+      {
+        "item": "twilightforest:aurora_pillar"
+      }
+    ],
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:aurora_kohakutou",
+    "count": 2
+  }
+}

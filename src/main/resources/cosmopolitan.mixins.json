@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.gumillea.cosmopolitan.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "cosmopolitan.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

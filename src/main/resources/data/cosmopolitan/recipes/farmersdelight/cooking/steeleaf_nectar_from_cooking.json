@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersdelight"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "twilightforest"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "item": "twilightforest:steeleaf_ingot"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:steeleaf_nectar",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

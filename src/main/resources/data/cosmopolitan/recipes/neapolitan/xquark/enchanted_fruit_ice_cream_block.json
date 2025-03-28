@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "quark:ancient_fruit"
+        }
+      ]
+    }
+  ],
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "X": {
+      "item": "cosmopolitan:enchanted_fruit_ice_cream"
+    },
+    "#": {
+      "item": "minecraft:snow_block"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:enchanted_fruit_ice_cream_block",
+    "count": 8
+  }
+}

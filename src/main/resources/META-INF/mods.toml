@@ -1,0 +1,52 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="cosmopolitan"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="Gumillea"
+description='''${mod_description}'''
+
+[[dependencies.cosmopolitan]]
+   modId="forge"
+   mandatory=true
+   versionRange="${forge_version_range}"
+   ordering="NONE"
+   side="BOTH"
+
+[[dependencies.cosmopolitan]]
+   modId="minecraft"
+   mandatory=true
+   versionRange="${minecraft_version_range}"
+   ordering="NONE"
+   side="BOTH"
+
+[[dependencies.cosmopolitan]]
+   modId="neapolitan"
+   mandatory=false
+   versionRange="[5,)"
+   ordering="AFTER"
+   side="BOTH"
+
+[[dependencies.cosmopolitan]]
+   modId="ars_nouveau"
+   mandatory=false
+   versionRange="[4.12,)"
+   ordering="AFTER"
+   side="BOTH"
+
+[[dependencies.cosmopolitan]]
+   modId="twilightforest"
+   mandatory=false
+   versionRange="[4.3,)"
+   ordering="AFTER"
+   side="BOTH"
+
+[[dependencies.cosmopolitan]]
+   modId="twilightdelight"
+   mandatory=false
+   versionRange="[2,)"
+   ordering="AFTER"
+   side="BOTH"

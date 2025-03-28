@@ -1,0 +1,45 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersdelight"
+            },
+            {
+              "type": "forge:mod_loaded",
+              "modid": "twilightforest"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.35,
+        "ingredients": [
+          [
+            {
+              "item": "twilightforest:aurora_block"
+            },
+            {
+              "item": "twilightforest:aurora_pillar"
+            }
+          ],
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "item": "cosmopolitan:aurora_kohakutou",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

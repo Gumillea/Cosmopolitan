@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "exquisito"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "enlightened_end:squished_bouncer"
+        },
+        {
+          "type": "exquisito:config",
+          "value": "enable_jelly_ring_flavor"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "exquisito:jelly_ring_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:jelly_ring_ice_cream_cone",
+    "count": 3
+  }
+}

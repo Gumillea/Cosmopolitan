@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "neapolitan:mint_ice_cream_block"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:chiseled_mint_ice_cream_block",
+    "count": 4
+  }
+}

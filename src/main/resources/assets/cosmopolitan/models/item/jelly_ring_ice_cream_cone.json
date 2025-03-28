@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cosmopolitan:item/jelly_ring_ice_cream_cone"
+  }
+}

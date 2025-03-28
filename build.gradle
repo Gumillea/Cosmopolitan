@@ -1,0 +1,192 @@
+buildscript {
+    repositories {
+        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+apply plugin: 'org.spongepowered.mixin'
+
+group = mod_version
+version = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+
+    copyIdeResources = true
+    accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            property "mixin.env.remapRefMap", "true"
+            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
+            arg "-mixin.config=" + mod_id + ".mixins.json"
+            mods {
+                exquisito {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', '${mod_id}'
+            property "mixin.env.remapRefMap", "true"
+            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                exquisito {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            property "mixin.env.remapRefMap", "true"
+            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
+            arg "-mixin.config=" + mod_id + ".mixins.json"
+
+            mods {
+                exquisito {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+
+            workingDirectory project.file("run")
+            property "forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP"
+            property "forge.logging.console.level", "debug"
+            property "mixin.env.remapRefMap", "true"
+            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
+
+            args "--mod", mod_id, "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources"), "--existing-mod", "blueprint"
+
+            mods {
+                exquisito {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+mixin {
+    add sourceSets.main, "${mod_id}.refmap.json"
+
+    config "${mod_id}.mixins.json"
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    maven {url = "https://www.cursemaven.com"}
+    maven {url = "https://maven.jaackson.me"}
+    maven {url = "https://dvs1.progwml6.com/files/maven/" }
+    maven {url = "https://modmaven.k-4u.nl" }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    implementation fg.deobf("curse.maven:neapolitan-382016:5296594")
+    implementation fg.deobf("curse.maven:gallery-1173553:6133771")
+    implementation fg.deobf("com.teamabnormals:blueprint:1.20.1-7.1.0")
+
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:15.3.0.8")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:15.3.0.8")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:15.3.0.8")
+
+    implementation fg.deobf("curse.maven:zeta-968868:5418213")
+    implementation fg.deobf("curse.maven:quark-243121:5418252")
+
+    implementation fg.deobf("curse.maven:ars-nouveau-401955:5436131")
+    implementation fg.deobf("curse.maven:curios-309927:5367944")
+    implementation fg.deobf("curse.maven:patchouli-306770:4966125")
+    implementation fg.deobf("curse.maven:geckolib-388172:5460309")
+
+    implementation fg.deobf("curse.maven:habitat-422972:5293408")
+
+    implementation fg.deobf("curse.maven:exquisito-859262:6305781")
+    implementation fg.deobf("curse.maven:seasonals-416471:6058164")
+
+    implementation fg.deobf("curse.maven:farmers-delight-398521:5051242")
+    implementation fg.deobf("curse.maven:casualness-delight-909519:5181805")
+    implementation fg.deobf("curse.maven:frycooks-delight-1081410:5630141")
+
+    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
+    implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:5802985")
+
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+// This block of code expands all declared replace properties in the specified resource targets.
+// A missing property will result in an error. Properties are expanded using ${} Groovy notation.
+// When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
+// See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }}
+
+// Example for how to get properties into the manifest for reading at runtime.
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+                "Specification-Title": mod_id,
+                "Specification-Vendor": mod_authors,
+                "Specification-Version": "1", // We are version 1 of ourselves
+                "Implementation-Title": project.name,
+                "Implementation-Version": project.jar.archiveVersion,
+                "Implementation-Vendor": mod_authors,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+
+    // This is the preferred method to reobfuscate your jar file
+    finalizedBy 'reobfJar'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}

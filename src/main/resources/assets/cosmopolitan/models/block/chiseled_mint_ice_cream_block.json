@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "cosmopolitan:block/chiseled_mint_ice_cream_block_top",
+    "side": "cosmopolitan:block/chiseled_mint_ice_cream_block"
+  }
+}

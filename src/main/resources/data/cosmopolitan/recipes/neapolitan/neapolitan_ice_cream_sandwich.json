@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "key": {
+    "A": {
+      "item": "cosmopolitan:wafer"
+    },
+    "B": {
+      "item": "neapolitan:neapolitan_ice_cream"
+    }
+  },
+  "pattern": [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "cosmopolitan:neapolitan_ice_cream_sandwich",
+    "count": 2
+  }
+}
