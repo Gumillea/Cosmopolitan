@@ -6,10 +6,6 @@
       "values": [
         {
           "type": "forge:mod_loaded",
-          "modid": "neapolitan"
-        },
-        {
-          "type": "forge:mod_loaded",
           "modid": "exquisito"
         },
         {

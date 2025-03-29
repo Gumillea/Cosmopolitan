@@ -2,13 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "type": "forge:and",
-      "values": [
-        {
-          "type": "forge:mod_loaded",
-          "modid": "exquisito"
-        }
-      ]
+      "type": "forge:mod_loaded",
+      "modid": "seasonals"
     }
   ],
   "ingredients": [
@@ -22,7 +17,7 @@
       "item": "cosmopolitan:wafer_cone"
     },
     {
-      "item": "minecraft:chorus_fruit"
+      "item": "seasonals:roasted_beetroot"
     },
     {
       "tag": "forge:milk"
@@ -35,7 +30,7 @@
     }
   ],
   "result": {
-    "item": "cosmopolitan:chorus_ice_cream_cone",
+    "item": "cosmopolitan:beetroot_ice_cream_cone",
     "count": 3
   }
 }
