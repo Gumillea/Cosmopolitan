@@ -1,6 +1,5 @@
 package com.gumillea.cosmopolitan.common.item;
 
-import com.teamabnormals.neapolitan.common.item.HealingItem;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;

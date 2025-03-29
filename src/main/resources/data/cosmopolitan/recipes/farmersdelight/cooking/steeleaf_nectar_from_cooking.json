@@ -26,10 +26,7 @@
             "item": "twilightforest:steeleaf_ingot"
           },
           {
-            "item": "minecraft:sugar"
-          },
-          {
-            "item": "minecraft:sugar"
+            "item": "minecraft:honey_bottle"
           }
         ],
         "recipe_book_tab": "drinks",
@@ -38,7 +35,7 @@
         },
         "result": {
           "item": "cosmopolitan:steeleaf_nectar",
-          "count": 2
+          "count": 3
         }
       }
     }

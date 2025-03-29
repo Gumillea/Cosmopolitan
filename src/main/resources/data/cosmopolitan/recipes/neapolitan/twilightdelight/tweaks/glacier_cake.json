@@ -7,12 +7,12 @@
       "modid": "neapolitan"
     },
     {
-      "type": "forge:not",
-      "value": {
-
-        "type": "cosmopolitan:config",
-        "value": "tfd_recipe_tweaks"
-      }
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "tfd_recipe_tweaks"
     }
   ],
   "key": {
@@ -29,7 +29,7 @@
       "item": "minecraft:wheat"
     },
     "X": {
-      "item": "twilightforest:ice_bomb"
+      "item": "cosmopolitan:glacier_essence"
     }
   },
   "pattern": [

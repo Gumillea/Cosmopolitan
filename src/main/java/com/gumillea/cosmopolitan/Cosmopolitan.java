@@ -3,10 +3,8 @@ package com.gumillea.cosmopolitan;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
-import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
-import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
-import com.gumillea.cosmopolitan.core.reg.CosmoItems;
-import com.gumillea.cosmopolitan.core.reg.CosmoResourcePacks;
+import com.gumillea.cosmopolitan.core.reg.*;
+import com.gumillea.exquisito.core.reg.ExquisitoLootConditions;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -21,6 +19,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -49,6 +48,9 @@ public class Cosmopolitan {
         });
 
         REGISTRY_HELPER.register(modEventBus);
+        CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
+
+        context.registerConfig(ModConfig.Type.COMMON, CosmoConfig.COMMON_SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
