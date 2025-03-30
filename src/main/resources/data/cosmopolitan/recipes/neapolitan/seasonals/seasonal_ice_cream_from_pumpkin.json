@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seasonals"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "seasonals:pumpkin_ice_cream"
+    },
+    {
+      "item": "seasonals:roasted_beetroot"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:seasonal_ice_cream",
+    "count": 1
+  }
+}

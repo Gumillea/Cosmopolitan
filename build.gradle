@@ -119,6 +119,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("curse.maven:neapolitan-382016:5296594")
+    implementation fg.deobf("curse.maven:atmospheric-362393:6248868")
     implementation fg.deobf("curse.maven:gallery-1173553:6133771")
     implementation fg.deobf("com.teamabnormals:blueprint:1.20.1-7.1.0")
 
@@ -138,6 +139,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:exquisito-859262:6305781")
     implementation fg.deobf("curse.maven:seasonals-416471:6058164")
+    implementation fg.deobf("curse.maven:peculiars-418551:6058169")
 
     implementation fg.deobf("curse.maven:farmers-delight-398521:5051242")
     implementation fg.deobf("curse.maven:casualness-delight-909519:5181805")
@@ -146,6 +148,7 @@ dependencies {
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
     implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:5802985")
 
+    implementation fg.deobf("curse.maven:the-undergarden-379849:5182632")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

@@ -41,6 +41,14 @@
   "item.cosmopolitan.beetroot_ice_cream_cone": "Beetroot Ice Cream Cone",
   "item.cosmopolitan.pumpkin_ice_cream_cone": "Pumpkin Ice Cream Cone",
   "item.cosmopolitan.sweet_berry_ice_cream_cone": "Sweet Berry Ice Cream Cone",
+  "item.cosmopolitan.seasonal_ice_cream": "Seasonal Ice cream",
+  "item.cosmopolitan.seasonal_ice_cream_sandwich": "Seasonal Ice cream Sandwich",
+
+  "item.cosmopolitan.aloe_ice_cream_cone": "Aloe Ice Cream Cone",
+  "item.cosmopolitan.passion_fruit_ice_cream_cone": "Passion Fruit Ice Cream Cone",
+  "item.cosmopolitan.yucca_berry_ice_cream_cone": "Yucca Ice Cream Cone",
+  "item.cosmopolitan.peculiar_ice_cream": "Peculiar Ice cream",
+  "item.cosmopolitan.peculiar_ice_cream_sandwich": "Peculiar Ice cream Sandwich",
 
   "item.cosmopolitan.apple_ice_cream": "Apple Ice Cream",
   "item.cosmopolitan.apple_ice_cream_cone": "Apple Ice Cream Cone",
@@ -65,5 +73,8 @@
   "item.cosmopolitan.aurora_ice_cream_cone": "Aurora Ice Cream Cone",
   "item.cosmopolitan.glacier_ice_cream_cone": "Glacier Ice Cream Cone",
   "item.cosmopolitan.phytochemical_ice_cream_cone": "Phytochemical Ice Cream Cone",
-  "item.cosmopolitan.torchberry_ice_cream_cone": "Torchberry Ice Cream Cone"
+  "item.cosmopolitan.torchberry_ice_cream_cone": "Torchberry Ice Cream Cone",
+  "item.cosmopolitan.rainbow_ice_cream_sandwich": "Rainbow Ice Cream Sandwich",
+  "item.cosmopolitan.refreshing_ice_cream_sandwich": "Refreshing Ice Cream Sandwich",
+  "item.cosmopolitan.twilight_ice_cream_sandwich": "Twilight Ice Cream Sandwich"
 }

@@ -41,6 +41,14 @@
   "item.cosmopolitan.beetroot_ice_cream_cone": "甜菜根味甜筒",
   "item.cosmopolitan.pumpkin_ice_cream_cone": "南瓜味甜筒",
   "item.cosmopolitan.sweet_berry_ice_cream_cone": "甜浆果味甜筒",
+  "item.cosmopolitan.seasonal_ice_cream": "季节风味冰淇淋",
+  "item.cosmopolitan.seasonal_ice_cream_sandwich": "季节风味冰淇淋三明治",
+
+  "item.cosmopolitan.aloe_ice_cream_cone": "芦荟味甜筒",
+  "item.cosmopolitan.passion_fruit_ice_cream_cone": "百香果味甜筒",
+  "item.cosmopolitan.yucca_berry_ice_cream_cone": "丝兰果味甜筒",
+  "item.cosmopolitan.peculiar_ice_cream": "独特风味冰淇淋",
+  "item.cosmopolitan.peculiar_ice_cream_sandwich": "独特风味冰淇淋三明治",
 
   "item.cosmopolitan.apple_ice_cream": "苹果味冰淇淋",
   "item.cosmopolitan.apple_ice_cream_cone": "苹果味甜筒",
@@ -60,10 +68,13 @@
 
   "item.cosmopolitan.aurora_kohakutou": "极光琥珀糖",
   "item.cosmopolitan.glacier_essence": "冰川精华",
-  "item.cosmopolitan.steeleaf_nectar": "钢叶蜜露",
+  "item.cosmopolitan.steeleaf_nectar": "钢叶琼浆",
 
   "item.cosmopolitan.aurora_ice_cream_cone": "极光味甜筒",
   "item.cosmopolitan.glacier_ice_cream_cone": "冰川味甜筒",
   "item.cosmopolitan.phytochemical_ice_cream_cone": "植物素味甜筒",
-  "item.cosmopolitan.torchberry_ice_cream_cone": "火炬浆果味甜筒"
+  "item.cosmopolitan.torchberry_ice_cream_cone": "火炬浆果味甜筒",
+  "item.cosmopolitan.rainbow_ice_cream_sandwich": "彩虹风味冰淇淋三明治",
+  "item.cosmopolitan.refreshing_ice_cream_sandwich": "清爽风味冰淇淋三明治",
+  "item.cosmopolitan.twilight_ice_cream_sandwich": "暮色风味冰淇淋三明治"
 }
