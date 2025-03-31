@@ -1,13 +1,18 @@
 package com.gumillea.cosmopolitan.core.util;
 
+import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Objects;
@@ -30,6 +35,15 @@ public class CosmoEvents {
                 target.addEffect(new MobEffectInstance(CosmoEffects.MARKED.get(), 200 * amplifier));
                 attacker.removeEffect(CosmoEffects.TRACER.get());
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        ItemStack stack = event.getItemStack();
+        if (ModList.get().isLoaded("berry_good") && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get())
+            if (ModList.get().isLoaded(CosmoCompat.AN) && stack.is(CosmoCompat.SOURCEBERRY)) {
+            event.setUseItem(Event.Result.DENY);
         }
     }
 
