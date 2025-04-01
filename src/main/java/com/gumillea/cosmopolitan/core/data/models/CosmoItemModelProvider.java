@@ -17,6 +17,7 @@ public class CosmoItemModelProvider extends BlueprintItemModelProvider {
         this.generatedItem(
                 CosmoItems.WAFER,
                 CosmoItems.POTATO_PANCAKES,
+                CosmoItems.SOURCE_BERRY_PIPS,
                 CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH,
                 CosmoItems.AURORA_KOHAKUTOU, CosmoItems.STEELEAF_NECTAR, CosmoItems.GLACIER_ESSENCE,
                 CosmoItems.BEETROOT_ICE_CREAM_CONE, CosmoItems.PUMPKIN_ICE_CREAM_CONE, CosmoItems.SWEET_BERRY_ICE_CREAM_CONE, CosmoItems.SEASONAL_ICE_CREAM, CosmoItems.SEASONAL_ICE_CREAM_SANDWICH,

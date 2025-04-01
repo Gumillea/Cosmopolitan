@@ -6,6 +6,7 @@ import com.gumillea.cosmopolitan.common.item.FrozenDessertItem;
 import com.gumillea.cosmopolitan.common.item.NeapolitanStrawberryItem;
 import com.gumillea.cosmopolitan.common.item.QuarkEnchantedFruitItem;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.hollingsworth.arsnouveau.setup.registry.CreativeTabRegistry;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
@@ -120,9 +121,9 @@ public class CosmoItems {
 
                 .addItemsBefore(of(Items.HONEY_BOTTLE), APPLE_ICE_CREAM, CARROT_ICE_CREAM, GLOW_BERRY_ICE_CREAM)
 
-                .addItemsAfter(modLoaded(Items.MILK_BUCKET, CosmoCompat.AN), SOURCE_BERRY_ICE_CREAM)
-                .addItemsAfter(modLoaded(Items.MILK_BUCKET, CosmoCompat.HA), KABLOOM_ICE_CREAM)
-                .addItemsAfter(modLoaded(Items.MILK_BUCKET, CosmoCompat.QUA), ENCHANTED_FRUIT_ICE_CREAM)
+                .addItemsAfter(modLoaded(GLOW_BERRY_ICE_CREAM, CosmoCompat.AN), SOURCE_BERRY_ICE_CREAM)
+                .addItemsAfter(modLoaded(GLOW_BERRY_ICE_CREAM, CosmoCompat.HA), KABLOOM_ICE_CREAM)
+                .addItemsAfter(modLoaded(GLOW_BERRY_ICE_CREAM, CosmoCompat.QUA), ENCHANTED_FRUIT_ICE_CREAM)
 
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.EX), CHORUS_ICE_CREAM_CONE, WARZIPAN_ICE_CREAM_CONE, MIDNIGHT_ICE_CREAM_CONE, STARCLOUD_ICE_CREAM_CONE, JELLY_RING_ICE_CREAM_CONE, AZURE_BERRY_ICE_CREAM_CONE)
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.SEA), BEETROOT_ICE_CREAM_CONE, PUMPKIN_ICE_CREAM_CONE, SWEET_BERRY_ICE_CREAM_CONE, SEASONAL_ICE_CREAM)
@@ -137,6 +138,8 @@ public class CosmoItems {
                 .predicate(event -> ModList.get().isLoaded(CosmoCompat.TF) && event.getTabKey() == TFCreativeTabs.ITEMS.getKey())
                 .addItemsFirst(AURORA_KOHAKUTOU, STEELEAF_NECTAR, GLACIER_ESSENCE)
 
+                .predicate(event -> ModList.get().isLoaded(CosmoCompat.BG) && ModList.get().isLoaded(CosmoCompat.AN) && event.getTabKey() == CreativeTabRegistry.BLOCKS.getKey())
+                .addItemsAfter(ofID(new ResourceLocation(CosmoCompat.AN, "magebloom_crop")), SOURCE_BERRY_PIPS)
         ;
     }
 

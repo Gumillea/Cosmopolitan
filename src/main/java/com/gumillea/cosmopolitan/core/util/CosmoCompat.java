@@ -16,6 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class CosmoCompat {
     public static final String AN = "ars_nouveau";
+    public static final String BG = "berry_good";
     public static final String EX = "exquisito";
     public static final String EE = "enlightened_end";
     public static final String CAD = "casualness_delight";

@@ -13,6 +13,8 @@
   "effect.cosmopolitan.exuberant": "Exuberant",
   "effect.cosmopolitan.exuberant.description": "This effect is removed when the user takes damage. Gives the user a small amount of additional health points at the end of the duration.",
 
+  "item.cosmopolitan.snakeberry": "Snakeberry",
+
   "item.cosmopolitan.potato_slices": "Cut Potatoes",
   "item.cosmopolitan.baked_potato_slices": "Potato Wedges",
   "item.cosmopolitan.potato_pancakes": "Potato Pancakes",
@@ -63,6 +65,7 @@
   "item.cosmopolitan.kabloom_ice_cream": "Kabloom Ice Cream",
   "item.cosmopolitan.kabloom_ice_cream_cone": "Kabloom Ice Cream Cone",
 
+  "item.cosmopolitan.source_berry_pips": "Sourceberry Pips",
   "item.cosmopolitan.source_berry_ice_cream": "Sourceberry Ice Cream",
   "item.cosmopolitan.source_berry_ice_cream_cone": "Sourceberry Ice Cream Cone",
 

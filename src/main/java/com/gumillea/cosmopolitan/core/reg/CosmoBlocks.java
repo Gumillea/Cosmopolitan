@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.common.block.IceCreamTubBlock;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -14,10 +15,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import static net.minecraft.world.item.CreativeModeTabs.BUILDING_BLOCKS;
+import static net.minecraft.world.item.CreativeModeTabs.FUNCTIONAL_BLOCKS;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoBlocks {
     public static final BlockSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockSubHelper();
+
+    public static final RegistryObject<Block> ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub", () -> new IceCreamTubBlock(Properties.CHISELED_ADZUKI_ICE_CREAM_BLOCK));
 
     //Chiseled Ice Cream Blocks
     public static final RegistryObject<Block> CHISELED_ADZUKI_ICE_CREAM_BLOCK = HELPER.createBlock("chiseled_adzuki_ice_cream_block", () -> new Block(Properties.CHISELED_ADZUKI_ICE_CREAM_BLOCK));
@@ -35,6 +39,8 @@ public class CosmoBlocks {
     public static void setupTabEditors() {
         CreativeModeTabContentsPopulator.mod(Cosmopolitan.MODID)
 
+                .tab(FUNCTIONAL_BLOCKS)
+                .addItems(ICE_CREAM_TUB)
                 .tab(BUILDING_BLOCKS)
                 .predicate(event -> event.getTabKey() == BUILDING_BLOCKS && ModList.get().isLoaded(CosmoCompat.NEA))
                 .addItems(CHISELED_ADZUKI_ICE_CREAM_BLOCK, CHISELED_BANANA_ICE_CREAM_BLOCK, CHISELED_CHOCOLATE_ICE_CREAM_BLOCK, CHISELED_MINT_ICE_CREAM_BLOCK, CHISELED_STRAWBERRY_ICE_CREAM_BLOCK, CHISELED_VANILLA_ICE_CREAM_BLOCK,

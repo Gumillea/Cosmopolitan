@@ -41,10 +41,10 @@ public class CosmoEvents {
     @SubscribeEvent
     public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         ItemStack stack = event.getItemStack();
-        if (ModList.get().isLoaded("berry_good") && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get())
+        if (ModList.get().isLoaded("berry_good") && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) {
             if (ModList.get().isLoaded(CosmoCompat.AN) && stack.is(CosmoCompat.SOURCEBERRY)) {
-            event.setUseItem(Event.Result.DENY);
+                event.setUseItem(Event.Result.DENY);
+            }
         }
     }
-
 }
