@@ -13,8 +13,8 @@
   "effect.cosmopolitan.exuberant": "旺盛",
   "effect.cosmopolitan.exuberant.description": "该效果在使用者受到伤害时将被移除，效果计时结束时给予使用者少量的额外生命",
 
-  "item.cosmopolitan.potato_slices": "马铃薯切片",
-  "item.cosmopolitan.baked_potato_slices": "薯角",
+  "item.cosmopolitan.cut_potatoes": "马铃薯切片",
+  "item.cosmopolitan.potato_wedges": "薯角",
   "item.cosmopolitan.potato_pancakes": "马铃薯煎饼",
   "item.cosmopolitan.mashed_potato": "马铃薯泥",
 
@@ -77,5 +77,8 @@
   "item.cosmopolitan.torchberry_ice_cream_cone": "火炬浆果味甜筒",
   "item.cosmopolitan.rainbow_ice_cream_sandwich": "彩虹风味冰淇淋三明治",
   "item.cosmopolitan.refreshing_ice_cream_sandwich": "清爽风味冰淇淋三明治",
-  "item.cosmopolitan.twilight_ice_cream_sandwich": "暮色风味冰淇淋三明治"
+  "item.cosmopolitan.twilight_ice_cream_sandwich": "暮色风味冰淇淋三明治",
+
+  "item.cosmopolitan.fiddlehead": "蕨菜",
+  "item.cosmopolitan.wildberry": "野莓"
 }

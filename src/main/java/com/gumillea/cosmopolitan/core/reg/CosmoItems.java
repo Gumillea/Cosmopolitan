@@ -33,7 +33,7 @@ public class CosmoItems {
     public static final ItemSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getItemSubHelper();
 
     //general
-    public static final RegistryObject<Item> SNAKEBERRY = HELPER.createItem("snakeberry", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
+    public static final RegistryObject<Item> WILDBERRY = HELPER.createItem("wildberry", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
     public static final RegistryObject<Item> FIDDLEHEAD = HELPER.createItem("fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
 
     public static final RegistryObject<Item> CUT_POTATOES = HELPER.createItem("cut_potatoes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
@@ -111,6 +111,8 @@ public class CosmoItems {
     public static void setupTabEditors() {
         CreativeModeTabContentsPopulator.mod(Cosmopolitan.MODID)
                 .tab(FOOD_AND_DRINKS)
+                .addItemsAfter(of(Items.GLOW_BERRIES), WILDBERRY)
+                .addItemsAfter(of(Items.BEETROOT), FIDDLEHEAD)
                 .addItemsAfter(modLoaded(Items.POTATO, CosmoCompat.FD), CUT_POTATOES)
                 .addItemsAfter(modLoaded(Items.BAKED_POTATO, CosmoCompat.FD), POTATO_WEDGES)
                 .addItemsAfter(of(Items.RABBIT_STEW), MASHED_POTATO)

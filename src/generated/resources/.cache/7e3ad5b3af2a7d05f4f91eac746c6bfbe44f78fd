@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-02T12:16:00.7437462	Item Models: cosmopolitan
+// 1.20.1	2025-04-02T18:02:37.1476917	Item Models: cosmopolitan
 0397e30ea4175d128e72b12dc003c622095a578c assets/cosmopolitan/models/item/aurora_ice_cream_cone.json
 c6277286d7de80b46db774e7aca9ea16fa365498 assets/cosmopolitan/models/item/aurora_kohakutou.json
 623896326f244e10dbe2411b78492bf4cd1fda05 assets/cosmopolitan/models/item/beetroot_ice_cream_cone.json
@@ -15,10 +15,10 @@ ff741213af3176b61d6c25d867e0e2e0def7b22b assets/cosmopolitan/models/item/potato_
 6fe8e002ebe91a741cddaf47987f10d79b506fdf assets/cosmopolitan/models/item/refreshing_ice_cream_sandwich.json
 4b1893236e811576d1373ca20f3625678cf33529 assets/cosmopolitan/models/item/seasonal_ice_cream.json
 174d1a5a0d4b7a822ce11d885c2ff01d33896197 assets/cosmopolitan/models/item/seasonal_ice_cream_sandwich.json
-07b1830e7b9789c2839222a4adeb74702260f321 assets/cosmopolitan/models/item/snakeberry.json
 77328e70776dc97941d81a03fbab8d213bb0a3df assets/cosmopolitan/models/item/source_berry_pips.json
 047763c520fcd61fa1df65e9af101fd27ffc76c3 assets/cosmopolitan/models/item/steeleaf_nectar.json
 720b47a3466e1cfd477fbfaf362f7ed44f0bd358 assets/cosmopolitan/models/item/sweet_berry_ice_cream_cone.json
 751f38d22cfaeb015be893682f432cff08055bba assets/cosmopolitan/models/item/torchberry_ice_cream_cone.json
 d2d26b2a0401b696b00ff6bbe994e89596814aaa assets/cosmopolitan/models/item/twilight_ice_cream_sandwich.json
 a16ab1ba1d43d66b0d2cb487b4f18d033f0e152f assets/cosmopolitan/models/item/wafer.json
+224f80f056ef82e5e9faab991d6081f81b4e0de3 assets/cosmopolitan/models/item/wildberry.json

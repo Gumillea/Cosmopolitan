@@ -1,10 +1,12 @@
 package com.gumillea.cosmopolitan;
 
 import com.gumillea.cosmopolitan.core.data.CosmoLanguageProvider;
+import com.gumillea.cosmopolitan.core.data.CosmoLootModifierProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
+import com.gumillea.exquisito.core.data.modifiers.ExquisitoLootModifierProvider;
 import com.gumillea.exquisito.core.reg.ExquisitoLootConditions;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
@@ -75,6 +77,7 @@ public class Cosmopolitan {
         CosmopolitanBlockTagsProvider blockTagsProvider = new CosmopolitanBlockTagsProvider(output, provider, helper);
         generator.addProvider(includeServer, blockTagsProvider);
         generator.addProvider(includeServer, new CosmopolitanItemTagsProvider(output, provider, blockTagsProvider.contentsGetter(), helper));
+        generator.addProvider(includeServer, new CosmoLootModifierProvider(output, provider));
 
         boolean client = event.includeClient();
         generator.addProvider(client, new CosmoItemModelProvider(output, helper));
