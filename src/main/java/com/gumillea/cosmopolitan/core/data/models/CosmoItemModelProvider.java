@@ -15,8 +15,8 @@ public class CosmoItemModelProvider extends BlueprintItemModelProvider {
     @Override
     protected void registerModels() {
         this.generatedItem(
-                CosmoItems.WAFER,
-                CosmoItems.POTATO_PANCAKES,
+                CosmoItems.SNAKEBERRY, CosmoItems.FIDDLEHEAD, CosmoItems.WAFER,
+                CosmoItems.POTATO_PANCAKES, CosmoItems.CUT_POTATOES, CosmoItems.POTATO_WEDGES,
                 CosmoItems.SOURCE_BERRY_PIPS,
                 CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH,
                 CosmoItems.AURORA_KOHAKUTOU, CosmoItems.STEELEAF_NECTAR, CosmoItems.GLACIER_ESSENCE,

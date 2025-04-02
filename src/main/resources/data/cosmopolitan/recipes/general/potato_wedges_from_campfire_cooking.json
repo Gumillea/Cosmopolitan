@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:campfire_cooking",
   "conditions": [
     {
       "type": "forge:mod_loaded",
@@ -7,9 +7,9 @@
     }
   ],
   "ingredient": {
-    "item": "cosmopolitan:potato_slices"
+    "item": "cosmopolitan:cut_potatoes"
   },
-  "result": "cosmopolitan:baked_potato_slices",
+  "result": "cosmopolitan:potato_wedges",
   "experience": 0.35,
-  "cookingtime": 200
+  "cookingtime": 600
 }

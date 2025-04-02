@@ -7,9 +7,9 @@
     }
   ],
   "ingredient": {
-    "item": "cosmopolitan:potato_slices"
+    "item": "cosmopolitan:cut_potatoes"
   },
-  "result": "cosmopolitan:baked_potato_slices",
+  "result": "cosmopolitan:potato_wedges",
   "experience": 0.35,
   "cookingtime": 100
 }

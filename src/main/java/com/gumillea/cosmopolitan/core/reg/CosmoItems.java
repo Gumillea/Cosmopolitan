@@ -33,8 +33,11 @@ public class CosmoItems {
     public static final ItemSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getItemSubHelper();
 
     //general
-    public static final RegistryObject<Item> POTATO_SLICES = HELPER.createItem("potato_slices", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
-    public static final RegistryObject<Item> BAKED_POTATO_SLICES = HELPER.createItem("baked_potato_slices", () -> new Item(new Item.Properties().food(CosmopolitanFoods.BAKED_POTATO_SLICES)));
+    public static final RegistryObject<Item> SNAKEBERRY = HELPER.createItem("snakeberry", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
+    public static final RegistryObject<Item> FIDDLEHEAD = HELPER.createItem("fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
+
+    public static final RegistryObject<Item> CUT_POTATOES = HELPER.createItem("cut_potatoes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
+    public static final RegistryObject<Item> POTATO_WEDGES = HELPER.createItem("potato_wedges", () -> new Item(new Item.Properties().food(CosmopolitanFoods.BAKED_POTATO_SLICES)));
     public static final RegistryObject<Item> MASHED_POTATO = HELPER.createItem("mashed_potato", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(CosmopolitanFoods.MASHED_POTATO).craftRemainder(Items.BOWL)));
     public static final RegistryObject<Item> MASHED_POTATO_CONE = HELPER.createItem("mashed_potato_cone", () -> new Item(new Item.Properties().food(CosmopolitanFoods.MASHED_POTATO_CONE)));
 
@@ -108,8 +111,8 @@ public class CosmoItems {
     public static void setupTabEditors() {
         CreativeModeTabContentsPopulator.mod(Cosmopolitan.MODID)
                 .tab(FOOD_AND_DRINKS)
-                .addItemsAfter(modLoaded(Items.POTATO, CosmoCompat.FD), POTATO_SLICES)
-                .addItemsAfter(modLoaded(Items.BAKED_POTATO, CosmoCompat.FD), BAKED_POTATO_SLICES)
+                .addItemsAfter(modLoaded(Items.POTATO, CosmoCompat.FD), CUT_POTATOES)
+                .addItemsAfter(modLoaded(Items.BAKED_POTATO, CosmoCompat.FD), POTATO_WEDGES)
                 .addItemsAfter(of(Items.RABBIT_STEW), MASHED_POTATO)
                 .addItemsBefore(of(Items.POTION), WAFER, WAFER_CONE, MASHED_POTATO_CONE, SNOW_CONE)
 

@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan;
 
+import com.gumillea.cosmopolitan.core.data.CosmoLanguageProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
@@ -77,5 +78,6 @@ public class Cosmopolitan {
 
         boolean client = event.includeClient();
         generator.addProvider(client, new CosmoItemModelProvider(output, helper));
+        generator.addProvider(client, new CosmoLanguageProvider(output));
     }
 }

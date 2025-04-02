@@ -7,7 +7,7 @@
     }
   ],
   "ingredient": {
-    "item": "cosmopolitan:potato_slices"
+    "item": "cosmopolitan:cut_potatoes"
   },
   "cookingtime": 100,
   "result": "cosmopolitan:potato_pancakes"

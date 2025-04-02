@@ -36,7 +36,7 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.POTATO).add(
-                CosmoItems.POTATO_SLICES.get()
+                CosmoItems.CUT_POTATOES.get()
         );
     }
 }
