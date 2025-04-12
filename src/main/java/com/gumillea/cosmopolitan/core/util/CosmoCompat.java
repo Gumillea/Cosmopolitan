@@ -3,6 +3,7 @@ package com.gumillea.cosmopolitan.core.util;
 import com.cosmicgelatin.seasonals.core.registry.SeasonalsMobEffects;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
 import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
+import com.teamabnormals.atmospheric.core.registry.AtmosphericMobEffects;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import mod.schnappdragon.habitat.core.registry.HabitatEffects;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class CosmoCompat {
     public static final String AN = "ars_nouveau";
+    public static final String AT = "atmospheric";
     public static final String BG = "berry_good";
     public static final String EX = "exquisito";
     public static final String EE = "enlightened_end";
@@ -24,6 +26,7 @@ public class CosmoCompat {
     public static final String FD = "farmersdelight";
     public static final String HA = "habitat";
     public static final String NEA = "neapolitan";
+    public static final String PEC = "peculiars";
     public static final String QUA = "quark";
     public static final String TF = "twilightforest";
     public static final String TFD = "twilightdelight";
@@ -34,6 +37,11 @@ public class CosmoCompat {
     public static final MobEffect MANA_REGEN = ((ModList.get().isLoaded(AN)) ? (ModPotions.MANA_REGEN_EFFECT.get()) : MobEffects.GLOWING);
     public static Item SOURCEBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(AN, "sourceberry_bush"));
     public static Block SOURCE_BERRY_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(AN, "sourceberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+
+    //atmospheric
+    public static final MobEffect PERSISTENCE = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.PERSISTENCE.get()) : MobEffects.GLOWING);
+    public static final MobEffect RELIEF = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.RELIEF.get()) : MobEffects.GLOWING);
+    public static final MobEffect SPITTING = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.SPITTING.get()) : MobEffects.GLOWING);
 
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : MobEffects.GLOWING);

@@ -40,6 +40,7 @@ public class Cosmopolitan {
         ModLoadingContext context = ModLoadingContext.get();
         MinecraftForge.EVENT_BUS.register(this);
         CosmoEffects.EFFECTS.register(modEventBus);
+        CosmoRecipes.RECIPE_SERIALIZERS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addBuiltinPacks);

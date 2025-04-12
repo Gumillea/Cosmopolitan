@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "peculiars"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "atmospheric:aloe_leaves"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:aloe_ice_cream_cone",
+    "count": 3
+  }
+}

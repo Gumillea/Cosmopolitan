@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "peculiars"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "atmospheric:aloe_leaves"
+    },
+    {
+      "item": "atmospheric:passion_fruit"
+    },
+    {
+      "item": "atmospheric:yucca_fruit"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:peculiar_ice_cream",
+    "count": 1
+  }
+}

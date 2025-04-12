@@ -35,8 +35,21 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.VANILLA_ICE_CREAM_CONE.get()
         );
 
+        this.tag(CosmoItemTags.BERRIES).add(
+                CosmoItems.WILDBERRY.get()
+        );
+
         this.tag(CosmoItemTags.POTATO).add(
                 CosmoItems.CUT_POTATOES.get()
         );
+
+        this.tag(CosmoItemTags.VEGETABLES).add(
+                CosmoItems.FIDDLEHEAD.get()
+        );
+
+        this.tag(CosmoItemTags.SALAD_INGREDIENTS).add(
+                CosmoItems.FIDDLEHEAD.get()
+        );
+
     }
 }
