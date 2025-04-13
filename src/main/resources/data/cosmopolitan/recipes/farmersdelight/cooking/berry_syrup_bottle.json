@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 300,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "tag": "forge:berries"
+          },
+          {
+            "tag": "forge:berries"
+          },
+          {
+            "tag": "forge:berries"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:berry_syrup_bottle",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

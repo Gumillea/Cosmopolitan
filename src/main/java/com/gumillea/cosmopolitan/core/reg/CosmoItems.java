@@ -48,6 +48,7 @@ public class CosmoItems {
     public static final RegistryObject<Item> SNOW_CONE = HELPER.createItem("snow_cone", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.SNOW_CONE), false, 80));
 
     //farmersdelight
+    public static final RegistryObject<Item> BERRY_SYRUP_BOTTLE = HELPER.createItem("berry_syrup_bottle", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
     public static final RegistryObject<Item> POTATO_PANCAKES = HELPER.createItem("potato_pancakes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
     public static final RegistryObject<Item> GREEN_SAUCE = HELPER.createItem("green_sauce", () -> new BowlFoodItem(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
 
@@ -117,6 +118,9 @@ public class CosmoItems {
     public static final RegistryObject<Item> RAINBOW_ICE_CREAM_SANDWICH = HELPER.createItem("rainbow_ice_cream_sandwich", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.TORCHBERRY_ICE_CREAM_CONE), false, 80));
     public static final RegistryObject<Item> REFRESHING_ICE_CREAM_SANDWICH = HELPER.createItem("refreshing_ice_cream_sandwich", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.TORCHBERRY_ICE_CREAM_CONE), false, 80));
     public static final RegistryObject<Item> TWILIGHT_ICE_CREAM_SANDWICH = HELPER.createItem("twilight_ice_cream_sandwich", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.TORCHBERRY_ICE_CREAM_CONE), false, 80));
+
+    //mix
+    public static final RegistryObject<Item> COSMOPOLITAN_COCKTAIL = HELPER.createItem("cosmopolitan_cocktail", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
 
     public static void setupTabEditors() {
         CreativeModeTabContentsPopulator.mod(Cosmopolitan.MODID)

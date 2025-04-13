@@ -143,6 +143,7 @@ dependencies {
     implementation fg.deobf("curse.maven:peculiars-418551:6058169")
 
     implementation fg.deobf("curse.maven:farmers-delight-398521:6154802")
+    implementation fg.deobf("curse.maven:brewin-and-chewin-637808:6237884")
     implementation fg.deobf("curse.maven:delightful-637529:6168851")
     implementation fg.deobf("curse.maven:collectors-reap-807101:6249047")
     implementation fg.deobf("curse.maven:casualness-delight-909519:5181805")

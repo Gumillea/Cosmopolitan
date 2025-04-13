@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 100,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "tag": "forge:salad_ingredients"
+          },
+          {
+            "tag": "forge:salad_ingredients"
+          },
+          {
+            "tag": "forge:crops/onion"
+          },
+          {
+            "tag": "forge:milk"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "result": {
+          "item": "cosmopolitan:green_sauce"
+        }
+      }
+    }
+  ]
+}

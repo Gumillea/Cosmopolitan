@@ -20,6 +20,8 @@ public class CosmoConfig
         public static ForgeConfigSpec.BooleanValue BERRY_GOOD_COMPAT_TWEAKS;
         @ConfigKey("tfd_recipe_tweaks")
         public static ForgeConfigSpec.BooleanValue TWILIGHT_DELIGHT_RECIPE_TWEAKS;
+        @ConfigKey("seasonals_recipe_tweaks")
+        public static ForgeConfigSpec.BooleanValue SEASONALS_RECIPE_TWEAKS;
 
         Common(ForgeConfigSpec.Builder builder) {
             builder.push("Tweaks");
@@ -28,6 +30,7 @@ public class CosmoConfig
             builder.pop();
             builder.push("Recipes");
             TWILIGHT_DELIGHT_RECIPE_TWEAKS = builder.comment("Whether to allow tweaks to some of the recipes in Twilight's Flavours & Delights.").define("Twilight's Delights Recipe Tweaks", true);
+            SEASONALS_RECIPE_TWEAKS = builder.comment("Whether to allow tweaks to some of the recipes in Seasonals.").define("Seasonals Recipe Tweaks", true);
             builder.pop();
             builder.pop();
         }

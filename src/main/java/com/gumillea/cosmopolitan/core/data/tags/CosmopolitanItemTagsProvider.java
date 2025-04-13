@@ -2,12 +2,14 @@ package com.gumillea.cosmopolitan.core.data.tags;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -50,6 +52,10 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.SALAD_INGREDIENTS).add(
                 CosmoItems.FIDDLEHEAD.get()
         );
+
+        this.tag(CosmoItemTags.PUMPKINS)
+                .addOptional(new ResourceLocation(CosmoCompat.FD, "pumpkin_slice"))
+        ;
 
     }
 }

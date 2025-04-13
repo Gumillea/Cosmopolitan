@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "tfd_recipe_tweaks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "cosmopolitan:glacier_essence"
+    },
+    {
+      "item": "neapolitan:mint_leaves"
+    },
+    {
+      "item": "cosmopolitan:steeleaf_nectar"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "twilightdelight:refreshing_ice_cream"
+  }
+}

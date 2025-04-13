@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+
+        "type": "cosmopolitan:config",
+        "value": "tfd_recipe_tweaks"
+      }
+    }
+  ],
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "twilightforest:liveroot"
+    },
+    {
+      "item": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "twilightdelight:phytochemical_juice"
+  }
+}

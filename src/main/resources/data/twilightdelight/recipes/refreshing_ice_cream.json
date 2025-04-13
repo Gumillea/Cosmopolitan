@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+
+        "type": "cosmopolitan:config",
+        "value": "tfd_recipe_tweaks"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "twilightdelight:glacier_ice_cream"
+    },
+    {
+      "item": "neapolitan:mint_ice_cream"
+    },
+    {
+      "item": "twilightdelight:phytochemical_ice_cream"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "twilightdelight:refreshing_ice_cream"
+  }
+}
