@@ -45,6 +45,12 @@ public class CosmoEvents {
             if (ModList.get().isLoaded(CosmoCompat.AN) && stack.is(CosmoCompat.SOURCEBERRY)) {
                 event.setUseItem(Event.Result.DENY);
             }
+            if (ModList.get().isLoaded(CosmoCompat.HA) && stack.is(CosmoCompat.KABLOOM)) {
+                event.setUseItem(Event.Result.DENY);
+            }
+            if (ModList.get().isLoaded(CosmoCompat.UG) && (stack.is(CosmoCompat.BLISTERBERRY)) || stack.is(CosmoCompat.DROOPFRUIT)) {
+                event.setUseItem(Event.Result.DENY);
+            }
         }
     }
 }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "undergarden:droopvine_item"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "undergarden:droopvine_item"
+    },
+    {
+      "item": "undergarden:droopvine_item"
+    },
+    {
+      "item": "undergarden:underbeans"
+    },
+    {
+      "item": "undergarden:glitterkelp"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:raindroop_cake",
+    "count": 2
+  }
+}

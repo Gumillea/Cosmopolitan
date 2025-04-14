@@ -4,6 +4,7 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
+import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -11,6 +12,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,6 +23,20 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
     }
     @Override
     public void addTags(HolderLookup.Provider provider) {
+        this.tag(Tags.Items.SEEDS).add(
+                CosmoItems.SOURCE_BERRY_PIPS.get(),
+                CosmoItems.KABLOOM_PIPS.get(),
+                CosmoItems.BLISTERBERRY_PIPS.get(),
+                CosmoItems.DROOPFRUIT_PIPS.get()
+        );
+
+        this.tag(BlueprintItemTags.CHICKEN_FOOD).add(
+                CosmoItems.SOURCE_BERRY_PIPS.get(),
+                CosmoItems.KABLOOM_PIPS.get(),
+                CosmoItems.BLISTERBERRY_PIPS.get(),
+                CosmoItems.DROOPFRUIT_PIPS.get()
+        );
+
         this.tag(NeapolitanItemTags.ICE_CREAM).add(
                 CosmoItems.STRAWBERRY_ICE_CREAM_CONE.get(),
                 CosmoItems.ADZUKI_ICE_CREAM_CONE.get(),

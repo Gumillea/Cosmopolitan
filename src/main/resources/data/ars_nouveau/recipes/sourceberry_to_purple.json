@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "berry_good"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "cosmopolitan:config",
+        "value": "bg_tweaks"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "ars_nouveau:sourceberry_bush"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:purple_dye"
+  }
+}

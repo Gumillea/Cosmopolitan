@@ -17,8 +17,8 @@ public class CosmoItemModelProvider extends BlueprintItemModelProvider {
         this.generatedItem(
                 CosmoItems.WILDBERRY, CosmoItems.BERRY_SYRUP_BOTTLE, CosmoItems.COSMOPOLITAN_COCKTAIL, CosmoItems.FIDDLEHEAD, CosmoItems.BAKED_FIDDLEHEAD, CosmoItems.GREEN_SAUCE, CosmoItems.WAFER,
                 CosmoItems.POTATO_PANCAKES, CosmoItems.CUT_POTATOES, CosmoItems.POTATO_WEDGES,
-                CosmoItems.SOURCE_BERRY_PIPS,
-                CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH,
+                CosmoItems.SOURCE_BERRY_PIPS, CosmoItems.KABLOOM_PIPS, CosmoItems.BLISTERBERRY_PIPS, CosmoItems.DROOPFRUIT_PIPS,
+                CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH, CosmoItems.BLISTERBERRY_TART, CosmoItems.RAINDROOP_CAKE,
                 CosmoItems.AURORA_KOHAKUTOU, CosmoItems.STEELEAF_NECTAR, CosmoItems.GLACIER_ESSENCE,
                 CosmoItems.BEETROOT_ICE_CREAM_CONE, CosmoItems.PUMPKIN_ICE_CREAM_CONE, CosmoItems.SWEET_BERRY_ICE_CREAM_CONE, CosmoItems.SEASONAL_ICE_CREAM, CosmoItems.SEASONAL_ICE_CREAM_SANDWICH,
                 CosmoItems.ALOE_ICE_CREAM_CONE, CosmoItems.PASSION_FRUIT_ICE_CREAM_CONE, CosmoItems.YUCCA_ICE_CREAM_CONE, CosmoItems.PECULIAR_ICE_CREAM, CosmoItems.PECULIAR_ICE_CREAM_SANDWICH,

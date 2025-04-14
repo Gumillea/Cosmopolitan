@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "undergarden:blisterberry"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "undergarden:blisterberry"
+    },
+    {
+      "item": "undergarden:blisterberry"
+    },
+    {
+      "tag": "undergarden:mushrooms"
+    },
+    {
+      "item": "undergarden:glitterkelp"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:blisterberry_tart"
+  }
+}

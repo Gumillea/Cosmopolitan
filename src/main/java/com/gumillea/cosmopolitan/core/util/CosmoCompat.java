@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
+import quek.undergarden.registry.UGBlocks;
 
 public class CosmoCompat {
     public static final String AN = "ars_nouveau";
@@ -45,6 +46,8 @@ public class CosmoCompat {
 
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : MobEffects.GLOWING);
+    public static Item KABLOOM = ForgeRegistries.ITEMS.getValue(new ResourceLocation(HA, "kabloom_pulp"));
+    public static Block KABLOOM_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
 
     //neapolitan
     public static final MobEffect AGILITY = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.AGILITY.get()) : MobEffects.GLOWING);
@@ -72,5 +75,10 @@ public class CosmoCompat {
     public static MobEffect POISON_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "poison_range")): MobEffects.DAMAGE_BOOST;
     public static MobEffect FROZEN_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "frozen_range")): MobEffects.FIRE_RESISTANCE;
 
+    //undergarden
+    public static Item BLISTERBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "blisterberry"));
+    public static Item DROOPFRUIT = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "droopvine_item"));
+    public static Block BLISTERBERRY_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block DROOP_VINE = ModList.get().isLoaded(UG) ? UGBlocks.DROOPVINE.get() : Blocks.CAVE_VINES;
 }
 
