@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "delightful"
+    },
+    {
+      "type": "delightful:enabled",
+      "value": "matcha_ice_cream"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "delightful:matcha_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:matcha_ice_cream_cone",
+    "count": 3
+  }
+}

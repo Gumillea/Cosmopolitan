@@ -14,8 +14,11 @@ import net.minecraft.world.level.Level;
 
 public class DrinkItem extends Item {
 
-    public DrinkItem(Item.Properties properties) {
-        super(properties.craftRemainder(Items.GLASS_BOTTLE));
+    private final boolean honey_drink;
+
+    public DrinkItem(Item.Properties properties, boolean honey_drink) {
+        super(properties.craftRemainder(Items.GLASS_BOTTLE).stacksTo(16));
+        this.honey_drink = honey_drink;
     }
 
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
@@ -49,7 +52,7 @@ public class DrinkItem extends Item {
     }
 
     public SoundEvent getDrinkingSound() {
-        return SoundEvents.HONEY_DRINK;
+        return honey_drink ? SoundEvents.HONEY_DRINK : SoundEvents.GENERIC_DRINK;
     }
 
     public SoundEvent getEatingSound() {
