@@ -1,0 +1,74 @@
+{
+  "modifiers": [
+    {
+      "type": "pools",
+      "config": {
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "conditions": [
+              {
+                "condition": "minecraft:inverted",
+                "term": {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": [
+                          "minecraft:shears"
+                        ]
+                      }
+                    },
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "enchantments": [
+                          {
+                            "enchantment": "minecraft:silk_touch",
+                            "levels": {
+                              "min": 1
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "conditions": [
+                  {
+                    "chances": [
+                      0.025,
+                      0.027777778,
+                      0.03125,
+                      0.04166667,
+                      0.125
+                    ],
+                    "condition": "minecraft:table_bonus",
+                    "enchantment": "minecraft:fortune"
+                  }
+                ],
+                "functions": [
+                  {
+                    "function": "minecraft:explosion_decay"
+                  }
+                ],
+                "name": "cosmopolitan:fiddlehead"
+              }
+            ],
+            "name": "cosmopolitan:fiddlehead",
+            "rolls": 1.0
+          }
+        ],
+        "replace": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:blocks/fern"
+}
