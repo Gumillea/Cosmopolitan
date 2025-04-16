@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-15T23:12:47.5909642	Item Models: cosmopolitan
+// 1.20.1	2025-04-16T22:09:01.76123	Item Models: cosmopolitan
 fbe1a9fb1d5b0502f76ef9da43a7a06152e9fea2 assets/cosmopolitan/models/item/aloe_ice_cream_cone.json
 0397e30ea4175d128e72b12dc003c622095a578c assets/cosmopolitan/models/item/aurora_ice_cream_cone.json
 c6277286d7de80b46db774e7aca9ea16fa365498 assets/cosmopolitan/models/item/aurora_kohakutou.json
@@ -14,6 +14,8 @@ a9b51d07e0c27088ae41e7bb17b319020c2e8389 assets/cosmopolitan/models/item/baked_f
 c324cee420d02066d3de7a4ce87377c2863b83fd assets/cosmopolitan/models/item/glacier_essence.json
 35c1cea7a5f2859d3466293dada6795f76ef8a35 assets/cosmopolitan/models/item/glacier_ice_cream_cone.json
 9e7481e981c63824fa952d08cfe458d1ceb2c388 assets/cosmopolitan/models/item/green_sauce.json
+5c91ebf83be396e8bcc279dcf813b67a8f4f08db assets/cosmopolitan/models/item/jelly_roll.json
+53f0715a11efd463ebf1ed786ec5095d2abd4701 assets/cosmopolitan/models/item/jelly_roll_slice.json
 d2c74dde5c3556ee291ca9f87584265cee86c7b4 assets/cosmopolitan/models/item/kabloom_pips.json
 8d1ecb07ea232c74f53c9f40b59964ce74d417a8 assets/cosmopolitan/models/item/lime_ice_cream_cone.json
 7553656673631c1e28597d08884a9ca9182a49be assets/cosmopolitan/models/item/matcha_ice_cream_cone.json

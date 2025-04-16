@@ -6,6 +6,7 @@ import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericMobEffects;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import mod.schnappdragon.habitat.core.registry.HabitatEffects;
+import net.brdle.collectorsreap.common.effect.CREffects;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
@@ -45,6 +46,10 @@ public class CosmoCompat {
     public static final MobEffect PERSISTENCE = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.PERSISTENCE.get()) : MobEffects.GLOWING);
     public static final MobEffect RELIEF = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.RELIEF.get()) : MobEffects.GLOWING);
     public static final MobEffect SPITTING = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.SPITTING.get()) : MobEffects.GLOWING);
+
+    //collectorsreap
+    public static final MobEffect CORROSION = ((ModList.get().isLoaded(CR)) ? (CREffects.CORROSION.get()) : MobEffects.GLOWING);
+    public static final MobEffect VOLATILITY = ((ModList.get().isLoaded(CR)) ? (CREffects.VOLATILITY.get()) : MobEffects.GLOWING);
 
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : MobEffects.GLOWING);
