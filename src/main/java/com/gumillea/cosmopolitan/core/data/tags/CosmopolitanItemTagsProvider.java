@@ -73,5 +73,15 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
                 .addOptional(new ResourceLocation(CosmoCompat.FD, "pumpkin_slice"))
         ;
 
+        this.tag(CosmoItemTags.CHOCOLATE)
+                .addOptional(new ResourceLocation(CosmoCompat.NEA, "chocolate_bar"))
+        ;
+
+        this.tag(CosmoItemTags.JAMS).add(
+                CosmoItems.BERRY_SYRUP_BOTTLE.get(),
+                CosmoItems.STEELEAF_NECTAR.get()
+        );
+        ;
+
     }
 }

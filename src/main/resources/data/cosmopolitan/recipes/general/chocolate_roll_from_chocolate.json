@@ -7,6 +7,13 @@
         "type": "forge:mod_loaded",
         "modid": "farmersdelight"
       }
+    },
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:chocolate"
+      }
     }
   ],
   "ingredients": [
@@ -23,10 +30,10 @@
       "tag": "forge:eggs"
     },
     {
-      "tag": "forge:jams"
+      "tag": "forge:chocolate"
     }
   ],
   "result": {
-    "item": "cosmopolitan:jelly_roll"
+    "item": "cosmopolitan:chocolate_roll"
   }
 }

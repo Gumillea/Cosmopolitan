@@ -30,6 +30,10 @@
     {
       "item": "minecraft:purple_dye",
       "count": 1
+    },
+    {
+      "item": "cosmopolitan:source_berry_pips",
+      "chance": 0.5
     }
   ]
 }

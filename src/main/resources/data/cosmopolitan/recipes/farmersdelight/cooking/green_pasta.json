@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "tag": "forge:raw_fishes"
+          },
+          {
+            "tag": "forge:pasta"
+          },
+          {
+            "tag": "forge:crops/tomato"
+          },
+          {
+            "item": "cosmopolitan:green_sauce"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "result": {
+          "item": "cosmopolitan:green_pasta"
+        }
+      }
+    }
+  ]
+}

@@ -32,6 +32,8 @@
   "item.cosmopolitan.carrot_ice_cream": "Carrot Ice Cream",
   "item.cosmopolitan.carrot_ice_cream_cone": "Carrot Ice Cream Cone",
   "item.cosmopolitan.chocolate_ice_cream_cone": "Chocolate Ice Cream Cone",
+  "item.cosmopolitan.chocolate_roll": "Chocolate Roll",
+  "item.cosmopolitan.chocolate_roll_slice": "Slice of Chocolate Roll",
   "item.cosmopolitan.chorus_ice_cream_cone": "Chorus Ice Cream Cone",
   "item.cosmopolitan.cosmopolitan_cocktail": "Cosmopolitan Cocktail",
   "item.cosmopolitan.cut_potatoes": "Cut Potatoes",
@@ -43,6 +45,7 @@
   "item.cosmopolitan.glacier_ice_cream_cone": "Glacier Ice Cream Cone",
   "item.cosmopolitan.glow_berry_ice_cream": "Glow Berry Ice Cream",
   "item.cosmopolitan.glow_berry_ice_cream_cone": "Glow Berry Ice Cream Cone",
+  "item.cosmopolitan.green_pasta": "Green Pasta",
   "item.cosmopolitan.green_sauce": "Green Sauce",
   "item.cosmopolitan.jelly_ring_ice_cream_cone": "Jelly Ring Ice Cream Cone",
   "item.cosmopolitan.jelly_roll": "Jelly Roll",
@@ -85,6 +88,8 @@
   "item.cosmopolitan.wafer": "Wafer",
   "item.cosmopolitan.wafer_cone": "Wafer Cone",
   "item.cosmopolitan.warzipan_ice_cream_cone": "Warzipan Ice Cream Cone",
+  "item.cosmopolitan.wheatgrass": "Wheatgrass",
   "item.cosmopolitan.wildberry": "Wildberry",
-  "item.cosmopolitan.yucca_ice_cream_cone": "Yucca Ice Cream Cone"
+  "item.cosmopolitan.yucca_ice_cream_cone": "Yucca Ice Cream Cone",
+  "tooltip.cosmopolitan.wheatgrass.when_feeding": "When fed to a tamed Cat:"
 }

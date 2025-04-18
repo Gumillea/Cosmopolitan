@@ -15,8 +15,8 @@ public class CosmoItemModelProvider extends BlueprintItemModelProvider {
     @Override
     protected void registerModels() {
         this.generatedItem(
-                CosmoItems.WILDBERRY, CosmoItems.BERRY_SYRUP_BOTTLE, CosmoItems.JELLY_ROLL, CosmoItems.JELLY_ROLL_SLICE, CosmoItems.COSMOPOLITAN_COCKTAIL, CosmoItems.FIDDLEHEAD, CosmoItems.BAKED_FIDDLEHEAD, CosmoItems.GREEN_SAUCE, CosmoItems.WAFER,
-                CosmoItems.POTATO_PANCAKES, CosmoItems.CUT_POTATOES, CosmoItems.POTATO_WEDGES,
+                CosmoItems.WILDBERRY, CosmoItems.BERRY_SYRUP_BOTTLE, CosmoItems.JELLY_ROLL, CosmoItems.JELLY_ROLL_SLICE, CosmoItems.CHOCOLATE_ROLL, CosmoItems.CHOCOLATE_ROLL_SLICE, CosmoItems.COSMOPOLITAN_COCKTAIL, CosmoItems.FIDDLEHEAD, CosmoItems.BAKED_FIDDLEHEAD, CosmoItems.GREEN_SAUCE, CosmoItems.WAFER,
+                CosmoItems.POTATO_PANCAKES, CosmoItems.CUT_POTATOES, CosmoItems.POTATO_WEDGES, CosmoItems.GREEN_PASTA, CosmoItems.WHEATGRASS,
                 CosmoItems.SOURCE_BERRY_PIPS, CosmoItems.KABLOOM_PIPS, CosmoItems.BLISTERBERRY_PIPS, CosmoItems.DROOPFRUIT_PIPS,
                 CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH, CosmoItems.BLISTERBERRY_TART, CosmoItems.RAINDROOP_CAKE,
                 CosmoItems.AURORA_KOHAKUTOU, CosmoItems.STEELEAF_NECTAR, CosmoItems.GLACIER_ESSENCE, CosmoItems.MATCHA_ICE_CREAM_CONE, CosmoItems.SALMONBERRY_ICE_CREAM_CONE, CosmoItems.LIME_ICE_CREAM_CONE, CosmoItems.POMEGRANATE_ICE_CREAM_CONE,
