@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
@@ -92,9 +93,10 @@ public class WheatgrassItem extends Item {
                         cat.level().addParticle(ParticleTypes.HAPPY_VILLAGER, cat.getRandomX(1.0D), cat.getRandomY() + 0.5D, cat.getRandomZ(1.0D), d0, d1, d2);
                     }
 
-                    if (stack.getCraftingRemainingItem() != ItemStack.EMPTY && !player.isCreative()) {
-                        player.addItem(stack.getCraftingRemainingItem());
-                        stack.shrink(1);
+                    if (player != null) {
+                        if (!player.getAbilities().instabuild) {
+                            stack.shrink(1);
+                        }
                     }
 
                     event.setCancellationResult(InteractionResult.SUCCESS);

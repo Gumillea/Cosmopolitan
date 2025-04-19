@@ -9,13 +9,13 @@
       "type": "forge:not",
       "value":     {
         "type": "forge:mod_loaded",
-        "modid": "casualness_delight"
+        "modid": "delightful"
       }
     }
   ],
   "ingredients": [
     {
-      "item": "minecraft:potato"
+      "item": "minecraft:grass"
     }
   ],
   "tool": {
@@ -23,8 +23,15 @@
   },
   "result": [
     {
-      "item": "cosmopolitan:cut_potatoes",
-      "count": 2
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "cosmopolitan:wildberry",
+      "chance": 0.5
+    },
+    {
+      "item": "farmersdelight:straw",
+      "chance": 0.2
     }
   ]
 }

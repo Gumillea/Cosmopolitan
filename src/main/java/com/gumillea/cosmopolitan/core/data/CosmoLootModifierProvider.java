@@ -4,18 +4,19 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.teamabnormals.blueprint.common.loot.modification.LootModifierProvider;
 import com.teamabnormals.blueprint.common.loot.modification.modifiers.LootPoolsModifier;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -70,6 +71,31 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                         .add(LootItem.lootTableItem(CosmoItems.FIDDLEHEAD.get())
                                 .apply(ApplyExplosionDecay.explosionDecay())
                                 .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.025F, 0.027777778F, 0.03125F, 0.04166667F, 0.125F))).build()), false));
+
+        this.entry("wheat").selects("blocks/wheat")
+                .addModifier(new LootPoolsModifier(Collections.singletonList(
+                        LootPool.lootPool().name("cosmopolitan:wheatgrass")
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(CosmoItems.WHEATGRASS.get())
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.WHEAT)
+                                                .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                        .hasProperty(BlockStateProperties.AGE_7, 3))
+                                                .or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.WHEAT)
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                                .hasProperty(BlockStateProperties.AGE_7, 4))))
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                        .apply(ApplyExplosionDecay.explosionDecay()))
+                                .add(LootItem.lootTableItem(CosmoItems.WHEATGRASS.get())
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.WHEAT)
+                                                .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                        .hasProperty(BlockStateProperties.AGE_7, 5))
+                                                .or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.WHEAT)
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                                .hasProperty(BlockStateProperties.AGE_7, 6))))
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 4)))
+                                        .apply(ApplyExplosionDecay.explosionDecay()))
+                                .build()
+                ), false));
     }
 
 }

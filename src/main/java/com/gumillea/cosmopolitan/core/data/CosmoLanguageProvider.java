@@ -4,6 +4,7 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
@@ -13,6 +14,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.text.WordUtils;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class CosmoLanguageProvider extends LanguageProvider {
@@ -39,6 +41,13 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addEffect("The user will leave a glowing trail on the blocks they pass over.", CosmoEffects.MARKED.get());
         this.addEffect("The user's ranged attacks will mark and blind the first living target they hit", CosmoEffects.TRACER.get());
         this.add("tooltip." + Cosmopolitan.MODID + ".wheatgrass.when_feeding", "When fed to a tamed Cat:");
+
+        this.addJeiItemDescriptions(
+                Map.of(
+                        CosmoItems.FIDDLEHEAD.get(), "Fiddlehead can be dropped when breaking fern or large fern.",
+                        CosmoItems.WILDBERRY.get(), "Wild berry can be dropped when breaking grass or tall grass.",
+                        CosmoItems.WHEATGRASS.get(), "Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase."
+                ));
     }
 
     private void addBlock(Block... blocks) {
@@ -63,6 +72,19 @@ public class CosmoLanguageProvider extends LanguageProvider {
     private void addSlice(Item... items) {
         for (Item item : items)
             this.add(item, "Slice of " + format(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))).replace(" Slice", ""));
+    }
+
+
+    private void addJeiItemDescriptions(Map<Item, String> itemDescriptions) {
+        for (Map.Entry<Item, String> entry : itemDescriptions.entrySet()) {
+            Item item = entry.getKey();
+            String description = entry.getValue();
+
+            ResourceLocation id = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
+            String key = "jei." + id.getNamespace() + "." + id.getPath() + ".desc";
+
+            add(key, description);
+        }
     }
 
     private String format(ResourceLocation registryName) {

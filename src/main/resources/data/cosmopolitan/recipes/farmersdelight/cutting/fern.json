@@ -4,18 +4,11 @@
     {
       "type": "forge:mod_loaded",
       "modid": "farmersdelight"
-    },
-    {
-      "type": "forge:not",
-      "value":     {
-        "type": "forge:mod_loaded",
-        "modid": "casualness_delight"
-      }
     }
   ],
   "ingredients": [
     {
-      "item": "minecraft:potato"
+      "item": "minecraft:fern"
     }
   ],
   "tool": {
@@ -23,8 +16,15 @@
   },
   "result": [
     {
-      "item": "cosmopolitan:cut_potatoes",
-      "count": 2
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "cosmopolitan:fiddlehead",
+      "chance": 0.75
+    },
+    {
+      "item": "cosmopolitan:fiddlehead",
+      "chance": 0.25
     }
   ]
 }

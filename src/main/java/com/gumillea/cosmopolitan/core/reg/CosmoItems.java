@@ -33,13 +33,13 @@ public class CosmoItems {
     //general
     public static final RegistryObject<Item> WILDBERRY = HELPER.createItem("wildberry", () -> new Item(new Item.Properties().food(CosmopolitanFoods.WILDBERRY)));
     public static final RegistryObject<Item> BERRY_SYRUP_BOTTLE = HELPER.createItem("berry_syrup_bottle", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.BERRY_SYRUP_BOTTLE), true));
-    public static final RegistryObject<Item> JELLY_ROLL = HELPER.createItem("jelly_roll", () -> new Item(new Item.Properties().food(CosmopolitanFoods.JELLY_ROLL)));
-    public static final RegistryObject<Item> CHOCOLATE_ROLL = HELPER.createItem("chocolate_roll", () -> new Item(new Item.Properties().food(CosmopolitanFoods.CHOCOLATE_ROLL)));
+    public static final RegistryObject<Item> JELLY_ROLL = HELPER.createItem("jelly_roll", () -> new JellyRollItem(new Item.Properties().food(CosmopolitanFoods.JELLY_ROLL)));
+    public static final RegistryObject<Item> CHOCOLATE_ROLL = HELPER.createItem("chocolate_roll", () -> new JellyRollItem(new Item.Properties().food(CosmopolitanFoods.CHOCOLATE_ROLL)));
 
     public static final RegistryObject<Item> FIDDLEHEAD = HELPER.createItem("fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.FIDDLEHEAD)));
     public static final RegistryObject<Item> BAKED_FIDDLEHEAD = HELPER.createItem("baked_fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.BAKED_FIDDLEHEAD)));
 
-    public static final RegistryObject<Item> WHEATGRASS = HELPER.createItem("wheatgrass", () -> new WheatgrassItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
+    public static final RegistryObject<Item> WHEATGRASS = HELPER.createItem("wheatgrass", () -> new WheatgrassItem(new Item.Properties().food(CosmopolitanFoods.WHEATGRASS)));
     public static final RegistryObject<Item> WHEATGRASS_JUICE = HELPER.createItem("wheatgrass_juice", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES), false));
     public static final RegistryObject<Item> PAW_COOKIE = HELPER.createItem("paw_cookie", () -> new WheatgrassItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
 
@@ -225,6 +225,7 @@ public class CosmoItems {
     static class CosmopolitanFoods {
         //general
         public static final FoodProperties WILDBERRY = (new FoodProperties.Builder()).nutrition(2).fast().build();
+        public static final FoodProperties WHEATGRASS = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.4F).build();
         public static final FoodProperties FIDDLEHEAD = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.8F).fast().build();
         public static final FoodProperties BAKED_FIDDLEHEAD = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.8F).fast().build();
         public static final FoodProperties BERRY_SYRUP_BOTTLE = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.1F).build();
