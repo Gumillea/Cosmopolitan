@@ -1,4 +1,4 @@
-// 1.20.1	2025-04-19T00:28:23.2280708	Item Models: cosmopolitan
+// 1.20.1	2025-04-20T19:18:48.8278559	Item Models: cosmopolitan
 fbe1a9fb1d5b0502f76ef9da43a7a06152e9fea2 assets/cosmopolitan/models/item/aloe_ice_cream_cone.json
 0397e30ea4175d128e72b12dc003c622095a578c assets/cosmopolitan/models/item/aurora_ice_cream_cone.json
 c6277286d7de80b46db774e7aca9ea16fa365498 assets/cosmopolitan/models/item/aurora_kohakutou.json
@@ -6,12 +6,14 @@ a9b51d07e0c27088ae41e7bb17b319020c2e8389 assets/cosmopolitan/models/item/baked_f
 623896326f244e10dbe2411b78492bf4cd1fda05 assets/cosmopolitan/models/item/beetroot_ice_cream_cone.json
 76321f2c478342a98368a8884abeb8e932d79d29 assets/cosmopolitan/models/item/berry_syrup_bottle.json
 8f391a6bdb5a4d162a44adf3158bbeba78d6a135 assets/cosmopolitan/models/item/blisterberry_pips.json
+11ecc6f2d49a42140666ea2ec5a8bcc71e364788 assets/cosmopolitan/models/item/blisterberry_sorbet.json
 1f3d57b6e716bc33c8b075500cb0e370b61ceae2 assets/cosmopolitan/models/item/blisterberry_tart.json
 027402abb61e3bbaa8d7d9bab96d145d79f3f3d2 assets/cosmopolitan/models/item/chocolate_roll.json
 cd4c0310e92d59ca1d7ca4e94d626cc9b9f4c950 assets/cosmopolitan/models/item/chocolate_roll_slice.json
 937ec3e2ab6b5b98a142dce94fdfdedf2bae3fa6 assets/cosmopolitan/models/item/cosmopolitan_cocktail.json
 7843a28d75e0ed043b47edbd0c847a299b1c5741 assets/cosmopolitan/models/item/cut_potatoes.json
 238708e8e131539d6d7816380e1163cea9986e8b assets/cosmopolitan/models/item/droopfruit_pips.json
+c655d17d8d68318b932bce2063a4bc741e035152 assets/cosmopolitan/models/item/droopfruit_sorbet.json
 33c5f48030e602ec675d83c8c23b01c3534ff9cf assets/cosmopolitan/models/item/fiddlehead.json
 c324cee420d02066d3de7a4ce87377c2863b83fd assets/cosmopolitan/models/item/glacier_essence.json
 35c1cea7a5f2859d3466293dada6795f76ef8a35 assets/cosmopolitan/models/item/glacier_ice_cream_cone.json

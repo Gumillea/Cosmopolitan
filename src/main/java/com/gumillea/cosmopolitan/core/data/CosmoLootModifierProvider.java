@@ -2,11 +2,15 @@ package com.gumillea.cosmopolitan.core.data;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.teamabnormals.blueprint.common.loot.modification.LootModifierProvider;
 import com.teamabnormals.blueprint.common.loot.modification.modifiers.LootPoolsModifier;
+import com.teamabnormals.blueprint.core.util.modification.selection.ConditionedResourceSelector;
+import com.teamabnormals.blueprint.core.util.modification.selection.selectors.NamesResourceSelector;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
@@ -21,8 +25,10 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class CosmoLootModifierProvider extends LootModifierProvider {
@@ -96,6 +102,31 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                                         .apply(ApplyExplosionDecay.explosionDecay()))
                                 .build()
                 ), false));
+
+        this.entry("sourceberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.AN, "blocks/sourceberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
+                .addModifier(new LootPoolsModifier(List.of(
+                        LootPool.lootPool().name("cosmopolitan:sourceberry_bush")
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(CosmoItems.SOURCE_BERRY_PIPS.get()))
+                        .build()), false));
+        this.entry("droopvine").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.UG, "blocks/droopvine")), new ModLoadedCondition(CosmoCompat.BG)))
+                .addModifier(new LootPoolsModifier(List.of(
+                        LootPool.lootPool().name("cosmopolitan:droopvine")
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(CosmoItems.DROOPFRUIT_PIPS.get()))
+                                .build()), false));
+        this.entry("blisterberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.UG, "blocks/blisterberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
+                .addModifier(new LootPoolsModifier(List.of(
+                        LootPool.lootPool().name("cosmopolitan:blisterberry_bush")
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(CosmoItems.BLISTERBERRY_PIPS.get()))
+                                .build()), false));
+        this.entry("kabloom_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.HA, "blocks/kabloom_bush")), new ModLoadedCondition(CosmoCompat.BG)))
+                .addModifier(new LootPoolsModifier(List.of(
+                        LootPool.lootPool().name("cosmopolitan:kabloom_bush")
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(CosmoItems.KABLOOM_PIPS.get()))
+                                .build()), false));
     }
 
 }

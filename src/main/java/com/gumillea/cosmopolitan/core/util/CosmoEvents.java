@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -15,6 +16,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID)
@@ -40,17 +43,27 @@ public class CosmoEvents {
 
     @SubscribeEvent
     public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (!ModList.get().isLoaded("berry_good") || !CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) return;
+
         ItemStack stack = event.getItemStack();
-        if (ModList.get().isLoaded("berry_good") && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) {
-            if (ModList.get().isLoaded(CosmoCompat.AN) && stack.is(CosmoCompat.SOURCEBERRY)) {
-                event.setUseItem(Event.Result.DENY);
-            }
-            if (ModList.get().isLoaded(CosmoCompat.HA) && stack.is(CosmoCompat.KABLOOM)) {
-                event.setUseItem(Event.Result.DENY);
-            }
-            if (ModList.get().isLoaded(CosmoCompat.UG) && (stack.is(CosmoCompat.BLISTERBERRY)) || stack.is(CosmoCompat.DROOPFRUIT)) {
-                event.setUseItem(Event.Result.DENY);
+
+        Map<String, List<Item>> compatMap = Map.of(
+                CosmoCompat.AN, List.of(CosmoCompat.SOURCEBERRY),
+                CosmoCompat.HA, List.of(CosmoCompat.KABLOOM),
+                CosmoCompat.UG, List.of(CosmoCompat.BLISTERBERRY, CosmoCompat.DROOPFRUIT)
+        );
+
+        for (Map.Entry<String, List<Item>> entry : compatMap.entrySet()) {
+            String modid = entry.getKey();
+            if (ModList.get().isLoaded(modid)) {
+                for (Item item : entry.getValue()) {
+                    if (stack.is(item)) {
+                        event.setUseItem(Event.Result.DENY);
+                        return;
+                    }
+                }
             }
         }
     }
+
 }

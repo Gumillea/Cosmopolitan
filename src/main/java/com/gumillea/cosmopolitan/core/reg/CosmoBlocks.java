@@ -6,6 +6,7 @@ import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -21,7 +22,10 @@ import static net.minecraft.world.item.CreativeModeTabs.FUNCTIONAL_BLOCKS;
 public class CosmoBlocks {
     public static final BlockSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockSubHelper();
 
-    public static final RegistryObject<Block> ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub", () -> new IceCreamTubBlock(Properties.CHISELED_ADZUKI_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> VANILLA_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_vanilla", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> STRAWBERRY_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_strawberry", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> CHOCOLATE_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_chocolate", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     //Chiseled Ice Cream Blocks
     public static final RegistryObject<Block> CHISELED_ADZUKI_ICE_CREAM_BLOCK = HELPER.createBlock("chiseled_adzuki_ice_cream_block", () -> new Block(Properties.CHISELED_ADZUKI_ICE_CREAM_BLOCK));

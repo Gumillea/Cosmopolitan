@@ -3,9 +3,9 @@ package com.gumillea.cosmopolitan.common.item;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class JellyRollItem extends Item
+public class LongEatDurationItem extends Item
 {
-    public JellyRollItem(Properties properties) {
+    public LongEatDurationItem(Properties properties) {
         super(properties);
     }
 

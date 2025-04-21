@@ -91,5 +91,8 @@
   "item.cosmopolitan.wheatgrass": "小麦草",
   "item.cosmopolitan.wildberry": "野莓",
   "item.cosmopolitan.yucca_ice_cream_cone": "丝兰果味甜筒",
+  "jei.cosmopolitan.fiddlehead.desc": "蕨菜可通过破坏蕨或大型蕨获得",
+  "jei.cosmopolitan.wheatgrass.desc": "小麦草可通过收获处于生长阶段中期的小麦作物获得",
+  "jei.cosmopolitan.wildberry.desc": "野莓可通过破坏草或高草丛获得",
   "tooltip.cosmopolitan.wheatgrass.when_feeding": "喂给一只已驯服的猫时："
 }

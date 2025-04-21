@@ -1,6 +1,9 @@
-// 1.20.1	2025-04-19T22:33:24.1659484	Object Modifiers (loot_tables): cosmopolitan
+// 1.20.1	2025-04-20T10:23:12.6766865	Object Modifiers (loot_tables): cosmopolitan
+dfc19b434c0955ea709b1eee60775d9e31cada41 data/cosmopolitan/modifiers/loot_tables/blisterberry_bush.json
+2f859ed2b8fbbaa4756e6b122f2ed79e57bdb25a data/cosmopolitan/modifiers/loot_tables/droopvine.json
 6f108f415a9cfc15042823e13af9123a2cac15dc data/cosmopolitan/modifiers/loot_tables/fern.json
 6c12bdd50fd0813102cdad553f816ac65a93dc8c data/cosmopolitan/modifiers/loot_tables/grass.json
+46157a748bf793eae1c987674978fc7c16f411dd data/cosmopolitan/modifiers/loot_tables/sourceberry_bush.json
 362381c48d26edc8dfcc624f1bac1f33e3c55021 data/cosmopolitan/modifiers/loot_tables/tall_fern.json
 21f6242e01e4670e4c781c136d786cdc0837c6f9 data/cosmopolitan/modifiers/loot_tables/tall_grass.json
 d49ae755a0e82f98a9eb99b48a64bbd9b1521e8b data/cosmopolitan/modifiers/loot_tables/wheat.json

@@ -11,8 +11,9 @@ public class FrozenDessertItem extends Item {
     private final boolean bowl;
     private final int tFrozen;
 
-    public FrozenDessertItem(Properties p, boolean bowl, int tFrozen) {
-        super(p);
+
+    public FrozenDessertItem(Properties properties, boolean bowl, int tFrozen) {
+        super(properties.stacksTo(bowl ? 1 : 64));
         this.tFrozen = tFrozen;
         this.bowl = bowl;
     }

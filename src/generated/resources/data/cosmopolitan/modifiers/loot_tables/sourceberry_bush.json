@@ -1,0 +1,36 @@
+{
+  "modifiers": [
+    {
+      "type": "pools",
+      "config": {
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": "cosmopolitan:source_berry_pips"
+              }
+            ],
+            "name": "cosmopolitan:sourceberry_bush",
+            "rolls": 1.0
+          }
+        ],
+        "replace": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": {
+    "type": "names",
+    "conditions": [
+      {
+        "type": "forge:mod_loaded",
+        "modid": "berry_good"
+      }
+    ],
+    "config": [
+      "ars_nouveau:blocks/sourceberry_bush"
+    ]
+  }
+}

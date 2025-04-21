@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.common.item;
 
 import com.google.common.collect.Lists;
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.core.particles.ParticleTypes;
@@ -104,6 +105,11 @@ public class WheatgrassItem extends Item {
                 }
             }
         }
+    }
+
+    @Override
+    public int getUseDuration(ItemStack stack) {
+        return this == CosmoItems.WHEATGRASS.get() ? 80 : 32;
     }
 
 }

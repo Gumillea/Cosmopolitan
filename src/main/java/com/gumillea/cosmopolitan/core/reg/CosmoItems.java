@@ -33,8 +33,8 @@ public class CosmoItems {
     //general
     public static final RegistryObject<Item> WILDBERRY = HELPER.createItem("wildberry", () -> new Item(new Item.Properties().food(CosmopolitanFoods.WILDBERRY)));
     public static final RegistryObject<Item> BERRY_SYRUP_BOTTLE = HELPER.createItem("berry_syrup_bottle", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.BERRY_SYRUP_BOTTLE), true));
-    public static final RegistryObject<Item> JELLY_ROLL = HELPER.createItem("jelly_roll", () -> new JellyRollItem(new Item.Properties().food(CosmopolitanFoods.JELLY_ROLL)));
-    public static final RegistryObject<Item> CHOCOLATE_ROLL = HELPER.createItem("chocolate_roll", () -> new JellyRollItem(new Item.Properties().food(CosmopolitanFoods.CHOCOLATE_ROLL)));
+    public static final RegistryObject<Item> JELLY_ROLL = HELPER.createItem("jelly_roll", () -> new LongEatDurationItem(new Item.Properties().food(CosmopolitanFoods.JELLY_ROLL)));
+    public static final RegistryObject<Item> CHOCOLATE_ROLL = HELPER.createItem("chocolate_roll", () -> new LongEatDurationItem(new Item.Properties().food(CosmopolitanFoods.CHOCOLATE_ROLL)));
 
     public static final RegistryObject<Item> FIDDLEHEAD = HELPER.createItem("fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.FIDDLEHEAD)));
     public static final RegistryObject<Item> BAKED_FIDDLEHEAD = HELPER.createItem("baked_fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.BAKED_FIDDLEHEAD)));
@@ -100,7 +100,7 @@ public class CosmoItems {
     public static final RegistryObject<Item> GLOW_BERRY_ICE_CREAM_CONE = HELPER.createItem("glow_berry_ice_cream_cone", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.GLOW_BERRY_ICE_CREAM_CONE), false, 80));
 
     //abnormals x ars_nouveau
-    public static final RegistryObject<Item> SOURCE_BERRY_PIPS = HELPER.createItem("source_berry_pips", () -> new ItemNameBlockItem(CosmoCompat.SOURCE_BERRY_BLOCK, new Item.Properties()));
+    public static final RegistryObject<Item> SOURCE_BERRY_PIPS = HELPER.createItem("source_berry_pips", () -> new SourceBerryPipsItem(CosmoCompat.SOURCE_BERRY_BLOCK, new Item.Properties()));
 
     public static final RegistryObject<Item> SOURCE_BERRY_ICE_CREAM = HELPER.createItem("source_berry_ice_cream", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.SOURCE_BERRY_ICE_CREAM).craftRemainder(Items.BOWL), true, 200));
     public static final RegistryObject<Item> SOURCE_BERRY_ICE_CREAM_CONE = HELPER.createItem("source_berry_ice_cream_cone", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.SOURCE_BERRY_ICE_CREAM_CONE), false, 80));
@@ -122,6 +122,8 @@ public class CosmoItems {
     //abnormals x undergarden
     public static final RegistryObject<Item> BLISTERBERRY_PIPS = HELPER.createItem("blisterberry_pips", () -> new ItemNameBlockItem(CosmoCompat.BLISTERBERRY_BUSH, new Item.Properties()));
     public static final RegistryObject<Item> DROOPFRUIT_PIPS = HELPER.createItem("droopfruit_pips", () -> new ItemNameBlockItem(CosmoCompat.DROOP_VINE, new Item.Properties()));
+    public static final RegistryObject<Item> BLISTERBERRY_SORBET = HELPER.createItem("blisterberry_sorbet", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.ICE_CREAM).craftRemainder(Items.BOWL), true, 200));
+    public static final RegistryObject<Item> DROOPFRUIT_SORBET = HELPER.createItem("droopfruit_sorbet", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.ICE_CREAM).craftRemainder(Items.BOWL), true, 200));
 
     //neapolitan x quark
     public static final RegistryObject<Item> ENCHANTED_FRUIT_ICE_CREAM = HELPER.createItem("enchanted_fruit_ice_cream", () -> new QuarkEnchantedFruitItem(new Item.Properties().food(CosmopolitanFoods.ICE_CREAM).craftRemainder(Items.BOWL), true, 200, 15));
@@ -175,6 +177,8 @@ public class CosmoItems {
                 .addItemsAfter(modLoaded(GLOW_BERRY_ICE_CREAM, CosmoCompat.HA), KABLOOM_ICE_CREAM)
                 .addItemsAfter(modLoaded(GLOW_BERRY_ICE_CREAM, CosmoCompat.QUA), ENCHANTED_FRUIT_ICE_CREAM)
 
+                .addItemsBefore(modLoaded(Items.MILK_BUCKET, CosmoCompat.UG), BLISTERBERRY_SORBET, DROOPFRUIT_SORBET)
+
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.EX), CHORUS_ICE_CREAM_CONE, WARZIPAN_ICE_CREAM_CONE, MIDNIGHT_ICE_CREAM_CONE, STARCLOUD_ICE_CREAM_CONE)
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.SEA), BEETROOT_ICE_CREAM_CONE, PUMPKIN_ICE_CREAM_CONE, SWEET_BERRY_ICE_CREAM_CONE, SEASONAL_ICE_CREAM)
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.PEC), ALOE_ICE_CREAM_CONE, PASSION_FRUIT_ICE_CREAM_CONE, YUCCA_ICE_CREAM_CONE, PECULIAR_ICE_CREAM)
@@ -224,8 +228,8 @@ public class CosmoItems {
 
     static class CosmopolitanFoods {
         //general
-        public static final FoodProperties WILDBERRY = (new FoodProperties.Builder()).nutrition(2).fast().build();
-        public static final FoodProperties WHEATGRASS = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.4F).build();
+        public static final FoodProperties WILDBERRY = (new FoodProperties.Builder()).nutrition(2).fast().alwaysEat().build();
+        public static final FoodProperties WHEATGRASS = (new FoodProperties.Builder()).nutrition(2).saturationMod(1F).alwaysEat().build();
         public static final FoodProperties FIDDLEHEAD = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.8F).fast().build();
         public static final FoodProperties BAKED_FIDDLEHEAD = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.8F).fast().build();
         public static final FoodProperties BERRY_SYRUP_BOTTLE = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.1F).build();

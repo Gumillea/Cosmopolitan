@@ -6,8 +6,7 @@ import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
-import com.gumillea.exquisito.core.data.modifiers.ExquisitoLootModifierProvider;
-import com.gumillea.exquisito.core.reg.ExquisitoLootConditions;
+import com.gumillea.cosmopolitan.core.util.FoodEffectChanger;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -41,6 +40,7 @@ public class Cosmopolitan {
         MinecraftForge.EVENT_BUS.register(this);
         CosmoEffects.EFFECTS.register(modEventBus);
         CosmoRecipes.RECIPE_SERIALIZERS.register(modEventBus);
+        CosmoRecipes.RECIPE_TYPE.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addBuiltinPacks);
@@ -58,8 +58,7 @@ public class Cosmopolitan {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-        });
+        event.enqueueWork(FoodEffectChanger::apply);
     }
 
     private void addBuiltinPacks(AddPackFindersEvent event) {
