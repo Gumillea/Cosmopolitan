@@ -16,4 +16,6 @@ public class CosmoEffects {
     public static final RegistryObject<MobEffect> EXUBERANT = EFFECTS.register("exuberant", ExuberantEffect::new);
     public static final RegistryObject<MobEffect> TRACER = EFFECTS.register("tracer", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0xE98F3F));
     public static final RegistryObject<MobEffect> MARKED = EFFECTS.register("marked", () -> new BlueprintMobEffect(MobEffectCategory.HARMFUL, 0xE98F3F));
+
+    public static final RegistryObject<MobEffect> PLACEHOLDER = EFFECTS.register("placeholder", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0));
 }

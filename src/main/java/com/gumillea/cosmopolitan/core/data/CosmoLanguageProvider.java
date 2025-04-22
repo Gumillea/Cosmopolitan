@@ -33,6 +33,7 @@ public class CosmoLanguageProvider extends LanguageProvider {
                 CosmoItems.JELLY_ROLL_SLICE.get(), CosmoItems.CHOCOLATE_ROLL_SLICE.get()
         );
         this.addBlock(
+                CosmoBlocks.ICE_CREAM_TUB.get(),
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_MINT_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(), CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get()
         );
@@ -40,14 +41,12 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addEffect("Converts Blindness, Darkness, and Nausea into brief Night Vision", CosmoEffects.CAROTENE.get());
         this.addEffect("The user will leave a glowing trail on the blocks they pass over.", CosmoEffects.MARKED.get());
         this.addEffect("The user's ranged attacks will mark and blind the first living target they hit", CosmoEffects.TRACER.get());
+        this.addEffect("The original effect of the item could not be applied because the compatible mod was not installed.", CosmoEffects.PLACEHOLDER.get());
         this.add("tooltip." + Cosmopolitan.MODID + ".wheatgrass.when_feeding", "When fed to a tamed Cat:");
 
-        this.addJeiItemDescriptions(
-                Map.of(
-                        CosmoItems.FIDDLEHEAD.get(), "Fiddlehead can be dropped when breaking fern or large fern.",
-                        CosmoItems.WILDBERRY.get(), "Wild berry can be dropped when breaking grass or tall grass.",
-                        CosmoItems.WHEATGRASS.get(), "Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase."
-                ));
+        this.addJeiItemDescriptions("Fiddlehead can be dropped when breaking fern or large fern.", CosmoItems.FIDDLEHEAD.get());
+        this.addJeiItemDescriptions("Wildberry can be dropped when breaking grass or tall grass.", CosmoItems.WILDBERRY.get());
+        this.addJeiItemDescriptions("Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase.", CosmoItems.WHEATGRASS.get());
     }
 
     private void addBlock(Block... blocks) {
@@ -74,15 +73,10 @@ public class CosmoLanguageProvider extends LanguageProvider {
             this.add(item, "Slice of " + format(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item))).replace(" Slice", ""));
     }
 
-
-    private void addJeiItemDescriptions(Map<Item, String> itemDescriptions) {
-        for (Map.Entry<Item, String> entry : itemDescriptions.entrySet()) {
-            Item item = entry.getKey();
-            String description = entry.getValue();
-
+    private void addJeiItemDescriptions(String description, Item... items) {
+        for (Item item : items) {
             ResourceLocation id = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
             String key = "jei." + id.getNamespace() + "." + id.getPath() + ".desc";
-
             add(key, description);
         }
     }

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/tin"
+      }
+    }
+  ],
+  "pattern": [
+    "C C",
+    "CBC",
+    "CAC"
+  ],
+  "key": {
+    "A": {
+      "tag": "forge:buckets/empty"
+    },
+    "B": {
+      "tag": "forge:ice_cubes"
+    },
+    "C": {
+      "tag": "forge:ingots/tin"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:ice_cream_tub"
+  }
+}

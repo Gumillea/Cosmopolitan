@@ -6,6 +6,7 @@
   "block.cosmopolitan.chiseled_strawberry_ice_cream_block": "Chiseled Strawberry Ice Cream Block",
   "block.cosmopolitan.chiseled_vanilla_ice_cream_block": "Chiseled Vanilla Ice Cream Block",
   "block.cosmopolitan.enchanted_fruit_ice_cream_block": "Enchanted Fruit Ice Cream Block",
+  "block.cosmopolitan.ice_cream_tub": "Ice Cream Tub",
   "block.cosmopolitan.kabloom_ice_cream_block": "Kabloom Ice Cream Block",
   "block.cosmopolitan.source_berry_ice_cream_block": "Source Berry Ice Cream Block",
   "effect.cosmopolitan.carotene": "Carotene",
@@ -14,6 +15,8 @@
   "effect.cosmopolitan.exuberant.description": "Gain a small amount of extra health at the end of the duration, which expires if the user is injured during the duration.",
   "effect.cosmopolitan.marked": "Marked",
   "effect.cosmopolitan.marked.description": "The user will leave a glowing trail on the blocks they pass over.",
+  "effect.cosmopolitan.placeholder": "Placeholder",
+  "effect.cosmopolitan.placeholder.description": "The original effect of the item could not be applied because the compatible mod was not installed.",
   "effect.cosmopolitan.tracer": "Tracer",
   "effect.cosmopolitan.tracer.description": "The user's ranged attacks will mark and blind the first living target they hit",
   "item.cosmopolitan.adzuki_ice_cream_cone": "Adzuki Ice Cream Cone",
@@ -95,6 +98,6 @@
   "item.cosmopolitan.yucca_ice_cream_cone": "Yucca Ice Cream Cone",
   "jei.cosmopolitan.fiddlehead.desc": "Fiddlehead can be dropped when breaking fern or large fern.",
   "jei.cosmopolitan.wheatgrass.desc": "Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase.",
-  "jei.cosmopolitan.wildberry.desc": "Wild berry can be dropped when breaking grass or tall grass.",
+  "jei.cosmopolitan.wildberry.desc": "Wildberry can be dropped when breaking grass or tall grass.",
   "tooltip.cosmopolitan.wheatgrass.when_feeding": "When fed to a tamed Cat:"
 }

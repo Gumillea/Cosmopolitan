@@ -127,6 +127,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:15.3.0.8")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:15.3.0.8")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:15.3.0.8")
+    implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:6172935")
 
     implementation fg.deobf("curse.maven:zeta-968868:6312779")
     implementation fg.deobf("curse.maven:quark-243121:6312787")

@@ -2,11 +2,11 @@ package com.gumillea.cosmopolitan;
 
 import com.gumillea.cosmopolitan.core.data.CosmoLanguageProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoLootModifierProvider;
+import com.gumillea.cosmopolitan.core.data.models.CosmoBlockStateProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
-import com.gumillea.cosmopolitan.core.util.FoodEffectChanger;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -58,7 +58,6 @@ public class Cosmopolitan {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(FoodEffectChanger::apply);
     }
 
     private void addBuiltinPacks(AddPackFindersEvent event) {
@@ -81,6 +80,7 @@ public class Cosmopolitan {
 
         boolean client = event.includeClient();
         generator.addProvider(client, new CosmoItemModelProvider(output, helper));
+        generator.addProvider(client, new CosmoBlockStateProvider(output, helper));
         generator.addProvider(client, new CosmoLanguageProvider(output));
     }
 }
