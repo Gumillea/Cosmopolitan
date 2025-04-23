@@ -1,0 +1,28 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 300,
+      "fluid": "cosmopolitan:vanilla_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "neapolitan:vanilla_ice_cream"
+    }
+  ]
+}

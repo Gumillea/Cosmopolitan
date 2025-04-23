@@ -3,13 +3,16 @@ package com.gumillea.cosmopolitan.core.data;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
+import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -35,6 +38,9 @@ public class CosmoLanguageProvider extends LanguageProvider {
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_MINT_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(), CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get()
         );
+        this.addFluidType(
+                CosmoFluids.VANILLA_ICE_CREAM_TYPE.get(), CosmoFluids.STRAWBERRY_ICE_CREAM_TYPE.get()
+        );
         this.addEffect("Gain a small amount of extra health at the end of the duration, which expires if the user is injured during the duration.", CosmoEffects.EXUBERANT.get());
         this.addEffect("Converts Blindness, Darkness, and Nausea into brief Night Vision", CosmoEffects.CAROTENE.get());
         this.addEffect("The user will leave a glowing trail on the blocks they pass over.", CosmoEffects.MARKED.get());
@@ -50,6 +56,14 @@ public class CosmoLanguageProvider extends LanguageProvider {
     private void addBlock(Block... blocks) {
         for (Block block : blocks)
             this.add(block, format(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block))));
+    }
+
+    private void addFluidType(FluidType... fluidTypes) {
+        for (FluidType fluidType : fluidTypes) {
+            ResourceLocation id = ForgeRegistries.FLUID_TYPES.get().getKey(fluidType);
+            String key = "fluid_type." + id.getNamespace() + "." + id.getPath();
+            add(key, format(id));
+        }
     }
 
     private void addEffect(String description, MobEffect... effects) {

@@ -1,0 +1,28 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "amount": 100,
+      "fluid": "cosmopolitan:vanilla_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "neapolitan:vanilla_milkshake"
+    }
+  ]
+}

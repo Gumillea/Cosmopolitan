@@ -1,17 +1,16 @@
 {
   "values": [
-    "cosmopolitan:strawberry_ice_cream_cone",
-    "cosmopolitan:adzuki_ice_cream_cone",
-    "cosmopolitan:banana_ice_cream_cone",
-    "cosmopolitan:chocolate_ice_cream_cone",
     "cosmopolitan:enchanted_fruit_ice_cream",
-    "cosmopolitan:enchanted_fruit_ice_cream_cone",
     "cosmopolitan:kabloom_ice_cream",
-    "cosmopolitan:kabloom_ice_cream_cone",
-    "cosmopolitan:neapolitan_ice_cream_sandwich",
-    "cosmopolitan:mint_ice_cream_cone",
     "cosmopolitan:source_berry_ice_cream",
-    "cosmopolitan:source_berry_ice_cream_cone",
-    "cosmopolitan:vanilla_ice_cream_cone"
+    "cosmopolitan:seasonal_ice_cream",
+    "cosmopolitan:peculiar_ice_cream",
+    "cosmopolitan:refreshing_ice_cream_sandwich",
+    "cosmopolitan:twilight_ice_cream_sandwich",
+    "cosmopolitan:rainbow_ice_cream_sandwich",
+    "cosmopolitan:seasonal_ice_cream_sandwich",
+    "cosmopolitan:peculiar_ice_cream_sandwich",
+    "cosmopolitan:neapolitan_ice_cream_sandwich",
+    "#cosmopolitan:ice_cream_cones"
   ]
 }

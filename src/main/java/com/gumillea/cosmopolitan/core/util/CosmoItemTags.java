@@ -14,4 +14,8 @@ public class CosmoItemTags {
     public static final TagKey<Item> PUMPKINS = TagUtil.itemTag("forge", "pumpkins");
     public static final TagKey<Item> SALAD_INGREDIENTS = TagUtil.itemTag("forge", "salad_ingredients");
     public static final TagKey<Item> MILK_BOTTLE = TagUtil.itemTag("forge", "milk/milk_bottle");
+
+    public static final TagKey<Item> UPRIGHT_ON_BELT = TagUtil.itemTag("create", "upright_on_belt");
+    public static final TagKey<Item> ICE_CREAM = TagUtil.itemTag("neapolitan", "ice_cream");
+    public static final TagKey<Item> ICE_CREAM_CONES = TagUtil.itemTag("cosmopolitan", "ice_cream_cones");
 }

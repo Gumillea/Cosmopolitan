@@ -19,6 +19,8 @@
   "effect.cosmopolitan.placeholder.description": "The original effect of the item could not be applied because the compatible mod was not installed.",
   "effect.cosmopolitan.tracer": "Tracer",
   "effect.cosmopolitan.tracer.description": "The user's ranged attacks will mark and blind the first living target they hit",
+  "fluid_type.cosmopolitan.strawberry_ice_cream": "Strawberry Ice Cream",
+  "fluid_type.cosmopolitan.vanilla_ice_cream": "Vanilla Ice Cream",
   "item.cosmopolitan.adzuki_ice_cream_cone": "Adzuki Ice Cream Cone",
   "item.cosmopolitan.aloe_ice_cream_cone": "Aloe Ice Cream Cone",
   "item.cosmopolitan.apple_ice_cream": "Apple Ice Cream",

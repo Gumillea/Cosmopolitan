@@ -38,9 +38,14 @@ public class Cosmopolitan {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext context = ModLoadingContext.get();
         MinecraftForge.EVENT_BUS.register(this);
+
+        REGISTRY_HELPER.register(modEventBus);
+
         CosmoEffects.EFFECTS.register(modEventBus);
         CosmoRecipes.RECIPE_SERIALIZERS.register(modEventBus);
         CosmoRecipes.RECIPE_TYPE.register(modEventBus);
+        CosmoFluids.FLUIDS.register(modEventBus);
+        CosmoFluids.FLUID_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addBuiltinPacks);
@@ -51,7 +56,6 @@ public class Cosmopolitan {
             CosmoItems.setupTabEditors();
         });
 
-        REGISTRY_HELPER.register(modEventBus);
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
 
         context.registerConfig(ModConfig.Type.COMMON, CosmoConfig.COMMON_SPEC);
