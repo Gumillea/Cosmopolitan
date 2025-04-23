@@ -1,8 +1,8 @@
 package com.gumillea.cosmopolitan.common.item;
 
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
@@ -14,8 +14,8 @@ public class QuarkEnchantedFruitItem extends FrozenDessertItem {
     }
 
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
-        if (level instanceof ServerLevel) {
-            ExperienceOrb.award((ServerLevel)level, living.position(), eAmount);
+        if (level instanceof ServerLevel && living instanceof Player player) {
+            player.giveExperiencePoints(eAmount);
         }
         return super.finishUsingItem(stack, level, living);
     }

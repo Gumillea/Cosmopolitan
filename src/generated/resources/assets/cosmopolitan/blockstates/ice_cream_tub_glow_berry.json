@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "minecraft:block/air"
+    },
+    "level=1": {
+      "model": "cosmopolitan:block/ice_cream_tub_glow_berry_layer0"
+    },
+    "level=2": {
+      "model": "cosmopolitan:block/ice_cream_tub_glow_berry_layer1"
+    },
+    "level=3": {
+      "model": "cosmopolitan:block/ice_cream_tub_glow_berry_layer2"
+    },
+    "level=4": {
+      "model": "cosmopolitan:block/ice_cream_tub_glow_berry_layer3"
+    },
+    "level=5": {
+      "model": "cosmopolitan:block/ice_cream_tub_glow_berry_layer4"
+    },
+    "level=6": {
+      "model": "cosmopolitan:block/ice_cream_tub_glow_berry_layer5"
+    }
+  }
+}

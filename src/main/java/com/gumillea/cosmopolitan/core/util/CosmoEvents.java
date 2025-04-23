@@ -54,10 +54,9 @@ public class CosmoEvents {
         );
 
         for (Map.Entry<String, List<Item>> entry : compatMap.entrySet()) {
-            String modid = entry.getKey();
-            if (ModList.get().isLoaded(modid)) {
-                for (Item item : entry.getValue()) {
-                    if (stack.is(item)) {
+            if (ModList.get().isLoaded(entry.getKey())) {
+                for (Item berry : entry.getValue()) {
+                    if (stack.is(berry)) {
                         event.setUseItem(Event.Result.DENY);
                         return;
                     }

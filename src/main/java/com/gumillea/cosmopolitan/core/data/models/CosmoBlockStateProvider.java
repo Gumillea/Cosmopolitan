@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
+import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -31,40 +32,39 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         registerIceCreamTub(CosmoBlocks.MINT_ICE_CREAM_TUB);
 
         registerIceCreamTub(CosmoBlocks.APPLE_ICE_CREAM_TUB);
+        registerIceCreamTub(CosmoBlocks.CARROT_ICE_CREAM_TUB);
+        registerIceCreamTub(CosmoBlocks.GLOW_BERRY_ICE_CREAM_TUB);
+
+        registerIceCreamTub(CosmoBlocks.SOURCE_BERRY_ICE_CREAM_TUB);
+        registerIceCreamTub(CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_TUB);
+        registerIceCreamTub(CosmoBlocks.KABLOOM_ICE_CREAM_TUB);
     }
 
     private void registerIceCreamTub(RegistryObject<Block> block) {
-        String baseName = block.getId().getPath();
-        String flavor = baseName.replace("ice_cream_tub_", "");
+        String path = block.getId().getPath();
+        String flavor = path.replace("ice_cream_tub_", "");
         String layerTexture = flavor + "_ice_cream";
 
-        MultiPartBlockStateBuilder builder = getMultipartBuilder(block.get());
+        VariantBlockStateBuilder builder = getVariantBuilder(block.get());
 
-        ModelFile containerModel = models().withExistingParent(baseName + "_container", modLoc("block/ice_cream_tub"));
-        builder.part()
-                .modelFile(containerModel)
-                .addModel()
-                .end();
+        for (int i = 0; i < 6; i++) {
+            String modelPath = path + "_layer" + i;
+            String parent = "block/frozen_dessert_tub_layer" + i;
 
-        for (int i = 1; i <= 6; i++) {
-            int y = 4 + (i - 1) * 2;
-            String layerName = baseName + "_layer" + (i - 1);
+            ModelFile model = models().withExistingParent(modelPath, modLoc(parent))
+                    .texture("layers", modLoc("block/tub_layers/" + layerTexture));
 
-            ModelFile layerModel = models().getBuilder(layerName)
-                    .parent(new ModelFile.UncheckedModelFile("block/block"))
-                    .texture("ice_cream", new ResourceLocation(Cosmopolitan.MODID, "block/tub_layers/" + layerTexture))
-                    .element()
-                    .from(2, y, 2)
-                    .to(14, y + 2, 14)
-                    .face(Direction.UP).texture("#ice_cream").end()
-                    .face(Direction.DOWN).texture("#ice_cream").end()
-                    .end();
-
-            builder.part()
-                    .modelFile(layerModel)
-                    .addModel()
-                    .condition(IceCreamTubBlock.LEVEL, i)
-                    .end();
+            builder.partialState()
+                    .with(IceCreamTubBlock.LEVEL, i + 1)
+                    .modelForState()
+                    .modelFile(model)
+                    .addModel();
         }
+
+        builder.partialState()
+                .with(IceCreamTubBlock.LEVEL, 0)
+                .modelForState()
+                .modelFile(models().getExistingFile(mcLoc("block/air"))) // 隐形模型
+                .addModel();
     }
 }
