@@ -1,0 +1,36 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_apple_flavor"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "amount": 100,
+      "fluid": "cosmopolitan:apple_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "cosmopolitan:apple_milkshake"
+    }
+  ]
+}

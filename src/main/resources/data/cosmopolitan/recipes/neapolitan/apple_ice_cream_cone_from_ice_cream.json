@@ -4,6 +4,10 @@
     {
       "type": "forge:mod_loaded",
       "modid": "neapolitan"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_apple_flavor"
     }
   ],
   "ingredients": [

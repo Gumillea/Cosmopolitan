@@ -1,0 +1,36 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "exquisito:config",
+      "value": "enable_chorus_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:chorus_fruit_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "exquisito:chorus_ice_cream"
+    }
+  ]
+}

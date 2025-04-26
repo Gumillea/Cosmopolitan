@@ -1,0 +1,42 @@
+{
+  "type": "create:emptying",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "exquisito:midnight_ingredients"
+      }
+    },
+    {
+      "type": "exquisito:config",
+      "value": "enable_nightshade_berry_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "exquisito:nightshade_berry_ice_cream"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:midnight_ice_cream"
+    }
+  ]
+}

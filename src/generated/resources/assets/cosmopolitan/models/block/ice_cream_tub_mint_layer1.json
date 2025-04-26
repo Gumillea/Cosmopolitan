@@ -1,6 +1,0 @@
-{
-  "parent": "cosmopolitan:block/frozen_dessert_tub_layer1",
-  "textures": {
-    "layers": "cosmopolitan:block/tub_layers/mint_ice_cream"
-  }
-}

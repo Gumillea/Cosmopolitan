@@ -1,0 +1,32 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "amount": 250,
+      "fluid": "cosmopolitan:banana_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "cosmopolitan:banana_ice_cream_cone"
+    }
+  ]
+}

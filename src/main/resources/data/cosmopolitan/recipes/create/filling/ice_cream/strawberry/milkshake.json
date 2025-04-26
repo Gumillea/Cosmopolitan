@@ -1,0 +1,32 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "amount": 250,
+      "fluid": "cosmopolitan:strawberry_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "neapolitan:strawberry_milkshake"
+    }
+  ]
+}

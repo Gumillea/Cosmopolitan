@@ -1,0 +1,46 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "collectorsreap"
+    },
+    {
+      "type": "collectorsreap:enabled",
+      "value": "pomegranate_ice_cream"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:fruits/pomegranate"
+    },
+    {
+      "tag": "forge:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "amount": 750,
+      "fluidTag": "forge:milk"
+    }
+  ],
+  "results": [
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:pomegranate_ice_cream"
+    }
+  ]
+}

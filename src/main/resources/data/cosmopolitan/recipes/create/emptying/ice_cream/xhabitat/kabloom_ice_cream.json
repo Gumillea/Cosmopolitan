@@ -1,0 +1,39 @@
+{
+  "type": "create:emptying",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_kabloom_flavor"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "habitat:kabloom_pulp"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:kabloom_ice_cream"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:kabloom_ice_cream"
+    }
+  ]
+}

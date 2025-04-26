@@ -1,0 +1,46 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_enchanted_fruit_flavor"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "quark:ancient_fruit"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "quark:ancient_fruit"
+    },
+    {
+      "tag": "forge:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "amount": 750,
+      "fluidTag": "forge:milk"
+    }
+  ],
+  "results": [
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:enchanted_fruit_ice_cream"
+    }
+  ]
+}

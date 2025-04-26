@@ -1,0 +1,36 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "exquisito:config",
+      "value": "enable_elmond_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "amount": 250,
+      "fluid": "cosmopolitan:warzipan_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "cosmopolitan:warzipan_ice_cream_cone"
+    }
+  ]
+}

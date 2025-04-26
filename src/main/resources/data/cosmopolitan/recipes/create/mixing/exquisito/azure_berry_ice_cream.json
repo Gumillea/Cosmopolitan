@@ -1,0 +1,46 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "enlightened_end:azure_berries"
+    },
+    {
+      "type": "exquisito:config",
+      "value": "enable_zure_berry_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "enlightened_end:azure_berries"
+    },
+    {
+      "tag": "forge:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "amount": 750,
+      "fluidTag": "forge:milk"
+    }
+  ],
+  "results": [
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:azure_berry_ice_cream"
+    }
+  ]
+}

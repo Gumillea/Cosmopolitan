@@ -1,0 +1,14 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "ingredient": {
+    "item": "neapolitan:vanilla_ice_cream"
+  },
+  "result": {
+    "item": "minecraft:bowl",
+    "count": 1
+  },
+  "fluid": {
+    "name": "cosmopolitan:vanilla_ice_cream",
+    "amount": 750
+  }
+}

@@ -31,26 +31,7 @@ public class CosmopolitanBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                CosmoBlocks.FROZEN_DESSERT_TUB.get(),
-
-                CosmoBlocks.MINT_ICE_CREAM_TUB.get(),
-                CosmoBlocks.CHOCOLATE_ICE_CREAM_TUB.get(),
-                CosmoBlocks.VANILLA_ICE_CREAM_TUB.get(),
-                CosmoBlocks.STRAWBERRY_ICE_CREAM_TUB.get(),
-                CosmoBlocks.BANANA_ICE_CREAM_TUB.get(),
-                CosmoBlocks.ADZUKI_ICE_CREAM_TUB.get(),
-
-                CosmoBlocks.APPLE_ICE_CREAM_TUB.get()
-        );
-        this.tag(CosmoBlockTags.FREEZE_SOURCES).add(
-                CosmoBlocks.MINT_ICE_CREAM_TUB.get(),
-                CosmoBlocks.CHOCOLATE_ICE_CREAM_TUB.get(),
-                CosmoBlocks.VANILLA_ICE_CREAM_TUB.get(),
-                CosmoBlocks.STRAWBERRY_ICE_CREAM_TUB.get(),
-                CosmoBlocks.BANANA_ICE_CREAM_TUB.get(),
-                CosmoBlocks.ADZUKI_ICE_CREAM_TUB.get(),
-
-                CosmoBlocks.APPLE_ICE_CREAM_TUB.get()
+                CosmoBlocks.FROZEN_DESSERT_TUB.get()
         );
     }
 }

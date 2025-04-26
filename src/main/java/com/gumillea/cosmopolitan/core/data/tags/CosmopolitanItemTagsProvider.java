@@ -37,11 +37,20 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.DROOPFRUIT_PIPS.get()
         );
 
+        this.tag(BlueprintItemTags.PIG_FOOD).add(
+                CosmoItems.FIDDLEHEAD.get()
+        );
+
         this.tag(CosmoItemTags.ICE_CREAM)
                 .add(
+                        CosmoItems.APPLE_ICE_CREAM.get(),
+                        CosmoItems.CARROT_ICE_CREAM.get(),
+                        CosmoItems.GLOW_BERRY_ICE_CREAM.get(),
+
                         CosmoItems.ENCHANTED_FRUIT_ICE_CREAM.get(),
                         CosmoItems.KABLOOM_ICE_CREAM.get(),
                         CosmoItems.SOURCE_BERRY_ICE_CREAM.get(),
+
                         CosmoItems.SEASONAL_ICE_CREAM.get(),
                         CosmoItems.PECULIAR_ICE_CREAM.get(),
 
@@ -99,7 +108,7 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.UPRIGHT_ON_BELT).add(
                         CosmoItems.WAFER_CONE.get())
-                .addTag(CosmoItemTags.ICE_CREAM_CONES
+                .addTag(CosmoItemTags.ICE_CREAM
                 );
 
         this.tag(CosmoItemTags.BERRIES).add(

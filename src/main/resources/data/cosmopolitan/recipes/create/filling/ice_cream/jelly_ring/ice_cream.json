@@ -1,0 +1,40 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "enlightened_end:squished_bouncer"
+    },
+    {
+      "type": "exquisito:config",
+      "value": "enable_jelly_ring_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:jelly_ring_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "exquisito:jelly_ring_ice_cream"
+    }
+  ]
+}

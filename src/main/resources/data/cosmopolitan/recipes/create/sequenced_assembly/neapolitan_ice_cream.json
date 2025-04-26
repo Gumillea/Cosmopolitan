@@ -1,0 +1,85 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:bowl"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "neapolitan:neapolitan_ice_cream"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:chocolate_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:strawberry_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:vanilla_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:bowl"
+  }
+}

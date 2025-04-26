@@ -2,17 +2,19 @@
   "type": "minecraft:crafting_shapeless",
   "conditions": [
     {
-      "type": "forge:and",
-      "values": [
-        {
-          "type": "forge:mod_loaded",
-          "modid": "neapolitan"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "twilightdelight"
-        }
-      ]
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "cosmopolitan:config",
+        "value": "tfd_recipe_tweaks"
+      }
     }
   ],
   "ingredients": [
@@ -26,7 +28,7 @@
       "item": "cosmopolitan:wafer_cone"
     },
     {
-      "item": "cosmopolitan:steeleaf_nectar"
+      "item": "twilightforest:steeleaf_ingot"
     },
     {
       "tag": "forge:milk"

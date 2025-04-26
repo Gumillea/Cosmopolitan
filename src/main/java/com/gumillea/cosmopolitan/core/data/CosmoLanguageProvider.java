@@ -39,8 +39,10 @@ public class CosmoLanguageProvider extends LanguageProvider {
                 CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(), CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get()
         );
         this.addFluidType(
-                CosmoFluids.VANILLA_ICE_CREAM_TYPE.get(), CosmoFluids.STRAWBERRY_ICE_CREAM_TYPE.get()
+                CosmoFluids.VANILLA_ICE_CREAM_TYPE.get(), CosmoFluids.STRAWBERRY_ICE_CREAM_TYPE.get(), CosmoFluids.CHOCOLATE_ICE_CREAM_TYPE.get(), CosmoFluids.MINT_ICE_CREAM_TYPE.get(), CosmoFluids.ADZUKI_ICE_CREAM_TYPE.get(), CosmoFluids.BANANA_ICE_CREAM_TYPE.get(), CosmoFluids.APPLE_ICE_CREAM_TYPE.get(), CosmoFluids.CARROT_ICE_CREAM_TYPE.get(), CosmoFluids.GLOW_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.ALOE_ICE_CREAM_TYPE.get(), CosmoFluids.PASSION_FRUIT_ICE_CREAM_TYPE.get(), CosmoFluids.YUCCA_ICE_CREAM_TYPE.get(), CosmoFluids.BEETROOT_ICE_CREAM_TYPE.get(), CosmoFluids.SWEET_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.PUMPKIN_ICE_CREAM_TYPE.get(), CosmoFluids.LIME_ICE_CREAM_TYPE.get(), CosmoFluids.POMEGRANATE_ICE_CREAM_TYPE.get(), CosmoFluids.MATCHA_ICE_CREAM_TYPE.get(), CosmoFluids.SALMONBERRY_ICE_CREAM_TYPE.get(), CosmoFluids.CHORUS_FRUIT_ICE_CREAM_TYPE.get(), CosmoFluids.WARZIPAN_ICE_CREAM_TYPE.get(), CosmoFluids.JELLY_RING_ICE_CREAM_TYPE.get(), CosmoFluids.AZURE_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.MIDNIGHT_ICE_CREAM_TYPE.get(), CosmoFluids.STARCLOUD_ICE_CREAM_TYPE.get(), CosmoFluids.KABLOOM_ICE_CREAM_TYPE.get(), CosmoFluids.SOURCE_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.ENCHANTED_FRUIT_ICE_CREAM_TYPE.get(),
+                CosmoFluids.AURORA_ICE_CREAM_TYPE.get(), CosmoFluids.PHYTOCHEMICAL_ICE_CREAM_TYPE.get(), CosmoFluids.GLACIER_ICE_CREAM_TYPE.get(), CosmoFluids.TORCHBERRY_ICE_CREAM_TYPE.get()
         );
+
         this.addEffect("Gain a small amount of extra health at the end of the duration, which expires if the user is injured during the duration.", CosmoEffects.EXUBERANT.get());
         this.addEffect("Converts Blindness, Darkness, and Nausea into brief Night Vision", CosmoEffects.CAROTENE.get());
         this.addEffect("The user will leave a glowing trail on the blocks they pass over.", CosmoEffects.MARKED.get());

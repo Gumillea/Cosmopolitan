@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "tfd_recipe_tweaks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "item": "cosmopolitan:steeleaf_nectar"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:phytochemical_ice_cream_cone",
+    "count": 3
+  }
+}

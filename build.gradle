@@ -118,6 +118,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    implementation fg.deobf("curse.maven:jade-324717:6271651")
+
     implementation fg.deobf("curse.maven:neapolitan-382016:5296594")
     implementation fg.deobf("curse.maven:atmospheric-362393:6248868")
     implementation fg.deobf("curse.maven:berry-good-355589:5228437")
@@ -138,6 +140,7 @@ dependencies {
     implementation fg.deobf("curse.maven:geckolib-388172:5460309")
 
     implementation fg.deobf("curse.maven:habitat-422972:5293408")
+    implementation fg.deobf("curse.maven:enlightend-502786:4880586")
 
     implementation fg.deobf("curse.maven:exquisito-859262:6410831")
     implementation fg.deobf("curse.maven:seasonals-416471:6058164")

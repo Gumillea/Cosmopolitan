@@ -7,6 +7,7 @@ import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
+import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -62,6 +63,7 @@ public class Cosmopolitan {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        CosmoCompostableItems.registerCompostableItems();
     }
 
     private void addBuiltinPacks(AddPackFindersEvent event) {

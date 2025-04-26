@@ -17,12 +17,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
@@ -41,32 +39,37 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
 
     @Override
     protected void registerEntries(Provider provider) {
+        //wildberry
         this.entry("tall_grass").selects("blocks/tall_grass")
                 .addModifier(new LootPoolsModifier(Collections.singletonList(LootPool
-                        .lootPool().name("cosmopolitan:redberry_from_tall_grass")
+                        .lootPool().name("cosmopolitan:wildberry_from_tall_grass")
                         .setRolls(ConstantValue.exactly(1.0F))
                         .when(HAS_NO_SHEARS_OR_SILK_TOUCH)
                         .add(LootItem.lootTableItem(CosmoItems.WILDBERRY.get())
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3)))
+                                .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
                                 .apply(ApplyExplosionDecay.explosionDecay())
-                                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.05F, 0.055555557F, 0.0625F, 0.08333334F, 0.25F))).build()), false));
+                                .when(LootItemRandomChanceCondition.randomChance(0.125F))) .build()), false));
         this.entry("grass").selects("blocks/grass")
                 .addModifier(new LootPoolsModifier(Collections.singletonList(LootPool
-                        .lootPool().name("cosmopolitan:redberry")
+                        .lootPool().name("cosmopolitan:wildberry")
                         .setRolls(ConstantValue.exactly(1.0F))
                         .when(HAS_NO_SHEARS_OR_SILK_TOUCH)
                         .add(LootItem.lootTableItem(CosmoItems.WILDBERRY.get())
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
                                 .apply(ApplyExplosionDecay.explosionDecay())
-                                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.025F, 0.027777778F, 0.03125F, 0.04166667F, 0.125F))).build()), false));
-
-        this.entry("tall_fern").selects("blocks/large_fern")
+                                .when(LootItemRandomChanceCondition.randomChance(0.125F))) .build()), false));
+        //fiddlehead
+        this.entry("large_fern").selects("blocks/large_fern")
                 .addModifier(new LootPoolsModifier(Collections.singletonList(LootPool
                         .lootPool().name("cosmopolitan:fiddlehead_from_large_fern")
                         .setRolls(ConstantValue.exactly(1.0F))
                         .when(HAS_NO_SHEARS_OR_SILK_TOUCH)
                         .add(LootItem.lootTableItem(CosmoItems.FIDDLEHEAD.get())
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                .apply(ApplyExplosionDecay.explosionDecay())
+                                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.LARGE_FERN)
+                                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                .hasProperty(BlockStateProperties.HALF, "lower"))))
+                        .add(LootItem.lootTableItem(CosmoItems.FIDDLEHEAD.get())
                                 .apply(ApplyExplosionDecay.explosionDecay())
                                 .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.05F, 0.055555557F, 0.0625F, 0.08333334F, 0.25F))).build()), false));
         this.entry("fern").selects("blocks/fern")
@@ -76,8 +79,8 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                         .when(HAS_NO_SHEARS_OR_SILK_TOUCH)
                         .add(LootItem.lootTableItem(CosmoItems.FIDDLEHEAD.get())
                                 .apply(ApplyExplosionDecay.explosionDecay())
-                                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.025F, 0.027777778F, 0.03125F, 0.04166667F, 0.125F))).build()), false));
-
+                                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.05F, 0.055555557F, 0.0625F, 0.08333334F, 0.25F))).build()), false));
+        //wheatgrass
         this.entry("wheat").selects("blocks/wheat")
                 .addModifier(new LootPoolsModifier(Collections.singletonList(
                         LootPool.lootPool().name("cosmopolitan:wheatgrass")
@@ -102,7 +105,7 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                                         .apply(ApplyExplosionDecay.explosionDecay()))
                                 .build()
                 ), false));
-
+        //pips
         this.entry("sourceberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.AN, "blocks/sourceberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
                 .addModifier(new LootPoolsModifier(List.of(
                         LootPool.lootPool().name("cosmopolitan:sourceberry_bush")

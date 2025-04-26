@@ -1,12 +1,5 @@
 {
   "values": [
-    "cosmopolitan:frozen_dessert_tub",
-    "cosmopolitan:ice_cream_tub_mint",
-    "cosmopolitan:ice_cream_tub_chocolate",
-    "cosmopolitan:ice_cream_tub_vanilla",
-    "cosmopolitan:ice_cream_tub_strawberry",
-    "cosmopolitan:ice_cream_tub_banana",
-    "cosmopolitan:ice_cream_tub_adzuki",
-    "cosmopolitan:ice_cream_tub_apple"
+    "cosmopolitan:frozen_dessert_tub"
   ]
 }

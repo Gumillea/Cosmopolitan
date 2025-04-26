@@ -1,0 +1,46 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "enlightened_end:squished_bouncer"
+    },
+    {
+      "type": "exquisito:config",
+      "value": "enable_jelly_ring_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "exquisito:jelly_ring"
+    },
+    {
+      "tag": "forge:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "amount": 750,
+      "fluidTag": "forge:milk"
+    }
+  ],
+  "results": [
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:jelly_ring_ice_cream"
+    }
+  ]
+}

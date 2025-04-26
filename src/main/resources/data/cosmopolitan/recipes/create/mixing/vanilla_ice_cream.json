@@ -2,6 +2,10 @@
   "type": "create:mixing",
   "conditions": [
     {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
       "type": "forge:mod_loaded",
       "modid": "create"
     },
@@ -21,13 +25,13 @@
       "item": "minecraft:sugar"
     },
     {
-      "amount": 300,
+      "amount": 750,
       "fluidTag": "forge:milk"
     }
   ],
   "results": [
     {
-      "amount": 300,
+      "amount": 750,
       "fluid": "cosmopolitan:vanilla_ice_cream"
     }
   ]

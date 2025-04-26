@@ -34,13 +34,13 @@ public class CosmoItems {
     public static final RegistryObject<Item> WILDBERRY = HELPER.createItem("wildberry", () -> new Item(new Item.Properties().food(CosmopolitanFoods.WILDBERRY)));
     public static final RegistryObject<Item> BERRY_SYRUP_BOTTLE = HELPER.createItem("berry_syrup_bottle", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.BERRY_SYRUP_BOTTLE), true));
     public static final RegistryObject<Item> JELLY_ROLL = HELPER.createItem("jelly_roll", () -> new LongEatDurationItem(new Item.Properties().food(CosmopolitanFoods.JELLY_ROLL)));
+
     public static final RegistryObject<Item> CHOCOLATE_ROLL = HELPER.createItem("chocolate_roll", () -> new LongEatDurationItem(new Item.Properties().food(CosmopolitanFoods.CHOCOLATE_ROLL)));
 
     public static final RegistryObject<Item> FIDDLEHEAD = HELPER.createItem("fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.FIDDLEHEAD)));
     public static final RegistryObject<Item> BAKED_FIDDLEHEAD = HELPER.createItem("baked_fiddlehead", () -> new Item(new Item.Properties().food(CosmopolitanFoods.BAKED_FIDDLEHEAD)));
 
     public static final RegistryObject<Item> WHEATGRASS = HELPER.createItem("wheatgrass", () -> new WheatgrassItem(new Item.Properties().food(CosmopolitanFoods.WHEATGRASS)));
-    public static final RegistryObject<Item> WHEATGRASS_JUICE = HELPER.createItem("wheatgrass_juice", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES), false));
     public static final RegistryObject<Item> PAW_COOKIE = HELPER.createItem("paw_cookie", () -> new WheatgrassItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
 
     public static final RegistryObject<Item> CUT_POTATOES = HELPER.createItem("cut_potatoes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES)));
@@ -51,6 +51,11 @@ public class CosmoItems {
     public static final RegistryObject<Item> WAFER = HELPER.createItem("wafer", () -> new Item(new Item.Properties().food(CosmopolitanFoods.WAFFLE)));
     public static final RegistryObject<Item> WAFER_CONE = HELPER.createItem("wafer_cone", () -> new Item(new Item.Properties().food(CosmopolitanFoods.WAFFLE)));
     public static final RegistryObject<Item> SNOW_CONE = HELPER.createItem("snow_cone", () -> new FrozenDessertItem(new Item.Properties().food(CosmopolitanFoods.SNOW_CONE), false, 80));
+
+    public static final RegistryObject<Item> SPRING_SODA = HELPER.createItem("spring_drink", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES), false));
+    public static final RegistryObject<Item> SUMMER_DRINK = HELPER.createItem("summer_drink", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES), false));
+    public static final RegistryObject<Item> AUTUMN_TEA = HELPER.createItem("autumn_drink", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES), false));
+    public static final RegistryObject<Item> WINTER_STEW = HELPER.createItem("winter_drink", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.POTATO_SLICES), false));
 
     //farmersdelight
     public static final RegistryObject<Item> POTATO_PANCAKES = HELPER.createItem("potato_pancakes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
@@ -193,8 +198,8 @@ public class CosmoItems {
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.DF), MATCHA_ICE_CREAM_CONE, SALMONBERRY_ICE_CREAM_CONE)
                 .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.CR), LIME_ICE_CREAM_CONE, POMEGRANATE_ICE_CREAM_CONE)
 
-                .predicate(event -> event.getTabKey() == FOOD_AND_DRINKS && ModList.get().isLoaded(CosmoCompat.EX))
-                .addItemsAfter(modLoaded(VANILLA_ICE_CREAM_CONE, CosmoCompat.EE), JELLY_RING_ICE_CREAM_CONE, AZURE_BERRY_ICE_CREAM_CONE)
+                .predicate(event -> event.getTabKey() == FOOD_AND_DRINKS && ModList.get().isLoaded(CosmoCompat.EX) && ModList.get().isLoaded(CosmoCompat.EE))
+                .addItemsBefore(of(Items.POTION), JELLY_RING_ICE_CREAM_CONE, AZURE_BERRY_ICE_CREAM_CONE)
 
                 .predicate(event -> ModList.get().isLoaded(CosmoCompat.TF) && event.getTabKey() == TFCreativeTabs.ITEMS.getKey())
                 .addItemsFirst(AURORA_KOHAKUTOU, STEELEAF_NECTAR, GLACIER_ESSENCE)

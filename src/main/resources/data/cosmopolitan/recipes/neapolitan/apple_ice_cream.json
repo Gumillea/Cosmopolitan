@@ -4,6 +4,10 @@
     {
       "type": "forge:mod_loaded",
       "modid": "neapolitan"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_apple_flavor"
     }
   ],
   "ingredients": [
@@ -11,7 +15,7 @@
       "item": "minecraft:bowl"
     },
     {
-      "item": "minecraft:apple"
+      "tag": "forge:fruits/apple"
     },
     {
       "tag": "forge:milk"

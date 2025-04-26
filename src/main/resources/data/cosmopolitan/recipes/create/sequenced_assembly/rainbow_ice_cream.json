@@ -1,0 +1,89 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:bowl"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "twilightdelight:rainbow_ice_cream"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:banana_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:adzuki_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:aurora_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:bowl"
+  }
+}

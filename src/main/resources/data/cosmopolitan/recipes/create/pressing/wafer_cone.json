@@ -1,0 +1,19 @@
+{
+  "type": "create:pressing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer"
+    }
+  ],
+  "results": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    }
+  ]
+}

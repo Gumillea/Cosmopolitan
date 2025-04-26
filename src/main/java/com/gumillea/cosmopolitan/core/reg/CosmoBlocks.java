@@ -1,7 +1,7 @@
 package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
-import com.gumillea.cosmopolitan.common.block.IceCreamTubBlock;
+import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -31,22 +32,7 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> MASHED_POTATO_BLOCK = HELPER.createBlock("mashed_potato_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
 
     //Ice Cream Tub Blocks//
-    public static final RegistryObject<Block> FROZEN_DESSERT_TUB = HELPER.createBlock("frozen_dessert_tub", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-
-    public static final RegistryObject<Block> VANILLA_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_vanilla", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> STRAWBERRY_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_strawberry", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> CHOCOLATE_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_chocolate", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> ADZUKI_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_adzuki", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> BANANA_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_banana", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> MINT_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_mint", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-
-    public static final RegistryObject<Block> APPLE_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_apple", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> GLOW_BERRY_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_glow_berry", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> CARROT_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_carrot", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-
-    public static final RegistryObject<Block> SOURCE_BERRY_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_source_berry", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> KABLOOM_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_kabloom", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
-    public static final RegistryObject<Block> ENCHANTED_FRUIT_ICE_CREAM_TUB = HELPER.createBlock("ice_cream_tub_enchanted_fruit", () -> new IceCreamTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
+    public static final RegistryObject<Block> FROZEN_DESSERT_TUB = HELPER.createBlock("frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
 
     //Chiseled Ice Cream Blocks
     public static final RegistryObject<Block> CHISELED_ADZUKI_ICE_CREAM_BLOCK = HELPER.createBlock("chiseled_adzuki_ice_cream_block", () -> new Block(Properties.CHISELED_ADZUKI_ICE_CREAM_BLOCK));
