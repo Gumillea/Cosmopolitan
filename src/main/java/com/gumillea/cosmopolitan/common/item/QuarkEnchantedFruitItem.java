@@ -15,7 +15,7 @@ public class QuarkEnchantedFruitItem extends FrozenDessertItem {
     }
 
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
-        if (level instanceof ServerLevel && living instanceof Player player) {
+        if (living instanceof Player player) {
             player.giveExperiencePoints(eAmount);
             player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
         }

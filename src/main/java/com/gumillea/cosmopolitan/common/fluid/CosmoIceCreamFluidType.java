@@ -10,8 +10,10 @@ import net.minecraftforge.fluids.FluidType;
 import java.util.function.Consumer;
 
 public class CosmoIceCreamFluidType extends FluidType {
-    private final ResourceLocation ICE_CREAM_STILL_TEXTURE;
-    private final ResourceLocation ICE_CREAM_FLOWING_TEXTURE;
+    private final ResourceLocation stillTexture;
+    private final ResourceLocation flowingTexture;
+    private final ResourceLocation tubStillTexture;
+    private final ResourceLocation tubFlowingTexture;
 
     public CosmoIceCreamFluidType(String texture) {
         super(FluidType.Properties.create()
@@ -20,20 +22,43 @@ public class CosmoIceCreamFluidType extends FluidType {
                 .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.SNOW_BREAK)
         );
 
-        this.ICE_CREAM_STILL_TEXTURE = new ResourceLocation(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
-        this.ICE_CREAM_FLOWING_TEXTURE = new ResourceLocation(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
+        this.stillTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
+        this.flowingTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
+
+        this.tubStillTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
+        this.tubFlowingTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
     }
 
+    @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
         consumer.accept(new IClientFluidTypeExtensions() {
+            @Override
             public ResourceLocation getStillTexture() {
-                return ICE_CREAM_STILL_TEXTURE;
+                return selectTexture(false);
             }
 
+            @Override
             public ResourceLocation getFlowingTexture() {
-                return ICE_CREAM_FLOWING_TEXTURE;
+                return selectTexture(true);
+            }
+
+            private ResourceLocation selectTexture(boolean flowing) {
+                if (CosmoIceCreamFluidType.isInTubContext()) {
+                    return flowing ? tubFlowingTexture : tubStillTexture;
+                } else {
+                    return flowing ? flowingTexture : stillTexture;
+                }
             }
         });
     }
 
+    private static boolean isInTubContext() {
+        return IN_TUB_CONTEXT.get();
+    }
+
+    private static final ThreadLocal<Boolean> IN_TUB_CONTEXT = ThreadLocal.withInitial(() -> false);
+
+    public static void setTubContext(boolean inTub) {
+        IN_TUB_CONTEXT.set(inTub);
+    }
 }

@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.common.client;
 
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
+import com.gumillea.cosmopolitan.common.fluid.CosmoIceCreamFluidType;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -19,9 +20,9 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
 public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDessertTubBlockEntity> {
-    private static final float INNER_MIN = 2/16f;
-    private static final float INNER_MAX = 14/16f;
-    private static final float BASE_HEIGHT = 1/16f;
+    private static final float INNER_MIN = 2F / 16F;
+    private static final float INNER_MAX = 14F / 16F;
+    private static final float BASE_HEIGHT = 1F / 16F;
 
     public FrozenDessertTubRenderer(BlockEntityRendererProvider.Context context) {}
 
@@ -31,18 +32,24 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
         FluidStack stack = be.getTank().getFluid();
         if (stack.isEmpty()) return;
 
-        float fill = (float)stack.getAmount() / FrozenDessertTubBlockEntity.CAPACITY;
-        float height = BASE_HEIGHT + (INNER_MAX - BASE_HEIGHT) * fill;
+        try {
+            CosmoIceCreamFluidType.setTubContext(true);
 
-        TextureAtlasSprite fluidSprite = getFluidSprite(stack);
-        renderFluidPlane(poseStack, buffer, fluidSprite, height, packedLight);
+            float fill = (float) stack.getAmount() / FrozenDessertTubBlockEntity.CAPACITY;
+            float height = BASE_HEIGHT + (INNER_MAX - BASE_HEIGHT) * fill;
+
+            TextureAtlasSprite sprite = getFluidSprite(stack);
+            renderFluidPlane(poseStack, buffer, sprite, height, packedLight);
+        } finally {
+            CosmoIceCreamFluidType.setTubContext(false);
+        }
     }
 
     private TextureAtlasSprite getFluidSprite(FluidStack stack) {
         Fluid fluid = stack.getFluid();
         FluidType type = fluid.getFluidType();
-        IClientFluidTypeExtensions clientExtensions = IClientFluidTypeExtensions.of(type);
-        ResourceLocation texture = clientExtensions.getStillTexture(stack);
+        IClientFluidTypeExtensions extensions = IClientFluidTypeExtensions.of(type);
+        ResourceLocation texture = extensions.getStillTexture(stack);
         return Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS).apply(texture);
     }
 
@@ -52,22 +59,16 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
         Matrix4f matrix = poseStack.last().pose();
         Matrix3f normal = poseStack.last().normal();
 
-        float x1 = INNER_MIN, z1 = INNER_MIN;
-        float x2 = INNER_MIN, z2 = INNER_MAX;
-        float x3 = INNER_MAX, z3 = INNER_MAX;
-        float x4 = INNER_MAX, z4 = INNER_MIN;
-
-        float uMin = sprite.getU0();
-        float uMax = sprite.getU1();
-        float vMin = sprite.getV0();
-        float vMax = sprite.getV1();
-
+        float uMin = sprite.getU(2);
+        float uMax = sprite.getU(14);
+        float vMin = sprite.getV(2);
+        float vMax = sprite.getV(14);
         int r = 255, g = 255, b = 255, a = 255;
 
-        vertexBuilder.vertex(matrix, x1, height, z1).color(r, g, b, a).uv(uMin, vMin).uv2(light).normal(normal, 0, 1, 0).endVertex();
-        vertexBuilder.vertex(matrix, x2, height, z2).color(r, g, b, a).uv(uMin, vMax).uv2(light).normal(normal, 0, 1, 0).endVertex();
-        vertexBuilder.vertex(matrix, x3, height, z3).color(r, g, b, a).uv(uMax, vMax).uv2(light).normal(normal, 0, 1, 0).endVertex();
-        vertexBuilder.vertex(matrix, x4, height, z4).color(r, g, b, a).uv(uMax, vMin).uv2(light).normal(normal, 0, 1, 0).endVertex();
+        vertexBuilder.vertex(matrix, INNER_MIN, height, INNER_MIN).color(r, g, b, a).uv(uMin, vMin).uv2(light).normal(normal, 0, 1, 0).endVertex();
+        vertexBuilder.vertex(matrix, INNER_MIN, height, INNER_MAX).color(r, g, b, a).uv(uMin, vMax).uv2(light).normal(normal, 0, 1, 0).endVertex();
+        vertexBuilder.vertex(matrix, INNER_MAX, height, INNER_MAX).color(r, g, b, a).uv(uMax, vMax).uv2(light).normal(normal, 0, 1, 0).endVertex();
+        vertexBuilder.vertex(matrix, INNER_MAX, height, INNER_MIN).color(r, g, b, a).uv(uMax, vMin).uv2(light).normal(normal, 0, 1, 0).endVertex();
     }
 
 }

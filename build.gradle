@@ -45,7 +45,7 @@ minecraft {
             property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             arg "-mixin.config=" + mod_id + ".mixins.json"
             mods {
-                exquisito {
+                cosmopolitan {
                     source sourceSets.main
                 }
             }
@@ -60,7 +60,7 @@ minecraft {
             property "mixin.env.remapRefMap", "true"
             property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             mods {
-                exquisito {
+                cosmopolitan {
                     source sourceSets.main
                 }
             }
@@ -75,7 +75,7 @@ minecraft {
             arg "-mixin.config=" + mod_id + ".mixins.json"
 
             mods {
-                exquisito {
+                cosmopolitan {
                     source sourceSets.main
                 }
             }
@@ -92,7 +92,7 @@ minecraft {
             args "--mod", mod_id, "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources"), "--existing-mod", "blueprint"
 
             mods {
-                exquisito {
+                cosmopolitan {
                     source sourceSets.main
                 }
             }
@@ -142,7 +142,7 @@ dependencies {
     implementation fg.deobf("curse.maven:habitat-422972:5293408")
     implementation fg.deobf("curse.maven:enlightend-502786:4880586")
 
-    implementation fg.deobf("curse.maven:exquisito-859262:6410831")
+    implementation fg.deobf("curse.maven:cosmopolitan-859262:6410831")
     implementation fg.deobf("curse.maven:seasonals-416471:6058164")
     implementation fg.deobf("curse.maven:peculiars-418551:6058169")
 
@@ -176,11 +176,13 @@ tasks.named('processResources', ProcessResources).configure {
     ]
 
     inputs.properties replaceProperties
+    
+    exclude('.cache/**')
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
-    }}
-
+    }
+}
 // Example for how to get properties into the manifest for reading at runtime.
 tasks.named('jar', Jar).configure {
     manifest {

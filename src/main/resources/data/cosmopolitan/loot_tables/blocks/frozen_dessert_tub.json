@@ -1,0 +1,53 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cosmopolitan:frozen_dessert_tub",
+          "functions": [
+            {
+              "function": "minecraft:copy_name",
+              "source": "block_entity"
+            },
+            {
+              "function": "minecraft:copy_nbt",
+              "source": "block_entity",
+              "ops": [
+                {
+                  "source": "Tank",
+                  "target": "BlockEntityTag.Tank",
+                  "op": "replace"
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "cosmopolitan:frozen_dessert_tub",
+              "properties": {
+                "open": "false"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "cosmopolitan:frozen_dessert_tub",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "cosmopolitan:frozen_dessert_tub",
+              "properties": {
+                "open": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

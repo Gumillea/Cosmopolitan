@@ -1,6 +1,6 @@
 package com.gumillea.cosmopolitan.core.misc;
 
-import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.google.gson.JsonElement;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.google.gson.JsonObject;
@@ -26,11 +26,13 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class TubExtractRecipe implements Recipe<Container> {
+    private final ResourceLocation location;
     private final Ingredient ingredient;
     private final ItemStack resultItem;
     private final FluidStack fluid;
 
-    public TubExtractRecipe(Ingredient ingredient, ItemStack result, FluidStack fluid) {
+    public TubExtractRecipe(ResourceLocation location, Ingredient ingredient, ItemStack result, FluidStack fluid) {
+        this.location = location;
         this.ingredient = ingredient;
         this.resultItem = result;
         this.fluid = fluid;
@@ -70,7 +72,7 @@ public class TubExtractRecipe implements Recipe<Container> {
 
     @Override
     public ResourceLocation getId() {
-        return new ResourceLocation(Cosmopolitan.MODID, "tub_extracting");
+        return this.location;
     }
 
     @Override
@@ -102,11 +104,22 @@ public class TubExtractRecipe implements Recipe<Container> {
             if (recipe.getIngredient().test(heldItem)) {
                 if (tub.getFluidHandler().drain(recipe.getFluid(), IFluidHandler.FluidAction.SIMULATE).getAmount() >= recipe.getFluid().getAmount()) {
                     tub.getFluidHandler().drain(recipe.getFluid(), IFluidHandler.FluidAction.EXECUTE);
-                    if (!player.getInventory().add(recipe.getResultItem().copy())) {
-                        player.drop(recipe.getResultItem().copy(), false);
+                    ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
+                    if (!player.isCreative()) {
+                        heldItem.shrink(1);
+                        if (heldItem.isEmpty()) {
+                            player.setItemInHand(hand, result);
+                        } else if (!player.addItem(result)) {
+                            player.drop(result, false);
+                        }
+                        return player.getItemInHand(hand);
                     }
-                    if (!player.isCreative()) heldItem.shrink(1);
-                    return heldItem.isEmpty() ? ItemStack.EMPTY : heldItem;
+
+                    if (!player.addItem(result)) {
+                        player.drop(result, false);
+                    }
+
+                    return heldItem;
                 }
             }
         }
@@ -116,22 +129,49 @@ public class TubExtractRecipe implements Recipe<Container> {
     public static class Serializer implements RecipeSerializer<TubExtractRecipe> {
         @Override
         public TubExtractRecipe fromJson(ResourceLocation location, JsonObject json) {
-            JsonObject ingObj = GsonHelper.getAsJsonObject(json, "ingredient");
-            Ingredient ing = Ingredient.fromJson(ingObj);
+            JsonElement ingElem = json.get("ingredient");
+            Ingredient ingredient = Ingredient.EMPTY;
+            FluidStack fluidStack = FluidStack.EMPTY;
+
+            if (ingElem.isJsonArray()) {
+                for (JsonElement el : ingElem.getAsJsonArray()) {
+                    JsonObject obj = el.getAsJsonObject();
+                    if (obj.has("fluid")) {
+                        JsonObject f = obj.getAsJsonObject("fluid");
+                        ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(f, "name"));
+                        int amt = GsonHelper.getAsInt(f, "amount", 0);
+                        fluidStack = new FluidStack(
+                                Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(id)), amt
+                        );
+                    } else {
+                        ingredient = Ingredient.fromJson(obj);
+                    }
+                }
+            } else {
+                JsonObject obj = ingElem.getAsJsonObject();
+                if (obj.has("fluid")) {
+                    JsonObject f = obj.getAsJsonObject("fluid");
+                    ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(f, "name"));
+                    int amt = GsonHelper.getAsInt(f, "amount", 0);
+                    fluidStack = new FluidStack(
+                            Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(id)), amt
+                    );
+                } else {
+                    ingredient = Ingredient.fromJson(obj);
+                }
+            }
 
             JsonObject resultObj = GsonHelper.getAsJsonObject(json, "result");
-            ItemStack result = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(GsonHelper.getAsString(resultObj, "item")))),
+            ItemStack result = new ItemStack(
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(
+                            new ResourceLocation(GsonHelper.getAsString(resultObj, "item"))
+                    )),
                     GsonHelper.getAsInt(resultObj, "count", 1)
             );
 
-            JsonObject fluidObj = GsonHelper.getAsJsonObject(json, "fluid");
-            FluidStack fs = new FluidStack(
-                    Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(new ResourceLocation(GsonHelper.getAsString(fluidObj, "name")))),
-                    GsonHelper.getAsInt(fluidObj, "amount")
-            );
-
-            return new TubExtractRecipe(ing, result, fs);
+            return new TubExtractRecipe(location, ingredient, result, fluidStack);
         }
+
 
         @Override
         @Nullable
@@ -139,7 +179,7 @@ public class TubExtractRecipe implements Recipe<Container> {
             Ingredient ingredient1 = Ingredient.fromNetwork(byteBuf);
             ItemStack result = byteBuf.readItem();
             FluidStack stack = FluidStack.readFromPacket(byteBuf);
-            return new TubExtractRecipe(ingredient1, result, stack);
+            return new TubExtractRecipe(location, ingredient1, result, stack);
         }
 
         @Override
@@ -150,3 +190,4 @@ public class TubExtractRecipe implements Recipe<Container> {
         }
     }
 }
+

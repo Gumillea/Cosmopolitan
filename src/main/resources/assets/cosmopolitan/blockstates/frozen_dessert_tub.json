@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "cosmopolitan:block/frozen_dessert_tub" }
+    "open=true": {
+      "model": "cosmopolitan:block/frozen_dessert_tub"
+    },
+    "open=false": {
+      "model": "cosmopolitan:block/frozen_dessert_tub_closed"
+    }
   }
 }

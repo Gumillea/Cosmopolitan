@@ -2,9 +2,12 @@ package com.gumillea.cosmopolitan.core.misc;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
-import com.google.gson.JsonObject;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -13,25 +16,22 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraft.core.RegistryAccess;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
 
-public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe<Container> {
-    private final ResourceLocation location;
+public class TubInteractingRecipe implements Recipe<Container> {
     private final Ingredient ingredient;
     private final ItemStack resultItem;
     private final FluidStack fluid;
 
-    public TubInjectRecipe(ResourceLocation location, Ingredient ingredient, ItemStack result, FluidStack fluid) {
-        this.location = location;
+    public TubInteractingRecipe(Ingredient ingredient, ItemStack result, FluidStack fluid) {
         this.ingredient = ingredient;
         this.resultItem = result;
         this.fluid = fluid;
@@ -41,17 +41,17 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
         return ingredient;
     }
 
+    public ItemStack getResultItem() {
+        return resultItem.copy();
+    }
+
     public FluidStack getFluid() {
         return fluid;
     }
 
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return resultItem;
-    }
-
     @Override
     public boolean matches(Container inv, Level world) {
-        return inv.getItem(0).getItem() == this.ingredient.getItems()[0].getItem();
+        return true;
     }
 
     @Override
@@ -60,23 +60,28 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
     }
 
     @Override
-    public boolean canCraftInDimensions(int w, int h) {
+    public boolean canCraftInDimensions(int width, int height) {
         return false;
     }
 
     @Override
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
+        return resultItem;
+    }
+
+    @Override
     public ResourceLocation getId() {
-        return this.location;
+        return new ResourceLocation(Cosmopolitan.MODID, "tub_interacting");
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return CosmoRecipes.TUB_INJECT_SERIALIZER.get();
+        return CosmoRecipes.TUB_INTERACTING_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return CosmoRecipes.TUB_INJECT_TYPE.get();
+        return CosmoRecipes.TUB_INTERACTING_TYPE.get();
     }
 
     @Override
@@ -85,42 +90,40 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
     }
 
     @Override
-    public net.minecraft.core.NonNullList<Ingredient> getIngredients() {
-        net.minecraft.core.NonNullList<Ingredient> list = net.minecraft.core.NonNullList.create();
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> list = NonNullList.create();
         list.add(ingredient);
         return list;
     }
 
     @Nullable
     public static ItemStack tryApply(Level level, FrozenDessertTubBlockEntity tub, ItemStack inHand, Player player, InteractionHand hand) {
-        var recipes = level.getRecipeManager().getAllRecipesFor(CosmoRecipes.TUB_INJECT_TYPE.get());
-        for (TubInjectRecipe recipe : recipes) {
+        var recipes = level.getRecipeManager().getAllRecipesFor(CosmoRecipes.TUB_INTERACTING_TYPE.get());
+        for (TubInteractingRecipe recipe : recipes) {
             if (recipe.getIngredient().test(inHand)) {
-                if (tub.getFluidHandler().fill(recipe.getFluid(), IFluidHandler.FluidAction.SIMULATE) >= recipe.getFluid().getAmount()) {
-                    tub.getFluidHandler().fill(recipe.getFluid(), IFluidHandler.FluidAction.EXECUTE);
-                    ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
-                    if (!player.isCreative()) {
-                        inHand.shrink(1);
+                FluidStack newFluid = new FluidStack(recipe.getFluid().getFluid(), tub.getTank().getFluidAmount());
+                tub.getTank().setFluid(newFluid);
+
+                if (!player.isCreative()) {
+                    inHand.shrink(1);
+                    ItemStack result = recipe.getResultItem();
+                    if (!result.isEmpty()) {
                         if (inHand.isEmpty()) {
                             player.setItemInHand(hand, result);
-                            return result;
-                        } else {
-                            if (!player.addItem(result)) {
-                                player.drop(result, false);
-                            }
-                            return inHand;
+                        } else if (!player.addItem(result)) {
+                            player.drop(result, false);
                         }
                     }
-                    return inHand.isEmpty() ? ItemStack.EMPTY : inHand;
                 }
+                return inHand.isEmpty() ? ItemStack.EMPTY : inHand;
             }
         }
         return ItemStack.EMPTY;
     }
 
-    public static class Serializer implements RecipeSerializer<TubInjectRecipe> {
+    public static class Serializer implements RecipeSerializer<TubInteractingRecipe> {
         @Override
-        public TubInjectRecipe fromJson(ResourceLocation location, JsonObject json) {
+        public TubInteractingRecipe fromJson(ResourceLocation location, JsonObject json) {
             JsonElement element = json.get("ingredient");
             Ingredient ingredient = Ingredient.EMPTY;
             if (element.isJsonArray()) {
@@ -132,6 +135,7 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
             JsonArray array = GsonHelper.getAsJsonArray(json, "result");
             ItemStack result = ItemStack.EMPTY;
             FluidStack fluidStack = FluidStack.EMPTY;
+
             for (JsonElement resultElement : array) {
                 JsonObject resultObj = resultElement.getAsJsonObject();
                 if (resultObj.has("item")) {
@@ -145,19 +149,20 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
                     fluidStack = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(fluidId)), fluidAmount);
                 }
             }
-            return new TubInjectRecipe(location, ingredient, result, fluidStack);
+
+            return new TubInteractingRecipe(ingredient, result, fluidStack);
         }
 
         @Override
-        public @Nullable TubInjectRecipe fromNetwork(ResourceLocation location, FriendlyByteBuf byteBuf) {
+        public @Nullable TubInteractingRecipe fromNetwork(ResourceLocation location, FriendlyByteBuf byteBuf) {
             Ingredient ingredient = Ingredient.fromNetwork(byteBuf);
             ItemStack itemResult = byteBuf.readItem();
             FluidStack fluidResult = FluidStack.readFromPacket(byteBuf);
-            return new TubInjectRecipe(location, ingredient, itemResult, fluidResult);
+            return new TubInteractingRecipe(ingredient, itemResult, fluidResult);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf byteBuf, TubInjectRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf byteBuf, TubInteractingRecipe recipe) {
             recipe.ingredient.toNetwork(byteBuf);
             byteBuf.writeItem(recipe.resultItem);
             recipe.fluid.writeToPacket(byteBuf);

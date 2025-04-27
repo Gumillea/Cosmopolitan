@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": {
+        "amount": 750,
+        "name": "cosmopolitan:adzuki_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "neapolitan:adzuki_ice_cream"
+  }
+}
