@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wheatgrass_bale"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:wheatgrass",
+    "count": 9
+  }
+}

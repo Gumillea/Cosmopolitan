@@ -13,5 +13,5 @@ import java.util.Set;
 public class CosmoBlockEntityTypes {
     public static final BlockEntitySubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockEntitySubHelper();
 
-    public static final RegistryObject<BlockEntityType<FrozenDessertTubBlockEntity>> FROZEN_DESSERT_TUB = HELPER.createBlockEntity("frozen_dessert_tub", FrozenDessertTubBlockEntity::new, () -> Set.of(CosmoBlocks.FROZEN_DESSERT_TUB.get()));
+    public static final RegistryObject<BlockEntityType<FrozenDessertTubBlockEntity>> FROZEN_DESSERT_TUB = HELPER.createBlockEntity("frozen_dessert_tub", FrozenDessertTubBlockEntity::new, () -> Set.of(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get()));
 }

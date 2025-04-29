@@ -1,4 +1,4 @@
-package com.gumillea.cosmopolitan.core.util;
+package com.gumillea.cosmopolitan.core.util.jei;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;

@@ -1,11 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "conditions": [
-    {
-      "type": "forge:tag_empty",
-      "tag": "forge:ingots/tin"
-    }
-  ],
   "pattern": [
     "C C",
     "CBC",
@@ -16,13 +10,13 @@
       "tag": "forge:buckets/empty"
     },
     "B": {
-      "tag": "forge:ice_cubes"
+      "tag": "forge:ices"
     },
     "C": {
-      "tag": "forge:ingots/iron"
+      "tag": "forge:ingots/copper"
     }
   },
   "result": {
-    "item": "cosmopolitan:frozen_dessert_tub"
+    "item": "cosmopolitan:copper_frozen_dessert_tub"
   }
 }

@@ -19,25 +19,44 @@ import net.minecraftforge.registries.ForgeRegistries;
 import quek.undergarden.registry.UGBlocks;
 
 public class CosmoCompat {
-    public static final String AN = "ars_nouveau";
-    public static final String AT = "atmospheric";
-    public static final String CR = "collectorsreap";
+    public static final String AN  = "ars_nouveau";
+    public static final boolean an = ModList.get().isLoaded(AN);
+    public static final String AT  = "atmospheric";
+    public static final boolean at = ModList.get().isLoaded(AT);
+    public static final String CR  = "collectorsreap";
+    public static final boolean cr = ModList.get().isLoaded(CR);
     public static final String BAC = "brewinandchewin";
-    public static final String BG = "berry_good";
-    public static final String DF = "delightful";
-    public static final String EX = "exquisito";
-    public static final String EE = "enlightened_end";
+    public static final boolean bac = ModList.get().isLoaded(BAC);
+    public static final String BG  = "berry_good";
+    public static final boolean bg = ModList.get().isLoaded(BG);
+    public static final String DF  = "delightful";
+    public static final boolean df = ModList.get().isLoaded(DF);
+    public static final String EX  = "exquisito";
+    public static final boolean ex = ModList.get().isLoaded(EX);
+    public static final String EE  = "enlightened_end";
+    public static final boolean ee = ModList.get().isLoaded(EE);
     public static final String CAD = "casualness_delight";
+    public static final boolean cad = ModList.get().isLoaded(CAD);
     public static final String FCD = "frycooks_delight";
-    public static final String FD = "farmersdelight";
-    public static final String HA = "habitat";
+    public static final boolean fcd = ModList.get().isLoaded(FCD);
+    public static final String FD  = "farmersdelight";
+    public static final boolean fd = ModList.get().isLoaded(FD);
+    public static final String HA  = "habitat";
+    public static final boolean ha = ModList.get().isLoaded(HA);
     public static final String NEA = "neapolitan";
+    public static final boolean nea = ModList.get().isLoaded(NEA);
     public static final String PEC = "peculiars";
+    public static final boolean pec = ModList.get().isLoaded(PEC);
     public static final String QUA = "quark";
-    public static final String TF = "twilightforest";
+    public static final boolean qua = ModList.get().isLoaded(QUA);
+    public static final String TF  = "twilightforest";
+    public static final boolean tf = ModList.get().isLoaded(TF);
     public static final String TFD = "twilightdelight";
+    public static final boolean tfd = ModList.get().isLoaded(TFD);
     public static final String SEA = "seasonals";
-    public static final String UG = "undergarden";
+    public static final boolean sea = ModList.get().isLoaded(SEA);
+    public static final String UG  = "undergarden";
+    public static final boolean ug = ModList.get().isLoaded(UG);
 
     //ars_nouveau
     public static final MobEffect MANA_REGEN = ((ModList.get().isLoaded(AN)) ? (ModPotions.MANA_REGEN_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
@@ -76,7 +95,8 @@ public class CosmoCompat {
     //seasonals
     public static final MobEffect ROOTED = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.ROOTED.get()) : CosmoEffects.PLACEHOLDER.get());
     public static final MobEffect STUFFED = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.STUFFED.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect THORN_RESISTANCE = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect THORN_RESISTANCE_ICE_CREAM = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect THORN_RESISTANCE = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : MobEffects.REGENERATION);
 
     //twilight_delight
     public static MobEffect AURORA = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "aurora_glowing")): MobEffects.MOVEMENT_SPEED;

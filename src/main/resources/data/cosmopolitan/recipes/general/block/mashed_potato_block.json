@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA ",
+    "AA "
+  ],
+  "key": {
+    "A": {
+      "item": "cosmopolitan:mashed_potato"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:mashed_potato_block"
+  }
+}

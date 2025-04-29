@@ -5,6 +5,7 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -34,8 +35,9 @@ public class CosmoEvents {
         }
         if (event.getSource().getEntity() instanceof LivingEntity attacker) {
             if (attacker.getEffect(CosmoEffects.TRACER.get()) != null) {
-                int amplifier = Objects.requireNonNull(attacker.getEffect(CosmoEffects.TRACER.get())).getAmplifier();
-                target.addEffect(new MobEffectInstance(CosmoEffects.MARKED.get(), 200 * amplifier));
+                int amplifier = Objects.requireNonNull(attacker.getEffect(CosmoEffects.TRACER.get())).getAmplifier() + 1;
+                target.addEffect(new MobEffectInstance(CosmoEffects.MARKED.get(), 300 * amplifier));
+                target.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 300 * amplifier));
                 attacker.removeEffect(CosmoEffects.TRACER.get());
             }
         }

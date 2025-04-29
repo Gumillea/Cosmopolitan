@@ -1,14 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "conditions": [
-    {
-      "type": "forge:not",
-      "value":         {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/tin"
-      }
-    }
-  ],
   "pattern": [
     "C C",
     "CBC",
@@ -19,10 +10,10 @@
       "tag": "forge:buckets/empty"
     },
     "B": {
-      "tag": "forge:ice_cubes"
+      "tag": "forge:ices"
     },
     "C": {
-      "tag": "forge:ingots/tin"
+      "tag": "forge:ingots/iron"
     }
   },
   "result": {

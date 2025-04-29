@@ -1,7 +1,7 @@
-// 1.20.1	2025-04-26T12:12:39.4314597	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2025-04-28T03:40:36.4037487	Tags for minecraft:item mod id cosmopolitan
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
 90e5227e3913eb052610246ff767ca019c16195e data/blueprint/tags/items/pig_food.json
-9db6b3f039f6a7688c8ca300b89018861dc6aba4 data/cosmopolitan/tags/items/ice_cream_cones.json
+f42d9821710d96f28225d7a2dbebecfe3b2b991b data/cosmopolitan/tags/items/ice_cream_cones.json
 f4b16af790a1c39d3adfa358c7a701fb92a8b0da data/create/tags/items/upright_on_belt.json
 67188dce22d633fd6a46d93b90c67ad01a8e073e data/forge/tags/items/berries.json
 25093b4c17b8b5f98c63dc3e27ae9a68bd9d68a8 data/forge/tags/items/chocolate.json

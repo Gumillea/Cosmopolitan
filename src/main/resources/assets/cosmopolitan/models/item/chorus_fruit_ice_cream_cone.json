@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "cosmopolitan:item/chorus_ice_cream_cone"
+    "layer0": "cosmopolitan:item/chorus_fruit_ice_cream_cone"
   }
 }

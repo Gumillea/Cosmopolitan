@@ -2,37 +2,24 @@ package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
-import com.gumillea.cosmopolitan.core.util.CosmoCompat;
-import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.function.Predicate;
-
-import static net.minecraft.world.item.CreativeModeTabs.BUILDING_BLOCKS;
-import static net.minecraft.world.item.CreativeModeTabs.FUNCTIONAL_BLOCKS;
 import static net.minecraft.world.item.crafting.Ingredient.of;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoBlocks {
     public static final BlockSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockSubHelper();
 
-    public static final RegistryObject<Block> MASHED_POTATO_BLOCK = HELPER.createBlock("mashed_potato_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
-
     //Ice Cream Tub Blocks//
-    public static final RegistryObject<Block> FROZEN_DESSERT_TUB = HELPER.createBlock("frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
+    public static final RegistryObject<Block> COOPER_FROZEN_DESSERT_TUB = HELPER.createBlock("cooper_frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
+    public static final RegistryObject<Block> IRON_FROZEN_DESSERT_TUB = HELPER.createBlock("frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
+    public static final RegistryObject<Block> NETHERITE_FROZEN_DESSERT_TUB = HELPER.createBlock("netherite_frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)));
 
     //Chiseled Ice Cream Blocks
     public static final RegistryObject<Block> CHISELED_ADZUKI_ICE_CREAM_BLOCK = HELPER.createBlock("chiseled_adzuki_ice_cream_block", () -> new Block(Properties.CHISELED_ADZUKI_ICE_CREAM_BLOCK));
@@ -43,23 +30,17 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> CHISELED_VANILLA_ICE_CREAM_BLOCK = HELPER.createBlock("chiseled_vanilla_ice_cream_block", () -> new Block(Properties.CHISELED_VANILLA_ICE_CREAM_BLOCK));
 
     //Ice Cream Blocks
+    public static final RegistryObject<Block> APPLE_ICE_CREAM_BLOCK = HELPER.createBlock("apple_ice_cream_block", () -> new Block(Properties.ENCHANTED_FRUIT_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> CARROT_ICE_CREAM_BLOCK = HELPER.createBlock("carrot_ice_cream_block", () -> new Block(Properties.KABLOOM_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> GLOW_BERRY_ICE_CREAM_BLOCK = HELPER.createBlock("glow_berry_ice_cream_block", () -> new Block(Properties.SOURCE_BERRY_ICE_CREAM_BLOCK));
+
     public static final RegistryObject<Block> ENCHANTED_FRUIT_ICE_CREAM_BLOCK = HELPER.createBlock("enchanted_fruit_ice_cream_block", () -> new Block(Properties.ENCHANTED_FRUIT_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> KABLOOM_ICE_CREAM_BLOCK = HELPER.createBlock("kabloom_ice_cream_block", () -> new Block(Properties.KABLOOM_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> SOURCE_BERRY_ICE_CREAM_BLOCK = HELPER.createBlock("source_berry_ice_cream_block", () -> new Block(Properties.SOURCE_BERRY_ICE_CREAM_BLOCK));
 
-    public static void setupTabEditors() {
-        CreativeModeTabContentsPopulator.mod(Cosmopolitan.MODID)
-                .predicate(event -> event.getTabKey() == FUNCTIONAL_BLOCKS && ModList.get().isLoaded(CosmoCompat.NEA))
-                .addItemsAfter(of(Blocks.CAULDRON), FROZEN_DESSERT_TUB)
-                .predicate(event -> event.getTabKey() == BUILDING_BLOCKS && ModList.get().isLoaded(CosmoCompat.NEA))
-                .addItems(CHISELED_ADZUKI_ICE_CREAM_BLOCK, CHISELED_BANANA_ICE_CREAM_BLOCK, CHISELED_CHOCOLATE_ICE_CREAM_BLOCK, CHISELED_MINT_ICE_CREAM_BLOCK, CHISELED_STRAWBERRY_ICE_CREAM_BLOCK, CHISELED_VANILLA_ICE_CREAM_BLOCK,
-                        ENCHANTED_FRUIT_ICE_CREAM_BLOCK, KABLOOM_ICE_CREAM_BLOCK, SOURCE_BERRY_ICE_CREAM_BLOCK)
-                ;
-    }
-
-    public static Predicate<ItemStack> ofID(ResourceLocation location, String... modids) {
-        return stack -> (BlockSubRegistryHelper.areModsLoaded(modids) && of(ForgeRegistries.ITEMS.getValue(location)).test(stack));
-    }
+    //Others
+    public static final RegistryObject<Block> MASHED_POTATO_BLOCK = HELPER.createBlock("mashed_potato_block", () -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
+    public static final RegistryObject<Block> WHEATGRASS_BALE = HELPER.createBlock("wheatgrass_bale", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
 
     static class Properties {
         //Chiseled Cream Blocks

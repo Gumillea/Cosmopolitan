@@ -2,7 +2,6 @@ package com.gumillea.cosmopolitan.core.data.tags;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
-import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -31,7 +30,7 @@ public class CosmopolitanBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                CosmoBlocks.FROZEN_DESSERT_TUB.get()
+                CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get()
         );
     }
 }

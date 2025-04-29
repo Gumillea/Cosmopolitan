@@ -3,7 +3,9 @@ package com.gumillea.cosmopolitan.core.data;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.common.loot.modification.LootModifierProvider;
+import com.teamabnormals.blueprint.common.loot.modification.modifiers.LootPoolEntriesModifier;
 import com.teamabnormals.blueprint.common.loot.modification.modifiers.LootPoolsModifier;
 import com.teamabnormals.blueprint.core.util.modification.selection.ConditionedResourceSelector;
 import com.teamabnormals.blueprint.core.util.modification.selection.selectors.NamesResourceSelector;
@@ -13,8 +15,10 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -23,6 +27,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
 import java.util.Collections;
@@ -130,6 +135,13 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                                 .setRolls(ConstantValue.exactly(1.0F))
                                 .add(LootItem.lootTableItem(CosmoItems.KABLOOM_PIPS.get()))
                                 .build()), false));
+        //enchanted_cosmopolitan
+        this.entry("ancien_city").selects(new ResourceLocation[]{BuiltInLootTables.ANCIENT_CITY})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get()).setWeight(1).build())));
+        this.entry("stronghold_library").selects(new ResourceLocation[]{BuiltInLootTables.STRONGHOLD_LIBRARY})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get()).setWeight(15).build())));
     }
 
 }

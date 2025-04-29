@@ -4,17 +4,35 @@
     {
       "type": "forge:mod_loaded",
       "modid": "neapolitan"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "brewinandchewin:vodka"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "caverns_and_chasms:bejeweled_apple"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:fruits/citrus"
+      }
     }
   ],
   "ingredients": [
     {
-      "item": "minecraft:glass_bottle"
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "brewinandchewin:vodka"
     },
     {
       "item": "cosmopolitan:berry_syrup_bottle"
     },
     {
-      "item": "brewinandchewin:vodka"
+      "item": "caverns_and_chasms:bejeweled_apple"
     },
     {
       "tag": "forge:fruits/citrus"

@@ -48,15 +48,11 @@ public class Cosmopolitan {
         CosmoRecipes.RECIPE_TYPE.register(modEventBus);
         CosmoFluids.FLUIDS.register(modEventBus);
         CosmoFluids.FLUID_TYPES.register(modEventBus);
+        CosmoCreativeTabs.TABS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addBuiltinPacks);
         modEventBus.addListener(this::gatherData);
-
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            CosmoBlocks.setupTabEditors();
-            CosmoItems.setupTabEditors();
-        });
 
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
 
