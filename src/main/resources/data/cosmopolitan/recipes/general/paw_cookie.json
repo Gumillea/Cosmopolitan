@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:grain"
+    },
+    {
+      "tag": "forge:cooked_fishes"
+    },
+    {
+      "item": "cosmopolitan:wheatgrass"
+    },
+    {
+      "item": "cosmopolitan:wheatgrass"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:paw_cookie",
+    "count": 8
+  }
+}

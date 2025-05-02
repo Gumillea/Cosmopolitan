@@ -14,16 +14,13 @@
         "experience": 1,
         "ingredients": [
           {
-            "tag": "forge:salad_ingredients"
+            "item": "cosmopolitan:green_sauce"
+          },
+          {
+            "tag": "forge:raw_chicken"
           },
           {
             "tag": "forge:salad_ingredients"
-          },
-          {
-            "tag": "forge:crops/onion"
-          },
-          {
-            "tag": "forge:milk"
           }
         ],
         "recipe_book_tab": "meals",
@@ -31,7 +28,7 @@
           "item": "minecraft:bowl"
         },
         "result": {
-          "item": "cosmopolitan:green_sauce"
+          "item": "cosmopolitan:green_cream_stew"
         }
       }
     }

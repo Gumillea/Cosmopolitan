@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "item": "cosmopolitan:fiddlehead"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:iron_fiddlehead"
+  }
+}

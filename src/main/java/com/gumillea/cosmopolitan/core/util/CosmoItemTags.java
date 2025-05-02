@@ -5,6 +5,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class CosmoItemTags {
+    public static final TagKey<Item> COOKIE = TagUtil.itemTag("forge", "cookies");
     public static final TagKey<Item> POTATO = TagUtil.itemTag("forge", "crops/potato");
     public static final TagKey<Item> BERRIES = TagUtil.itemTag("forge", "berries");
     public static final TagKey<Item> FRUITS = TagUtil.itemTag("forge", "fruits");
@@ -18,4 +19,5 @@ public class CosmoItemTags {
     public static final TagKey<Item> UPRIGHT_ON_BELT = TagUtil.itemTag("create", "upright_on_belt");
     public static final TagKey<Item> ICE_CREAM = TagUtil.itemTag("neapolitan", "ice_cream");
     public static final TagKey<Item> ICE_CREAM_CONES = TagUtil.itemTag("cosmopolitan", "ice_cream_cones");
+    public static final TagKey<Item> BIOME_GULIME = TagUtil.itemTag("cosmopolitan", "biome_gulimes");
 }

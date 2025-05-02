@@ -1,0 +1,40 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "berry_good"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "habitat:kabloom_pulp"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "bg_tweaks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "habitat:kabloom_pulp"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "minecraft:green_dye",
+      "count": 1
+    },
+    {
+      "item": "cosmopolitan:kabloom_pips",
+      "chance": 0.5
+    }
+  ]
+}
+}

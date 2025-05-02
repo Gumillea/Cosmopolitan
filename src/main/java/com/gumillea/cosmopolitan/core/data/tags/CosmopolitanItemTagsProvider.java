@@ -38,7 +38,8 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(BlueprintItemTags.PIG_FOOD).add(
-                CosmoItems.FIDDLEHEAD.get()
+                CosmoItems.FIDDLEHEAD.get(),
+                CosmoItems.WHEATGRASS.get()
         );
 
         this.tag(CosmoItemTags.ICE_CREAM)
@@ -111,6 +112,10 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
                 .addTag(CosmoItemTags.ICE_CREAM
                 );
 
+        this.tag(CosmoItemTags.COOKIE).add(
+                CosmoItems.PAW_COOKIE.get()
+        );
+
         this.tag(CosmoItemTags.BERRIES).add(
                 CosmoItems.WILDBERRY.get()
         );
@@ -142,6 +147,14 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.JAMS).add(
                 CosmoItems.BERRY_SYRUP_BOTTLE.get(),
                 CosmoItems.STEELEAF_NECTAR.get()
+        );
+
+        this.tag(CosmoItemTags.BIOME_GULIME).add(
+                CosmoItems.UNDERGROUND_GULIME.get(),
+                CosmoItems.TAIGA_GULIME.get(),
+                CosmoItems.CHORUS_GULIME.get(),
+                CosmoItems.GLIMMERING_GULIME.get(),
+                CosmoItems.STRAWBERRY_GULIME.get()
         );
 
     }

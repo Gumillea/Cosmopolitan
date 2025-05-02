@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=true": {
+      "model": "cosmopolitan:block/copper_frozen_dessert_tub"
+    },
+    "open=false": {
+      "model": "cosmopolitan:block/copper_frozen_dessert_tub_closed"
+    }
+  }
+}

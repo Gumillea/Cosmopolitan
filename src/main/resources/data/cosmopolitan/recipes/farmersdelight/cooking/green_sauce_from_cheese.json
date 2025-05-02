@@ -6,12 +6,19 @@
         {
           "type": "forge:mod_loaded",
           "modid": "farmersdelight"
+        },
+        {
+          "type": "forge:not",
+          "value":             {
+            "type": "forge:tag_empty",
+            "tag": "forge:cheese"
+          }
         }
       ],
       "recipe": {
         "type": "farmersdelight:cooking",
-        "cookingtime": 200,
-        "experience": 1,
+        "cookingtime": 100,
+        "experience": 0.5,
         "ingredients": [
           {
             "tag": "forge:salad_ingredients"
@@ -23,7 +30,7 @@
             "tag": "forge:crops/onion"
           },
           {
-            "tag": "forge:milk"
+            "tag": "forge:cheese"
           }
         ],
         "recipe_book_tab": "meals",

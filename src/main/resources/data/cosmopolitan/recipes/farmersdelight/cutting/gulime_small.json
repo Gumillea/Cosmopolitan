@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_gulime"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:gulime"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "cosmopolitan:gulime_small",
+      "count": 4
+    },
+    {
+      "item": "cosmopolitan:gulime_small",
+      "chance": 0.03
+    }
+  ]
+}

@@ -1,21 +1,22 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ABA",
-    "BCB",
-    "ABA"
-  ],
-  "key": {
-    "A": {
-      "item": "minecraft:slime_ball"
-    },
-    "B": {
-      "item": "minecraft:sugar"
-    },
-    "C": {
-      "item": "minecraft:carved_pumpkin"
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_gulime"
     }
-  },
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:slime_block"
+    },
+    {
+      "item": "minecraft:carved_pumpkin"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    }
+  ],
   "result": {
     "item": "cosmopolitan:gulime"
   }

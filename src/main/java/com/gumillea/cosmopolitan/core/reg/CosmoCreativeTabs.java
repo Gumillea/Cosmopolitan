@@ -19,7 +19,9 @@ public class CosmoCreativeTabs {
             .icon(() -> new ItemStack(CosmoItems.COSMOPOLITAN_COCKTAIL.get()))
             .displayItems((parameters, output) -> {
                 //BLOCKS
+                output.accept(CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get());
                 output.accept(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get());
+                output.accept(CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get());
                 output.accept(CosmoBlocks.WHEATGRASS_BALE.get());
                 output.accept(CosmoBlocks.MASHED_POTATO_BLOCK.get());
                 if (CosmoCompat.nea) {
@@ -48,6 +50,7 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.WILDBERRY.get());
                 output.accept(CosmoItems.FIDDLEHEAD.get());
                 output.accept(CosmoItems.BAKED_FIDDLEHEAD.get());
+                output.accept(CosmoItems.IRON_FIDDLEHEAD.get());
                 output.accept(CosmoItems.WHEATGRASS.get());
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.CUT_POTATOES.get());
@@ -65,16 +68,31 @@ public class CosmoCreativeTabs {
                 if (CosmoCompat.fd) output.accept(CosmoItems.JELLY_ROLL_SLICE.get());
                 output.accept(CosmoItems.CHOCOLATE_ROLL.get());
                 if (CosmoCompat.fd) output.accept(CosmoItems.CHOCOLATE_ROLL_SLICE.get());
+                output.accept(CosmoItems.PAW_COOKIE.get());
+                if (CosmoCompat.an) output.accept(CosmoItems.MENDOSTEEN_TART.get());
                 if (CosmoCompat.ug) {
                     output.accept(CosmoItems.BLISTERBERRY_TART.get());
                     output.accept(CosmoItems.RAINDROOP_CAKE.get());
                 }
 
-                output.accept(CosmoItems.GULIME.get());
-                output.accept(CosmoItems.GULIME_SMALL.get());
-                output.accept(CosmoItems.UNDERGROUND_GULIME.get());
-                output.accept(CosmoItems.UNDERGROUND_GULIME_SMALL.get());
-                output.accept(CosmoItems.TAIGA_GULIME.get());
+                if (CosmoConfig.Common.GULIME.get()) {
+                    output.accept(CosmoItems.GULIME.get());
+                    output.accept(CosmoItems.GULIME_SMALL.get());
+                    output.accept(CosmoItems.UNDERGROUND_GULIME.get());
+                    output.accept(CosmoItems.UNDERGROUND_GULIME_SMALL.get());
+                    output.accept(CosmoItems.TAIGA_GULIME.get());
+                    output.accept(CosmoItems.TAIGA_GULIME_SMALL.get());
+                    output.accept(CosmoItems.CHORUS_GULIME.get());
+                    output.accept(CosmoItems.CHORUS_GULIME_SMALL.get());
+                    if (CosmoCompat.qua) {
+                        output.accept(CosmoItems.GLIMMERING_GULIME.get());
+                        output.accept(CosmoItems.GLIMMERING_GULIME_SMALL.get());
+                    }
+                    if (CosmoCompat.nea) {
+                        output.accept(CosmoItems.STRAWBERRY_GULIME.get());
+                        output.accept(CosmoItems.STRAWBERRY_GULIME_SMALL.get());
+                    }
+                }
 
                 output.accept(CosmoItems.BERRY_SYRUP_BOTTLE.get());
                 if (CosmoCompat.tf) output.accept(CosmoItems.STEELEAF_NECTAR.get());
@@ -84,7 +102,11 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.MASHED_POTATO.get());
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.GREEN_SAUCE.get());
+                    output.accept(CosmoItems.GREEN_CREAM_STEW.get());
                     output.accept(CosmoItems.GREEN_PASTA.get());
+                }
+                if (CosmoCompat.mf) {
+                    output.accept(CosmoItems.GREEN_CREAM_STEW_CUP.get());
                 }
 
                 //ice_dessert
@@ -103,6 +125,10 @@ public class CosmoCreativeTabs {
                     if (CosmoCompat.sea) output.accept(CosmoItems.SEASONAL_ICE_CREAM.get());
                 }
                 //cones
+                if (CosmoCompat.ug) {
+                    output.accept(CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get());
+                    output.accept(CosmoItems.BLISTERBERRY_POPSICLE.get());
+                }
                 output.accept(CosmoItems.WAFER.get());
                 if (CosmoCompat.nea) {
                     output.accept(CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get());

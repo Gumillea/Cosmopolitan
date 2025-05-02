@@ -25,33 +25,40 @@ public class SourceBerryPipsItem extends Item {
         this.bush = block;
     }
 
-    @NotNull
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public @NotNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos clickedPos = context.getClickedPos();
         Direction direction = context.getClickedFace();
-        BlockPos targetPos = clickedPos.relative(direction);
         BlockState block = bush.defaultBlockState();
         Player player = context.getPlayer();
         ItemStack stack = context.getItemInHand();
 
-        if (block.canSurvive(level, targetPos) && level.getBlockState(targetPos).canBeReplaced()) {
-            level.setBlock(targetPos, block, 3);
-            level.playSound(player, targetPos, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+        if (level.getBlockState(clickedPos).canBeReplaced() && block.canSurvive(level, clickedPos)) {
+            placeBush(level, clickedPos, player, stack);
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
 
-            if (player instanceof ServerPlayer sp) {
-                CriteriaTriggers.PLACED_BLOCK.trigger(sp, targetPos, stack);
-            }
-
-            if (player == null || !player.getAbilities().instabuild) {
-                stack.shrink(1);
-            }
-
+        BlockPos targetPos = clickedPos.relative(direction);
+        if (level.getBlockState(targetPos).canBeReplaced() && block.canSurvive(level, targetPos)) {
+            placeBush(level, targetPos, player, stack);
             return InteractionResult.sidedSuccess(level.isClientSide());
         }
 
         return InteractionResult.FAIL;
     }
+
+    private void placeBush(Level level, BlockPos pos, Player player, ItemStack stack) {
+        level.setBlock(pos, bush.defaultBlockState(), 3);
+        level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+
+        if (player instanceof ServerPlayer serverPlayer) {
+            CriteriaTriggers.PLACED_BLOCK.trigger(serverPlayer, pos, stack);
+        }
+        if (player == null || !player.getAbilities().instabuild) {
+            stack.shrink(1);
+        }
+    }
+
 
 }

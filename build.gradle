@@ -119,8 +119,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("curse.maven:jade-324717:6271651")
+    implementation fg.deobf("curse.maven:appleskin-248787:4770828")
 
-    implementation fg.deobf("curse.maven:neapolitan-382016:5296594")
+    implementation fg.deobf("curse.maven:neapolitan-382016:6248885")
     implementation fg.deobf("curse.maven:atmospheric-362393:6248868")
     implementation fg.deobf("curse.maven:berry-good-355589:5228437")
     implementation fg.deobf("curse.maven:gallery-1173553:6133771")
@@ -153,6 +154,7 @@ dependencies {
     implementation fg.deobf("curse.maven:casualness-delight-909519:5181805")
     implementation fg.deobf("curse.maven:frycooks-delight-1081410:5630141")
     implementation fg.deobf("curse.maven:farmers-respite-551453:5543547")
+    implementation fg.deobf("curse.maven:miners-delight-plus-689630:5038950")
 
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
     implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:5802985")

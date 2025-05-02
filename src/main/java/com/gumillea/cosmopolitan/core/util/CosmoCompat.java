@@ -17,6 +17,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import quek.undergarden.registry.UGBlocks;
+import vectorwing.farmersdelight.FarmersDelight;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 public class CosmoCompat {
     public static final String AN  = "ars_nouveau";
@@ -43,6 +45,8 @@ public class CosmoCompat {
     public static final boolean fd = ModList.get().isLoaded(FD);
     public static final String HA  = "habitat";
     public static final boolean ha = ModList.get().isLoaded(HA);
+    public static final String MF = "miners_delight";
+    public static final boolean mf = ModList.get().isLoaded(MF);
     public static final String NEA = "neapolitan";
     public static final boolean nea = ModList.get().isLoaded(NEA);
     public static final String PEC = "peculiars";
@@ -60,6 +64,7 @@ public class CosmoCompat {
 
     //ars_nouveau
     public static final MobEffect MANA_REGEN = ((ModList.get().isLoaded(AN)) ? (ModPotions.MANA_REGEN_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect RECOVERY = ((ModList.get().isLoaded(AN)) ? (ModPotions.RECOVERY_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
     public static Item SOURCEBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(AN, "sourceberry_bush"));
     public static Block SOURCE_BERRY_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(AN, "sourceberry_bush")) : Blocks.SWEET_BERRY_BUSH;
 
@@ -71,6 +76,10 @@ public class CosmoCompat {
     //collectorsreap
     public static final MobEffect CORROSION = ((ModList.get().isLoaded(CR)) ? (CREffects.CORROSION.get()) : CosmoEffects.PLACEHOLDER.get());
     public static final MobEffect VOLATILITY = ((ModList.get().isLoaded(CR)) ? (CREffects.VOLATILITY.get()) : CosmoEffects.PLACEHOLDER.get());
+
+    //farmersdelight
+    public static final MobEffect COMFORT = ((ModList.get().isLoaded(FD)) ? (ModEffects.COMFORT.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect NOURISHMENT = ((ModList.get().isLoaded(FD)) ? (ModEffects.NOURISHMENT.get()) : CosmoEffects.PLACEHOLDER.get());
 
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get());
@@ -85,7 +94,8 @@ public class CosmoCompat {
     public static final MobEffect VANILLA_SCENT = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.VANILLA_SCENT.get()) : CosmoEffects.PLACEHOLDER.get());
 
     //exquisito
-    public static final MobEffect RESONANCE = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.RESONANCE.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect RESONANCE_ICE_CREAM = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.RESONANCE.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect RESONANCE = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.RESONANCE.get()) : MobEffects.SLOW_FALLING);
     public static final MobEffect MODULATION = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.MODULATION.get()) : CosmoEffects.PLACEHOLDER.get());
     public static final MobEffect FUCHSIA_GOO = ((ModList.get().isLoaded(EX) && ModList.get().isLoaded(EE)) ? (ExquisitoEffects.FUCHSIA_GOO.get()) : CosmoEffects.PLACEHOLDER.get());
     public static final MobEffect SPACE_DIVING = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.SPACE_DIVING.get()) : CosmoEffects.PLACEHOLDER.get());

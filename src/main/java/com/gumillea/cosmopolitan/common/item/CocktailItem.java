@@ -7,6 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -40,6 +41,7 @@ public class CocktailItem extends DrinkItem {
                     MobEffectInstance effect = applyCocktailEffect(level);
                     if (effect != null) {
                         player.addEffect(effect);
+                        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1.0f, 1.0f);
                         nbt.putBoolean("has_cosmopolitan_effect", true);
                     }
                 }

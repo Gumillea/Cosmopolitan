@@ -10,7 +10,7 @@
       "tag": "forge:buckets/empty"
     },
     "B": {
-      "tag": "forge:ices"
+      "item": "minecraft:packed_ice"
     },
     "C": {
       "tag": "forge:ingots/iron"
