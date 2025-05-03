@@ -156,10 +156,14 @@ dependencies {
     implementation fg.deobf("curse.maven:farmers-respite-551453:5543547")
     implementation fg.deobf("curse.maven:miners-delight-plus-689630:5038950")
 
+    implementation fg.deobf("curse.maven:vanilla-cookbook-402659:6435382")
+    implementation fg.deobf("curse.maven:kitchen-karrot-880555:4936114")
+
     implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
     implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:5802985")
 
     implementation fg.deobf("curse.maven:the-undergarden-379849:5182632")
+
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

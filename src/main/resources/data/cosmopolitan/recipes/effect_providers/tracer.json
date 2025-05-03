@@ -1,0 +1,26 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "cosmopolitan:config",
+          "value": "enable_glow_berry_flavor"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:tracer",
+        "providers": [
+          {
+            "tag": "cosmopolitan:tracer_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "cosmopolitan:config",
+          "value": "enable_carrot_flavor"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:carotene",
+        "providers": [
+          {
+            "tag": "cosmopolitan:carotene_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

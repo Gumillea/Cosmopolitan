@@ -72,40 +72,6 @@ public class WheatgrassItem extends Item {
         }
     }
 
-    @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID)
-    public static class WheatgrassEvent
-    {
-        @SubscribeEvent
-        public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-            Player player = event.getEntity();
-            Entity target = event.getTarget();
-            ItemStack stack = event.getItemStack();
-            if (target instanceof Cat cat) {
-                if (cat.isAlive() && cat.isTame() && stack.getItem() instanceof WheatgrassItem) {
-                    for (MobEffectInstance effect : EFFECTS) {
-                        cat.addEffect(new MobEffectInstance(effect));
-                    }
-                    cat.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
-
-                    for (int i = 0; i < 5; ++i) {
-                        double d0 = MathUtils.RAND.nextGaussian() * 0.02D;
-                        double d1 = MathUtils.RAND.nextGaussian() * 0.02D;
-                        double d2 = MathUtils.RAND.nextGaussian() * 0.02D;
-                        cat.level().addParticle(ParticleTypes.HAPPY_VILLAGER, cat.getRandomX(1.0D), cat.getRandomY() + 0.5D, cat.getRandomZ(1.0D), d0, d1, d2);
-                    }
-
-                    if (player != null) {
-                        if (!player.getAbilities().instabuild) {
-                            stack.shrink(1);
-                        }
-                    }
-
-                    event.setCancellationResult(InteractionResult.SUCCESS);
-                    event.setCanceled(true);
-                }
-            }
-        }
-    }
 
     @Override
     public int getUseDuration(ItemStack stack) {

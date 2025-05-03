@@ -10,8 +10,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CosmopolitanBlockTagsProvider extends BlockTagsProvider {
-    public CosmopolitanBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, ExistingFileHelper helper) {
+public class CosmoBlockTagsProvider extends BlockTagsProvider {
+    public CosmoBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, ExistingFileHelper helper) {
         super(output, provider, Cosmopolitan.MODID, helper);
     }
 

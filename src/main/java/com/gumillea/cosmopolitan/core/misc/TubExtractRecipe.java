@@ -163,9 +163,7 @@ public class TubExtractRecipe implements Recipe<Container> {
 
             JsonObject resultObj = GsonHelper.getAsJsonObject(json, "result");
             ItemStack result = new ItemStack(
-                    Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(
-                            new ResourceLocation(GsonHelper.getAsString(resultObj, "item"))
-                    )),
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(GsonHelper.getAsString(resultObj, "item")))),
                     GsonHelper.getAsInt(resultObj, "count", 1)
             );
 

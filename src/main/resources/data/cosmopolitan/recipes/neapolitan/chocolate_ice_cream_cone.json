@@ -17,7 +17,7 @@
       "item": "cosmopolitan:wafer_cone"
     },
     {
-      "item": "forge:chocolate"
+      "tag": "forge:chocolate"
     },
     {
       "tag": "forge:milk"

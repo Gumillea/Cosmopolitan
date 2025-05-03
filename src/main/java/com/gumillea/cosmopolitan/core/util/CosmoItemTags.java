@@ -20,4 +20,10 @@ public class CosmoItemTags {
     public static final TagKey<Item> ICE_CREAM = TagUtil.itemTag("neapolitan", "ice_cream");
     public static final TagKey<Item> ICE_CREAM_CONES = TagUtil.itemTag("cosmopolitan", "ice_cream_cones");
     public static final TagKey<Item> BIOME_GULIME = TagUtil.itemTag("cosmopolitan", "biome_gulimes");
+
+    public static final TagKey<Item> EXUBERANT_SOURCES = TagUtil.itemTag("cosmopolitan", "exuberant_sources");
+    public static final TagKey<Item> CAROTENE_SOURCES = TagUtil.itemTag("cosmopolitan", "carotene_sources");
+    public static final TagKey<Item> TRACER_SOURCES = TagUtil.itemTag("cosmopolitan", "tracer_sources");
+    public static final TagKey<Item> ABYSMAL_TORCH_SOURCES = TagUtil.itemTag("cosmopolitan", "abysmal_torch_sources");
+    public static final TagKey<Item> VARDOGER_SOURCES = TagUtil.itemTag("cosmopolitan", "vardoger_sources");
 }

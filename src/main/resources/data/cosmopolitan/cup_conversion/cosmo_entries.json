@@ -3,6 +3,14 @@
     {
       "bowl": "cosmopolitan:green_cream_stew",
       "cup": "cosmopolitan:green_cream_stew_cup"
+    },
+    {
+      "bowl": "vanillacookbook:jelly",
+      "cup": "cosmopolitan:jelly_cup"
+    },
+    {
+      "bowl": "vanillacookbook:magma_jelly",
+      "cup": "cosmopolitan:magma_jelly_cup"
     }
   ]
 }

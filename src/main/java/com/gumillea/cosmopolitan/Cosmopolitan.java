@@ -5,8 +5,8 @@ import com.gumillea.cosmopolitan.core.data.CosmoLootModifierProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoRecipeProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoBlockStateProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
-import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanBlockTagsProvider;
-import com.gumillea.cosmopolitan.core.data.tags.CosmopolitanItemTagsProvider;
+import com.gumillea.cosmopolitan.core.data.tags.CosmoBlockTagsProvider;
+import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -78,9 +78,9 @@ public class Cosmopolitan {
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         boolean includeServer = event.includeServer();
-        CosmopolitanBlockTagsProvider blockTagsProvider = new CosmopolitanBlockTagsProvider(output, provider, helper);
+        CosmoBlockTagsProvider blockTagsProvider = new CosmoBlockTagsProvider(output, provider, helper);
         generator.addProvider(includeServer, blockTagsProvider);
-        generator.addProvider(includeServer, new CosmopolitanItemTagsProvider(output, provider, blockTagsProvider.contentsGetter(), helper));
+        generator.addProvider(includeServer, new CosmoItemTagsProvider(output, provider, blockTagsProvider.contentsGetter(), helper));
         generator.addProvider(includeServer, new CosmoLootModifierProvider(output, provider));
         generator.addProvider(includeServer, new CosmoRecipeProvider(output));
 

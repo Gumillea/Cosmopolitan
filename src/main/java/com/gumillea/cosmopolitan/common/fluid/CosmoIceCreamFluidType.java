@@ -22,11 +22,11 @@ public class CosmoIceCreamFluidType extends FluidType {
                 .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.SNOW_BREAK)
         );
 
-        this.stillTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
-        this.flowingTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
+        this.stillTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
+        this.flowingTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
 
-        this.tubStillTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
-        this.tubFlowingTexture = new ResourceLocation(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
+        this.tubStillTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
+        this.tubFlowingTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
     }
 
     @Override

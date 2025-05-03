@@ -5,20 +5,20 @@ import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
-import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
-    public CosmopolitanItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagsProvider.TagLookup<Block>> lookup, ExistingFileHelper helper) {
+public class CosmoItemTagsProvider extends ItemTagsProvider {
+    public CosmoItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagsProvider.TagLookup<Block>> lookup, ExistingFileHelper helper) {
         super(output, provider, lookup, Cosmopolitan.MODID, helper);
     }
     @Override
@@ -133,15 +133,15 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.PUMPKINS)
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "pumpkin_slice"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.FD, "pumpkin_slice"))
         ;
 
         this.tag(CosmoItemTags.CHOCOLATE)
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "chocolate_bar"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.NEA, "chocolate_bar"))
         ;
 
         this.tag(CosmoItemTags.MILK_BOTTLE)
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "milk_bottle"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.NEA, "milk_bottle"))
         ;
 
         this.tag(CosmoItemTags.JAMS).add(
@@ -157,5 +157,27 @@ public class CosmopolitanItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.STRAWBERRY_GULIME.get()
         );
 
+        this.tag(CosmoItemTags.EXUBERANT_SOURCES)
+                .add(Items.APPLE)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BAC, "apple_jelly"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.FD, "apple_pie_slice"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BF, "apple_stew"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BF, "candied_apple"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BF, "apple_cider_jar"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BF, "apple_compote_jar"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.VC, "baked_apple"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.VC, "apple_chips"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.VC, "apple_pie"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.VC, "apple_juice"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.VC, "apple_sauce"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.MB, "apple_juice"));
+
+        this.tag(CosmoItemTags.CAROTENE_SOURCES)
+                .add(Items.CARROT)
+                .add(Items.GOLDEN_CARROT)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.KK, "gem_carrot"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.KK, "carrot_and_carrot"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.KK, "carrot_and_carrot"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.MB, "forest_medley"));
     }
 }

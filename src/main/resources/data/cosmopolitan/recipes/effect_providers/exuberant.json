@@ -1,0 +1,26 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "cosmopolitan:config",
+          "value": "enable_apple_flavor"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:exuberant",
+        "providers": [
+          {
+            "tag": "cosmopolitan:exuberant_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -21,7 +21,6 @@ public class CosmoCreativeTabs {
                 //BLOCKS
                 output.accept(CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get());
                 output.accept(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get());
-                output.accept(CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get());
                 output.accept(CosmoBlocks.WHEATGRASS_BALE.get());
                 output.accept(CosmoBlocks.MASHED_POTATO_BLOCK.get());
                 if (CosmoCompat.nea) {
@@ -74,6 +73,8 @@ public class CosmoCreativeTabs {
                     output.accept(CosmoItems.BLISTERBERRY_TART.get());
                     output.accept(CosmoItems.RAINDROOP_CAKE.get());
                 }
+                output.accept(CosmoItems.TOFFEE_APPLE.get());
+                output.accept(CosmoItems.TOFFEE_GOLDEN_APPLE.get());
 
                 if (CosmoConfig.Common.GULIME.get()) {
                     output.accept(CosmoItems.GULIME.get());
@@ -107,6 +108,10 @@ public class CosmoCreativeTabs {
                 }
                 if (CosmoCompat.mf) {
                     output.accept(CosmoItems.GREEN_CREAM_STEW_CUP.get());
+                    if (CosmoCompat.vc) {
+                        output.accept(CosmoItems.JELLY_CUP.get());
+                        output.accept(CosmoItems.MAGMA_JELLY_CUP.get());
+                    }
                 }
 
                 //ice_dessert

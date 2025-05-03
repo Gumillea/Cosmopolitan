@@ -7,17 +7,15 @@ import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraftforge.event.AddPackFindersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
 
+@Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoResourcePacks {
 
-    public CosmoResourcePacks() {
-        FMLJavaModLoadingContext.get().getModEventBus().register(this);
-    }
-
-    public static void addPackFinders(AddPackFindersEvent event)
-    {
+    @SubscribeEvent
+    public static void addPackFinders(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES)
         {
             var resourcePath = ModList.get().getModFileById(Cosmopolitan.MODID).getFile().findResource("resourcepacks/cosmopolitan_tweaks");

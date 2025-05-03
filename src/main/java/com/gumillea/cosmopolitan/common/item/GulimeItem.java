@@ -8,6 +8,7 @@ import com.teamabnormals.neapolitan.core.other.NeapolitanBiomeModifiers;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanBiomeTags;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBiomes;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -22,6 +23,9 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GulimeItem extends Item {
 
@@ -60,6 +64,7 @@ public class GulimeItem extends Item {
 
         long time = level.getGameTime();
         if (time % CosmoConfig.Common.GULIME_TICK.get() != 0) return;
+        if (level.getRandom().nextFloat() < CosmoConfig.Common.GULIME_CHANCE.get()) return;
 
         int gulimes = 0;
         for (ItemStack invStack : player.getInventory().items) {
@@ -79,23 +84,21 @@ public class GulimeItem extends Item {
                 }
             }
 
+            Map<ResourceKey<Biome>, Item> BIOME_GULIME_MAP = new HashMap<>(Map.of(
+                    Biomes.LUSH_CAVES, CosmoItems.UNDERGROUND_GULIME.get(),
+                    Biomes.OLD_GROWTH_PINE_TAIGA, CosmoItems.TAIGA_GULIME.get(),
+                    Biomes.END_HIGHLANDS, CosmoItems.CHORUS_GULIME.get()));
+
+            if (CosmoCompat.qua) {
+                BIOME_GULIME_MAP.put(GlimmeringWealdModule.BIOME_KEY, CosmoItems.GLIMMERING_GULIME.get());
+            }
+            if (CosmoCompat.nea) {
+                BIOME_GULIME_MAP.put(NeapolitanBiomes.STRAWBERRY_FIELDS, CosmoItems.STRAWBERRY_GULIME.get());
+            }
+
             if (this == CosmoItems.GULIME_SMALL.get()) {
                 Holder<Biome> biome = level.getBiome(player.blockPosition());
-                if (biome.is(Biomes.LUSH_CAVES)) {
-                    actualGumlime = CosmoItems.UNDERGROUND_GULIME.get();
-                }
-                if (biome.is(BiomeTags.IS_HILL)) {
-                    actualGumlime = CosmoItems.TAIGA_GULIME.get();
-                }
-                if (biome.is(Biomes.END_HIGHLANDS)) {
-                    actualGumlime = CosmoItems.CHORUS_GULIME.get();
-                }
-                if (CosmoCompat.qua && biome.is(GlimmeringWealdModule.BIOME_KEY)) {
-                    actualGumlime = CosmoItems.GLIMMERING_GULIME.get();
-                }
-                if (CosmoCompat.nea && biome.is(NeapolitanBiomes.STRAWBERRY_FIELDS)) {
-                    actualGumlime = CosmoItems.STRAWBERRY_GULIME.get();
-                }
+                actualGumlime = BIOME_GULIME_MAP.getOrDefault(biome.unwrapKey().orElse(null), result.get());
             }
 
             ItemStack resultGulime = new ItemStack(actualGumlime);
