@@ -6,6 +6,7 @@ import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
+import com.teamabnormals.neapolitan.core.other.tags.NeapolitanMobEffectTags;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -36,6 +37,8 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
 import quek.undergarden.registry.UGDimensions;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
@@ -105,11 +108,24 @@ public class CosmoEvents {
             if (CosmoConfig.Common.CARROT_FLAVOR.get() && stack.is(CosmoItemTags.CAROTENE_SOURCES)){
                 living.addEffect(new MobEffectInstance(CosmoEffects.CAROTENE.get(), duration * 2));
             }
-            if (stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)){
+            if (CosmoConfig.Common.DROOPFRUIT_FLAVOR.get() && stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)){
                 living.addEffect(new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), (int) (duration * 0.75)));
             }
-            if (stack.is(CosmoItemTags.VARDOGER_SOURCES)){
+            if (CosmoConfig.Common.BLISTERBERRY_FLAVOR.get() && stack.is(CosmoItemTags.VARDOGER_SOURCES)){
                 living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), (int) (duration * 1.5)));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEffectApplied(MobEffectEvent.Applicable event) {
+        MobEffect effect = event.getEffectInstance().getEffect();
+        LivingEntity entity = event.getEntity();
+        if (entity.getEffect(CosmoEffects.CAROTENE.get()) != null) {
+            ITagManager<MobEffect> mobEffectTags = ForgeRegistries.MOB_EFFECTS.tags();
+            if (mobEffectTags != null && mobEffectTags.getTag(CosmoEffectTags.CONVERTIBLE_BY_CAROTENE).contains(effect)) {
+                entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
+                event.setResult(Event.Result.DENY);
             }
         }
     }

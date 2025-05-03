@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seasonals"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": {
+        "amount": 750,
+        "name": "cosmopolitan:sweet_berry_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "seasonals:sweet_berry_ice_cream"
+  }
+}

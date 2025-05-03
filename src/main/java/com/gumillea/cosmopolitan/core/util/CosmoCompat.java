@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.core.util;
 
 import com.cosmicgelatin.seasonals.core.registry.SeasonalsMobEffects;
+import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
 import com.hollingsworth.arsnouveau.setup.registry.ModPotions;

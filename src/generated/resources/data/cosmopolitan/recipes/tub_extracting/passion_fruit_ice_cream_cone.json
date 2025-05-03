@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "peculiars"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:passion_fruit_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:passion_fruit_ice_cream_cone"
+  }
+}

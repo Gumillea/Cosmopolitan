@@ -6,6 +6,7 @@ import com.gumillea.cosmopolitan.core.data.CosmoRecipeProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoBlockStateProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoBlockTagsProvider;
+import com.gumillea.cosmopolitan.core.data.tags.CosmoEffectTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
@@ -83,6 +84,7 @@ public class Cosmopolitan {
         generator.addProvider(includeServer, new CosmoItemTagsProvider(output, provider, blockTagsProvider.contentsGetter(), helper));
         generator.addProvider(includeServer, new CosmoLootModifierProvider(output, provider));
         generator.addProvider(includeServer, new CosmoRecipeProvider(output));
+        generator.addProvider(includeServer, new CosmoEffectTagsProvider(output, provider, helper));
 
         boolean client = event.includeClient();
         generator.addProvider(client, new CosmoItemModelProvider(output, helper));

@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    }
+  ],
+  "ingredient": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:warzipan_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "exquisito:warzipan_milkshake"
+  }
+}

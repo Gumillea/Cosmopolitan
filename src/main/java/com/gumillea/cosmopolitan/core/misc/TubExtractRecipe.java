@@ -138,7 +138,7 @@ public class TubExtractRecipe implements Recipe<Container> {
                     JsonObject obj = el.getAsJsonObject();
                     if (obj.has("fluid")) {
                         JsonObject f = obj.getAsJsonObject("fluid");
-                        ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(f, "name"));
+                        ResourceLocation id = ResourceLocation.tryParse(GsonHelper.getAsString(f, "name"));
                         int amt = GsonHelper.getAsInt(f, "amount", 0);
                         fluidStack = new FluidStack(
                                 Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(id)), amt
@@ -151,7 +151,7 @@ public class TubExtractRecipe implements Recipe<Container> {
                 JsonObject obj = ingElem.getAsJsonObject();
                 if (obj.has("fluid")) {
                     JsonObject f = obj.getAsJsonObject("fluid");
-                    ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(f, "name"));
+                    ResourceLocation id = ResourceLocation.tryParse(GsonHelper.getAsString(f, "name"));
                     int amt = GsonHelper.getAsInt(f, "amount", 0);
                     fluidStack = new FluidStack(
                             Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(id)), amt
@@ -163,7 +163,7 @@ public class TubExtractRecipe implements Recipe<Container> {
 
             JsonObject resultObj = GsonHelper.getAsJsonObject(json, "result");
             ItemStack result = new ItemStack(
-                    Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(GsonHelper.getAsString(resultObj, "item")))),
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(GsonHelper.getAsString(resultObj, "item")))),
                     GsonHelper.getAsInt(resultObj, "count", 1)
             );
 

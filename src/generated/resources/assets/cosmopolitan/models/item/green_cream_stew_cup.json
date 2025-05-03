@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cosmopolitan:item/green_cream_stew_cup"
+  }
+}

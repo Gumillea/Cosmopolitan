@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "delightful"
+    }
+  ],
+  "ingredient": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:matcha_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "delightful:matcha_milkshake"
+  }
+}

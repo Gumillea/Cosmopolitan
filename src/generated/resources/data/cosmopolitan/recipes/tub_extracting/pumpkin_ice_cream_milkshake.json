@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seasonals"
+    }
+  ],
+  "ingredient": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:pumpkin_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "seasonals:pumpkin_milkshake"
+  }
+}

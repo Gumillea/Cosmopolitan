@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "cosmopolitan:block/wheatgrass_bale_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "cosmopolitan:block/wheatgrass_bale"
+    },
+    "axis=z": {
+      "model": "cosmopolitan:block/wheatgrass_bale_horizontal",
+      "x": 90
+    }
+  }
+}

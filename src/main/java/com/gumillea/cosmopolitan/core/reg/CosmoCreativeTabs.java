@@ -100,6 +100,7 @@ public class CosmoCreativeTabs {
 
                 output.accept(CosmoItems.COSMOPOLITAN_COCKTAIL.get());
 
+                output.accept(CosmoItems.CLASSIC_FRUIT_SALAD.get());
                 output.accept(CosmoItems.MASHED_POTATO.get());
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.GREEN_SAUCE.get());

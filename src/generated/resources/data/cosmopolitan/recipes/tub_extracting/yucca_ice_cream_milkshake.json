@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "peculiars"
+    }
+  ],
+  "ingredient": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:yucca_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "peculiars:yucca_milkshake"
+  }
+}

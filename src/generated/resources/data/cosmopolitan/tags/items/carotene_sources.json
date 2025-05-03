@@ -1,0 +1,22 @@
+{
+  "values": [
+    "minecraft:carrot",
+    "minecraft:golden_carrot",
+    {
+      "id": "kitchenkarrot:gem_carrot",
+      "required": false
+    },
+    {
+      "id": "kitchenkarrot:carrot_and_carrot",
+      "required": false
+    },
+    {
+      "id": "kitchenkarrot:carrot_and_carrot",
+      "required": false
+    },
+    {
+      "id": "manors_bounty:forest_medley",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "values": [
+    "minecraft:apple",
+    {
+      "id": "brewinandchewin:apple_jelly",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:apple_pie_slice",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:apple_stew",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:candied_apple",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:apple_cider_jar",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:apple_compote_jar",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:baked_apple",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:apple_chips",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:apple_pie",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:apple_juice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:apple_sauce",
+      "required": false
+    },
+    {
+      "id": "manors_bounty:apple_juice",
+      "required": false
+    }
+  ]
+}

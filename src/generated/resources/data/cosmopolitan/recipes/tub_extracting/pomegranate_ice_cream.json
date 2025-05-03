@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "collectorsreap"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": {
+        "amount": 750,
+        "name": "cosmopolitan:pomegranate_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "collectorsreap:pomegranate_ice_cream"
+  }
+}

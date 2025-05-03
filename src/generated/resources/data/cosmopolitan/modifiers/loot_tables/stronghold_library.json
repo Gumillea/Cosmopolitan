@@ -1,0 +1,20 @@
+{
+  "modifiers": [
+    {
+      "type": "entries",
+      "config": {
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "cosmopolitan:enchanted_cosmopolitan_cocktail",
+            "weight": 15
+          }
+        ],
+        "index": 0,
+        "replace": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:chests/stronghold_library"
+}

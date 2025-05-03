@@ -71,7 +71,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
 
     @Override
     public ResourceLocation getId() {
-        return new ResourceLocation(Cosmopolitan.MODID, "tub_interacting");
+        return ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "tub_interacting");
     }
 
     @Override
@@ -139,12 +139,12 @@ public class TubInteractingRecipe implements Recipe<Container> {
             for (JsonElement resultElement : array) {
                 JsonObject resultObj = resultElement.getAsJsonObject();
                 if (resultObj.has("item")) {
-                    ResourceLocation itemId = new ResourceLocation(GsonHelper.getAsString(resultObj, "item"));
+                    ResourceLocation itemId = ResourceLocation.tryParse(GsonHelper.getAsString(resultObj, "item"));
                     int itemCount = GsonHelper.getAsInt(resultObj, "count", 1);
                     result = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(itemId)), itemCount);
                 }
                 else if (resultObj.has("fluid")) {
-                    ResourceLocation fluidId = new ResourceLocation(GsonHelper.getAsString(resultObj, "fluid"));
+                    ResourceLocation fluidId = ResourceLocation.tryParse(GsonHelper.getAsString(resultObj, "fluid"));
                     int fluidAmount = GsonHelper.getAsInt(resultObj, "amount", 1000);
                     fluidStack = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(fluidId)), fluidAmount);
                 }

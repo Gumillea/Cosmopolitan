@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cosmopolitan:block/glow_berry_ice_cream_block"
+  }
+}

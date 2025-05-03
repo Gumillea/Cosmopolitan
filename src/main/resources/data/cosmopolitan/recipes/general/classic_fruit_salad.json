@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "forge:fruits/apple"
+    },
+    {
+      "tag": "forge:fruits/melon"
+    },
+    {
+      "item": "cosmopolitan:wildberry"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:classic_fruit_salad"
+  }
+}

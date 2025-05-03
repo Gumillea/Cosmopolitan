@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "enlightened_end"
+    }
+  ],
+  "ingredient": [
+    {
+      "tag": "forge:milk/milk_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:azure_berry_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "exquisito:zure_berry_milkshake"
+  }
+}

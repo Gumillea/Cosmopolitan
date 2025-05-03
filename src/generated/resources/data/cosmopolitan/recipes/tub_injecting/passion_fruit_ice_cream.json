@@ -1,0 +1,22 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "peculiars"
+    }
+  ],
+  "ingredient": {
+    "item": "peculiars:passion_fruit_ice_cream"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:passion_fruit_ice_cream"
+    }
+  ]
+}

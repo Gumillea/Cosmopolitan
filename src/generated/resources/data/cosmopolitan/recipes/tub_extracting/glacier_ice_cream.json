@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": {
+        "amount": 750,
+        "name": "cosmopolitan:glacier_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "twilightdelight:glacier_ice_cream"
+  }
+}
