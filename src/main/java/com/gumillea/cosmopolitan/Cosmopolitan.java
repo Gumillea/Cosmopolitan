@@ -11,6 +11,8 @@ import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -23,6 +25,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -51,6 +54,7 @@ public class Cosmopolitan {
         CosmoCreativeTabs.TABS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::addBuiltinPacks);
         modEventBus.addListener(this::gatherData);
 
@@ -63,6 +67,12 @@ public class Cosmopolitan {
         event.enqueueWork(() -> {
         CosmoCompostableItems.registerCompostableItems();
         CosmoEffects.registerBrewingRecipes();
+        });
+    }
+
+    private void clientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.LIFELIGHT.get(), RenderType.cutout());
         });
     }
 

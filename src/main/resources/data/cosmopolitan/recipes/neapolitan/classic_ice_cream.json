@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seasonals"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_apple_flavor"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_carrot_flavor"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_glow_berry_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "forge:fruits/apple"
+    },
+    {
+      "tag": "forge:crops/carrot"
+    },
+    {
+      "tag": "forge:fruits/glow_berries"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:classic_ice_cream",
+    "count": 1
+  }
+}

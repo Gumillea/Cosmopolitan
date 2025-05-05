@@ -23,6 +23,7 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
     }
     @Override
     public void addTags(HolderLookup.Provider provider) {
+
         this.tag(Tags.Items.SEEDS).add(
                 CosmoItems.SOURCE_BERRY_PIPS.get(),
                 CosmoItems.KABLOOM_PIPS.get(),
@@ -39,6 +40,26 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(BlueprintItemTags.PIG_FOOD).add(
                 CosmoItems.FIDDLEHEAD.get(),
+                CosmoItems.WHEATGRASS.get()
+        );
+
+        this.tag(CosmoItemTags.APPLE).add(
+                Items.APPLE
+        );
+
+        this.tag(CosmoItemTags.CARROT).add(
+                Items.CARROT
+        );
+
+        this.tag(CosmoItemTags.SWEET_BERRY).add(
+                Items.SWEET_BERRIES
+        );
+
+        this.tag(CosmoItemTags.GLOW_BERRY).add(
+                Items.GLOW_BERRIES
+        );
+
+        this.tag(CosmoItemTags.CROPS).add(
                 CosmoItems.WHEATGRASS.get()
         );
 

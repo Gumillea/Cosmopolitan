@@ -3,10 +3,12 @@ package com.gumillea.cosmopolitan.core.util;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
+import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanMobEffectTags;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -15,19 +17,18 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -53,21 +54,21 @@ public class CosmoEvents {
     public static void onEntityAttacked(LivingDamageEvent event) {
         DamageSource source = event.getSource();
         LivingEntity target = event.getEntity();
-        if (target.getEffect(CosmoEffects.EXUBERANT.get()) != null) {
+        if (target.hasEffect(CosmoEffects.EXUBERANT.get())) {
             target.removeEffect(CosmoEffects.EXUBERANT.get());
             if (target instanceof Player player){
                 player.playSound(SoundEvents.AZALEA_BREAK, 1.5F, 1.0F);
             }
         }
         if (source.getEntity() instanceof LivingEntity attacker) {
-            if (target.getEffect(CosmoEffects.VARDOGER.get()) != null && target.getRandom().nextFloat() < CosmoConfig.Common.BLISTERBERRY_CHANCE.get()) {
+            if (target.hasEffect(CosmoEffects.VARDOGER.get()) && target.getRandom().nextFloat() < CosmoConfig.Common.BLISTERBERRY_CHANCE.get()) {
                 handleVardoger(target.level(), target, event);
             }
-            if (attacker.getEffect(CosmoEffects.VARDOGER.get()) != null && attacker.getRandom().nextFloat() < CosmoConfig.Common.BLISTERBERRY_CHANCE.get()) {
+            if (attacker.hasEffect(CosmoEffects.VARDOGER.get()) && attacker.getRandom().nextFloat() < CosmoConfig.Common.BLISTERBERRY_CHANCE.get()) {
                 handleVardoger(target.level(), target, event);
             }
             if (source.isIndirect() && source.getDirectEntity() instanceof Projectile) {
-                if (attacker.getEffect(CosmoEffects.TRACER.get()) != null) {
+                if (attacker.hasEffect(CosmoEffects.TRACER.get())) {
                     int amplifier = Objects.requireNonNull(attacker.getEffect(CosmoEffects.TRACER.get())).getAmplifier() + 1;
                     target.addEffect(new MobEffectInstance(CosmoEffects.MARKED.get(), 300 * amplifier));
                     target.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 300 * amplifier));
@@ -106,7 +107,7 @@ public class CosmoEvents {
                 living.addEffect(new MobEffectInstance(CosmoEffects.TRACER.get(), duration, amplifier));
             }
             if (CosmoConfig.Common.CARROT_FLAVOR.get() && stack.is(CosmoItemTags.CAROTENE_SOURCES)){
-                living.addEffect(new MobEffectInstance(CosmoEffects.CAROTENE.get(), duration * 2));
+                living.addEffect(new MobEffectInstance(CosmoEffects.CAROTENE.get(), duration * 5));
             }
             if (CosmoConfig.Common.DROOPFRUIT_FLAVOR.get() && stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)){
                 living.addEffect(new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), (int) (duration * 0.75)));
@@ -121,9 +122,18 @@ public class CosmoEvents {
     public static void onEffectApplied(MobEffectEvent.Applicable event) {
         MobEffect effect = event.getEffectInstance().getEffect();
         LivingEntity entity = event.getEntity();
-        if (entity.getEffect(CosmoEffects.CAROTENE.get()) != null) {
+        if (effect == CosmoEffects.PLACEHOLDER.get()) {
+            event.setResult(Event.Result.DENY);
+        }
+        if (entity.hasEffect(CosmoEffects.CAROTENE.get())) {
             ITagManager<MobEffect> mobEffectTags = ForgeRegistries.MOB_EFFECTS.tags();
             if (mobEffectTags != null && mobEffectTags.getTag(CosmoEffectTags.CONVERTIBLE_BY_CAROTENE).contains(effect)) {
+                for (int i = 0; i < 5; ++i) {
+                    double d0 = MathUtils.RAND.nextGaussian() * 0.02D;
+                    double d1 = MathUtils.RAND.nextGaussian() * 0.02D;
+                    double d2 = MathUtils.RAND.nextGaussian() * 0.02D;
+                    entity.level().addParticle(ParticleTypes.HAPPY_VILLAGER, entity.getRandomX(1.0D), entity.getRandomY() + 0.5D, entity.getRandomZ(1.0D), d0, d1, d2);
+                }
                 entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
                 event.setResult(Event.Result.DENY);
             }
@@ -139,25 +149,39 @@ public class CosmoEvents {
             List<Goal> toRemove = mob.goalSelector.getAvailableGoals().stream().map(WrappedGoal::getGoal).filter(goal -> goal instanceof AvoidEntityGoal).toList();
             toRemove.forEach(mob.goalSelector::removeGoal);
             AvoidEntityGoal<Player> goal = new AvoidEntityGoal<>(mob, Player.class, 16.0F, 1.5D, 1.75D, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test);
-            mob.goalSelector.addGoal(1, goal);
+            mob.goalSelector.addGoal(0, goal);
         }
     }
 
     @SubscribeEvent
     public static void onEffectRemove(MobEffectEvent.Remove event) {
-        MobEffect effect = Objects.requireNonNull(event.getEffectInstance()).getEffect();
-        LivingEntity entity = event.getEntity();
+        MobEffectInstance instance = event.getEffectInstance();
+        if (instance == null || instance.getEffect() != CosmoEffects.MARKED.get()) return;
 
-        if (effect == CosmoEffects.MARKED.get() && entity instanceof PathfinderMob mob) {
-            List<Goal> toRemove = mob.goalSelector.getAvailableGoals().stream().map(WrappedGoal::getGoal).filter(goal -> goal instanceof AvoidEntityGoal).toList();
-            toRemove.forEach(mob.goalSelector::removeGoal);
-        }
+        LivingEntity entity = event.getEntity();
+        if (!(entity instanceof PathfinderMob mob)) return;
+
+        List<Goal> toRemove = mob.goalSelector.getAvailableGoals().stream().map(WrappedGoal::getGoal).filter(goal -> goal instanceof AvoidEntityGoal).toList();
+        toRemove.forEach(mob.goalSelector::removeGoal);
+
     }
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
         LivingEntity target = event.getEntity();
-        if (target.getEffect(ExquisitoEffects.FUCHSIA_GOO.get()) != null) {
+        Level level = target.level();
+        BlockPos pos = target.getOnPos().above();
+        Entity killer = event.getSource().getEntity();
+        MobEffect at = CosmoEffects.ABYSMAL_TORCH.get();
+
+        if (target instanceof Monster && killer instanceof LivingEntity livingKiller && livingKiller.hasEffect(at) && (level.getBlockState(pos).isAir()|| level.getBlockState(pos).canBeReplaced())) {
+            int amplifier = Objects.requireNonNull(livingKiller.getEffect(at)).getAmplifier();
+            level.setBlock(pos, CosmoBlocks.LIFELIGHT.get().defaultBlockState(), 3);
+            level.gameEvent(GameEvent.BLOCK_PLACE, pos, GameEvent.Context.of(level.getBlockState(pos)));
+            livingKiller.removeEffect(at);
+            if (amplifier > 0) {
+                livingKiller.addEffect(new MobEffectInstance(at, -1, amplifier - 1));
+            }
         }
     }
 
@@ -166,19 +190,19 @@ public class CosmoEvents {
         Player player = event.getEntity();
         Entity target = event.getTarget();
         ItemStack stack = event.getItemStack();
-        if (target instanceof LivingEntity living && stack.getItem() == CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()) {
+        Item item = stack.getItem();
+        if (player !=null && item == CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get() && !player.getCooldowns().isOnCooldown(item) && target instanceof LivingEntity living) {
             living.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
             living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), 500));
-            if (player != null) {
-                if (!player.getAbilities().instabuild) {
-                    stack.shrink(1);
-                    ItemStack popsicle = new ItemStack(CosmoItems.BLISTERBERRY_POPSICLE.get());
+            if (!player.getAbilities().instabuild) {
+                stack.shrink(1);
+                ItemStack popsicle = new ItemStack(CosmoItems.BLISTERBERRY_POPSICLE.get());
 
-                    if (!player.getInventory().add(popsicle)) {
-                        player.drop(popsicle, false);
-                    }
+                if (!player.getInventory().add(popsicle)) {
+                    player.drop(popsicle, false);
                 }
             }
+            player.getCooldowns().addCooldown(item, 20);
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
         }

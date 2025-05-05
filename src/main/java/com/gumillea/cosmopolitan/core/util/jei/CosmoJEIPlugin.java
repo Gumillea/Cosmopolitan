@@ -23,9 +23,7 @@ public class CosmoJEIPlugin implements IModPlugin {
     public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "jei_plugin");
 
     private static final List<Supplier<Item>> INFO_ITEMS = List.of(
-            CosmoItems.FIDDLEHEAD,
-            CosmoItems.WILDBERRY,
-            CosmoItems.WHEATGRASS
+            CosmoItems.FIDDLEHEAD, CosmoItems.WILDBERRY, CosmoItems.WHEATGRASS
     );
 
     @Override

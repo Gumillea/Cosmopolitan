@@ -127,6 +127,7 @@ public class CosmoCreativeTabs {
                     if (CosmoCompat.qua && CosmoConfig.Common.ENCHANTED_FRUIT_FLAVOR.get()) output.accept(CosmoItems.ENCHANTED_FRUIT_ICE_CREAM.get());
                     if (CosmoCompat.an && CosmoConfig.Common.SOURCE_BERRY_FLAVOR.get()) output.accept(CosmoItems.SOURCE_BERRY_ICE_CREAM.get());
                     if (CosmoCompat.ha && CosmoConfig.Common.KABLOOM_FLAVOR.get()) output.accept(CosmoItems.KABLOOM_ICE_CREAM.get());
+                    if (CosmoConfig.Common.APPLE_FLAVOR.get() && CosmoConfig.Common.CARROT_FLAVOR.get() && CosmoConfig.Common.GLOW_BERRY_FLAVOR.get()) output.accept(CosmoItems.CLASSIC_ICE_CREAM.get());
                     if (CosmoCompat.pec) output.accept(CosmoItems.PECULIAR_ICE_CREAM.get());
                     if (CosmoCompat.sea) output.accept(CosmoItems.SEASONAL_ICE_CREAM.get());
                 }
@@ -138,6 +139,7 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.WAFER.get());
                 if (CosmoCompat.nea) {
                     output.accept(CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get());
+                    if (CosmoConfig.Common.APPLE_FLAVOR.get() && CosmoConfig.Common.CARROT_FLAVOR.get() && CosmoConfig.Common.GLOW_BERRY_FLAVOR.get()) output.accept(CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get());
                     if (CosmoCompat.pec) output.accept(CosmoItems.PECULIAR_ICE_CREAM_SANDWICH.get());
                     if (CosmoCompat.sea) output.accept(CosmoItems.SEASONAL_ICE_CREAM_SANDWICH.get());
                     if (CosmoCompat.tfd) {

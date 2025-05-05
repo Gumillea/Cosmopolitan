@@ -18,10 +18,10 @@ public class LongEatDurationItem extends Item
     }
 
     public SoundEvent getDrinkingSound() {
-        return this == CosmoItems.IRON_FIDDLEHEAD.get() ? SoundEvents.IRON_GOLEM_DAMAGE : SoundEvents.GENERIC_EAT;
+        return this == CosmoItems.IRON_FIDDLEHEAD.get() ? SoundEvents.COPPER_HIT : SoundEvents.GENERIC_EAT;
     }
 
     public SoundEvent getEatingSound() {
-        return this == CosmoItems.IRON_FIDDLEHEAD.get() ? SoundEvents.IRON_GOLEM_DAMAGE : SoundEvents.GENERIC_EAT;
+        return this == CosmoItems.IRON_FIDDLEHEAD.get() ? SoundEvents.COPPER_HIT : SoundEvents.GENERIC_EAT;
     }
 }

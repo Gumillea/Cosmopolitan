@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class QuarkEnchantedFruitItem extends FrozenDessertItem {
+public class QuarkEnchantedFruitItem extends NeapolitanIceCreamItem {
     private final int eAmount;
     public QuarkEnchantedFruitItem(Properties p, boolean bowl, int tFrozen, int eAmount) {
         super(p, bowl, tFrozen);

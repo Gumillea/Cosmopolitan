@@ -5,7 +5,13 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class CosmoItemTags {
+    public static final TagKey<Item> APPLE = TagUtil.itemTag("forge", "fruit/apples");
+    public static final TagKey<Item> CARROT = TagUtil.itemTag("forge", "crops/carrot");
+    public static final TagKey<Item> SWEET_BERRY = TagUtil.itemTag("forge", "fruit/sweet_berries");
+    public static final TagKey<Item> GLOW_BERRY = TagUtil.itemTag("forge", "fruit/glow_berries");
+
     public static final TagKey<Item> COOKIE = TagUtil.itemTag("forge", "cookies");
+    public static final TagKey<Item> CROPS = TagUtil.itemTag("forge", "crops");
     public static final TagKey<Item> POTATO = TagUtil.itemTag("forge", "crops/potato");
     public static final TagKey<Item> BERRIES = TagUtil.itemTag("forge", "berries");
     public static final TagKey<Item> FRUITS = TagUtil.itemTag("forge", "fruits");

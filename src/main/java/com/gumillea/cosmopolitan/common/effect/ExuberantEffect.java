@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 public class ExuberantEffect extends MobEffect {
 
     public ExuberantEffect() {
-        super(MobEffectCategory.BENEFICIAL, 0xD16035);
+        super(MobEffectCategory.BENEFICIAL, 0xDD2617);
     }
 
     @Override

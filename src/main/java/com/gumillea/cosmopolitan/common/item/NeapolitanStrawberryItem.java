@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.ModList;
 
-public class NeapolitanStrawberryItem extends FrozenDessertItem {
+public class NeapolitanStrawberryItem extends NeapolitanIceCreamItem {
     private final float hAmount;
     public NeapolitanStrawberryItem(Properties p, boolean bowl, int tFrozen, float hAmount) {
         super(p, bowl, tFrozen);

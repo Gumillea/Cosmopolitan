@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.common.item;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.gumillea.cosmopolitan.core.util.CosmoEffectTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -58,9 +59,9 @@ public class CocktailItem extends DrinkItem {
 
         for (Holder<MobEffect> holder : BuiltInRegistries.MOB_EFFECT.asHolderIdMap()) {
             MobEffect effect = holder.value();
-            //if (!isEffectBlacklisted(effect)) {
+            if (!holder.is(CosmoEffectTags.BLACKLIST)) {
                 availableEffects.add(effect);
-                //}
+                }
         }
 
         if (availableEffects.isEmpty()) {

@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-04T01:06:57.5319707	Item Models: cosmopolitan
+// 1.20.1	2025-05-05T12:10:47.1813819	Item Models: cosmopolitan
 fbe1a9fb1d5b0502f76ef9da43a7a06152e9fea2 assets/cosmopolitan/models/item/aloe_ice_cream_cone.json
 0397e30ea4175d128e72b12dc003c622095a578c assets/cosmopolitan/models/item/aurora_ice_cream_cone.json
 c6277286d7de80b46db774e7aca9ea16fa365498 assets/cosmopolitan/models/item/aurora_kohakutou.json
@@ -15,6 +15,8 @@ cd4c0310e92d59ca1d7ca4e94d626cc9b9f4c950 assets/cosmopolitan/models/item/chocola
 e0760ff2a820c39034d38dc7cf7e192b71b4916b assets/cosmopolitan/models/item/chorus_gulime.json
 1e69b0910a45b20116d08e42d72a17d636132d4f assets/cosmopolitan/models/item/chorus_gulime_small.json
 7ca1101f6dbe515976e754e767e105b20c83eaf8 assets/cosmopolitan/models/item/classic_fruit_salad.json
+b011583834052afc7c9fbb9a2561ed8553a14e86 assets/cosmopolitan/models/item/classic_ice_cream.json
+62dec69d246d682613c02390b4d9b3587437dd24 assets/cosmopolitan/models/item/classic_ice_cream_sandwich.json
 937ec3e2ab6b5b98a142dce94fdfdedf2bae3fa6 assets/cosmopolitan/models/item/cosmopolitan_cocktail.json
 7843a28d75e0ed043b47edbd0c847a299b1c5741 assets/cosmopolitan/models/item/cut_potatoes.json
 238708e8e131539d6d7816380e1163cea9986e8b assets/cosmopolitan/models/item/droopfruit_pips.json

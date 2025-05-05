@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
+import com.gumillea.cosmopolitan.common.block.LifelightBlock;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -41,6 +42,7 @@ public class CosmoBlocks {
     //Others
     public static final RegistryObject<Block> MASHED_POTATO_BLOCK = HELPER.createBlock("mashed_potato_block", () -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistryObject<Block> WHEATGRASS_BALE = HELPER.createBlock("wheatgrass_bale", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
+    public static final RegistryObject<Block> LIFELIGHT = HELPER.createBlock("lifelight", () -> new LifelightBlock(Properties.LIFELIGHT));
 
     static class Properties {
         //Chiseled Cream Blocks
@@ -55,6 +57,8 @@ public class CosmoBlocks {
         public static final BlockBehaviour.Properties ENCHANTED_FRUIT_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties KABLOOM_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties SOURCE_BERRY_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+
+        public static final BlockBehaviour.Properties LIFELIGHT = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noCollission().randomTicks().replaceable().sound(SoundType.MOSS);
 
     }
 }
