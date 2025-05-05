@@ -27,7 +27,7 @@ import org.violetmoon.quark.content.world.module.GlimmeringWealdModule;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GulimeItem extends Item {
+public class GulimeItem extends EffectItem {
 
     private final boolean large;
     private final RegistryObject<Item> result;

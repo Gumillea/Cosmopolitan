@@ -66,7 +66,7 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addEffect("The user will leave a glowing trail on the blocks they pass over.", CosmoEffects.MARKED.get());
         this.addEffect("The user's ranged attack will mark and blind the first living target they hit.", CosmoEffects.TRACER.get());
 
-        this.addEffect("Summons a temporary glowing block upon killing a hostile entity. While in The Undergarden, this block also provides healing.", CosmoEffects.ABYSMAL_TORCH.get());
+        this.addEffect("Summons a temporary glowing block upon killing a monster. While in The Undergarden, this block also provides healing.", CosmoEffects.ABYSMAL_TORCH.get());
         this.addEffect("When the user attacks or takes damage, the outgoing damage has a chance to be doubled. While in The Undergarden, this extra damage becomes an explosion.", CosmoEffects.VARDOGER.get());
 
         this.addEffect("The original effect of the item could not be applied because the compatible mod was not installed.", CosmoEffects.PLACEHOLDER.get());
@@ -75,6 +75,8 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addJeiItemDescriptions("Fiddlehead can be dropped when breaking fern or large fern.", CosmoItems.FIDDLEHEAD.get());
         this.addJeiItemDescriptions("Wildberry can be dropped when breaking grass or tall grass.", CosmoItems.WILDBERRY.get());
         this.addJeiItemDescriptions("Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase.", CosmoItems.WHEATGRASS.get());
+        this.addJeiItemDescriptions("A kind of edible golem that can split into 4 small, edible pieces after eating. It will slowly restore if the player has more than 4 pieces in their inventory and might change its form if the restore takes place in some specific biomes.", CosmoItems.GULIME.get());
+        this.addJeiItemDescriptions("The player can share this type of popsicle with most creatures they meet.", CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get());
 
         this.add("item_group." + Cosmopolitan.MODID + ".tab", "Cosmopolitan");
     }

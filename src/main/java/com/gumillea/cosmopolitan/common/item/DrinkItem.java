@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-public class DrinkItem extends Item {
+public class DrinkItem extends EffectItem {
 
     private final boolean honey_drink;
 

@@ -7,10 +7,10 @@
   ],
   "key": {
     "A": {
-      "tag": "forge:buckets/empty"
+      "item": "minecraft:copper_block"
     },
     "B": {
-      "item": "minecraft:packed_ice"
+      "tag": "forge:buckets/empty"
     },
     "C": {
       "tag": "forge:ingots/copper"

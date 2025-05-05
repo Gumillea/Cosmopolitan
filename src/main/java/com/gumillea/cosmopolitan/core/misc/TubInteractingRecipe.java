@@ -27,11 +27,13 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class TubInteractingRecipe implements Recipe<Container> {
+    private final ResourceLocation location;
     private final Ingredient ingredient;
     private final ItemStack resultItem;
     private final FluidStack fluid;
 
-    public TubInteractingRecipe(Ingredient ingredient, ItemStack result, FluidStack fluid) {
+    public TubInteractingRecipe(ResourceLocation location, Ingredient ingredient, ItemStack result, FluidStack fluid) {
+        this.location = location;
         this.ingredient = ingredient;
         this.resultItem = result;
         this.fluid = fluid;
@@ -71,7 +73,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
 
     @Override
     public ResourceLocation getId() {
-        return ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "tub_interacting");
+        return this.location;
     }
 
     @Override
@@ -150,7 +152,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
                 }
             }
 
-            return new TubInteractingRecipe(ingredient, result, fluidStack);
+            return new TubInteractingRecipe(location, ingredient, result, fluidStack);
         }
 
         @Override
@@ -158,7 +160,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
             Ingredient ingredient = Ingredient.fromNetwork(byteBuf);
             ItemStack itemResult = byteBuf.readItem();
             FluidStack fluidResult = FluidStack.readFromPacket(byteBuf);
-            return new TubInteractingRecipe(ingredient, itemResult, fluidResult);
+            return new TubInteractingRecipe(location, ingredient, itemResult, fluidResult);
         }
 
         @Override

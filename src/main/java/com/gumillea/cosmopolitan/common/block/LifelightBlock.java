@@ -2,11 +2,11 @@ package com.gumillea.cosmopolitan.common.block;
 
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,10 +15,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.fml.ModList;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.phys.AABB;
+import quek.undergarden.registry.UGDimensions;
 import quek.undergarden.registry.UGParticleTypes;
+
+import java.util.List;
 
 public class LifelightBlock extends Block {
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 4);
@@ -60,6 +61,37 @@ public class LifelightBlock extends Block {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext p_55659_) {
         return this.defaultBlockState().setValue(AGE, 0);
+    }
+
+    @Override
+    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState state1, boolean b) {
+        if (!level.isClientSide && CosmoCompat.ug && level.dimension() == UGDimensions.UNDERGARDEN_LEVEL) {
+            level.scheduleTick(pos, this, 20);
+        }
+    }
+
+    @Override
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!CosmoCompat.ug || level.dimension() != UGDimensions.UNDERGARDEN_LEVEL) return;
+
+        int age = state.getValue(AGE);
+        if (age >= 4) {
+            level.destroyBlock(pos, true);
+            return;
+        }
+
+        AABB box = new AABB(pos.offset(-1, 0, -1), pos.offset(1, 1, 1));
+        List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, box, e -> e.isAlive() && e.getHealth() < e.getMaxHealth());
+        if (!targets.isEmpty()) {
+            for (LivingEntity living : targets) {
+                living.heal(3.0F);
+            }
+            BlockState next = state.setValue(AGE, age + 1);
+            level.setBlock(pos, next, 2);
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(next));
+        }
+
+        level.scheduleTick(pos, this, 20);
     }
 
     @Override

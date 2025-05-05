@@ -6,7 +6,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class LongEatDurationItem extends Item
+public class LongEatDurationItem extends EffectItem
 {
     public LongEatDurationItem(Properties properties) {
         super(properties);

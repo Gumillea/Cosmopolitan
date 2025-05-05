@@ -18,7 +18,7 @@
   "block.cosmopolitan.source_berry_ice_cream_block": "Source Berry Ice Cream Block",
   "block.cosmopolitan.wheatgrass_bale": "Wheatgrass Bale",
   "effect.cosmopolitan.abysmal_torch": "Abysmal Torch",
-  "effect.cosmopolitan.abysmal_torch.description": "Summons a temporary glowing block upon killing a hostile entity. While in The Undergarden, this block also provides healing.",
+  "effect.cosmopolitan.abysmal_torch.description": "Summons a temporary glowing block upon killing a monster. While in The Undergarden, this block also provides healing.",
   "effect.cosmopolitan.carotene": "Carotene",
   "effect.cosmopolitan.carotene.description": "Converts Blindness, Darkness, and Nausea into Night Vision.",
   "effect.cosmopolitan.exuberant": "Exuberant",
@@ -180,7 +180,9 @@
   "item.minecraft.tipped_arrow.effect.iron_heart_long": "Arrow of Iron Heart",
   "item.minecraft.tipped_arrow.effect.iron_heart_strong": "Arrow of Iron Heart",
   "item_group.cosmopolitan.tab": "Cosmopolitan",
+  "jei.cosmopolitan.blisterberry_popsicle_double.desc": "The player can share this type of popsicle with most creatures they meet.",
   "jei.cosmopolitan.fiddlehead.desc": "Fiddlehead can be dropped when breaking fern or large fern.",
+  "jei.cosmopolitan.gulime.desc": "A kind of edible golem that can split into 4 small, edible pieces after eating. It will slowly restore if the player has more than 4 pieces in their inventory and might change its form if the restore takes place in some specific biomes.",
   "jei.cosmopolitan.wheatgrass.desc": "Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase.",
   "jei.cosmopolitan.wildberry.desc": "Wildberry can be dropped when breaking grass or tall grass.",
   "tooltip.cosmopolitan.wheatgrass.when_feeding": "When fed to a tamed Cat:"

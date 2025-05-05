@@ -179,7 +179,7 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.EXUBERANT_SOURCES)
-                .add(Items.APPLE)
+                .addTag(CosmoItemTags.APPLE)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BAC, "apple_jelly"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.FD, "apple_pie_slice"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.BF, "apple_stew"))
@@ -194,11 +194,14 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.MB, "apple_juice"));
 
         this.tag(CosmoItemTags.CAROTENE_SOURCES)
-                .add(Items.CARROT)
+                .addTag(CosmoItemTags.CARROT)
                 .add(Items.GOLDEN_CARROT)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.KK, "gem_carrot"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.KK, "carrot_and_carrot"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.KK, "carrot_and_carrot"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath(CosmoCompat.MB, "forest_medley"));
+
+        this.tag(CosmoItemTags.TRACER_SOURCES)
+                .addTag(CosmoItemTags.GLOW_BERRY);
     }
 }

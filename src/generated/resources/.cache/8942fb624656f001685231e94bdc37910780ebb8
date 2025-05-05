@@ -1,10 +1,11 @@
-// 1.20.1	2025-05-05T17:06:30.2332301	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2025-05-05T22:40:47.1861784	Tags for minecraft:item mod id cosmopolitan
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
 32d6782776245a4bb07443f2eb4a2871982b5b8c data/blueprint/tags/items/pig_food.json
 18383a62299c491fe24195d822acff14ba7fb2f6 data/cosmopolitan/tags/items/biome_gulimes.json
-47a9da5976e86567bbf6e07da9a0197e08825d25 data/cosmopolitan/tags/items/carotene_sources.json
-d67dee850c5ba9d469b24c3fe87a093b1a34666b data/cosmopolitan/tags/items/exuberant_sources.json
+2eb0b224a6d3002cea36f4c4968136c3faa649d4 data/cosmopolitan/tags/items/carotene_sources.json
+de065f8145984a155296bd1404c80dd6c447fc35 data/cosmopolitan/tags/items/exuberant_sources.json
 f42d9821710d96f28225d7a2dbebecfe3b2b991b data/cosmopolitan/tags/items/ice_cream_cones.json
+15cf104343f7d666bc0a5df63888c4114b80da14 data/cosmopolitan/tags/items/tracer_sources.json
 f4b16af790a1c39d3adfa358c7a701fb92a8b0da data/create/tags/items/upright_on_belt.json
 67188dce22d633fd6a46d93b90c67ad01a8e073e data/forge/tags/items/berries.json
 25093b4c17b8b5f98c63dc3e27ae9a68bd9d68a8 data/forge/tags/items/chocolate.json

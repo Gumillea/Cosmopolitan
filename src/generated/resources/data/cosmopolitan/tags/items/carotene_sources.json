@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:carrot",
+    "#forge:crops/carrot",
     "minecraft:golden_carrot",
     {
       "id": "kitchenkarrot:gem_carrot",
