@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:birch_sap_bottle"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sugar"
+  }
+}

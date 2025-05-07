@@ -16,11 +16,12 @@ public class CosmoCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> COSMO_TAB = TABS.register("tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("item_group." + Cosmopolitan.MODID + ".tab"))
-            .icon(() -> new ItemStack(CosmoItems.COSMOPOLITAN_COCKTAIL.get()))
+            .icon(() -> new ItemStack(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get()))
             .displayItems((parameters, output) -> {
                 //BLOCKS
                 output.accept(CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get());
                 output.accept(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get());
+                output.accept(CosmoBlocks.SAPPY_BIRCH_LOG.get());
                 output.accept(CosmoBlocks.WHEATGRASS_BALE.get());
                 output.accept(CosmoBlocks.MASHED_POTATO_BLOCK.get());
                 if (CosmoCompat.nea) {
@@ -42,6 +43,7 @@ public class CosmoCreativeTabs {
                     if (CosmoCompat.ha) output.accept(CosmoItems.KABLOOM_PIPS.get());
                     if (CosmoCompat.ug) {
                         output.accept(CosmoItems.BLISTERBERRY_PIPS.get());
+                        output.accept(CosmoItems.SPROUTED_UNDERBEANS.get());
                         output.accept(CosmoItems.DROOPFRUIT_PIPS.get());
                     }
                 }
@@ -95,10 +97,18 @@ public class CosmoCreativeTabs {
                     }
                 }
 
+                output.accept(CosmoItems.BIRCH_SAP_BOTTLE.get());
                 output.accept(CosmoItems.BERRY_SYRUP_BOTTLE.get());
                 if (CosmoCompat.tf) output.accept(CosmoItems.STEELEAF_NECTAR.get());
+                if (CosmoCompat.fd) {
+                    output.accept(CosmoItems.SPRING_SODA.get());
+                    output.accept(CosmoItems.SUMMER_CORDIAL.get());
+                    output.accept(CosmoItems.AUTUMN_TEA.get());
+                    output.accept(CosmoItems.WINTER_GLOGG.get());
+                }
 
                 output.accept(CosmoItems.COSMOPOLITAN_COCKTAIL.get());
+                output.accept(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get());
 
                 output.accept(CosmoItems.CLASSIC_FRUIT_SALAD.get());
                 output.accept(CosmoItems.MASHED_POTATO.get());

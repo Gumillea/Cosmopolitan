@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.core.data.tags;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
@@ -10,6 +11,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -24,11 +27,19 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
     @Override
     public void addTags(HolderLookup.Provider provider) {
 
+        this.tag(ItemTags.BIRCH_LOGS).add(
+                CosmoBlocks.SAPPY_BIRCH_LOG.get().asItem()
+        );
+
         this.tag(Tags.Items.SEEDS).add(
                 CosmoItems.SOURCE_BERRY_PIPS.get(),
                 CosmoItems.KABLOOM_PIPS.get(),
                 CosmoItems.BLISTERBERRY_PIPS.get(),
                 CosmoItems.DROOPFRUIT_PIPS.get()
+        );
+
+        this.tag(ItemTags.PIGLIN_LOVED).add(
+                CosmoItems.TOFFEE_GOLDEN_APPLE.get()
         );
 
         this.tag(BlueprintItemTags.CHICKEN_FOOD).add(

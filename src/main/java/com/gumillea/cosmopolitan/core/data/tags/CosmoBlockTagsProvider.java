@@ -30,7 +30,14 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get()
+                CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(),
+                CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get()
+        );
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+                CosmoBlocks.SAPPY_BIRCH_LOG.get()
+        );
+        this.tag(BlockTags.BIRCH_LOGS).add(
+                CosmoBlocks.SAPPY_BIRCH_LOG.get()
         );
     }
 }

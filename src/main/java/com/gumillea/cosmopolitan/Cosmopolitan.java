@@ -38,9 +38,9 @@ public class Cosmopolitan {
     public static final String MODID = "cosmopolitan";
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
 
-    public Cosmopolitan() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModLoadingContext context = ModLoadingContext.get();
+    public Cosmopolitan(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
+        modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
 
         REGISTRY_HELPER.register(modEventBus);
@@ -61,6 +61,7 @@ public class Cosmopolitan {
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
 
         context.registerConfig(ModConfig.Type.COMMON, CosmoConfig.COMMON_SPEC);
+        context.registerConfig(ModConfig.Type.CLIENT, CosmoConfig.CLIENT_SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

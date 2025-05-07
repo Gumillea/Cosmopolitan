@@ -124,8 +124,10 @@ public class CosmoCompat {
 
     //undergarden
     public static Item BLISTERBERRY = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "blisterberry"));
+    public static Item UNDERBEANS = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "underbeans"));
     public static Item DROOPFRUIT = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "droopvine_item"));
     public static Block BLISTERBERRY_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block UNDERBEAN_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "underbean_bush")) : Blocks.SWEET_BERRY_BUSH;
     public static Block DROOP_VINE = ModList.get().isLoaded(UG) ? UGBlocks.DROOPVINE.get() : Blocks.CAVE_VINES;
 }
 

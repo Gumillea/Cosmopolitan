@@ -73,7 +73,8 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                                 .apply(ApplyExplosionDecay.explosionDecay())
                                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.LARGE_FERN)
                                         .setProperties(StatePropertiesPredicate.Builder.properties()
-                                                .hasProperty(BlockStateProperties.HALF, "lower"))))
+                                                .hasProperty(BlockStateProperties.HALF, "lower")))
+                                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.5F, 0.65F, 0.7F, 0.75F, 0.8F)))
                         .add(LootItem.lootTableItem(CosmoItems.FIDDLEHEAD.get())
                                 .apply(ApplyExplosionDecay.explosionDecay())
                                 .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.05F, 0.055555557F, 0.0625F, 0.08333334F, 0.25F))).build()), false));

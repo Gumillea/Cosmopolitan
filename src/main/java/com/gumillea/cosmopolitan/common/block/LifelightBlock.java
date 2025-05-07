@@ -80,7 +80,7 @@ public class LifelightBlock extends Block {
             return;
         }
 
-        AABB box = new AABB(pos.offset(-1, 0, -1), pos.offset(1, 1, 1));
+        AABB box = new AABB(pos.offset(-1, -1, -1), pos.offset(1, 2, 1));
         List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, box, e -> e.isAlive() && e.getHealth() < e.getMaxHealth());
         if (!targets.isEmpty()) {
             for (LivingEntity living : targets) {

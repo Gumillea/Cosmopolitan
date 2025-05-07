@@ -21,7 +21,15 @@ public class CosmoResourcePacks {
             var resourcePath = ModList.get().getModFileById(Cosmopolitan.MODID).getFile().findResource("resourcepacks/cosmopolitan_tweaks");
             var pack = Pack.readMetaAndCreate("cosmopolitan:cosmopolitan_tweaks", Component.literal("Cosmopolitan Tweaks"), false,
                     (path) -> new PathPackResources(path, resourcePath, false), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
-            event.addRepositorySource((packConsumer) -> packConsumer.accept(pack));
+
+            var resourcePath2 = ModList.get().getModFileById(Cosmopolitan.MODID).getFile().findResource("resourcepacks/cosmopolitan_vanilla");
+            var pack2 = Pack.readMetaAndCreate("cosmopolitan:cosmopolitan_vanilla", Component.literal("Cosmopolitan Vanilla"), false,
+                    (path) -> new PathPackResources(path, resourcePath2, false), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
+
+            event.addRepositorySource((consumer) -> {
+                consumer.accept(pack);
+                consumer.accept(pack2);
+            });
         }
     }
 }

@@ -34,7 +34,7 @@ public class WheatgrassItem extends Item {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if (!CosmoConfig.Common.EFFECT_TOOLTIP.get()) return;
+        if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
 
         MutableComponent whenFeeding = Component.translatable("tooltip." + Cosmopolitan.MODID + ".wheatgrass.when_feeding");
         tooltip.add(whenFeeding.withStyle(ChatFormatting.GRAY));

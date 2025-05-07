@@ -1,0 +1,45 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersdelight"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "item": "cosmopolitan:wheatgrass"
+          },
+          {
+            "item": "cosmopolitan:wheatgrass"
+          },
+          {
+            "item": "minecraft:pink_petals"
+          },
+          {
+            "item": "cosmopolitan:birch_sap_bottle"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:spring_soda",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

@@ -27,7 +27,7 @@ public class EffectItem extends Item {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag flag) {
-        if (!CosmoConfig.Common.EFFECT_TOOLTIP.get()) return;
+        if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
 
         FoodProperties properties = this.getFoodProperties(stack, null);
         if (properties == null) return;

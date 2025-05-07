@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "berry_good"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "undergarden:blisterberry"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "bg_tweaks"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "undergarden:underbeans"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:sprouted_underbeans"
+  }
+}

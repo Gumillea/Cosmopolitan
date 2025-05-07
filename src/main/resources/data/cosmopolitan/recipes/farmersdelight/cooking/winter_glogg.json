@@ -1,0 +1,45 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "farmersdelight"
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "tag": "forge:fruits/sweet_berries"
+          },
+          {
+            "tag": "forge:fruits/sweet_berries"
+          },
+          {
+            "item": "farmersdelight:tree_bark"
+          },
+          {
+            "item": "cosmopolitan:birch_sap_bottle"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:winter_glogg",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

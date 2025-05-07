@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.core.util;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.common.block.SappyLogBlock;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
@@ -12,6 +13,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
@@ -25,9 +27,14 @@ import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -192,6 +199,10 @@ public class CosmoEvents {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
         if (player !=null && item == CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get() && !player.getCooldowns().isOnCooldown(item) && target instanceof LivingEntity living) {
+            if (living instanceof Player player1) {
+                player1.getFoodData().eat(3, 0.2F);
+            }
+            living.setTicksFrozen(living.getTicksFrozen() + 80);
             living.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
             living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), 500));
             if (!player.getAbilities().instabuild) {
@@ -202,7 +213,7 @@ public class CosmoEvents {
                     player.drop(popsicle, false);
                 }
             }
-            player.getCooldowns().addCooldown(item, 20);
+            player.getCooldowns().addCooldown(item, 80);
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
         }
@@ -234,14 +245,37 @@ public class CosmoEvents {
 
     @SubscribeEvent
     public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (!ModList.get().isLoaded("berry_good") || !CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) return;
+        Level level = event.getLevel();
+        Player player = event.getEntity();
+        InteractionHand hand = event.getHand();
+        ItemStack inHand = player.getItemInHand(hand);
+        BlockState state = level.getBlockState(event.getPos());
+        BlockPos pos = event.getPos();
+
+        if (!level.isClientSide && inHand.getItem() instanceof AxeItem) {
+            Block log = state.getBlock();
+
+            if (log == Blocks.BIRCH_LOG && level.getRandom().nextFloat() < 0.5) {
+                level.setBlock(pos, CosmoBlocks.SAPPY_BIRCH_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS)), 11);
+                level.playSound(null, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player));
+
+                inHand.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(hand));
+
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
+            }
+        }
+
+        if (!CosmoCompat.bg || !CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) return;
 
         ItemStack stack = event.getItemStack();
 
         Map<String, List<Item>> compatMap = Map.of(
                 CosmoCompat.AN, List.of(CosmoCompat.SOURCEBERRY),
                 CosmoCompat.HA, List.of(CosmoCompat.KABLOOM),
-                CosmoCompat.UG, List.of(CosmoCompat.BLISTERBERRY, CosmoCompat.DROOPFRUIT)
+                CosmoCompat.UG, List.of(CosmoCompat.BLISTERBERRY, CosmoCompat.UNDERBEANS, CosmoCompat.DROOPFRUIT)
         );
 
         for (Map.Entry<String, List<Item>> entry : compatMap.entrySet()) {

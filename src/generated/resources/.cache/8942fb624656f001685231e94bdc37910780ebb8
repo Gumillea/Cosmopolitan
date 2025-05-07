@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-05T22:40:47.1861784	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2025-05-07T15:45:46.5089372	Tags for minecraft:item mod id cosmopolitan
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
 32d6782776245a4bb07443f2eb4a2871982b5b8c data/blueprint/tags/items/pig_food.json
 18383a62299c491fe24195d822acff14ba7fb2f6 data/cosmopolitan/tags/items/biome_gulimes.json
@@ -22,4 +22,6 @@ f9a6617524ca4298156314736ac62ef87e784329 data/forge/tags/items/pumpkins.json
 90e5227e3913eb052610246ff767ca019c16195e data/forge/tags/items/salad_ingredients.json
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/forge/tags/items/seeds.json
 90e5227e3913eb052610246ff767ca019c16195e data/forge/tags/items/vegetables.json
+60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/items/birch_logs.json
+fc23a5982411ecbc42ef20032162ac3032bd0736 data/minecraft/tags/items/piglin_loved.json
 a26c5f71a76a4654f2b21c563526fa7a3c4e5878 data/neapolitan/tags/items/ice_cream.json

@@ -1,3 +1,5 @@
-// 1.20.1	2025-04-26T12:12:39.4304248	Tags for minecraft:block mod id cosmopolitan
-e0de51153feba1153fb68cc793891eb1ee3ba776 data/minecraft/tags/blocks/mineable/pickaxe.json
+// 1.20.1	2025-05-07T15:45:46.5064173	Tags for minecraft:block mod id cosmopolitan
+60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/blocks/birch_logs.json
+60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/blocks/mineable/axe.json
+b4126fb3d38cf13e878dddc8b842dc54a18c0b5a data/minecraft/tags/blocks/mineable/pickaxe.json
 804719d317df03000fbb8fc62f85465ae845214f data/minecraft/tags/blocks/mineable/shovel.json
