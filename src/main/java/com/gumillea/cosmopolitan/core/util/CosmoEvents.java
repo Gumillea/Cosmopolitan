@@ -2,13 +2,11 @@ package com.gumillea.cosmopolitan.core.util;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
-import com.gumillea.cosmopolitan.common.block.SappyLogBlock;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
-import com.gumillea.exquisito.core.reg.ExquisitoEffects;
-import com.teamabnormals.neapolitan.core.other.tags.NeapolitanMobEffectTags;
+import sereneseasons.init.ModConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -48,6 +46,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import quek.undergarden.registry.UGDimensions;
+import sereneseasons.api.season.Season;
+import sereneseasons.api.season.SeasonHelper;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
 import java.util.List;
@@ -254,6 +254,11 @@ public class CosmoEvents {
 
         if (!level.isClientSide && inHand.getItem() instanceof AxeItem) {
             Block log = state.getBlock();
+
+            if (CosmoCompat.ss && ModConfig.fertility.seasonalCrops) {
+                Season season = SeasonHelper.getSeasonState(level).getSeason();
+                if (season != Season.SPRING && season != Season.WINTER) return;
+            }
 
             if (log == Blocks.BIRCH_LOG && level.getRandom().nextFloat() < 0.5) {
                 level.setBlock(pos, CosmoBlocks.SAPPY_BIRCH_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS)), 11);

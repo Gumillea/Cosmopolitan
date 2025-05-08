@@ -36,8 +36,7 @@
           "item": "minecraft:glass_bottle"
         },
         "result": {
-          "item": "cosmopolitan:autumn_tea",
-          "count": 2
+          "item": "cosmopolitan:autumn_tea"
         }
       }
     }

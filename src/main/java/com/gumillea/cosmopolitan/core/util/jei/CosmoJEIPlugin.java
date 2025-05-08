@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 @JeiPlugin
 @ParametersAreNonnullByDefault
 public class CosmoJEIPlugin implements IModPlugin {
-    public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "jei_plugin");
+    public static final ResourceLocation ID = new ResourceLocation(Cosmopolitan.MODID, "jei_plugin");
 
     private static final List<Supplier<Item>> INFO_ITEMS = List.of(
             CosmoItems.FIDDLEHEAD, CosmoItems.WILDBERRY, CosmoItems.WHEATGRASS, CosmoItems.GULIME, CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE

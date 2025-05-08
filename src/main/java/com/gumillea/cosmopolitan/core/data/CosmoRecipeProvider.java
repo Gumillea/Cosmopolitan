@@ -48,10 +48,10 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFlavorRecipes(finished, CRItems.LIME_ICE_CREAM.get(), CRItems.LIME_MILKSHAKE.get(), CosmoFluids.LIME_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
         registerFlavorRecipes(finished, CRItems.POMEGRANATE_ICE_CREAM.get(), CRItems.POMEGRANATE_MILKSHAKE.get(), CosmoFluids.POMEGRANATE_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
 
-        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "aurora_ice_cream")), ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "aurora_milkshake")), CosmoFluids.AURORA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
-        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "glacier_ice_cream")), ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "glacier_milkshake")), CosmoFluids.GLACIER_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
-        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "phytochemical_ice_cream")), ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "phytochemical_milkshake")), CosmoFluids.PHYTOCHEMICAL_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
-        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "torchberry_ice_cream")), ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(CosmoCompat.TFD, "torchberry_milkshake")), CosmoFluids.TORCHBERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
+        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "aurora_ice_cream")), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "aurora_milkshake")), CosmoFluids.AURORA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
+        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "glacier_ice_cream")), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "glacier_milkshake")), CosmoFluids.GLACIER_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
+        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "phytochemical_ice_cream")), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "phytochemical_milkshake")), CosmoFluids.PHYTOCHEMICAL_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
+        registerFlavorRecipes(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "torchberry_ice_cream")), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "torchberry_milkshake")), CosmoFluids.TORCHBERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
 
         registerFlavorRecipes(finished, ExquisitoItems.CHORUS_ICE_CREAM.get(), ExquisitoItems.CHORUS_MILKSHAKE.get(), CosmoFluids.CHORUS_FRUIT_ICE_CREAM.get(), CosmoCompat.EX);
         registerFlavorRecipes(finished, ExquisitoItems.WARZIPAN_ICE_CREAM.get(), ExquisitoItems.WARZIPAN_MILKSHAKE.get(), CosmoFluids.WARZIPAN_ICE_CREAM.get(), CosmoCompat.EX);
@@ -105,7 +105,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
                 CosmoRecipes.TUB_EXTRACT_SERIALIZER.get(),
                 conds,
                 List.of(itemIngredient(coneItem), fluidIngredient(iceCreamFluid, 250)),
-                List.of(resultItem(ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, coneName)), 1))
+                List.of(resultItem(ForgeRegistries.ITEMS.getValue(new ResourceLocation(Cosmopolitan.MODID, coneName)), 1))
         );
 
         String shakeName = name + "_milkshake";
@@ -140,7 +140,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         results.forEach(resArr::add);
         json.add("result", resArr.size() == 1 ? resArr.get(0) : resArr);
 
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, (serializer == CosmoRecipes.TUB_EXTRACT_SERIALIZER.get() ? "tub_extracting/" : "tub_injecting/") + name);
+        ResourceLocation id = new ResourceLocation(Cosmopolitan.MODID, (serializer == CosmoRecipes.TUB_EXTRACT_SERIALIZER.get() ? "tub_extracting/" : "tub_injecting/") + name);
         consumer.accept(new CustomFinishedRecipe(id, serializer, json));
     }
 

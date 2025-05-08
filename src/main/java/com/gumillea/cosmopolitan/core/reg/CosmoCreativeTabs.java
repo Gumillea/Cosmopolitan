@@ -69,6 +69,8 @@ public class CosmoCreativeTabs {
                 if (CosmoCompat.fd) output.accept(CosmoItems.JELLY_ROLL_SLICE.get());
                 output.accept(CosmoItems.CHOCOLATE_ROLL.get());
                 if (CosmoCompat.fd) output.accept(CosmoItems.CHOCOLATE_ROLL_SLICE.get());
+                output.accept(CosmoItems.INK_ROLL.get());
+                if (CosmoCompat.fd) output.accept(CosmoItems.INK_ROLL_SLICE.get());
                 output.accept(CosmoItems.PAW_COOKIE.get());
                 if (CosmoCompat.an) output.accept(CosmoItems.MENDOSTEEN_TART.get());
                 if (CosmoCompat.ug) {

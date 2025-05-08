@@ -112,25 +112,25 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                                 .build()
                 ), false));
         //pips
-        this.entry("sourceberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(ResourceLocation.fromNamespaceAndPath(CosmoCompat.AN, "blocks/sourceberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
+        this.entry("sourceberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.AN, "blocks/sourceberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
                 .addModifier(new LootPoolsModifier(List.of(
                         LootPool.lootPool().name("cosmopolitan:sourceberry_bush")
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(CosmoItems.SOURCE_BERRY_PIPS.get()))
                         .build()), false));
-        this.entry("droopvine").selector(new ConditionedResourceSelector(new NamesResourceSelector(ResourceLocation.fromNamespaceAndPath(CosmoCompat.UG, "blocks/droopvine")), new ModLoadedCondition(CosmoCompat.BG)))
+        this.entry("droopvine").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.UG, "blocks/droopvine")), new ModLoadedCondition(CosmoCompat.BG)))
                 .addModifier(new LootPoolsModifier(List.of(
                         LootPool.lootPool().name("cosmopolitan:droopvine")
                                 .setRolls(ConstantValue.exactly(1.0F))
                                 .add(LootItem.lootTableItem(CosmoItems.DROOPFRUIT_PIPS.get()))
                                 .build()), false));
-        this.entry("blisterberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(ResourceLocation.fromNamespaceAndPath(CosmoCompat.UG, "blocks/blisterberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
+        this.entry("blisterberry_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.UG, "blocks/blisterberry_bush")), new ModLoadedCondition(CosmoCompat.BG)))
                 .addModifier(new LootPoolsModifier(List.of(
                         LootPool.lootPool().name("cosmopolitan:blisterberry_bush")
                                 .setRolls(ConstantValue.exactly(1.0F))
                                 .add(LootItem.lootTableItem(CosmoItems.BLISTERBERRY_PIPS.get()))
                                 .build()), false));
-        this.entry("kabloom_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(ResourceLocation.fromNamespaceAndPath(CosmoCompat.HA, "blocks/kabloom_bush")), new ModLoadedCondition(CosmoCompat.BG)))
+        this.entry("kabloom_bush").selector(new ConditionedResourceSelector(new NamesResourceSelector(new ResourceLocation(CosmoCompat.HA, "blocks/kabloom_bush")), new ModLoadedCondition(CosmoCompat.BG)))
                 .addModifier(new LootPoolsModifier(List.of(
                         LootPool.lootPool().name("cosmopolitan:kabloom_bush")
                                 .setRolls(ConstantValue.exactly(1.0F))

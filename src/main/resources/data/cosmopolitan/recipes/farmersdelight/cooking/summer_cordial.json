@@ -36,8 +36,7 @@
           "item": "minecraft:glass_bottle"
         },
         "result": {
-          "item": "cosmopolitan:summer_cordial",
-          "count": 2
+          "item": "cosmopolitan:summer_cordial"
         }
       }
     }

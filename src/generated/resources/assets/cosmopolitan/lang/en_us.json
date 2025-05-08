@@ -113,6 +113,8 @@
   "item.cosmopolitan.green_sauce": "Green Sauce",
   "item.cosmopolitan.gulime": "Gulime",
   "item.cosmopolitan.gulime_small": "Small Gulime",
+  "item.cosmopolitan.ink_roll": "Ink Roll",
+  "item.cosmopolitan.ink_roll_slice": "Slice of Ink Roll",
   "item.cosmopolitan.iron_fiddlehead": "Iron Fiddlehead",
   "item.cosmopolitan.jelly_cup": "Jelly Cup",
   "item.cosmopolitan.jelly_ring_ice_cream_cone": "Jelly Ring Ice Cream Cone",
@@ -192,5 +194,11 @@
   "jei.cosmopolitan.gulime.desc": "A kind of edible golem that can split into 4 small, edible pieces after eating. It will slowly restore if the player has more than 4 pieces in their inventory and might change its form if the restore takes place in some specific biomes.",
   "jei.cosmopolitan.wheatgrass.desc": "Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase.",
   "jei.cosmopolitan.wildberry.desc": "Wildberry can be dropped when breaking grass or tall grass.",
+  "tooltip.cosmopolitan.seasonal_drink.when_drinking.cold": "Remove Fire",
+  "tooltip.cosmopolitan.seasonal_drink.when_drinking.hot": "Remove Freeze",
+  "tooltip.cosmopolitan.seasonal_drink.when_drinking.in_autumn": "When drinking in Autumn:",
+  "tooltip.cosmopolitan.seasonal_drink.when_drinking.in_spring": "When drinking in Spring:",
+  "tooltip.cosmopolitan.seasonal_drink.when_drinking.in_summer": "When drinking in Summer:",
+  "tooltip.cosmopolitan.seasonal_drink.when_drinking.in_winter": "When drinking in Winter:",
   "tooltip.cosmopolitan.wheatgrass.when_feeding": "When fed to a tamed Cat:"
 }

@@ -23,9 +23,9 @@ public class DrinkItem extends EffectItem {
 
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
         super.finishUsingItem(itemStack, level, livingEntity);
-        if (livingEntity instanceof ServerPlayer $$3) {
-            CriteriaTriggers.CONSUME_ITEM.trigger($$3, itemStack);
-            $$3.awardStat(Stats.ITEM_USED.get(this));
+        if (livingEntity instanceof ServerPlayer serverPlayer) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayer, itemStack);
+            serverPlayer.awardStat(Stats.ITEM_USED.get(this));
         }
 
         if (itemStack.isEmpty()) {

@@ -10,6 +10,7 @@ import net.minecraftforge.fluids.FluidType;
 import java.util.function.Consumer;
 
 public class CosmoIceCreamFluidType extends FluidType {
+
     private final ResourceLocation stillTexture;
     private final ResourceLocation flowingTexture;
     private final ResourceLocation tubStillTexture;
@@ -22,11 +23,11 @@ public class CosmoIceCreamFluidType extends FluidType {
                 .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.SNOW_BREAK)
         );
 
-        this.stillTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
-        this.flowingTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/" + texture + "_ice_cream");
+        this.stillTexture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/" + texture + "_ice_cream");
+        this.flowingTexture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/" + texture + "_ice_cream");
 
-        this.tubStillTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
-        this.tubFlowingTexture = ResourceLocation.fromNamespaceAndPath(Cosmopolitan.MODID, "fluid/tub/" + texture + "_ice_cream");
+        this.tubStillTexture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/tub/" + texture + "_ice_cream");
+        this.tubFlowingTexture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/tub/" + texture + "_ice_cream");
     }
 
     @Override

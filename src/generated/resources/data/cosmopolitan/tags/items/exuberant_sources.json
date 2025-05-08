@@ -1,6 +1,6 @@
 {
   "values": [
-    "#forge:fruit/apples",
+    "#forge:fruits/apple",
     {
       "id": "brewinandchewin:apple_jelly",
       "required": false

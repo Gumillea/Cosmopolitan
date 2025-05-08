@@ -28,6 +28,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -37,10 +39,11 @@ public class Cosmopolitan {
 
     public static final String MODID = "cosmopolitan";
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 
-    public Cosmopolitan(FMLJavaModLoadingContext context) {
-        IEventBus modEventBus = context.getModEventBus();
-        modEventBus.addListener(this::commonSetup);
+    public Cosmopolitan() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModLoadingContext context = ModLoadingContext.get();
         MinecraftForge.EVENT_BUS.register(this);
 
         REGISTRY_HELPER.register(modEventBus);

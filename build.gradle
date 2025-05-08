@@ -121,6 +121,9 @@ dependencies {
     implementation fg.deobf("curse.maven:jade-324717:6271651")
     implementation fg.deobf("curse.maven:appleskin-248787:4770828")
 
+    implementation fg.deobf("curse.maven:glitchcore-955399:5787839")
+    implementation fg.deobf("curse.maven:serene-seasons-291874:6398227")
+
     implementation fg.deobf("curse.maven:neapolitan-382016:6248885")
     implementation fg.deobf("curse.maven:autumnity-365045:6151402")
     implementation fg.deobf("curse.maven:atmospheric-362393:6248868")

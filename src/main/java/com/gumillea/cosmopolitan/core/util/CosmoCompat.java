@@ -65,6 +65,8 @@ public class CosmoCompat {
     public static final boolean tfd = ModList.get().isLoaded(TFD);
     public static final String SEA = "seasonals";
     public static final boolean sea = ModList.get().isLoaded(SEA);
+    public static final String SS = "sereneseasons";
+    public static final boolean ss = ModList.get().isLoaded(SS);
     public static final String UG  = "undergarden";
     public static final boolean ug = ModList.get().isLoaded(UG);
     public static final String VC  = "vanillacookbook";
@@ -73,8 +75,8 @@ public class CosmoCompat {
     //ars_nouveau
     public static final MobEffect MANA_REGEN = ((ModList.get().isLoaded(AN)) ? (ModPotions.MANA_REGEN_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
     public static final MobEffect RECOVERY = ((ModList.get().isLoaded(AN)) ? (ModPotions.RECOVERY_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static Item SOURCEBERRY = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(AN, "sourceberry_bush"));
-    public static Block SOURCE_BERRY_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(AN, "sourceberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Item SOURCEBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(AN, "sourceberry_bush"));
+    public static Block SOURCE_BERRY_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(AN, "sourceberry_bush")) : Blocks.SWEET_BERRY_BUSH;
 
     //atmospheric
     public static final MobEffect PERSISTENCE = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.PERSISTENCE.get()) : CosmoEffects.PLACEHOLDER.get());
@@ -91,8 +93,8 @@ public class CosmoCompat {
 
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static Item KABLOOM = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(HA, "kabloom_pulp"));
-    public static Block KABLOOM_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Item KABLOOM = ForgeRegistries.ITEMS.getValue(new ResourceLocation(HA, "kabloom_pulp"));
+    public static Block KABLOOM_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
 
     //neapolitan
     public static final MobEffect AGILITY = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.AGILITY.get()) : CosmoEffects.PLACEHOLDER.get());
@@ -117,17 +119,17 @@ public class CosmoCompat {
     public static final MobEffect THORN_RESISTANCE = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : MobEffects.REGENERATION);
 
     //twilight_delight
-    public static MobEffect AURORA = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.fromNamespaceAndPath(TFD, "aurora_glowing")): MobEffects.MOVEMENT_SPEED;
-    public static MobEffect FIRE_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.fromNamespaceAndPath(TFD, "fire_range")): MobEffects.GLOWING;
-    public static MobEffect POISON_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.fromNamespaceAndPath(TFD, "poison_range")): MobEffects.DAMAGE_BOOST;
-    public static MobEffect FROZEN_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.fromNamespaceAndPath(TFD, "frozen_range")): MobEffects.FIRE_RESISTANCE;
+    public static MobEffect AURORA = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "aurora_glowing")): MobEffects.MOVEMENT_SPEED;
+    public static MobEffect FIRE_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "fire_range")): MobEffects.GLOWING;
+    public static MobEffect POISON_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "poison_range")): MobEffects.DAMAGE_BOOST;
+    public static MobEffect FROZEN_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "frozen_range")): MobEffects.FIRE_RESISTANCE;
 
     //undergarden
-    public static Item BLISTERBERRY = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "blisterberry"));
-    public static Item UNDERBEANS = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "underbeans"));
-    public static Item DROOPFRUIT = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "droopvine_item"));
-    public static Block BLISTERBERRY_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
-    public static Block UNDERBEAN_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(UG, "underbean_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Item BLISTERBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "blisterberry"));
+    public static Item UNDERBEANS = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "underbeans"));
+    public static Item DROOPFRUIT = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "droopvine_item"));
+    public static Block BLISTERBERRY_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block UNDERBEAN_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "underbean_bush")) : Blocks.SWEET_BERRY_BUSH;
     public static Block DROOP_VINE = ModList.get().isLoaded(UG) ? UGBlocks.DROOPVINE.get() : Blocks.CAVE_VINES;
 }
 

@@ -36,8 +36,7 @@
           "item": "minecraft:glass_bottle"
         },
         "result": {
-          "item": "cosmopolitan:spring_soda",
-          "count": 2
+          "item": "cosmopolitan:spring_soda"
         }
       }
     }

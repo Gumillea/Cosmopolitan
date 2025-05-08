@@ -36,8 +36,7 @@
           "item": "minecraft:glass_bottle"
         },
         "result": {
-          "item": "cosmopolitan:winter_glogg",
-          "count": 2
+          "item": "cosmopolitan:winter_glogg"
         }
       }
     }
