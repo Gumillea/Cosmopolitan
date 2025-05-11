@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_glow_berry_flavor"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmopolitan:glow_berry_ice_cream"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:glow_berry_milkshake",
+    "count": 3
+  }
+}

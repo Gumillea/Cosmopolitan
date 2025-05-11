@@ -1,0 +1,48 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 300,
+        "experience": 1.5,
+        "ingredients": [
+          [
+            {
+              "item": "farmersdelight:vegetable_soup"
+            },
+            {
+              "item": "farmersdelight:chicken_soup"
+            }
+          ],
+          {
+            "item": "cosmopolitan:fiddlehead"
+          },
+          {
+            "item": "cosmopolitan:fiddlehead"
+          },
+          {
+            "tag": "forge:mushrooms"
+          },
+          {
+            "tag": "forge:crops/rice"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "result": {
+          "item": "cosmopolitan:wild_risotto",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

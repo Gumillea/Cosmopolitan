@@ -26,6 +26,14 @@
       "required": false
     },
     {
+      "id": "collectorsreap:deluxe_salad",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:fruit_salad",
+      "required": false
+    },
+    {
       "id": "vanillacookbook:baked_apple",
       "required": false
     },
@@ -43,6 +51,10 @@
     },
     {
       "id": "vanillacookbook:apple_sauce",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:fruit_salad",
       "required": false
     },
     {

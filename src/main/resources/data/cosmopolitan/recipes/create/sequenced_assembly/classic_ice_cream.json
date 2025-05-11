@@ -1,0 +1,97 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "create_neapolitan_recipe_tweaks"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_apple_flavor"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_carrot_flavor"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_glow_berry_flavor"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:bowl"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "cosmopolitan:classic_ice_cream"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:glow_berry_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:carrot_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:bowl"
+        },
+        {
+          "amount": 250,
+          "fluid": "cosmopolitan:apple_ice_cream",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:bowl"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:bowl"
+  }
+}

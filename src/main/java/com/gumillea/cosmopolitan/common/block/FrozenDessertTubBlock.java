@@ -6,6 +6,7 @@ import com.gumillea.cosmopolitan.core.misc.TubExtractRecipe;
 import com.gumillea.cosmopolitan.core.misc.TubInjectRecipe;
 import com.gumillea.cosmopolitan.core.misc.TubInteractingRecipe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -17,6 +18,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -26,7 +28,9 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
@@ -38,18 +42,27 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBlock {
     public static final BooleanProperty OPEN = BooleanProperty.create("open");
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+
     private static final VoxelShape INSIDE = Block.box(2, 1, 2, 14, 16, 14);
     private static final VoxelShape SHAPE = Shapes.join(Shapes.block(), INSIDE, BooleanOp.ONLY_FIRST);
 
     public FrozenDessertTubBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(OPEN, true));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(OPEN, true));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(OPEN);
+        builder.add(FACING);
+    }
+
+
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        boolean player = context.getPlayer() != null && context.getPlayer().isShiftKeyDown();
+        return player ? this.defaultBlockState().setValue(OPEN, false).setValue(FACING, context.getHorizontalDirection()) : this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
     }
 
     @Override
@@ -90,13 +103,14 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
             return InteractionResult.SUCCESS;
         }
 
-        result = TubExtractRecipe.tryApply(level, tub, inHand, player, hand);
-        if (!result.isEmpty()) {
-            return InteractionResult.SUCCESS;
-        }
-
         result = TubInteractingRecipe.tryApply(level, tub, inHand, player, hand);
         if (!result.isEmpty()) {
+            FluidStack stack = tub.getTank().getFluid();
+            if (stack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType) {
+                level.playSound(null, pos, SoundEvents.SNOW_BREAK, SoundSource.BLOCKS, 0.8F, 0.8F);
+            } else {
+                level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 0.8F, 0.8F);
+            }
             return InteractionResult.SUCCESS;
         }
 
@@ -160,6 +174,7 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
+
             if (blockEntity instanceof FrozenDessertTubBlockEntity tub) {
                 FluidStack stack = tub.getTank().getFluid();
                 if (stack.getFluid().isSame(Fluids.LAVA)) {

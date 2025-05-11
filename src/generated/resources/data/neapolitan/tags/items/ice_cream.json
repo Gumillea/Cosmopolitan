@@ -8,12 +8,14 @@
     "cosmopolitan:source_berry_ice_cream",
     "cosmopolitan:seasonal_ice_cream",
     "cosmopolitan:peculiar_ice_cream",
+    "cosmopolitan:classic_ice_cream",
     "cosmopolitan:refreshing_ice_cream_sandwich",
     "cosmopolitan:twilight_ice_cream_sandwich",
     "cosmopolitan:rainbow_ice_cream_sandwich",
     "cosmopolitan:seasonal_ice_cream_sandwich",
     "cosmopolitan:peculiar_ice_cream_sandwich",
     "cosmopolitan:neapolitan_ice_cream_sandwich",
+    "cosmopolitan:classic_ice_cream_sandwich",
     "#cosmopolitan:ice_cream_cones"
   ]
 }

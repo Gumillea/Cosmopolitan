@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "cosmopolitan:condensed_milk_bottle"
+    },
+    {
+      "item": "cosmopolitan:condensed_milk_bottle"
+    },
+    {
+      "item": "cosmopolitan:condensed_milk_bottle"
+    },
+    {
+      "item": "cosmopolitan:condensed_milk_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:condensed_milk_bucket"
+  }
+}

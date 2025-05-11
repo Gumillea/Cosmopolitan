@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
+
     @Redirect(method = "getNightVisionScale", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/effect/MobEffectInstance;endsWithin(I)Z"))
     private static boolean modifyNightVision(MobEffectInstance instance, int duration, LivingEntity entity) {
         if (!ModList.get().isLoaded("no_nv_flash") && !ModList.get().isLoaded("flickerfix") && !ModList.get().isLoaded("betternightvision")) {
@@ -22,5 +23,6 @@ public class GameRendererMixin {
         }
         return instance.endsWithin(duration);
     }
+
 }
 

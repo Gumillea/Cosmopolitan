@@ -1,0 +1,30 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "undergarden"
+        },
+        {
+          "type": "cosmopolitan:config",
+          "value": "enable_droopfruit_flavor"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:abysmal_torch",
+        "providers": [
+          {
+            "tag": "cosmopolitan:abysmal_torch_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

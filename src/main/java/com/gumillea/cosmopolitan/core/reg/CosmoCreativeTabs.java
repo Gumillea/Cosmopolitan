@@ -60,6 +60,7 @@ public class CosmoCreativeTabs {
                         output.accept(CosmoItems.POTATO_PANCAKES.get());
                     }
                 }
+                output.accept(CosmoItems.ROASTED_MUSHROOM.get());
                 if (CosmoCompat.tf) {
                     output.accept(CosmoItems.AURORA_KOHAKUTOU.get());
                     output.accept(CosmoItems.GLACIER_ESSENCE.get());
@@ -99,6 +100,26 @@ public class CosmoCreativeTabs {
                     }
                 }
 
+                output.accept(CosmoItems.CLASSIC_FRUIT_SALAD.get());
+                output.accept(CosmoItems.MASHED_POTATO.get());
+                if (CosmoCompat.fd) {
+                    output.accept(CosmoItems.GREEN_SAUCE.get());
+                    output.accept(CosmoItems.GREEN_CREAM_STEW.get());
+                    output.accept(CosmoItems.GREEN_PASTA.get());
+                    output.accept(CosmoItems.WILD_RISOTTO.get());
+                }
+                if (CosmoCompat.mf) {
+                    output.accept(CosmoItems.GREEN_CREAM_STEW_CUP.get());
+                    if (CosmoCompat.vc) {
+                        output.accept(CosmoItems.JELLY_CUP.get());
+                        output.accept(CosmoItems.MAGMA_JELLY_CUP.get());
+                    }
+                }
+
+                output.accept(CosmoItems.CONDENSED_MILK_BUCKET.get());
+                output.accept(CosmoItems.CONDENSED_MILK_BOTTLE.get());
+                output.accept(CosmoItems.CREAM_BUCKET.get());
+                output.accept(CosmoItems.CREAM.get());
                 output.accept(CosmoItems.BIRCH_SAP_BOTTLE.get());
                 output.accept(CosmoItems.BERRY_SYRUP_BOTTLE.get());
                 if (CosmoCompat.tf) output.accept(CosmoItems.STEELEAF_NECTAR.get());
@@ -112,23 +133,14 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.COSMOPOLITAN_COCKTAIL.get());
                 output.accept(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get());
 
-                output.accept(CosmoItems.CLASSIC_FRUIT_SALAD.get());
-                output.accept(CosmoItems.MASHED_POTATO.get());
-                if (CosmoCompat.fd) {
-                    output.accept(CosmoItems.GREEN_SAUCE.get());
-                    output.accept(CosmoItems.GREEN_CREAM_STEW.get());
-                    output.accept(CosmoItems.GREEN_PASTA.get());
-                }
-                if (CosmoCompat.mf) {
-                    output.accept(CosmoItems.GREEN_CREAM_STEW_CUP.get());
-                    if (CosmoCompat.vc) {
-                        output.accept(CosmoItems.JELLY_CUP.get());
-                        output.accept(CosmoItems.MAGMA_JELLY_CUP.get());
-                    }
-                }
-
                 //ice_dessert
                 if (CosmoCompat.nea) {
+                    if (CosmoConfig.Common.APPLE_FLAVOR.get()) output.accept(CosmoItems.APPLE_MILKSHAKE.get());
+                    if (CosmoConfig.Common.CARROT_FLAVOR.get()) output.accept(CosmoItems.CARROT_MILKSHAKE.get());
+                    if (CosmoConfig.Common.GLOW_BERRY_FLAVOR.get()) output.accept(CosmoItems.GLOW_BERRY_MILKSHAKE.get());
+                    if (CosmoCompat.qua && CosmoConfig.Common.ENCHANTED_FRUIT_FLAVOR.get()) output.accept(CosmoItems.ENCHANTED_FRUIT_MILKSHAKE.get());
+                    if (CosmoCompat.an && CosmoConfig.Common.SOURCE_BERRY_FLAVOR.get()) output.accept(CosmoItems.SOURCE_BERRY_MILKSHAKE.get());
+                    if (CosmoCompat.ha && CosmoConfig.Common.KABLOOM_FLAVOR.get()) output.accept(CosmoItems.KABLOOM_MILKSHAKE.get());
                     if (CosmoCompat.ug) {
                         output.accept(CosmoItems.BLISTERBERRY_SORBET.get());
                         output.accept(CosmoItems.DROOPFRUIT_SORBET.get());

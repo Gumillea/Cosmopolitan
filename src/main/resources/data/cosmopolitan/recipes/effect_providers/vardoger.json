@@ -1,0 +1,30 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "undergarden"
+        },
+        {
+          "type": "cosmopolitan:config",
+          "value": "enable_blisterberry_flavor"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:vardoger",
+        "providers": [
+          {
+            "tag": "cosmopolitan:vardoger_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

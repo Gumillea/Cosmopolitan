@@ -36,8 +36,8 @@ public class EffectItem extends Item {
             MobEffectInstance effect = pair.getFirst();
             float probability = pair.getSecond();
 
-            MutableComponent effectTooltip = Component.literal(" ")
-                    .append(Component.translatable(effect.getDescriptionId()))
+            MutableComponent effectTooltip = Component
+                    .translatable(effect.getDescriptionId())
                     .append(effect.getAmplifier() > 0 ? Component.literal(" ").append(Component.translatable("potion.potency." + effect.getAmplifier())) : Component.empty())
                     .append(effect.getDuration() > 20 ? Component.literal(" (").append(MobEffectUtil.formatDuration(effect, 1.0F)).append(")") : Component.empty())
                     .append(probability < 1.0f ? Component.literal(" - " + (int)(probability * 100) + "%") : Component.empty());

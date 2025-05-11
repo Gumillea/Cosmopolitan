@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_kabloom_flavor"
+    },
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "habitat:kabloom_pulp"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "cosmopolitan:kabloom_ice_cream"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:kabloom_milkshake",
+    "count": 3
+  }
+}

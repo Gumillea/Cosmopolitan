@@ -1,10 +1,12 @@
 {
   "variants": {
-    "open=true": {
-      "model": "cosmopolitan:block/copper_frozen_dessert_tub"
-    },
-    "open=false": {
-      "model": "cosmopolitan:block/copper_frozen_dessert_tub_closed"
-    }
+    "facing=north,open=true":  { "model": "cosmopolitan:block/copper_frozen_dessert_tub" },
+    "facing=east,open=true":   { "model": "cosmopolitan:block/copper_frozen_dessert_tub", "y": 90 },
+    "facing=south,open=true":  { "model": "cosmopolitan:block/copper_frozen_dessert_tub", "y": 180 },
+    "facing=west,open=true":   { "model": "cosmopolitan:block/copper_frozen_dessert_tub", "y": 270 },
+    "facing=north,open=false": { "model": "cosmopolitan:block/copper_frozen_dessert_tub_closed" },
+    "facing=east,open=false":  { "model": "cosmopolitan:block/copper_frozen_dessert_tub_closed", "y": 90 },
+    "facing=south,open=false": { "model": "cosmopolitan:block/copper_frozen_dessert_tub_closed", "y": 180 },
+    "facing=west,open=false":  { "model": "cosmopolitan:block/copper_frozen_dessert_tub_closed", "y": 270 }
   }
 }

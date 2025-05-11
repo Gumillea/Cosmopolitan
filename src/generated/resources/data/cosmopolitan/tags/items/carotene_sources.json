@@ -2,6 +2,83 @@
   "values": [
     "#forge:crops/carrot",
     "minecraft:golden_carrot",
+    "minecraft:rabbit_stew",
+    {
+      "id": "neapolitan:adzuki_curry",
+      "required": false
+    },
+    {
+      "id": "neapolitan:adzuki_stew",
+      "required": false
+    },
+    {
+      "id": "casualness_delight:beef_noodles",
+      "required": false
+    },
+    {
+      "id": "brewinandchewin:vegetable_omelet",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:portobello_rice_soup",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:portobello_wrap",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:crimson_carrot_roast",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:venison_stew",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:chieftain_carb",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:clam_meatball_stew",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:pomegranate_pork",
+      "required": false
+    },
+    {
+      "id": "delightful:field_salad",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:beef_stew",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:chicken_sandwich",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:fried_rice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:kelp_roll",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:kelp_roll_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:vegetable_noodles",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:vegetable_soup",
+      "required": false
+    },
     {
       "id": "kitchenkarrot:gem_carrot",
       "required": false
@@ -11,7 +88,35 @@
       "required": false
     },
     {
-      "id": "kitchenkarrot:carrot_and_carrot",
+      "id": "kitchenkarrot:carrot_tart",
+      "required": false
+    },
+    {
+      "id": "kitchenkarrot:curry_udon",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:chicken_soup",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:garden_soup",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:carrot_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:meaty_stew",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:vegetable_stew",
+      "required": false
+    },
+    {
+      "id": "twilightdelight:fried_insect",
       "required": false
     },
     {

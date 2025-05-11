@@ -4,22 +4,28 @@ import com.cosmicgelatin.peculiars.core.registry.PeculiarsItems;
 import com.cosmicgelatin.seasonals.core.registry.SeasonalsItems;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.exquisito.core.reg.ExquisitoItems;
+import com.teamabnormals.berry_good.core.registry.BGItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.brnbrd.delightful.common.item.DelightfulItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
@@ -41,6 +47,14 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFlavorRecipes(finished, NeapolitanItems.BANANA_ICE_CREAM.get(), NeapolitanItems.BANANA_MILKSHAKE.get(), CosmoFluids.BANANA_ICE_CREAM.get(), CosmoCompat.NEA);
         registerFlavorRecipes(finished, NeapolitanItems.ADZUKI_ICE_CREAM.get(), NeapolitanItems.ADZUKI_MILKSHAKE.get(), CosmoFluids.ADZUKI_ICE_CREAM.get(), CosmoCompat.NEA);
         registerFlavorRecipes(finished, NeapolitanItems.MINT_ICE_CREAM.get(), NeapolitanItems.MINT_MILKSHAKE.get(), CosmoFluids.MINT_ICE_CREAM.get(), CosmoCompat.NEA);
+
+        registerFlavorRecipes(finished, CosmoItems.APPLE_ICE_CREAM.get(), CosmoItems.APPLE_MILKSHAKE.get(), CosmoFluids.APPLE_ICE_CREAM.get(), CosmoCompat.NEA);
+        registerFlavorRecipes(finished, CosmoItems.CARROT_ICE_CREAM.get(), CosmoItems.CARROT_MILKSHAKE.get(), CosmoFluids.CARROT_ICE_CREAM.get(), CosmoCompat.NEA);
+        registerFlavorRecipes(finished, CosmoItems.GLOW_BERRY_ICE_CREAM.get(), CosmoItems.GLOW_BERRY_MILKSHAKE.get(), CosmoFluids.GLOW_BERRY_ICE_CREAM.get(), CosmoCompat.NEA);
+
+        registerFlavorRecipes(finished, CosmoItems.ENCHANTED_FRUIT_ICE_CREAM.get(), CosmoItems.ENCHANTED_FRUIT_MILKSHAKE.get(), CosmoFluids.ENCHANTED_FRUIT_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.QUA);
+        registerFlavorRecipes(finished, CosmoItems.SOURCE_BERRY_ICE_CREAM.get(), CosmoItems.SOURCE_BERRY_MILKSHAKE.get(), CosmoFluids.SOURCE_BERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.AN);
+        registerFlavorRecipes(finished, CosmoItems.KABLOOM_ICE_CREAM.get(), CosmoItems.KABLOOM_MILKSHAKE.get(), CosmoFluids.KABLOOM_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.HA);
 
         registerFlavorRecipes(finished, DelightfulItems.MATCHA_ICE_CREAM.get(), DelightfulItems.MATCHA_MILKSHAKE.get(), CosmoFluids.MATCHA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.DF);
         registerFlavorRecipes(finished, DelightfulItems.SALMONBERRY_ICE_CREAM.get(), DelightfulItems.SALMONBERRY_MILKSHAKE.get(), CosmoFluids.SALMONBERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.DF);

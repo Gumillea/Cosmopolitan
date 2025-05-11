@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan.common.client;
 
+import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.common.fluid.CosmoIceCreamFluidType;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
@@ -38,8 +40,22 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
             float fill = (float) stack.getAmount() / FrozenDessertTubBlockEntity.CAPACITY;
             float height = BASE_HEIGHT + (INNER_MAX - BASE_HEIGHT) * fill;
 
+            Direction facing = be.getBlockState().getValue(FrozenDessertTubBlock.FACING);
+            poseStack.pushPose();
+
+            poseStack.translate(0.5, 0, 0.5);
+            switch (facing) {
+                case NORTH -> poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(0));
+                case SOUTH -> poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(180));
+                case WEST  -> poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(90));
+                case EAST  -> poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(270));
+            }
+            poseStack.translate(-0.5, 0, -0.5);
+
             TextureAtlasSprite sprite = getFluidSprite(stack);
             renderFluidPlane(poseStack, buffer, sprite, height, packedLight);
+
+            poseStack.popPose();
         } finally {
             CosmoIceCreamFluidType.setTubContext(false);
         }

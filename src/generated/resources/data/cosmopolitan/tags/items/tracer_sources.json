@@ -1,5 +1,49 @@
 {
   "values": [
-    "#forge:fruits/glow_berries"
+    "#forge:fruits/glow_berries",
+    {
+      "id": "neapolitan:glowgurt",
+      "required": false
+    },
+    {
+      "id": "brewinandchewin:glow_berry_marmalade",
+      "required": false
+    },
+    {
+      "id": "brewinandchewin:pickled_pickles",
+      "required": false
+    },
+    {
+      "id": "miners_delight:glow_ink_pasta",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:glow_berry_custard",
+      "required": false
+    },
+    {
+      "id": "kitchenkarrot:lush_salad",
+      "required": false
+    },
+    {
+      "id": "twilightdelight:berry_stick",
+      "required": false
+    },
+    {
+      "id": "seasonals:mixed_berry_muffin",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:golden_fruit_salad",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:glow_berry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:glazed_glow_berries",
+      "required": false
+    }
   ]
 }

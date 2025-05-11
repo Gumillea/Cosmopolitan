@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.fluid.CosmoIceCreamFluidType;
+import com.gumillea.cosmopolitan.common.fluid.CreamFluidType;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidType;
@@ -13,6 +14,16 @@ import net.minecraftforge.registries.RegistryObject;
 public class CosmoFluids {
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, Cosmopolitan.MODID);
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, Cosmopolitan.MODID);
+
+    public static final RegistryObject<FluidType> CREAM_TYPE = FLUID_TYPES.register("cream", () -> new CreamFluidType("cream"));
+    public static final RegistryObject<FlowingFluid> CREAM = FLUIDS.register("cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_CREAM = FLUIDS.register("flowing_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(CREAM_TYPE, CREAM, FLOWING_CREAM);
+
+    public static final RegistryObject<FluidType> CONDENSED_MILK_TYPE = FLUID_TYPES.register("condensed_milk", () -> new CreamFluidType("condensed_milk"));
+    public static final RegistryObject<FlowingFluid> CONDENSED_MILK = FLUIDS.register("condensed_milk", () -> new ForgeFlowingFluid.Source(CosmoFluids.CONDENSED_MILK_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_CONDENSED_MILK = FLUIDS.register("flowing_condensed_milk", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.CONDENSED_MILK_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties CONDENSED_MILK_PROPERTIES = new ForgeFlowingFluid.Properties(CONDENSED_MILK_TYPE, CONDENSED_MILK, FLOWING_CONDENSED_MILK);
 
     //neapolitan
     public static final RegistryObject<FluidType> VANILLA_ICE_CREAM_TYPE = FLUID_TYPES.register("vanilla_ice_cream", () -> new CosmoIceCreamFluidType("vanilla"));

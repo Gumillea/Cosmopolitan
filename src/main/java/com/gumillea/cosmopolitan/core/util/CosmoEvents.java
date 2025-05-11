@@ -6,6 +6,23 @@ import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import net.minecraft.client.Minecraft;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentContents;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.Container;
+import net.minecraft.world.effect.MobEffectUtil;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import sereneseasons.init.ModConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -50,9 +67,7 @@ import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID)
 public class CosmoEvents {
@@ -107,7 +122,7 @@ public class CosmoEvents {
             int duration = nutrition < 10 ? 300 : 600;
             int amplifier = nutrition < 10 ? 0 : 1;
             if (CosmoConfig.Common.APPLE_FLAVOR.get() && stack.is(CosmoItemTags.EXUBERANT_SOURCES)){
-                duration = nutrition < 10 ? 10 - nutrition : 9;
+                duration = nutrition < 10 ? 10 - nutrition : 1;
                 living.addEffect(new MobEffectInstance(CosmoEffects.EXUBERANT.get(), duration * 300));
             }
             if (CosmoConfig.Common.GLOW_BERRY_FLAVOR.get() && stack.is(CosmoItemTags.TRACER_SOURCES)){
@@ -117,7 +132,7 @@ public class CosmoEvents {
                 living.addEffect(new MobEffectInstance(CosmoEffects.CAROTENE.get(), duration * 5));
             }
             if (CosmoConfig.Common.DROOPFRUIT_FLAVOR.get() && stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)){
-                living.addEffect(new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), (int) (duration * 0.75)));
+                living.addEffect(new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), -1, amplifier));
             }
             if (CosmoConfig.Common.BLISTERBERRY_FLAVOR.get() && stack.is(CosmoItemTags.VARDOGER_SOURCES)){
                 living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), (int) (duration * 1.5)));
@@ -295,4 +310,32 @@ public class CosmoEvents {
         }
     }
 
+    public static void condensedMilkEffect (Level level, LivingEntity living, ItemStack stack){
+        Iterator<MobEffectInstance> itr = living.getActiveEffects().iterator();
+        ArrayList<MobEffect> compatibleEffects = new ArrayList();
+
+        while(itr.hasNext()) {
+            MobEffectInstance effect = itr.next();
+            if (effect.getAmplifier() < 1 && effect.isCurativeItem(new ItemStack(Items.MILK_BUCKET))) {
+                compatibleEffects.add(effect.getEffect());
+            }
+        }
+
+        if (!compatibleEffects.isEmpty()) {
+            if (stack.is(CosmoItems.CONDENSED_MILK_BUCKET.get())) {
+                for (MobEffect effect : compatibleEffects) {
+                    MobEffectInstance instance = living.getEffect(effect);
+                    if (instance != null && !MinecraftForge.EVENT_BUS.post(new MobEffectEvent.Remove(living, instance))) {
+                        living.removeEffect(effect);
+                    }
+                }
+            } else {
+                MobEffect effect = compatibleEffects.get(level.random.nextInt(compatibleEffects.size()));
+                MobEffectInstance instance = living.getEffect(effect);
+                if (instance != null && !MinecraftForge.EVENT_BUS.post(new MobEffectEvent.Remove(living, instance))) {
+                    living.removeEffect(effect);
+                }
+            }
+        }
+    }
 }

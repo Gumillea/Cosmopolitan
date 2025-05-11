@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:smelting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ],
+  "ingredient": {
+    "item": "cosmopolitan:condensed_milk_bucket"
+  },
+  "result": "cosmopolitan:cream_bucket",
+  "experience": 1,
+  "cookingtime": 2400
+}

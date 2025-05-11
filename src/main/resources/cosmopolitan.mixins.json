@@ -5,6 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "cosmopolitan.refmap.json",
   "mixins": [
+    "CookingPotRecipeMixin",
+    "ShapedRecipeMixin",
+    "ShapelessRecipeMixin"
   ],
   "client": [
     "GameRendererMixin"

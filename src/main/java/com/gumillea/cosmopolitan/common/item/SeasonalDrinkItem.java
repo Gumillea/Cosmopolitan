@@ -57,9 +57,8 @@ public class SeasonalDrinkItem extends DrinkItem{
             return List.of();
         };
     }
-    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity living) {
-        super.finishUsingItem(itemStack, level, living);
-        if (level.isClientSide()) return itemStack;
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
+        if (level.isClientSide()) return stack;
 
         if (isSpring || isSummer) {
             living.clearFire();
@@ -85,7 +84,7 @@ public class SeasonalDrinkItem extends DrinkItem{
             }
         }
 
-        return itemStack;
+        return super.finishUsingItem(stack, level, living);
     }
 
     @Override
@@ -94,15 +93,15 @@ public class SeasonalDrinkItem extends DrinkItem{
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
 
         if (isSpring || isSummer) {
-            MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_drinking.cold");
-            tooltip.add(coldDrink.withStyle(ChatFormatting.GRAY));
+            MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.cold");
+            tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));
         } else {
-            MutableComponent hotDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_drinking.hot");
-            tooltip.add(hotDrink.withStyle(ChatFormatting.GRAY));
+            MutableComponent hotDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.hot");
+            tooltip.add(hotDrink.withStyle(ChatFormatting.BLUE));
         }
 
         if (!CosmoCompat.ss) return;
-        MutableComponent seasonalEffect = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_drinking.in_" + season);
+        MutableComponent seasonalEffect = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.in_" + season);
         tooltip.add(seasonalEffect.withStyle(ChatFormatting.GRAY));
 
         for (MobEffectInstance effectinstance : SEASONAL_EFFECTS.get()) {
