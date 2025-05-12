@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "cosmopolitan:condensed_milk_buket"
+      "item": "cosmopolitan:condensed_milk_bucket"
     },
     {
       "item": "minecraft:glass_bottle"

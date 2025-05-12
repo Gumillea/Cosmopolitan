@@ -59,7 +59,7 @@ public class CosmoItems {
     public static final RegistryObject<Item> CONDENSED_MILK_BOTTLE = HELPER.createItem("condensed_milk_bottle", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.CONDENSED_MILK), true));
 
     public static final RegistryObject<Item> CREAM_BUCKET = HELPER.createItem("cream_bucket", () -> new BucketItem(new Item.Properties().craftRemainder(Items.BUCKET).food(CosmopolitanFoods.CREAM), true));
-    public static final RegistryObject<Item> CREAM = HELPER.createItem("cream", () -> new BowlFoodItem(new Item.Properties().craftRemainder(Items.BOWL).food(CosmopolitanFoods.CREAM)));
+    public static final RegistryObject<Item> CREAM = HELPER.createItem("cream", () -> new BowlFoodItem(new Item.Properties().craftRemainder(Items.BOWL).food(CosmopolitanFoods.CREAM).stacksTo(16)));
 
     public static final RegistryObject<Item> BIRCH_SAP_BOTTLE = HELPER.createItem("birch_sap_bottle", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.BIRCH_SAP_BOTTLE), true));
 

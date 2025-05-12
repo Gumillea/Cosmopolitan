@@ -1,0 +1,26 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "count": 1000,
+    "fluid": "minecraft:milk"
+  },
+  "experience": 1.0,
+  "fermentingtime": 4500,
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "cosmopolitan:cream"
+  },
+  "temperature": 3
+}

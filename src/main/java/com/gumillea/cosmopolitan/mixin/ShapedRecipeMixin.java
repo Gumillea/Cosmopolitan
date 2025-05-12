@@ -28,8 +28,13 @@ public abstract class ShapedRecipeMixin {
 
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack slot = inv.getItem(i);
+            CompoundTag tag = slot.getTag();
             if (slot.is(CONDENSED_MILK)) hasMilk  = true;
             if (slot.is(CREAM)) hasCream = true;
+            if (tag != null) {
+                if (tag.getBoolean("has_condensed_milk")) hasMilk = true;
+                if (tag.getBoolean("has_cream")) hasCream = true;
+            }
             if (hasMilk && hasCream) break;
         }
 
