@@ -20,6 +20,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, value = Dist.CLIENT)
 public class CosmoTooltipEvent {
 
+
     @SubscribeEvent
     public static void onEffectItemTooltip(ItemTooltipEvent event) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;

@@ -4,7 +4,9 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.common.block.LifelightBlock;
 import com.gumillea.cosmopolitan.common.block.SappyLogBlock;
+import com.gumillea.exquisito.core.reg.ExquisitoCauldronInteractions;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.teamabnormals.neapolitan.common.block.MilkshakeCauldronBlock;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -17,6 +19,13 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoBlocks {
     public static final BlockSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockSubHelper();
+    //Milkshake
+    public static final RegistryObject<Block> APPLE_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("apple_milkshake_cauldron", () -> new MilkshakeCauldronBlock(CosmoCauldronInteractions.APPLE_MILKSHAKE.map()));
+    public static final RegistryObject<Block> CARROT_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("carrot_milkshake_cauldron", () -> new MilkshakeCauldronBlock(CosmoCauldronInteractions.CARROT_MILKSHAKE.map()));
+    public static final RegistryObject<Block> GLOW_BERRY_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("glow_berry_milkshake_cauldron", () -> new MilkshakeCauldronBlock(CosmoCauldronInteractions.GLOW_BERRY_MILKSHAKE.map()));
+    public static final RegistryObject<Block> ENCHANTED_FRUIT_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("enchanted_fruit_milkshake_cauldron", () -> new MilkshakeCauldronBlock(CosmoCauldronInteractions.ENCHANTED_FRUIT_MILKSHAKE.map()));
+    public static final RegistryObject<Block> KABLOOM_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("kabloom_milkshake_cauldron", () -> new MilkshakeCauldronBlock(CosmoCauldronInteractions.KABLOOM_MILKSHAKE.map()));
+    public static final RegistryObject<Block> SOURCE_BERRY_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("source_berry_milkshake_cauldron", () -> new MilkshakeCauldronBlock(CosmoCauldronInteractions.SOURCE_BERRY_MILKSHAKE.map()));
 
     //Ice Cream Tub Blocks//
     public static final RegistryObject<Block> COPPER_FROZEN_DESSERT_TUB = HELPER.createBlock("copper_frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));

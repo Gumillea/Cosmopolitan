@@ -160,6 +160,15 @@ public class CosmoEvents {
                 event.setResult(Event.Result.DENY);
             }
         }
+        if (effect == CosmoEffects.EXUBERANT.get()) {
+            int d1 = event.getEffectInstance().getDuration();
+            float a1 = event.getEffectInstance().getAmplifier();
+            if (entity.hasEffect(CosmoEffects.EXUBERANT.get())) {
+                int d2 = Objects.requireNonNull(entity.getEffect(CosmoEffects.EXUBERANT.get())).getDuration();
+                float a2 = Objects.requireNonNull(entity.getEffect(CosmoEffects.EXUBERANT.get())).getAmplifier();
+                if (a2 >= a1 && d2 < d1) event.setResult(Event.Result.DENY);
+            }
+        }
     }
 
     @SubscribeEvent

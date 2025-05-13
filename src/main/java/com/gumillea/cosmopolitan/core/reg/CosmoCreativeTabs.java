@@ -16,7 +16,7 @@ public class CosmoCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> COSMO_TAB = TABS.register("tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("item_group." + Cosmopolitan.MODID + ".tab"))
-            .icon(() -> new ItemStack(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get()))
+            .icon(() -> new ItemStack(CosmoItems.WILDBERRY.get()))
             .displayItems((parameters, output) -> {
                 //BLOCKS
                 output.accept(CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get());

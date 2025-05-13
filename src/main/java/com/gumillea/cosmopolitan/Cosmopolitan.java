@@ -10,6 +10,7 @@ import com.gumillea.cosmopolitan.core.data.tags.CosmoEffectTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
+import com.gumillea.exquisito.core.reg.ExquisitoCauldronInteractions;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -70,6 +71,7 @@ public class Cosmopolitan {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
         CosmoCompostableItems.registerCompostableItems();
+        CosmoCauldronInteractions.registerCauldronInteractions();
         CosmoEffects.registerBrewingRecipes();
         });
     }

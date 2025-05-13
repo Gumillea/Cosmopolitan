@@ -40,7 +40,7 @@ public class CosmoLanguageProvider extends LanguageProvider {
                 CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()
         );
         this.addBlock(
-                CosmoBlocks.SAPPY_BIRCH_LOG.get(), CosmoBlocks.LIFELIGHT.get(), CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get(), CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(), CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get(), CosmoBlocks.MASHED_POTATO_BLOCK.get(), CosmoBlocks.WHEATGRASS_BALE.get(),
+                CosmoBlocks.SOURCE_BERRY_MILKSHAKE_CAULDRON.get(), CosmoBlocks.KABLOOM_MILKSHAKE_CAULDRON.get(), CosmoBlocks.ENCHANTED_FRUIT_MILKSHAKE_CAULDRON.get(), CosmoBlocks.GLOW_BERRY_MILKSHAKE_CAULDRON.get(), CosmoBlocks.CARROT_MILKSHAKE_CAULDRON.get(), CosmoBlocks.APPLE_MILKSHAKE_CAULDRON.get(), CosmoBlocks.SAPPY_BIRCH_LOG.get(), CosmoBlocks.LIFELIGHT.get(), CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get(), CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(), CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get(), CosmoBlocks.MASHED_POTATO_BLOCK.get(), CosmoBlocks.WHEATGRASS_BALE.get(),
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_MINT_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(), CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(), CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get()
         );

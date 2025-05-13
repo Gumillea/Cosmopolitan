@@ -171,7 +171,6 @@ dependencies {
 
     implementation fg.deobf("curse.maven:the-undergarden-379849:5182632")
 
-
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
@@ -189,7 +188,7 @@ tasks.named('processResources', ProcessResources).configure {
     ]
 
     inputs.properties replaceProperties
-    
+
     exclude('.cache/**')
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
