@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan;
 
+import com.google.common.eventbus.Subscribe;
 import com.gumillea.cosmopolitan.core.data.CosmoLanguageProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoLootModifierProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoRecipeProvider;
@@ -8,6 +9,7 @@ import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoEffectTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
+import com.gumillea.cosmopolitan.core.misc.CaroteneCapability;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.gumillea.exquisito.core.reg.ExquisitoCauldronInteractions;
@@ -19,6 +21,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.server.packs.PackType;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
@@ -61,11 +64,16 @@ public class Cosmopolitan {
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::addBuiltinPacks);
         modEventBus.addListener(this::gatherData);
+        modEventBus.addListener(this::registerCapabilities);
 
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
 
         context.registerConfig(ModConfig.Type.COMMON, CosmoConfig.COMMON_SPEC);
         context.registerConfig(ModConfig.Type.CLIENT, CosmoConfig.CLIENT_SPEC);
+    }
+
+    private void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.register(CaroteneCapability.class);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

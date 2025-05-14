@@ -27,7 +27,7 @@
   "effect.cosmopolitan.abysmal_torch": "深渊之光",
   "effect.cosmopolitan.abysmal_torch.description": "击杀敌对生物时生成一处临时性光源。在深暗之园中，这种光源还能够提供治疗",
   "effect.cosmopolitan.carotene": "胡萝卜素",
-  "effect.cosmopolitan.carotene.description": "将部分视觉妨碍类效果转变为短暂的夜视效果",
+  "effect.cosmopolitan.carotene.description": "该效果在玩家累计摄入足够的胡萝卜类食物后激活，取消夜视效果的闪烁，并将部分视觉妨碍类效果转变为短暂的夜视",
   "effect.cosmopolitan.exuberant": "旺盛",
   "effect.cosmopolitan.exuberant.description": "持续时间结束后给予持有者少量额外生命，若持续期间受到伤害则失效",
   "effect.cosmopolitan.marked": "被标记",

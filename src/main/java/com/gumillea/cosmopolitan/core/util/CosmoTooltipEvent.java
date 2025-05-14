@@ -12,6 +12,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +20,6 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, value = Dist.CLIENT)
 public class CosmoTooltipEvent {
-
 
     @SubscribeEvent
     public static void onEffectItemTooltip(ItemTooltipEvent event) {

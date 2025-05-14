@@ -12,7 +12,7 @@
     "ShapelessRecipeMixin"
   ],
   "client": [
-    "GameRendererMixin"
+    "client.GameRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

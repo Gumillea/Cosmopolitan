@@ -27,7 +27,7 @@
   "effect.cosmopolitan.abysmal_torch": "Abysmal Torch",
   "effect.cosmopolitan.abysmal_torch.description": "Summons a temporary glowing block upon killing a monster. While in The Undergarden, this block also provides healing.",
   "effect.cosmopolitan.carotene": "Carotene",
-  "effect.cosmopolitan.carotene.description": "Converts Blindness, Darkness, and Nausea into Night Vision.",
+  "effect.cosmopolitan.carotene.description": "This effect activates after the player has consumed enough carrot-based food, canceling the flickering of the Night Vision and converting some of the visual obstruction effects to Night Vision.",
   "effect.cosmopolitan.exuberant": "Exuberant",
   "effect.cosmopolitan.exuberant.description": "Gain a small amount of extra health at the end of the duration. It will be removed if the user takes damage before it ends.",
   "effect.cosmopolitan.marked": "Marked",

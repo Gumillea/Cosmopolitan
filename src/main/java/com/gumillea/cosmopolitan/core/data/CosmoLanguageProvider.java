@@ -62,7 +62,7 @@ public class CosmoLanguageProvider extends LanguageProvider {
         );
 
         this.addEffect("Gain a small amount of extra health at the end of the duration. It will be removed if the user takes damage before it ends.", CosmoEffects.EXUBERANT.get());
-        this.addEffect("Converts Blindness, Darkness, and Nausea into Night Vision.", CosmoEffects.CAROTENE.get());
+        this.addEffect("This effect activates after the player has consumed enough carrot-based food, canceling the flickering of the Night Vision and converting some of the visual obstruction effects to Night Vision.", CosmoEffects.CAROTENE.get());
         this.addEffect("The user will leave a glowing trail on the blocks they pass over.", CosmoEffects.MARKED.get());
         this.addEffect("The user's ranged attack will mark and blind the first living target they hit.", CosmoEffects.TRACER.get());
 
