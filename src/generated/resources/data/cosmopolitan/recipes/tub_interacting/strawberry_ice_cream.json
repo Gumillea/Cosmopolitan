@@ -18,6 +18,7 @@
       }
     }
   ],
+  "requiresCooling": true,
   "result": {
     "amount": 1,
     "fluid": "cosmopolitan:strawberry_ice_cream"

@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
+import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -15,7 +16,6 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -38,17 +38,23 @@ public class TubInteractingRecipe implements Recipe<Container> {
     private final FluidStack fluidIngredient;
     private final FluidStack result;
     private final int baseCount;
+    private final boolean requiresCooling;
 
-    public TubInteractingRecipe(ResourceLocation id, Ingredient itemIngredient, FluidStack fluidIngredient, FluidStack result, int baseCount) {
+    public TubInteractingRecipe(ResourceLocation id, Ingredient itemIngredient, FluidStack fluidIngredient, FluidStack result, int baseCount, boolean requiresCooling) {
         this.id = id;
         this.itemIngredient = itemIngredient;
         this.fluidIngredient = fluidIngredient;
         this.result = result;
         this.baseCount = baseCount;
+        this.requiresCooling = requiresCooling;
     }
 
     public FluidStack getResult() {
         return result.copy();
+    }
+
+    public boolean requiresCooling() {
+        return requiresCooling;
     }
 
     @Override
@@ -101,6 +107,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
         List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, area);
 
         for (TubInteractingRecipe recipe : recipes) {
+            if (recipe.requiresCooling() && !hasCoolingSource(level, pos)) continue;
             if (!currentFluid.getFluid().isSame(recipe.fluidIngredient.getFluid())) continue;
 
             int multiplier = (int) Math.ceil(currentFluid.getAmount() / 1000.0);
@@ -150,6 +157,14 @@ public class TubInteractingRecipe implements Recipe<Container> {
         return null;
     }
 
+    private static boolean hasCoolingSource(Level level, BlockPos pos) {
+        return BlockPos.betweenClosedStream(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))
+                .anyMatch(checkPos -> {
+                    BlockState state = level.getBlockState(checkPos);
+                    return state.is(CosmoBlockTags.COOLING_SOURCES);
+                });
+    }
+
     public static class Serializer implements RecipeSerializer<TubInteractingRecipe> {
         @Override
         public TubInteractingRecipe fromJson(ResourceLocation id, JsonObject json) {
@@ -176,8 +191,9 @@ public class TubInteractingRecipe implements Recipe<Container> {
             FluidStack result = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(new ResourceLocation(GsonHelper.getAsString(resultJson, "fluid")))), GsonHelper.getAsInt(resultJson, "amount", 1));
 
             int baseCount = GsonHelper.getAsInt(json, "baseCount", 1);
+            boolean requiresCooling = GsonHelper.getAsBoolean(json, "requiresCooling", false);
 
-            return new TubInteractingRecipe(id, itemIngredient, fluidIngredient, result, baseCount);
+            return new TubInteractingRecipe(id, itemIngredient, fluidIngredient, result, baseCount, requiresCooling);
         }
 
         @Override
@@ -186,7 +202,8 @@ public class TubInteractingRecipe implements Recipe<Container> {
             FluidStack fluidIngredient = FluidStack.readFromPacket(byteBuf);
             FluidStack result = FluidStack.readFromPacket(byteBuf);
             int baseCount = byteBuf.readVarInt();
-            return new TubInteractingRecipe(id, itemIngredient, fluidIngredient, result, baseCount);
+            boolean requiresCooling = byteBuf.readBoolean();
+            return new TubInteractingRecipe(id, itemIngredient, fluidIngredient, result, baseCount, requiresCooling);
         }
 
         @Override
@@ -195,6 +212,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
             recipe.fluidIngredient.writeToPacket(byteBuf);
             recipe.result.writeToPacket(byteBuf);
             byteBuf.writeVarInt(recipe.baseCount);
+            byteBuf.writeBoolean(recipe.requiresCooling());
         }
     }
 }

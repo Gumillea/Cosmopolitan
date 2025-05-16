@@ -1,19 +1,26 @@
 package com.gumillea.cosmopolitan.common.item;
 
+import com.gumillea.cosmopolitan.CosmoConfig;
+import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoEvents;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class BucketItem extends EffectItem{
 
@@ -68,5 +75,19 @@ public class BucketItem extends EffectItem{
 
     public SoundEvent getEatingSound() {
         return SoundEvents.HONEY_DRINK;
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+        if (this == CosmoItems.CREAM_BUCKET.get()) {
+            MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".cream_bucket.when_consumed");
+            tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));
+        }
+        if (this == CosmoItems.CONDENSED_MILK_BUCKET.get()) {
+            MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".condensed_milk_bucket.when_consumed");
+            tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));
+        }
     }
 }

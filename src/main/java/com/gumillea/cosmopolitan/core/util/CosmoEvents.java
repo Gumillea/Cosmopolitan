@@ -308,7 +308,7 @@ public class CosmoEvents {
     public static void onWandererTradesEvent(WandererTradesEvent event) {
         if(CosmoCompat.an && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.SOURCE_BERRY_PIPS.get(), 1, 12, 1));
         if(CosmoCompat.ha && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.KABLOOM_PIPS.get(), 1, 12, 1));
-        TradeUtil.addRareWandererTrades(event, new TradeUtil.BlueprintTrade(64, CosmoItems.COSMOPOLITAN_COCKTAIL.get(), 1, 1, 5));
+        if(CosmoConfig.Common.COSMOPOLITAN_COCKTAIL.get()) TradeUtil.addRareWandererTrades(event, new TradeUtil.BlueprintTrade(64, CosmoItems.COSMOPOLITAN_COCKTAIL.get(), 1, 1, 5));
     }
 
     public static void condensedMilkEffect (Level level, LivingEntity living, ItemStack stack){

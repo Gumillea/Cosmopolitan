@@ -22,6 +22,7 @@
       }
     }
   ],
+  "requiresCooling": true,
   "result": {
     "amount": 1,
     "fluid": "cosmopolitan:source_berry_ice_cream"

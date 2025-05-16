@@ -1,6 +1,7 @@
-// 1.20.1	2025-05-14T23:46:17.4351451	Tags for minecraft:block mod id cosmopolitan
+// 1.20.1	2025-05-16T23:35:21.499366	Tags for minecraft:block mod id cosmopolitan
+67942d35caefe3a994f4e1732047161186930264 data/cosmopolitan/tags/blocks/cooling_sources.json
 60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/blocks/birch_logs.json
 60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/blocks/mineable/axe.json
 13df6586fdfbd3b12bcadb48b77e716ab56ea1d9 data/minecraft/tags/blocks/mineable/hoe.json
 b4126fb3d38cf13e878dddc8b842dc54a18c0b5a data/minecraft/tags/blocks/mineable/pickaxe.json
-7b6f2dc6a62453ab869697f18f5d98fc41cd7033 data/minecraft/tags/blocks/mineable/shovel.json
+6852406a4799a5cb67e6305bc1e6f197b057ad3a data/minecraft/tags/blocks/mineable/shovel.json

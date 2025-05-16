@@ -226,6 +226,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         json.add("result", result);
 
         json.addProperty("baseCount", baseCount);
+        json.addProperty("requiresCooling", true);
 
         ResourceLocation fluidId = new ResourceLocation(result.get("fluid").getAsString());
         String name = fluidId.getPath();

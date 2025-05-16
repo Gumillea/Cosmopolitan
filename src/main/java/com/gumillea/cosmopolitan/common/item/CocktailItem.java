@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan.common.item;
 
+import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoEffectTags;
 import net.minecraft.core.Holder;
@@ -35,6 +36,7 @@ public class CocktailItem extends DrinkItem {
         super.finishUsingItem(stack, level, living);
         if (!level.isClientSide && living instanceof ServerPlayer player) {
             if (this == CosmoItems.COSMOPOLITAN_COCKTAIL.get() || this == enchanted.get()) {
+                if (!CosmoConfig.Common.COSMOPOLITAN_COCKTAIL.get()) return super.finishUsingItem(stack, level, living);
                 CompoundTag nbt = player.getPersistentData();
                 if (!nbt.getBoolean("has_cosmopolitan_effect")) {
                     MobEffectInstance effect = applyCocktailEffect(level);

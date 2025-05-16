@@ -2,9 +2,11 @@ package com.gumillea.cosmopolitan.core.data.tags;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
+import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -18,6 +20,13 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
     @Override
     public void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+                CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.MINT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.BANANA_ICE_CREAM_BRICKS.get(),
+
                 CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get(),
@@ -47,5 +56,9 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
         this.tag(BlockTags.BIRCH_LOGS).add(
                 CosmoBlocks.SAPPY_BIRCH_LOG.get()
         );
+        this.tag(CosmoBlockTags.COOLING_SOURCES).add(
+                Blocks.SNOW_BLOCK,
+                Blocks.POWDER_SNOW)
+                .addTag(BlockTags.ICE);
     }
 }

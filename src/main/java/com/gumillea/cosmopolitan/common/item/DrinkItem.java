@@ -1,8 +1,13 @@
 package com.gumillea.cosmopolitan.common.item;
 
+import com.gumillea.cosmopolitan.CosmoConfig;
+import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoEvents;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -16,11 +21,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class DrinkItem extends EffectItem {
 
@@ -77,5 +86,15 @@ public class DrinkItem extends EffectItem {
         return SoundEvents.HONEY_DRINK;
     }
 
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+        if (this == CosmoItems.CONDENSED_MILK_BOTTLE.get()) {
+            MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".condensed_milk_bottle.when_consumed");
+            tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));
+        }
+    }
 }
 

@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan.core.data;
 
+import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
@@ -143,6 +144,6 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
         this.entry("stronghold_library").selects(new ResourceLocation[]{BuiltInLootTables.STRONGHOLD_LIBRARY})
                 .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
                         LootItem.lootTableItem(CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get()).setWeight(15).build())));
-    }
+        }
 
 }

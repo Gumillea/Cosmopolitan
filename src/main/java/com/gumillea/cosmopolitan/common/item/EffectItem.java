@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.common.item;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -35,6 +36,8 @@ public class EffectItem extends Item {
         for (Pair<MobEffectInstance, Float> pair : properties.getEffects()) {
             MobEffectInstance effect = pair.getFirst();
             float probability = pair.getSecond();
+
+            if (effect.getEffect() == CosmoEffects.PLACEHOLDER.get()) continue;
 
             MutableComponent effectTooltip = Component
                     .translatable(effect.getDescriptionId())

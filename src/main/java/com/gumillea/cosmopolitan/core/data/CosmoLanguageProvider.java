@@ -81,6 +81,12 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.add("tooltip." + Cosmopolitan.MODID + ".seasoned.condensed_milk", "Smooth");
         this.add("tooltip." + Cosmopolitan.MODID + ".seasoned.cream", "Luscious");
 
+        this.add("tooltip." + Cosmopolitan.MODID + ".cream.when_consumed", "Randomly increases or decreases the duration of 1 effect");
+        this.add("tooltip." + Cosmopolitan.MODID + ".cream_bucket.when_consumed", "Randomly increases or decreases the duration of all effects");
+
+        this.add("tooltip." + Cosmopolitan.MODID + ".condensed_milk_bottle.when_consumed", "Clears One Level 1 Effect");
+        this.add("tooltip." + Cosmopolitan.MODID + ".condensed_milk_bucket.when_consumed", "Clears All Level 1 Effects");
+
         this.add("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.cold", "Clears Fire");
         this.add("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.hot", "Clears Freeze");
 
