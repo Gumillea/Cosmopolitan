@@ -24,7 +24,7 @@ public class BucketItem extends EffectItem{
         this.honey_drink = honey_drink;
     }
 
-@Override
+    @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity living) {
         super.finishUsingItem(itemStack, level, living);
         if (living instanceof ServerPlayer serverPlayer) {
@@ -32,8 +32,12 @@ public class BucketItem extends EffectItem{
             serverPlayer.awardStat(Stats.ITEM_USED.get(this));
         }
 
-        if (this == CosmoItems.CONDENSED_MILK_BOTTLE.get()) {
+        if (this == CosmoItems.CONDENSED_MILK_BUCKET.get()) {
             CosmoEvents.condensedMilkEffect(level, living, itemStack);
+        }
+
+        if (this == CosmoItems.CREAM_BUCKET.get()) {
+            CosmoEvents.creamEffect(level, living, itemStack);
         }
 
         if (itemStack.isEmpty()) {

@@ -5,6 +5,9 @@ import com.gumillea.cosmopolitan.common.fluid.CosmoIceCreamFluidType;
 import com.gumillea.cosmopolitan.core.misc.TubExtractRecipe;
 import com.gumillea.cosmopolitan.core.misc.TubInjectRecipe;
 import com.gumillea.cosmopolitan.core.misc.TubInteractingRecipe;
+import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
+import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -16,6 +19,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -46,6 +50,7 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
 
     private static final VoxelShape INSIDE = Block.box(2, 1, 2, 14, 16, 14);
     private static final VoxelShape SHAPE = Shapes.join(Shapes.block(), INSIDE, BooleanOp.ONLY_FIRST);
+
 
     public FrozenDessertTubBlock(Properties properties) {
         super(properties);
@@ -103,10 +108,9 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
             return InteractionResult.SUCCESS;
         }
 
-        result = TubInteractingRecipe.tryApply(level, tub, inHand, player, hand);
+        result = TubExtractRecipe.tryApply(level, tub, inHand, player, hand);
         if (!result.isEmpty()) {
-            FluidStack stack = tub.getTank().getFluid();
-            if (stack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType) {
+            if (result.is(CosmoItemTags.ICE_CREAM) || result.is(CosmoItemTags.CREAM)) {
                 level.playSound(null, pos, SoundEvents.SNOW_BREAK, SoundSource.BLOCKS, 0.8F, 0.8F);
             } else {
                 level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 0.8F, 0.8F);
@@ -125,33 +129,7 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
         level.gameEvent(player, !open ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
     }
 
-    public static void contentApply(Level level, BlockPos pos) {
-        RandomSource rand = level.getRandom();
-        BlockEntity entity = level.getBlockEntity(pos);
 
-        if (entity instanceof FrozenDessertTubBlockEntity tub) {
-            FluidStack stack = tub.getTank().getFluid();
-            if (stack.getFluid().isSame(Fluids.LAVA)) {
-                level.playSound(null, pos, SoundEvents.BUCKET_EMPTY_LAVA, SoundSource.BLOCKS, 0.8F, 0.8F);
-            } else if (stack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType) {
-                level.playSound(null, pos, SoundEvents.SNOW_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
-            } else {
-                level.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 0.8F, 0.8F);
-            }
-        }
-
-        if (!level.isClientSide && level instanceof ServerLevel server)
-            for(int i = 0; i < 6; ++i) {
-                double d0 = (rand.nextDouble() - 0.5) * 0.02;
-                double d1 = 0.075D;
-                double d2 = (rand.nextDouble() - 0.5) * 0.02;
-
-                double x = pos.getX() + 0.3 + rand.nextDouble() * 0.4;
-                double y = pos.getY() + 1;
-                double z = pos.getZ() + 0.3 + rand.nextDouble() * 0.4;
-                server.sendParticles(ParticleTypes.SNOWFLAKE, x, y, z, 0, d0, d1, d2, 0.5);
-            }
-    }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -172,25 +150,56 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (!level.isClientSide) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
+        super.entityInside(state, level, pos, entity);
 
-            if (blockEntity instanceof FrozenDessertTubBlockEntity tub) {
-                FluidStack stack = tub.getTank().getFluid();
-                if (stack.getFluid().isSame(Fluids.LAVA)) {
-                    entity.lavaHurt();
-                } else {
-                    if (entity.isOnFire()) {
-                        entity.clearFire();
-                    }
-                    if (stack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType) {
-                        entity.setIsInPowderSnow(true);
-                    }
-                }
+        if (level.isClientSide || !state.getValue(OPEN)) return;
+
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (!(blockEntity instanceof FrozenDessertTubBlockEntity tub)) return;
+        FluidStack fluidStack = tub.getTank().getFluid();
+
+        if (entity instanceof ItemEntity) {
+            TubInteractingRecipe.tryApply(level, tub, pos, state);
+        }
+
+        if (fluidStack.getFluid().isSame(Fluids.LAVA)) {
+            entity.lavaHurt();
+        } else {
+            if (entity.isOnFire()) {
+                entity.clearFire();
+            }
+            if (fluidStack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType) {
+                entity.setIsInPowderSnow(true);
             }
         }
     }
 
+    public static void contentApply(Level level, BlockPos pos) {
+        RandomSource rand = level.getRandom();
+        BlockEntity entity = level.getBlockEntity(pos);
 
+        if (entity instanceof FrozenDessertTubBlockEntity tub) {
+            FluidStack stack = tub.getTank().getFluid();
+            if (stack.getFluid().isSame(Fluids.LAVA)) {
+                level.playSound(null, pos, SoundEvents.BUCKET_EMPTY_LAVA, SoundSource.BLOCKS, 0.8F, 0.8F);
+            } else if (stack.getFluid().isSame(CosmoFluids.CREAM.get()) || stack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType) {
+                level.playSound(null, pos, SoundEvents.SNOW_PLACE, SoundSource.BLOCKS, 0.8F, 0.8F);
+            } else {
+                level.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 0.8F, 0.8F);
+            }
+        }
 
+        if (!level.isClientSide && level instanceof ServerLevel server)
+            for(int i = 0; i < 6; ++i) {
+                double d0 = (rand.nextDouble() - 0.5) * 0.02;
+                double d1 = 0.075D;
+                double d2 = (rand.nextDouble() - 0.5) * 0.02;
+
+                double x = pos.getX() + 0.3 + rand.nextDouble() * 0.4;
+                double y = pos.getY() + 1;
+                double z = pos.getZ() + 0.3 + rand.nextDouble() * 0.4;
+                server.sendParticles(ParticleTypes.SNOWFLAKE, x, y, z, 0, d0, d1, d2, 0.5);
+            }
+    }
 }
+

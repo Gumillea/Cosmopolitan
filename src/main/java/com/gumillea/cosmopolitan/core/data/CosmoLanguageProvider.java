@@ -40,7 +40,8 @@ public class CosmoLanguageProvider extends LanguageProvider {
                 CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()
         );
         this.addBlock(
-                CosmoBlocks.SOURCE_BERRY_MILKSHAKE_CAULDRON.get(), CosmoBlocks.KABLOOM_MILKSHAKE_CAULDRON.get(), CosmoBlocks.ENCHANTED_FRUIT_MILKSHAKE_CAULDRON.get(), CosmoBlocks.GLOW_BERRY_MILKSHAKE_CAULDRON.get(), CosmoBlocks.CARROT_MILKSHAKE_CAULDRON.get(), CosmoBlocks.APPLE_MILKSHAKE_CAULDRON.get(), CosmoBlocks.SAPPY_BIRCH_LOG.get(), CosmoBlocks.LIFELIGHT.get(), CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get(), CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(), CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get(), CosmoBlocks.MASHED_POTATO_BLOCK.get(), CosmoBlocks.WHEATGRASS_BALE.get(),
+                CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get(), CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS.get(), CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get(), CosmoBlocks.MINT_ICE_CREAM_BRICKS.get(), CosmoBlocks.BANANA_ICE_CREAM_BRICKS.get(), CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.GLOW_PETALS.get(), CosmoBlocks.SOURCE_BERRY_MILKSHAKE_CAULDRON.get(), CosmoBlocks.KABLOOM_MILKSHAKE_CAULDRON.get(), CosmoBlocks.ENCHANTED_FRUIT_MILKSHAKE_CAULDRON.get(), CosmoBlocks.GLOW_BERRY_MILKSHAKE_CAULDRON.get(), CosmoBlocks.CARROT_MILKSHAKE_CAULDRON.get(), CosmoBlocks.APPLE_MILKSHAKE_CAULDRON.get(), CosmoBlocks.SAPPY_BIRCH_LOG.get(), CosmoBlocks.LIFELIGHT.get(), CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get(), CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(), CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get(), CosmoBlocks.MASHED_POTATO_BLOCK.get(), CosmoBlocks.WHEATGRASS_BALE.get(),
                 CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_MINT_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(), CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(), CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get()
         );
@@ -88,6 +89,8 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addJeiItemDescriptions("Wheatgrass can be obtained by harvesting a wheat crop that is in the middle of its growth phase.", CosmoItems.WHEATGRASS.get());
         this.addJeiItemDescriptions("A kind of edible golem that can split into 4 small, edible pieces after eating. It will slowly restore if the player has more than 4 pieces in their inventory and might change its form if the restore takes place in some specific biomes.", CosmoItems.GULIME.get());
         this.addJeiItemDescriptions("The player can share this type of popsicle with most creatures they meet.", CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get());
+        this.addJeiItemDescriptions("Condensed milk can be used in crafting recipes in place of milk; foods crafted with it will be slightly faster to consume.", CosmoItems.CONDENSED_MILK_BUCKET.get());
+        this.addJeiItemDescriptions("Cream can be used in crafting recipes in place of milk; foods crafted with it will restore extra hunger points.", CosmoItems.CREAM_BUCKET.get());
 
         this.add("item_group." + Cosmopolitan.MODID + ".tab", "Cosmopolitan");
     }

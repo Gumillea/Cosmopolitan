@@ -52,7 +52,7 @@ public class TubExtractRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container inv, Level world) {
-        return true;
+        return false;
     }
 
     @Override

@@ -1,0 +1,31 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "tfd_recipe_tweaks"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "cosmopolitan:glacier_essence"
+    },
+    {
+      "fluid": {
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "fluid": "cosmopolitan:glacier_ice_cream"
+  }
+}

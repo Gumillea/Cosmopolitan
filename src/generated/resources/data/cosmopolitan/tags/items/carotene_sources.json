@@ -3,6 +3,11 @@
     "#forge:crops/carrot",
     "minecraft:golden_carrot",
     "minecraft:rabbit_stew",
+    "cosmopolitan:classic_ice_cream",
+    "cosmopolitan:classic_ice_cream_sandwich",
+    "cosmopolitan:carrot_milkshake",
+    "cosmopolitan:carrot_ice_cream",
+    "cosmopolitan:carrot_ice_cream_cone",
     {
       "id": "neapolitan:adzuki_curry",
       "required": false

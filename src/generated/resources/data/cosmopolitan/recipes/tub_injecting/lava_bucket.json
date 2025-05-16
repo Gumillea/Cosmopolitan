@@ -1,0 +1,17 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [],
+  "ingredient": {
+    "item": "minecraft:lava_bucket"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "minecraft:bucket"
+    },
+    {
+      "amount": 1000,
+      "fluid": "minecraft:lava"
+    }
+  ]
+}

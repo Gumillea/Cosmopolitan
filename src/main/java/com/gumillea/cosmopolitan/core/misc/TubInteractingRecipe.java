@@ -3,61 +3,61 @@ package com.gumillea.cosmopolitan.core.misc;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class TubInteractingRecipe implements Recipe<Container> {
-    private final ResourceLocation location;
-    private final Ingredient ingredient;
-    private final ItemStack resultItem;
-    private final FluidStack fluid;
+    private final ResourceLocation id;
+    private final Ingredient itemIngredient;
+    private final FluidStack fluidIngredient;
+    private final FluidStack result;
+    private final int baseCount;
 
-    public TubInteractingRecipe(ResourceLocation location, Ingredient ingredient, ItemStack result, FluidStack fluid) {
-        this.location = location;
-        this.ingredient = ingredient;
-        this.resultItem = result;
-        this.fluid = fluid;
+    public TubInteractingRecipe(ResourceLocation id, Ingredient itemIngredient, FluidStack fluidIngredient, FluidStack result, int baseCount) {
+        this.id = id;
+        this.itemIngredient = itemIngredient;
+        this.fluidIngredient = fluidIngredient;
+        this.result = result;
+        this.baseCount = baseCount;
     }
 
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public ItemStack getResultItem() {
-        return resultItem.copy();
-    }
-
-    public FluidStack getFluid() {
-        return fluid;
+    public FluidStack getResult() {
+        return result.copy();
     }
 
     @Override
-    public boolean matches(Container inv, Level world) {
-        return true;
+    public boolean matches(Container container, Level level) {
+        return false;
     }
 
     @Override
-    public ItemStack assemble(Container inv, RegistryAccess registryAccess) {
+    public ItemStack assemble(Container container, RegistryAccess registryAccess) {
         return ItemStack.EMPTY;
     }
 
@@ -68,12 +68,12 @@ public class TubInteractingRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return resultItem;
+        return ItemStack.EMPTY;
     }
 
     @Override
     public ResourceLocation getId() {
-        return this.location;
+        return id;
     }
 
     @Override
@@ -87,87 +87,114 @@ public class TubInteractingRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean isSpecial() {
-        return true;
-    }
-
-    @Override
     public NonNullList<Ingredient> getIngredients() {
         NonNullList<Ingredient> list = NonNullList.create();
-        list.add(ingredient);
+        list.add(itemIngredient);
         return list;
     }
 
     @Nullable
-    public static ItemStack tryApply(Level level, FrozenDessertTubBlockEntity tub, ItemStack inHand, Player player, InteractionHand hand) {
-        var recipes = level.getRecipeManager().getAllRecipesFor(CosmoRecipes.TUB_INTERACTING_TYPE.get());
-        for (TubInteractingRecipe recipe : recipes) {
-            if (recipe.getIngredient().test(inHand)) {
-                FluidStack newFluid = new FluidStack(recipe.getFluid().getFluid(), tub.getTank().getFluidAmount());
-                tub.getTank().setFluid(newFluid);
+    public static FluidStack tryApply(Level level, FrozenDessertTubBlockEntity tub, BlockPos pos, BlockState state) {
+        List<TubInteractingRecipe> recipes = level.getRecipeManager().getAllRecipesFor(CosmoRecipes.TUB_INTERACTING_TYPE.get());
+        FluidStack currentFluid = tub.getFluidHandler().getFluidInTank(0);
+        AABB area = new AABB(pos).inflate(0.5);
+        List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, area);
 
-                if (!player.isCreative()) {
-                    inHand.shrink(1);
-                    ItemStack result = recipe.getResultItem();
-                    if (!result.isEmpty()) {
-                        if (inHand.isEmpty()) {
-                            player.setItemInHand(hand, result);
-                        } else if (!player.addItem(result)) {
-                            player.drop(result, false);
-                        }
+        for (TubInteractingRecipe recipe : recipes) {
+            if (!currentFluid.getFluid().isSame(recipe.fluidIngredient.getFluid())) continue;
+
+            int multiplier = (int) Math.ceil(currentFluid.getAmount() / 1000.0);
+            int required = recipe.baseCount * multiplier;
+
+            List<ItemEntity> entities = new ArrayList<>();
+            int total = 0;
+            for (ItemEntity entity : items) {
+                ItemStack stack = entity.getItem();
+                if (recipe.itemIngredient.test(stack)) {
+                    entities.add(entity);
+                    total += stack.getCount();
+                    if (total >= required)
+                        break;
+                }
+            }
+
+            if (total >= required) {
+                if (!entities.isEmpty()) {
+                    ItemStack item = entities.get(0).getItem();
+                    if (item.hasCraftingRemainingItem()) {
+                        ItemStack remaining = new ItemStack(item.getCraftingRemainingItem().getItem(), required);
+                        Block.popResource(level, pos, remaining);
                     }
                 }
-                return inHand.isEmpty() ? ItemStack.EMPTY : inHand;
+                int remaining = required;
+                for (ItemEntity entity : entities) {
+                    ItemStack stack = entity.getItem();
+                    int deduct = Math.min(stack.getCount(), remaining);
+                    stack.shrink(deduct);
+                    remaining -= deduct;
+                    if (stack.isEmpty()) {
+                        entity.discard();
+                    }
+                    if (remaining == 0)
+                        break;
+                }
+
+                FluidStack newFluid = recipe.result.copy();
+                newFluid.setAmount(currentFluid.getAmount());
+                tub.getTank().setFluid(newFluid);
+                level.sendBlockUpdated(pos, state, state, 3);
+                FrozenDessertTubBlock.contentApply(level, pos);
+                return newFluid;
             }
         }
-        return ItemStack.EMPTY;
+        return null;
     }
 
     public static class Serializer implements RecipeSerializer<TubInteractingRecipe> {
         @Override
-        public TubInteractingRecipe fromJson(ResourceLocation location, JsonObject json) {
-            JsonElement element = json.get("ingredient");
-            Ingredient ingredient = Ingredient.EMPTY;
-            if (element.isJsonArray()) {
-                ingredient = Ingredient.fromJson(element.getAsJsonArray());
-            } else if (element.isJsonObject()) {
-                ingredient = Ingredient.fromJson(element.getAsJsonObject());
-            }
+        public TubInteractingRecipe fromJson(ResourceLocation id, JsonObject json) {
+            JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredient");
+            Ingredient itemIngredient = Ingredient.EMPTY;
+            FluidStack fluidIngredient = FluidStack.EMPTY;
 
-            JsonArray array = GsonHelper.getAsJsonArray(json, "result");
-            ItemStack result = ItemStack.EMPTY;
-            FluidStack fluidStack = FluidStack.EMPTY;
-
-            for (JsonElement resultElement : array) {
-                JsonObject resultObj = resultElement.getAsJsonObject();
-                if (resultObj.has("item")) {
-                    ResourceLocation itemId = ResourceLocation.tryParse(GsonHelper.getAsString(resultObj, "item"));
-                    int itemCount = GsonHelper.getAsInt(resultObj, "count", 1);
-                    result = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(itemId)), itemCount);
-                }
-                else if (resultObj.has("fluid")) {
-                    ResourceLocation fluidId = ResourceLocation.tryParse(GsonHelper.getAsString(resultObj, "fluid"));
-                    int fluidAmount = GsonHelper.getAsInt(resultObj, "amount", 1000);
-                    fluidStack = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(fluidId)), fluidAmount);
+            for (JsonElement element : ingredients) {
+                JsonObject obj = element.getAsJsonObject();
+                if (obj.has("item") || obj.has("tag")) {
+                    itemIngredient = Ingredient.fromJson(obj);
+                } else if (obj.has("fluid")) {
+                    JsonObject fluidObj = obj.getAsJsonObject("fluid");
+                    ResourceLocation fluidId = new ResourceLocation(GsonHelper.getAsString(fluidObj, "name"));
+                    int amount = GsonHelper.getAsInt(fluidObj, "amount", 1);
+                    fluidIngredient = new FluidStack(
+                            Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(fluidId)),
+                            amount
+                    );
                 }
             }
 
-            return new TubInteractingRecipe(location, ingredient, result, fluidStack);
+            JsonObject resultJson = GsonHelper.getAsJsonObject(json, "result");
+            FluidStack result = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(new ResourceLocation(GsonHelper.getAsString(resultJson, "fluid")))), GsonHelper.getAsInt(resultJson, "amount", 1));
+
+            int baseCount = GsonHelper.getAsInt(json, "baseCount", 1);
+
+            return new TubInteractingRecipe(id, itemIngredient, fluidIngredient, result, baseCount);
         }
 
         @Override
-        public @Nullable TubInteractingRecipe fromNetwork(ResourceLocation location, FriendlyByteBuf byteBuf) {
-            Ingredient ingredient = Ingredient.fromNetwork(byteBuf);
-            ItemStack itemResult = byteBuf.readItem();
-            FluidStack fluidResult = FluidStack.readFromPacket(byteBuf);
-            return new TubInteractingRecipe(location, ingredient, itemResult, fluidResult);
+        public TubInteractingRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf byteBuf) {
+            Ingredient itemIngredient = Ingredient.fromNetwork(byteBuf);
+            FluidStack fluidIngredient = FluidStack.readFromPacket(byteBuf);
+            FluidStack result = FluidStack.readFromPacket(byteBuf);
+            int baseCount = byteBuf.readVarInt();
+            return new TubInteractingRecipe(id, itemIngredient, fluidIngredient, result, baseCount);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf byteBuf, TubInteractingRecipe recipe) {
-            recipe.ingredient.toNetwork(byteBuf);
-            byteBuf.writeItem(recipe.resultItem);
-            recipe.fluid.writeToPacket(byteBuf);
+            recipe.itemIngredient.toNetwork(byteBuf);
+            recipe.fluidIngredient.writeToPacket(byteBuf);
+            recipe.result.writeToPacket(byteBuf);
+            byteBuf.writeVarInt(recipe.baseCount);
         }
     }
 }

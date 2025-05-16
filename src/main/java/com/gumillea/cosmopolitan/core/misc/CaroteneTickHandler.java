@@ -3,6 +3,7 @@ package com.gumillea.cosmopolitan.core.misc;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
+import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,17 +19,16 @@ import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID)
 public class CaroteneTickHandler {
-    private static int tickCounter = 0;
+    private static int tick = 0;
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) {
-            return;
-        }
-        tickCounter++;
+        if (!CosmoConfig.Common.CARROT_FLAVOR.get()) return;
+        if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
+        tick++;
 
-        if (tickCounter < CaroteneCapability.TICK_INTERVAL) return;
-        tickCounter = 0;
+        if (tick < CaroteneCapability.TICK_INTERVAL) return;
+        tick = 0;
 
         ServerPlayer player = (ServerPlayer) event.player;
         player.getCapability(CaroteneCapability.CAP).ifPresent(cap -> {
@@ -49,7 +49,8 @@ public class CaroteneTickHandler {
         if (user instanceof ServerPlayer player && stack.isEdible() && stack.is(CosmoItemTags.CAROTENE_SOURCES)) {
             int nutrition = Objects.requireNonNull(stack.getFoodProperties(player)).getNutrition();
             player.getCapability(CaroteneCapability.CAP).ifPresent(cap -> {
-                cap.add(nutrition * 30);
+                int i = stack.is(CosmoItemTags.ICE_CREAM) || stack.is(CosmoItems.CARROT_MILKSHAKE.get()) ? nutrition * 3 : nutrition;
+                cap.add(i * 30);
                 updateCaroteneEffect(player, cap.get());
             });
         }
@@ -57,6 +58,7 @@ public class CaroteneTickHandler {
 
     @SubscribeEvent
     public static void onPlayerDeath(LivingDeathEvent event) {
+        if (!CosmoConfig.Common.CARROT_FLAVOR.get()) return;
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         player.getCapability(CaroteneCapability.CAP).ifPresent(cap -> {
             cap.set(0);
@@ -67,7 +69,7 @@ public class CaroteneTickHandler {
         boolean hasEffect = player.hasEffect(CosmoEffects.CAROTENE.get());
         if (i >= CaroteneCapability.THRESHOLD) {
             if (!hasEffect) {
-                player.addEffect(new MobEffectInstance(CosmoEffects.CAROTENE.get(), -1, 0));
+                player.addEffect(new MobEffectInstance(CosmoEffects.CAROTENE.get(), -1));
             }
         }
         if (i <= CaroteneCapability.REMOVE_THRESHOLD && hasEffect) {

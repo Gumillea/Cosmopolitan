@@ -18,6 +18,9 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
     @Override
     public void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+                CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get(),
@@ -27,11 +30,16 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CHISELED_MINT_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get(),
-                CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get()
+                CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get(),
+
+                CosmoBlocks.MASHED_POTATO_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(),
                 CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get()
+        );
+        this.tag(BlockTags.MINEABLE_WITH_HOE).add(
+                CosmoBlocks.WHEATGRASS_BALE.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
                 CosmoBlocks.SAPPY_BIRCH_LOG.get()

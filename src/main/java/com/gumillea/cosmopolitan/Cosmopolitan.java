@@ -3,6 +3,7 @@ package com.gumillea.cosmopolitan;
 import com.google.common.eventbus.Subscribe;
 import com.gumillea.cosmopolitan.core.data.CosmoLanguageProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoLootModifierProvider;
+import com.gumillea.cosmopolitan.core.data.CosmoLootTableProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoRecipeProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoBlockStateProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
@@ -87,6 +88,7 @@ public class Cosmopolitan {
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.LIFELIGHT.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.GLOW_PETALS.get(), RenderType.cutout());
         });
     }
 
@@ -109,6 +111,7 @@ public class Cosmopolitan {
         generator.addProvider(includeServer, new CosmoLootModifierProvider(output, provider));
         generator.addProvider(includeServer, new CosmoRecipeProvider(output));
         generator.addProvider(includeServer, new CosmoEffectTagsProvider(output, provider, helper));
+        generator.addProvider(includeServer, new CosmoLootTableProvider(output));
 
         boolean client = event.includeClient();
         generator.addProvider(client, new CosmoItemModelProvider(output, helper));

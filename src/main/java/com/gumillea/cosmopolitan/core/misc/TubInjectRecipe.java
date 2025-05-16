@@ -51,7 +51,7 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
 
     @Override
     public boolean matches(Container inv, Level world) {
-        return inv.getItem(0).getItem() == this.ingredient.getItems()[0].getItem();
+        return false;
     }
 
     @Override

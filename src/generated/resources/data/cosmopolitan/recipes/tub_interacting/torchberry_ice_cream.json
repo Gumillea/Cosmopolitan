@@ -1,0 +1,29 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "twilightforest:torchberries"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:torchberry_ice_cream"
+  }
+}

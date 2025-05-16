@@ -23,7 +23,7 @@ public class CosmoJEIPlugin implements IModPlugin {
     public static final ResourceLocation ID = new ResourceLocation(Cosmopolitan.MODID, "jei_plugin");
 
     private static final List<Supplier<Item>> INFO_ITEMS = List.of(
-            CosmoItems.FIDDLEHEAD, CosmoItems.WILDBERRY, CosmoItems.WHEATGRASS, CosmoItems.GULIME, CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE
+            CosmoItems.FIDDLEHEAD, CosmoItems.WILDBERRY, CosmoItems.WHEATGRASS, CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE
     );
 
     @Override
@@ -39,6 +39,39 @@ public class CosmoJEIPlugin implements IModPlugin {
                     Component.translatable(translationKey)
             );
         }
+
+        registration.addIngredientInfo(
+                List.of(
+                        new ItemStack(CosmoItems.GULIME.get()),
+                        new ItemStack(CosmoItems.UNDERGROUND_GULIME.get()),
+                        new ItemStack(CosmoItems.TAIGA_GULIME.get()),
+                        new ItemStack(CosmoItems.CHORUS_GULIME.get()),
+                        new ItemStack(CosmoItems.GULIME_SMALL.get()),
+                        new ItemStack(CosmoItems.UNDERGROUND_GULIME_SMALL.get()),
+                        new ItemStack(CosmoItems.TAIGA_GULIME_SMALL.get()),
+                        new ItemStack(CosmoItems.CHORUS_GULIME_SMALL.get())
+                ),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei." + Cosmopolitan.MODID + ".gulime.desc")
+        );
+
+        registration.addIngredientInfo(
+                List.of(
+                        new ItemStack(CosmoItems.CONDENSED_MILK_BUCKET.get()),
+                        new ItemStack(CosmoItems.CONDENSED_MILK_BOTTLE.get())
+                ),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei." + Cosmopolitan.MODID + ".condensed_milk_bucket.desc")
+        );
+
+        registration.addIngredientInfo(
+                List.of(
+                        new ItemStack(CosmoItems.CREAM_BUCKET.get()),
+                        new ItemStack(CosmoItems.CREAM.get())
+                ),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei." + Cosmopolitan.MODID + ".cream_bucket.desc")
+        );
     }
     @Override
     public ResourceLocation getPluginUid() {

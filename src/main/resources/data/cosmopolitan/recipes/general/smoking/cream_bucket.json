@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:smoking",
   "conditions": [
     {
       "type": "forge:not",

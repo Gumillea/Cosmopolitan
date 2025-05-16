@@ -1,5 +1,8 @@
 {
   "values": [
+    "cosmopolitan:apple_ice_cream_block",
+    "cosmopolitan:carrot_ice_cream_block",
+    "cosmopolitan:glow_berry_ice_cream_block",
     "cosmopolitan:enchanted_fruit_ice_cream_block",
     "cosmopolitan:kabloom_ice_cream_block",
     "cosmopolitan:source_berry_ice_cream_block",
@@ -8,6 +11,7 @@
     "cosmopolitan:chiseled_strawberry_ice_cream_block",
     "cosmopolitan:chiseled_mint_ice_cream_block",
     "cosmopolitan:chiseled_vanilla_ice_cream_block",
-    "cosmopolitan:chiseled_adzuki_ice_cream_block"
+    "cosmopolitan:chiseled_adzuki_ice_cream_block",
+    "cosmopolitan:mashed_potato_block"
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "habitat"
+    }
+  ],
+  "ingredient": {
+    "item": "cosmopolitan:kabloom_ice_cream"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:kabloom_ice_cream"
+    }
+  ]
+}

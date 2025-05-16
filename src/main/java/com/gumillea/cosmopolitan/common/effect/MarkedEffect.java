@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.common.effect;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
+import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -29,7 +30,7 @@ public class MarkedEffect extends MobEffect {
         BlockPos pos = entity.blockPosition();
         BlockState state = level.getBlockState(pos);
         if (state.isAir() || state.canBeReplaced()) {
-            BlockState glowingBlock = Blocks.SNOW.defaultBlockState();
+            BlockState glowingBlock = CosmoBlocks.GLOW_PETALS.get().defaultBlockState();
             level.setBlockAndUpdate(pos, glowingBlock);
         }
 

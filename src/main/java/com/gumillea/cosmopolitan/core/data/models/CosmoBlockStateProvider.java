@@ -23,6 +23,14 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.block(CosmoBlocks.APPLE_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.CARROT_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK);
+
+        this.block(CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.VANILLA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.MINT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.BANANA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS);
+
         this.crossBlock(CosmoBlocks.LIFELIGHT);
 
         this.cauldronBlock(CosmoBlocks.APPLE_MILKSHAKE_CAULDRON);

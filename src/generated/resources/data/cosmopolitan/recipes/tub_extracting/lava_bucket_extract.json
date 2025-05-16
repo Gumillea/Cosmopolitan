@@ -1,0 +1,19 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [],
+  "ingredient": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "fluid": {
+        "amount": 1000,
+        "name": "minecraft:lava"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:lava_bucket"
+  }
+}

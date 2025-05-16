@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "undergarden:droopvine_item",
+      "required": false
+    },
+    {
+      "id": "undergardendelight:droopstew",
+      "required": false
+    }
+  ]
+}

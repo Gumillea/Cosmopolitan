@@ -1,0 +1,25 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seasonals"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "seasonals:roasted_beetroot"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:beetroot_ice_cream"
+  }
+}

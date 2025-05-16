@@ -1,0 +1,25 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "exquisito"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "exquisito:warzipan"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:warzipan_ice_cream"
+  }
+}

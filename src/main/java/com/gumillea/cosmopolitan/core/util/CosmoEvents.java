@@ -7,10 +7,18 @@ import com.gumillea.cosmopolitan.core.misc.CaroteneCapability;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.teamabnormals.blueprint.core.util.TradeUtil;
+import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
+import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.event.village.WandererTradesEvent;
 import sereneseasons.init.ModConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -56,6 +64,7 @@ import sereneseasons.api.season.SeasonHelper;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID)
 public class CosmoEvents {
@@ -107,6 +116,12 @@ public class CosmoEvents {
         Entity user = event.getEntity();
         if (user instanceof LivingEntity living && stack.isEdible()) {
             int nutrition = Objects.requireNonNull(stack.getFoodProperties(living)).getNutrition();
+            if (stack.hasTag() && stack.getTag().getBoolean("has_cream")) {
+                int creamNutrition = nutrition / 5;
+                if (living instanceof Player player) {
+                    player.getFoodData().eat(creamNutrition, 0);
+                }
+            }
             int duration = nutrition < 10 ? 300 : 600;
             int amplifier = nutrition < 10 ? 0 : 1;
             if (CosmoConfig.Common.APPLE_FLAVOR.get() && stack.is(CosmoItemTags.EXUBERANT_SOURCES)){
@@ -154,32 +169,6 @@ public class CosmoEvents {
                 if (a2 >= a1 && d2 < d1) event.setResult(Event.Result.DENY);
             }
         }
-    }
-
-    @SubscribeEvent
-    public static void onEffectAdded(MobEffectEvent.Added event) {
-        MobEffect effect = event.getEffectInstance().getEffect();
-        LivingEntity entity = event.getEntity();
-        if (effect == CosmoEffects.MARKED.get() && entity instanceof PathfinderMob mob) {
-            mob.setTarget(null);
-            List<Goal> toRemove = mob.goalSelector.getAvailableGoals().stream().map(WrappedGoal::getGoal).filter(goal -> goal instanceof AvoidEntityGoal).toList();
-            toRemove.forEach(mob.goalSelector::removeGoal);
-            AvoidEntityGoal<Player> goal = new AvoidEntityGoal<>(mob, Player.class, 16.0F, 1.5D, 1.75D, EntitySelector.NO_CREATIVE_OR_SPECTATOR::test);
-            mob.goalSelector.addGoal(0, goal);
-        }
-    }
-
-    @SubscribeEvent
-    public static void onEffectRemove(MobEffectEvent.Remove event) {
-        MobEffectInstance instance = event.getEffectInstance();
-        if (instance == null || instance.getEffect() != CosmoEffects.MARKED.get()) return;
-
-        LivingEntity entity = event.getEntity();
-        if (!(entity instanceof PathfinderMob mob)) return;
-
-        List<Goal> toRemove = mob.goalSelector.getAvailableGoals().stream().map(WrappedGoal::getGoal).filter(goal -> goal instanceof AvoidEntityGoal).toList();
-        toRemove.forEach(mob.goalSelector::removeGoal);
-
     }
 
     @SubscribeEvent
@@ -304,32 +293,76 @@ public class CosmoEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void onVillagerTrades(VillagerTradesEvent event) {
+        if (event.getType().equals(VillagerProfession.FARMER)) {
+            TradeUtil.addVillagerTrades(event, 1,
+                    new TradeUtil.BlueprintTrade(CosmoItems.WILDBERRY.get(), 32, 1, 16, 2),
+                    new TradeUtil.BlueprintTrade(CosmoItems.FIDDLEHEAD.get(), 32, 1, 16, 2));
+            TradeUtil.addVillagerTrades(event, 2,
+                    new TradeUtil.BlueprintTrade(CosmoItems.WHEATGRASS.get(), 24, 1, 12, 5));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onWandererTradesEvent(WandererTradesEvent event) {
+        if(CosmoCompat.an && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.SOURCE_BERRY_PIPS.get(), 1, 12, 1));
+        if(CosmoCompat.ha && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.KABLOOM_PIPS.get(), 1, 12, 1));
+        TradeUtil.addRareWandererTrades(event, new TradeUtil.BlueprintTrade(64, CosmoItems.COSMOPOLITAN_COCKTAIL.get(), 1, 1, 5));
+    }
+
     public static void condensedMilkEffect (Level level, LivingEntity living, ItemStack stack){
         Iterator<MobEffectInstance> itr = living.getActiveEffects().iterator();
-        ArrayList<MobEffect> compatibleEffects = new ArrayList();
+        ArrayList<MobEffect> effects = new ArrayList<>();
 
         while(itr.hasNext()) {
             MobEffectInstance effect = itr.next();
             if (effect.getAmplifier() < 1 && effect.isCurativeItem(new ItemStack(Items.MILK_BUCKET))) {
-                compatibleEffects.add(effect.getEffect());
+                effects.add(effect.getEffect());
             }
         }
 
-        if (!compatibleEffects.isEmpty()) {
+        if (!effects.isEmpty()) {
             if (stack.is(CosmoItems.CONDENSED_MILK_BUCKET.get())) {
-                for (MobEffect effect : compatibleEffects) {
+                for (MobEffect effect : effects) {
                     MobEffectInstance instance = living.getEffect(effect);
                     if (instance != null && !MinecraftForge.EVENT_BUS.post(new MobEffectEvent.Remove(living, instance))) {
                         living.removeEffect(effect);
                     }
                 }
             } else {
-                MobEffect effect = compatibleEffects.get(level.random.nextInt(compatibleEffects.size()));
+                MobEffect effect = effects.get(level.random.nextInt(effects.size()));
                 MobEffectInstance instance = living.getEffect(effect);
                 if (instance != null && !MinecraftForge.EVENT_BUS.post(new MobEffectEvent.Remove(living, instance))) {
                     living.removeEffect(effect);
                 }
             }
+        }
+    }
+
+    public static void creamEffect(Level level,LivingEntity living, ItemStack stack) {
+        RandomSource random = level.getRandom();
+        List<MobEffectInstance> effects = living.getActiveEffects().stream().filter(inst -> inst.getDuration() != -1).map(MobEffectInstance::new).toList();
+
+        if (effects.isEmpty()) return;
+        if (stack.is(CosmoItems.CREAM.get())) {
+            MobEffectInstance pick = effects.get(random.nextInt(effects.size()));
+            applyAdjustment(living, pick, random);
+        } else {
+            for (MobEffectInstance inst : effects) {
+                applyAdjustment(living, inst, random);
+            }
+        }
+    }
+
+    private static void applyAdjustment(LivingEntity living, MobEffectInstance instance, RandomSource random) {
+        int i = random.nextInt(401) - 200;
+        int newDuration = instance.getDuration() + i;
+
+        living.removeEffect(instance.getEffect());
+        if (newDuration > 0) {
+            MobEffectInstance newInstance = new MobEffectInstance(instance.getEffect(), newDuration, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon());
+            living.addEffect(newInstance);
         }
     }
 }

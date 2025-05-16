@@ -1,0 +1,34 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightdelight"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "cosmopolitan:config",
+        "value": "tfd_recipe_tweaks"
+      }
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "fluid": {
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "fluid": "cosmopolitan:phytochemical_ice_cream"
+  }
+}

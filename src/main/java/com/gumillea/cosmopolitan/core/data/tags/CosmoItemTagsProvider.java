@@ -70,6 +70,14 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 Items.GLOW_BERRIES
         );
 
+        this.tag(CosmoItemTags.MELON).add(
+                Items.MELON
+        );
+
+        this.tag(CosmoItemTags.GRAIN).add(
+                Items.WHEAT
+        );
+
         this.tag(CosmoItemTags.CROPS).add(
                 CosmoItems.WHEATGRASS.get()
         );
@@ -270,8 +278,13 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.CAROTENE_SOURCES)
                 .addTag(CosmoItemTags.CARROT)
-                .add(Items.GOLDEN_CARROT)
-                .add(Items.RABBIT_STEW)
+                .add(Items.GOLDEN_CARROT,
+                        Items.RABBIT_STEW,
+                        CosmoItems.CLASSIC_ICE_CREAM.get(),
+                        CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.CARROT_MILKSHAKE.get(),
+                        CosmoItems.CARROT_ICE_CREAM.get(),
+                        CosmoItems.CARROT_ICE_CREAM_CONE.get())
                 .addOptional(new ResourceLocation(CosmoCompat.NEA, "adzuki_curry"))
                 .addOptional(new ResourceLocation(CosmoCompat.NEA, "adzuki_stew"))
                 .addOptional(new ResourceLocation(CosmoCompat.CAD, "beef_noodles"))

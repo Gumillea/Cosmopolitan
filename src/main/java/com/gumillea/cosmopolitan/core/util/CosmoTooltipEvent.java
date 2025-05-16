@@ -41,10 +41,6 @@ public class CosmoTooltipEvent {
             int amplifier = nutrition < 10 ? 0 : 1;
             appendItem(tooltip, CosmoEffects.TRACER.get(), duration, amplifier);
         }
-        if (CosmoConfig.Common.CARROT_FLAVOR.get() && stack.is(CosmoItemTags.CAROTENE_SOURCES)) {
-            int duration = (nutrition < 10 ? 300 : 600) * 5;
-            appendItem(tooltip, CosmoEffects.CAROTENE.get(), duration, 0);
-        }
         if (CosmoConfig.Common.DROOPFRUIT_FLAVOR.get() && stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)) {
             int amplifier = nutrition < 10 ? 0 : 1;
             appendItem(tooltip, CosmoEffects.ABYSMAL_TORCH.get(), -1, amplifier);

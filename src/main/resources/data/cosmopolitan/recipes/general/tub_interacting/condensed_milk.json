@@ -1,0 +1,17 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "ingredient": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "fluid": {
+        "name": "minecraft:milk"
+      }
+    }
+  ],
+  "result": {
+    "fluid": "cosmopolitan:condensed_milk"
+  },
+  "baseCount": 4
+}

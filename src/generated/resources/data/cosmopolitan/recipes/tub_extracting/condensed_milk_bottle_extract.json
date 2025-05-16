@@ -1,0 +1,19 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [],
+  "ingredient": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:condensed_milk"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:condensed_milk_bottle"
+  }
+}

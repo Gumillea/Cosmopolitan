@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "undergarden:blisterberry",
+      "required": false
+    },
+    {
+      "id": "undergardendelight:mogsteak",
+      "required": false
+    },
+    {
+      "id": "undergardendelight:glitterdish",
+      "required": false
+    }
+  ]
+}

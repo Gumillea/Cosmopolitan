@@ -1,0 +1,19 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [],
+  "ingredient": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:cream"
+  }
+}
