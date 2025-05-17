@@ -86,11 +86,11 @@ public class DrinkItem extends EffectItem {
         return SoundEvents.HONEY_DRINK;
     }
 
-
-    @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+
         if (this == CosmoItems.CONDENSED_MILK_BOTTLE.get()) {
             MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".condensed_milk_bottle.when_consumed");
             tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));

@@ -29,18 +29,17 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
     public FrozenDessertTubRenderer(BlockEntityRendererProvider.Context context) {}
 
     @Override
-    public void render(FrozenDessertTubBlockEntity be, float partialTick, PoseStack poseStack,
-                       MultiBufferSource buffer, int packedLight, int packedOverlay) {
-        FluidStack stack = be.getTank().getFluid();
+    public void render(FrozenDessertTubBlockEntity tub, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+        FluidStack stack = tub.getTank().getFluid();
         if (stack.isEmpty()) return;
 
         try {
             CosmoIceCreamFluidType.setTubContext(true);
 
-            float fill = (float) stack.getAmount() / FrozenDessertTubBlockEntity.CAPACITY;
+            float fill = (float) stack.getAmount() / FrozenDessertTubBlockEntity.capacity;
             float height = BASE_HEIGHT + (INNER_MAX - BASE_HEIGHT) * fill;
 
-            Direction facing = be.getBlockState().getValue(FrozenDessertTubBlock.FACING);
+            Direction facing = tub.getBlockState().getValue(FrozenDessertTubBlock.FACING);
             poseStack.pushPose();
 
             poseStack.translate(0.5, 0, 0.5);
@@ -69,8 +68,7 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
         return Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS).apply(texture);
     }
 
-    private void renderFluidPlane(PoseStack poseStack, MultiBufferSource buffer,
-                                  TextureAtlasSprite sprite, float height, int light) {
+    private void renderFluidPlane(PoseStack poseStack, MultiBufferSource buffer, TextureAtlasSprite sprite, float height, int light) {
         VertexConsumer vertexBuilder = buffer.getBuffer(RenderType.translucent());
         Matrix4f matrix = poseStack.last().pose();
         Matrix3f normal = poseStack.last().normal();

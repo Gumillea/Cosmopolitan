@@ -6,6 +6,7 @@ license="${mod_license}"
 modId="cosmopolitan"
 version="${mod_version}"
 displayName="${mod_name}"
+logoFile="icon.png"
 authors="Gumillea"
 description='''${mod_description}'''
 

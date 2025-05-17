@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.core.util.jei;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -71,6 +72,15 @@ public class CosmoJEIPlugin implements IModPlugin {
                 ),
                 VanillaTypes.ITEM_STACK,
                 Component.translatable("jei." + Cosmopolitan.MODID + ".cream_bucket.desc")
+        );
+
+        registration.addIngredientInfo(
+                List.of(
+                        new ItemStack(CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get()),
+                        new ItemStack(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get())
+                ),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei." + Cosmopolitan.MODID + ".frozen_dessert_tub.desc")
         );
     }
     @Override

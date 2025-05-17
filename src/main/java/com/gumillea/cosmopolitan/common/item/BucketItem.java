@@ -77,10 +77,12 @@ public class BucketItem extends EffectItem{
         return SoundEvents.HONEY_DRINK;
     }
 
-    @Override
+
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+
         if (this == CosmoItems.CREAM_BUCKET.get()) {
             MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".cream_bucket.when_consumed");
             tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));

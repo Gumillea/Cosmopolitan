@@ -15,18 +15,31 @@ import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.gumillea.exquisito.core.reg.ExquisitoCauldronInteractions;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import net.brnbrd.delightful.Util;
+import net.brnbrd.delightful.common.block.DelightfulCauldronInteractions;
+import net.brnbrd.delightful.common.item.DelightfulItems;
+import net.brnbrd.delightful.network.DPacketHandler;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.animal.Parrot;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -36,6 +49,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 @Mod(Cosmopolitan.MODID)
@@ -77,11 +91,14 @@ public class Cosmopolitan {
         event.register(CaroteneCapability.class);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-        CosmoCompostableItems.registerCompostableItems();
-        CosmoCauldronInteractions.registerCauldronInteractions();
-        CosmoEffects.registerBrewingRecipes();
+    private void commonSetup(FMLCommonSetupEvent e) {
+        e.enqueueWork(() -> {
+            CosmoCompostableItems.registerCompostableItems();
+            CosmoEffects.registerBrewingRecipes();
+            if (ModList.get().isLoaded("neapolitan")) {
+                CosmoCauldronInteractions.registerCauldronInteractions();
+            }
+
         });
     }
 

@@ -5,8 +5,8 @@ import com.gumillea.cosmopolitan.common.fluid.CosmoIceCreamFluidType;
 import com.gumillea.cosmopolitan.core.misc.TubExtractRecipe;
 import com.gumillea.cosmopolitan.core.misc.TubInjectRecipe;
 import com.gumillea.cosmopolitan.core.misc.TubInteractingRecipe;
+import com.gumillea.cosmopolitan.core.reg.CosmoBlockEntityTypes;
 import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
-import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -30,6 +30,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -110,7 +112,8 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
 
         result = TubExtractRecipe.tryApply(level, tub, inHand, player, hand);
         if (!result.isEmpty()) {
-            if (result.is(CosmoItemTags.ICE_CREAM) || result.is(CosmoItemTags.CREAM)) {
+            FluidStack stack = tub.getTank().getFluid();
+            if (stack.getFluid().getFluidType() instanceof CosmoIceCreamFluidType || stack.getFluid().isSame(CosmoFluids.CREAM.get())) {
                 level.playSound(null, pos, SoundEvents.SNOW_BREAK, SoundSource.BLOCKS, 0.8F, 0.8F);
             } else {
                 level.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 0.8F, 0.8F);
@@ -172,6 +175,11 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
                 entity.setIsInPowderSnow(true);
             }
         }
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return level.isClientSide ? null : createTickerHelper(type, CosmoBlockEntityTypes.FROZEN_DESSERT_TUB.get(), FrozenDessertTubBlockEntity::tick);
     }
 
     public static void contentApply(Level level, BlockPos pos) {

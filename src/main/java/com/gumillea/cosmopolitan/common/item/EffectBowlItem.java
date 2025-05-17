@@ -34,10 +34,11 @@ public class EffectBowlItem extends EffectItem{
         return living instanceof Player && ((Player)living).getAbilities().instabuild ? $$3 : new ItemStack(Items.BOWL);
     }
 
-    @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        
         if (this == CosmoItems.CREAM.get()) {
             MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".cream.when_consumed");
             tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));

@@ -21,7 +21,7 @@ public class CookingPotRecipeMixin {
     @Unique
     private boolean hasCream;
 
-    @Inject(method = "matches", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "matches(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/world/level/Level;)Z", at = @At("RETURN"), cancellable = true)
     private void onMatches(RecipeWrapper inv, Level level, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {
             hasMilk = false;
@@ -43,7 +43,7 @@ public class CookingPotRecipeMixin {
         }
     }
 
-    @Inject(method = "getResultItem", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getResultItem(Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true, remap = true)
     private void onGetResultItem(RegistryAccess access, CallbackInfoReturnable<ItemStack> cir) {
         ItemStack result = cir.getReturnValue().copy();
         if (!result.isEmpty() && result.getItem().isEdible()) {
@@ -55,7 +55,8 @@ public class CookingPotRecipeMixin {
 
     }
 
-    @Inject(method = "getOutputContainer", at = @At("RETURN"), cancellable = true)
+
+    @Inject(method = "getOutputContainer()Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
     private void onGetOutputContainer(CallbackInfoReturnable<ItemStack> cir) {
         ItemStack container = cir.getReturnValue().copy();
         if (!container.isEmpty()) {

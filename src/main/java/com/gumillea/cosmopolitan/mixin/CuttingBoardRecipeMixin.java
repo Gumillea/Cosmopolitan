@@ -20,7 +20,8 @@ public class CuttingBoardRecipeMixin {
     @Unique
     private boolean hasCream;
 
-    @Inject(method = "matches", at = @At("RETURN"), cancellable = true)
+
+    @Inject(method = "matches(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/world/level/Level;)Z", at = @At("RETURN"), cancellable = true)
     private void onMatches(RecipeWrapper inv, Level level, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {
             hasMilk = false;
@@ -40,8 +41,8 @@ public class CuttingBoardRecipeMixin {
         }
     }
 
-    @Inject(method = "getResultItem", at = @At("RETURN"), cancellable = true)
-    private void onGetResultItem(RegistryAccess access, CallbackInfoReturnable<ItemStack> cir) {
+    @Inject(method = "assemble(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
+    private void onAssemble(RecipeWrapper inv, RegistryAccess access, CallbackInfoReturnable<ItemStack> cir) {
         ItemStack result = cir.getReturnValue();
         if (!result.isEmpty() && result.getItem().isEdible()) {
             result = result.copy();
@@ -52,7 +53,7 @@ public class CuttingBoardRecipeMixin {
         }
     }
 
-    @Inject(method = "rollResults", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "rollResults(Lnet/minecraft/util/RandomSource;I)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
     private void onRollResults(net.minecraft.util.RandomSource rand, int fortuneLevel, CallbackInfoReturnable<java.util.List<ItemStack>> cir) {
         java.util.List<ItemStack> results = cir.getReturnValue();
         if (!results.isEmpty()) {

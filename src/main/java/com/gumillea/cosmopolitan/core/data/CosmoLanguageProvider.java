@@ -98,6 +98,8 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addJeiItemDescriptions("Condensed milk can be used in crafting recipes in place of milk; foods crafted with it will be slightly faster to consume.", CosmoItems.CONDENSED_MILK_BUCKET.get());
         this.addJeiItemDescriptions("Cream can be used in crafting recipes in place of milk; foods crafted with it will restore extra hunger points.", CosmoItems.CREAM_BUCKET.get());
 
+        this.addJeiItemDescriptions("Frozen Dessert Tubs are a type of specialised block used for crafting and storing ice cream from the Neapolitan and its add-ons. Firstly, pour milk into the tub and add sugar to begin the transformation into condensed milk. Once the tub is closed, the condensed milk will gradually turn into cream. Place an ice or snow block nearby, add flavor ingredients to the cream, and you will have a tub of ice cream.", CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get());
+
         this.add("item_group." + Cosmopolitan.MODID + ".tab", "Cosmopolitan");
     }
 
@@ -178,6 +180,14 @@ public class CosmoLanguageProvider extends LanguageProvider {
     private void addJeiItemDescriptions(String description, Item... items) {
         for (Item item : items) {
             ResourceLocation id = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
+            String key = "jei." + id.getNamespace() + "." + id.getPath() + ".desc";
+            add(key, description);
+        }
+    }
+
+    private void addJeiItemDescriptions(String description, Block... blocks) {
+        for (Block block : blocks) {
+            ResourceLocation id = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block));
             String key = "jei." + id.getNamespace() + "." + id.getPath() + ".desc";
             add(key, description);
         }
