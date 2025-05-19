@@ -107,21 +107,21 @@ public class CosmoCreativeTabs {
                 }
 
                 output.accept(CosmoItems.CLASSIC_FRUIT_SALAD.get());
+                output.accept(CosmoItems.JELLO_SALAD.get());
                 output.accept(CosmoItems.MASHED_POTATO.get());
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.GREEN_SAUCE.get());
                     output.accept(CosmoItems.GREEN_CREAM_STEW.get());
-                    output.accept(CosmoItems.LUSH_STEW.get());
+                }
+                output.accept(CosmoItems.LUSH_STEW.get());
+                if (CosmoCompat.fd) {
                     output.accept(CosmoItems.GREEN_PASTA.get());
                     output.accept(CosmoItems.WILD_RISOTTO.get());
                 }
                 if (CosmoCompat.mf) {
+                    output.accept(CosmoItems.JELLO_SALAD_CUP.get());
                     output.accept(CosmoItems.GREEN_CREAM_STEW_CUP.get());
                     output.accept(CosmoItems.LUSH_STEW_CUP.get());
-                    if (CosmoCompat.vc) {
-
-
-                    }
                 }
 
                 output.accept(CosmoItems.CONDENSED_MILK_BUCKET.get());
@@ -227,6 +227,12 @@ public class CosmoCreativeTabs {
                         output.accept(CosmoItems.GLACIER_ICE_CREAM_CONE.get());
                         output.accept(CosmoItems.PHYTOCHEMICAL_ICE_CREAM_CONE.get());
                         output.accept(CosmoItems.TORCHBERRY_ICE_CREAM_CONE.get());
+                    }
+                    if (CosmoCompat.rf) {
+                        output.accept(CosmoItems.GREEN_TEA_ICE_CREAM_CONE.get());
+                        output.accept(CosmoItems.YELLOW_TEA_ICE_CREAM_CONE.get());
+                        output.accept(CosmoItems.BLACK_TEA_ICE_CREAM_CONE.get());
+                        output.accept(CosmoItems.COFFEE_ICE_CREAM_CONE.get());
                     }
                 }
             })

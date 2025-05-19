@@ -32,7 +32,8 @@
           "item": "minecraft:bowl"
         },
         "result": {
-          "item": "cosmopolitan:jello_salad"
+          "item": "cosmopolitan:jello_salad",
+          "count": 2
         }
       }
     }

@@ -4,19 +4,15 @@ import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.misc.CaroteneCapability;
+import com.gumillea.cosmopolitan.core.misc.CaroteneTickHandler;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
-import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import sereneseasons.init.ModConfig;
@@ -31,9 +27,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -64,7 +57,6 @@ import sereneseasons.api.season.SeasonHelper;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID)
 public class CosmoEvents {
@@ -249,16 +241,15 @@ public class CosmoEvents {
         ItemStack inHand = player.getItemInHand(hand);
         BlockState state = level.getBlockState(event.getPos());
         BlockPos pos = event.getPos();
+        Block block = state.getBlock();
 
         if (!level.isClientSide && inHand.getItem() instanceof AxeItem) {
-            Block log = state.getBlock();
-
             if (CosmoCompat.ss && ModConfig.fertility.seasonalCrops) {
                 Season season = SeasonHelper.getSeasonState(level).getSeason();
                 if (season != Season.SPRING && season != Season.WINTER) return;
             }
 
-            if (log == Blocks.BIRCH_LOG && level.getRandom().nextFloat() < 0.5) {
+            if (block == Blocks.BIRCH_LOG && level.getRandom().nextFloat() < 0.5) {
                 level.setBlock(pos, CosmoBlocks.SAPPY_BIRCH_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS)), 11);
                 level.playSound(null, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
 
@@ -268,6 +259,12 @@ public class CosmoEvents {
 
                 event.setCancellationResult(InteractionResult.SUCCESS);
                 event.setCanceled(true);
+            }
+        }
+
+        if (player.getItemInHand(hand).isEmpty() && block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
+            if (CosmoConfig.Common.GLOW_BERRY_FLAVOR.get() && state.is(CosmoBlockTags.TRACER_SOURCES)) {
+                player.addEffect(new MobEffectInstance(CosmoEffects.TRACER.get(), 300));
             }
         }
 

@@ -127,6 +127,12 @@ public class CosmoItems {
     public static final RegistryObject<Item> SEASONAL_ICE_CREAM = HELPER.createItem("seasonal_ice_cream", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.SEASONAL_ICE_CREAM).craftRemainder(Items.BOWL), true, 200));
     public static final RegistryObject<Item> SEASONAL_ICE_CREAM_SANDWICH = HELPER.createItem("seasonal_ice_cream_sandwich", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.SEASONAL_ICE_CREAM_SANDWICH), false, 100));
 
+    //respiteful
+    public static final RegistryObject<Item> GREEN_TEA_ICE_CREAM_CONE = HELPER.createItem("green_tea_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.GREEN_TEA_ICE_CREAM_CONE), false, 80));
+    public static final RegistryObject<Item> YELLOW_TEA_ICE_CREAM_CONE = HELPER.createItem("yellow_tea_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.YELLOW_TEA_ICE_CREAM_CONE), false, 80));
+    public static final RegistryObject<Item> BLACK_TEA_ICE_CREAM_CONE = HELPER.createItem("black_tea_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.BLACK_TEA_ICE_CREAM_CONE), false, 80));
+    public static final RegistryObject<Item> COFFEE_ICE_CREAM_CONE = HELPER.createItem("coffee_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.COFFEE_ICE_CREAM_CONE), false, 80));
+
     //neapolitan x vanilla
     public static final RegistryObject<Item> APPLE_ICE_CREAM = HELPER.createItem("apple_ice_cream", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.APPLE_ICE_CREAM).craftRemainder(Items.BOWL), true, 200));
     public static final RegistryObject<Item> APPLE_ICE_CREAM_CONE = HELPER.createItem("apple_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.APPLE_ICE_CREAM_CONE), false, 80));
@@ -346,6 +352,12 @@ public class CosmoItems {
         public static final FoodProperties LIME_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.CORROSION, 400, 1), 1.0F).build();
         public static final FoodProperties POMEGRANATE_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.VOLATILITY, 540, 1), 1.0F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 160), 1.0F).build();
 
+        public static final FoodProperties GREEN_TEA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.VITALITY, 200, 1), 1.0F).build();
+        public static final FoodProperties YELLOW_TEA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.TENACITY, 200, 1), 1.0F).build();
+        public static final FoodProperties BLACK_TEA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.MATURITY, 200, 1), 1.0F).build();
+        public static final FoodProperties COFFEE_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 400, 2), 1.0F).build();
+
+
         public static final FoodProperties AURORA_KOHAKUTOU = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.AURORA, 200), 1.0F).build();
         public static final FoodProperties GLACIER_ESSENCE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.FROZEN_RANGE, 80), 1.0F).fast().build();
         public static final FoodProperties STEELEAF_NECTAR = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.2F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RANGE, 300), 1.0F).build();
@@ -358,8 +370,6 @@ public class CosmoItems {
         public static final FoodProperties REFRESHING_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RANGE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.FROZEN_RANGE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.BERSERKING, 300), 1.0F).build();
         public static final FoodProperties TWILIGHT_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.FIRE_RANGE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH, 900), 1.0F).build();
 
-        //vc
-        public static final FoodProperties VC_JELLY = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.45F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 400), 1.0F).build();
 
     }
 

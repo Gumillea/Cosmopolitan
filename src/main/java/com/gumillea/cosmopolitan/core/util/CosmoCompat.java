@@ -18,7 +18,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
+import plus.dragons.respiteful.entries.RespitefulMobEffects;
 import quek.undergarden.registry.UGBlocks;
+import umpaz.farmersrespite.common.registry.FREffects;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
 public class CosmoCompat {
@@ -64,6 +66,8 @@ public class CosmoCompat {
     public static final boolean tf = ModList.get().isLoaded(TF);
     public static final String TFD = "twilightdelight";
     public static final boolean tfd = ModList.get().isLoaded(TFD);
+    public static final String RF = "respiteful";
+    public static final boolean rf = ModList.get().isLoaded(RF);
     public static final String SEA = "seasonals";
     public static final boolean sea = ModList.get().isLoaded(SEA);
     public static final String SS = "sereneseasons";
@@ -99,11 +103,17 @@ public class CosmoCompat {
     public static Block KABLOOM_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
 
     //neapolitan
-    public static final MobEffect AGILITY = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.AGILITY.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect BERSERKING = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.BERSERKING.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect HARMONY = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.HARMONY.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect SUGAR_RUSH = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.SUGAR_RUSH.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect VANILLA_SCENT = ((ModList.get().isLoaded(NEA)) ? (NeapolitanMobEffects.VANILLA_SCENT.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect AGILITY = nea ? (NeapolitanMobEffects.AGILITY.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect BERSERKING = nea ? (NeapolitanMobEffects.BERSERKING.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect HARMONY = nea ? (NeapolitanMobEffects.HARMONY.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect SUGAR_RUSH = nea ? (NeapolitanMobEffects.SUGAR_RUSH.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect VANILLA_SCENT = nea ? (NeapolitanMobEffects.VANILLA_SCENT.get()) : CosmoEffects.PLACEHOLDER.get();
+
+    //respiteful
+    public static final MobEffect VITALITY = rf ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(RF, "vitality")) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect TENACITY = rf ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(RF, "tenacity")) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect MATURITY = rf ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(RF, "maturity")) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect CAFFEINATED = rf ? FREffects.CAFFEINATED.get() : CosmoEffects.PLACEHOLDER.get();
 
     //exquisito
     public static final MobEffect RESONANCE_ICE_CREAM = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.RESONANCE.get()) : CosmoEffects.PLACEHOLDER.get());

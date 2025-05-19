@@ -79,16 +79,11 @@ public class Cosmopolitan {
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::addBuiltinPacks);
         modEventBus.addListener(this::gatherData);
-        modEventBus.addListener(this::registerCapabilities);
 
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
 
         context.registerConfig(ModConfig.Type.COMMON, CosmoConfig.COMMON_SPEC);
         context.registerConfig(ModConfig.Type.CLIENT, CosmoConfig.CLIENT_SPEC);
-    }
-
-    private void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.register(CaroteneCapability.class);
     }
 
     private void commonSetup(FMLCommonSetupEvent e) {

@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-19T00:52:55.0792404	Item Models: cosmopolitan
+// 1.20.1	2025-05-19T17:31:46.5233194	Item Models: cosmopolitan
 fbe1a9fb1d5b0502f76ef9da43a7a06152e9fea2 assets/cosmopolitan/models/item/aloe_ice_cream_cone.json
 fd5f1d9fdaf72af5bebbc1041fc8f3f5e006f851 assets/cosmopolitan/models/item/apple_milkshake.json
 0397e30ea4175d128e72b12dc003c622095a578c assets/cosmopolitan/models/item/aurora_ice_cream_cone.json
@@ -8,6 +8,7 @@ a9b51d07e0c27088ae41e7bb17b319020c2e8389 assets/cosmopolitan/models/item/baked_f
 623896326f244e10dbe2411b78492bf4cd1fda05 assets/cosmopolitan/models/item/beetroot_ice_cream_cone.json
 76321f2c478342a98368a8884abeb8e932d79d29 assets/cosmopolitan/models/item/berry_syrup_bottle.json
 f3aaef37c7fad40867441ad2bc5bd261900cd402 assets/cosmopolitan/models/item/birch_sap_bottle.json
+49629ed21f9141e346e7b72d02882616f083a806 assets/cosmopolitan/models/item/black_tea_ice_cream_cone.json
 8f391a6bdb5a4d162a44adf3158bbeba78d6a135 assets/cosmopolitan/models/item/blisterberry_pips.json
 a6b85af41a5796c08ec811d76af88c25c06be2c1 assets/cosmopolitan/models/item/blisterberry_popsicle.json
 318512fb9a46b3ed900e625743ce1232afea906b assets/cosmopolitan/models/item/blisterberry_popsicle_double.json
@@ -21,6 +22,7 @@ e0760ff2a820c39034d38dc7cf7e192b71b4916b assets/cosmopolitan/models/item/chorus_
 7ca1101f6dbe515976e754e767e105b20c83eaf8 assets/cosmopolitan/models/item/classic_fruit_salad.json
 b011583834052afc7c9fbb9a2561ed8553a14e86 assets/cosmopolitan/models/item/classic_ice_cream.json
 62dec69d246d682613c02390b4d9b3587437dd24 assets/cosmopolitan/models/item/classic_ice_cream_sandwich.json
+998be46cec5b986e2bc9c9c9020deeef4ad8c429 assets/cosmopolitan/models/item/coffee_ice_cream_cone.json
 796770655c0240304798760a33dec36175769813 assets/cosmopolitan/models/item/condensed_milk_bottle.json
 6c151e2b1b3a89f7b177a400d1bdd4bc929b2d84 assets/cosmopolitan/models/item/condensed_milk_bucket.json
 937ec3e2ab6b5b98a142dce94fdfdedf2bae3fa6 assets/cosmopolitan/models/item/cosmopolitan_cocktail.json
@@ -41,6 +43,7 @@ f7096526942473f737d049d7bc24f98da1cf2b5b assets/cosmopolitan/models/item/glow_be
 70d1bdcc67039d340a371203c6f8cd6ad1b46725 assets/cosmopolitan/models/item/green_cream_stew_cup.json
 de6e545341ef807012cd3bcae801e8c43bed5bd8 assets/cosmopolitan/models/item/green_pasta.json
 9e7481e981c63824fa952d08cfe458d1ceb2c388 assets/cosmopolitan/models/item/green_sauce.json
+533ad39fea90dcd8765004b1667261642711ac78 assets/cosmopolitan/models/item/green_tea_ice_cream_cone.json
 b38948bc862d631f84a617a4849cbacbeeea93cb assets/cosmopolitan/models/item/gulime.json
 947258e940b8dd899994bb217359fd4ca2e43610 assets/cosmopolitan/models/item/gulime_small.json
 861ebf75f9cc3e3d4b41cb3fc3708fc266f4c423 assets/cosmopolitan/models/item/ink_roll.json
@@ -96,4 +99,5 @@ d214069ef4f764d18dc336d5c9e5a487bb5b06c8 assets/cosmopolitan/models/item/wheatgr
 224f80f056ef82e5e9faab991d6081f81b4e0de3 assets/cosmopolitan/models/item/wildberry.json
 1511ecce11cdf105c8f366a74db3ff96aebc5056 assets/cosmopolitan/models/item/wild_risotto.json
 29a92f92b6cb44eb647ada541c621cfcb0e1c506 assets/cosmopolitan/models/item/winter_glogg.json
+d084bebd4cc8b908c25c6450c296b6ab22335dd2 assets/cosmopolitan/models/item/yellow_tea_ice_cream_cone.json
 dd2054f828dbbfb2aec8db39a9871666ea8ab1e7 assets/cosmopolitan/models/item/yucca_ice_cream_cone.json

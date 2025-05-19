@@ -15,6 +15,7 @@ import com.gumillea.exquisito.core.reg.ExquisitoItems;
 import com.gumillea.exquisito.core.util.tags.ExquisitoItemTags;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
+import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
@@ -25,6 +26,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -36,10 +38,15 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.conditions.ItemExistsCondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
+import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
+import plus.dragons.respiteful.entries.RespitefulItems;
 import twilightforest.init.TFItems;
+import umpaz.farmersrespite.common.registry.FRItems;
 
 import java.util.Arrays;
 import java.util.List;
@@ -52,6 +59,11 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
     }
 
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> finished) {
+        registerConeRecipe(finished, FRItems.GREEN_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "green_tea_ice_cream")), CosmoItems.GREEN_TEA_ICE_CREAM_CONE.get());
+        registerConeRecipe(finished, FRItems.YELLOW_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "yellow_tea_ice_cream")), CosmoItems.YELLOW_TEA_ICE_CREAM_CONE.get());
+        registerConeRecipe(finished, FRItems.BLACK_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "black_tea_ice_cream")), CosmoItems.BLACK_TEA_ICE_CREAM_CONE.get());
+        registerConeRecipe(finished, FRItems.COFFEE_BEANS.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "coffee_ice_cream")), CosmoItems.COFFEE_ICE_CREAM_CONE.get());
+
         registerIceCreamBlocksRecipe(finished, CosmoItems.APPLE_ICE_CREAM.get(), CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get());
         registerIceCreamBlocksRecipe(finished, CosmoItems.CARROT_ICE_CREAM.get(), CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get());
         registerIceCreamBlocksRecipe(finished, CosmoItems.GLOW_BERRY_ICE_CREAM.get(), CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get());
@@ -156,6 +168,83 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerIceCreamInteraction(finished, DelightfulItemTags.FRUITS_POMEGRANATE, CosmoFluids.POMEGRANATE_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
 
         registerIceCreamInteraction(finished, TFItems.TORCHBERRIES.get(), CosmoFluids.TORCHBERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
+    }
+
+    private void registerConeRecipe (Consumer<FinishedRecipe> finished, ItemLike item, ItemLike iceCream, ItemLike result) {
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) item);
+        ResourceLocation iceCreamKey = ForgeRegistries.ITEMS.getKey((Item) iceCream);
+        ResourceLocation resultKey = ForgeRegistries.ITEMS.getKey((Item) result);
+        ResourceLocation id = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath());
+        ResourceLocation id2 = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath() + "from_ice_cream");
+
+        ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, result, 3)
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(item)
+                .requires(CosmoItemTags.MILK)
+                .requires(DelightfulItemTags.ICE_CUBES)
+                .requires(Items.SUGAR)
+                .unlockedBy("has_" + key.getPath(), has(item));
+
+        ShapelessRecipeBuilder builder2 = ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, result, 3)
+                .requires(iceCream)
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .unlockedBy("has_" + iceCreamKey.getPath(), has(iceCream));
+
+        ConditionalRecipe.builder()
+                .addCondition(new ModLoadedCondition("neapolitan"))
+                .addCondition(new ItemExistsCondition(key.toString()))
+                .addCondition(new ItemExistsCondition(iceCreamKey.toString()))
+                .addRecipe(consumer -> builder.save(consumer, id))
+                .build(finished, id);
+
+        ConditionalRecipe.builder()
+                .addCondition(new ModLoadedCondition("neapolitan"))
+                .addCondition(new ItemExistsCondition(key.toString()))
+                .addCondition(new ItemExistsCondition(iceCreamKey.toString()))
+                .addRecipe(consumer -> builder2.save(consumer, id2))
+                .build(finished, id2);
+    }
+
+    private void registerConeRecipe (Consumer<FinishedRecipe> finished, TagKey<Item> item, ItemLike iceCream, ItemLike result) {
+        ResourceLocation iceCreamKey = ForgeRegistries.ITEMS.getKey((Item) iceCream);
+        ResourceLocation resultKey = ForgeRegistries.ITEMS.getKey((Item) result);
+        ResourceLocation id = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath());
+        ResourceLocation id2 = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath() + "from_ice_cream");
+
+        ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, result, 3)
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(item)
+                .requires(CosmoItemTags.MILK)
+                .requires(DelightfulItemTags.ICE_CUBES)
+                .requires(Items.SUGAR)
+                .unlockedBy("has_" + item, has(item));
+
+        ShapelessRecipeBuilder builder2 = ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, result, 3)
+                .requires(iceCream)
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .requires(CosmoItems.WAFER_CONE.get())
+                .unlockedBy("has_" + iceCreamKey.getPath(), has(iceCream));
+
+        ConditionalRecipe.builder()
+                .addCondition(new ModLoadedCondition("neapolitan"))
+                .addCondition(new NotCondition(new TagEmptyCondition(iceCreamKey.toString())))
+                .addCondition(new ItemExistsCondition(iceCreamKey.toString()))
+                .addRecipe(consumer -> builder.save(consumer, id))
+                .build(finished, id);
+
+        ConditionalRecipe.builder()
+                .addCondition(new ModLoadedCondition("neapolitan"))
+                .addCondition(new NotCondition(new TagEmptyCondition(iceCreamKey.toString())))
+                .addCondition(new ItemExistsCondition(iceCreamKey.toString()))
+                .addRecipe(consumer -> builder2.save(consumer, id2))
+                .build(finished, id2);
     }
 
     private void registerFourBlocksRecipe (Consumer<FinishedRecipe> finished, ItemLike block, ItemLike result) {
