@@ -5,12 +5,12 @@
       "cup": "cosmopolitan:green_cream_stew_cup"
     },
     {
-      "bowl": "vanillacookbook:jelly",
-      "cup": "cosmopolitan:jelly_cup"
+      "bowl": "cosmopolitan:lush_stew",
+      "cup": "cosmopolitan:lush_stew_cup"
     },
     {
-      "bowl": "vanillacookbook:magma_jelly",
-      "cup": "cosmopolitan:magma_jelly_cup"
+      "bowl": "cosmopolitan:jello_salad",
+      "cup": "cosmopolitan:jello_salad_cup"
     }
   ]
 }

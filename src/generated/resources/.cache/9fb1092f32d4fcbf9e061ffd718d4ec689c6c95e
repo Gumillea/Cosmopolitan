@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-16T23:21:02.3232423	Recipes
+// 1.20.1	2025-05-19T00:52:55.081811	Recipes
 f48c86f8d6ec3d6d30979f9a695beecccc51e53f data/cosmopolitan/recipes/neapolitan/block/adzuki_ice_cream_bricks.json
 f9133fbc6f06dc5e9980722ef1b29779cfc63104 data/cosmopolitan/recipes/neapolitan/block/apple_ice_cream_block.json
 53633e1bfb782bc8d91fc6ec3305dd85b00c6417 data/cosmopolitan/recipes/neapolitan/block/banana_ice_cream_bricks.json
@@ -179,7 +179,7 @@ dc16d7c9c0477b604d539df79116daf266d0157e data/cosmopolitan/recipes/tub_interacti
 99b899d9183e9b66956237f8c155441704728258 data/cosmopolitan/recipes/tub_interacting/salmonberry_ice_cream.json
 9996f2850dfe88c975c06868e59ec632b0a93846 data/cosmopolitan/recipes/tub_interacting/source_berry_ice_cream.json
 6d99a859935a8dda15da4286b5523373a639117d data/cosmopolitan/recipes/tub_interacting/starcloud_ice_cream.json
-83ff62ff143b3aca327db43286cd042c6d4b038f data/cosmopolitan/recipes/tub_interacting/strawberry_ice_cream.json
+108514ea0e1784e21cfe9d4a53b914945dd778f7 data/cosmopolitan/recipes/tub_interacting/strawberry_ice_cream.json
 c7019ac9587b5ac6cead4b7146419cf1e0dc49bd data/cosmopolitan/recipes/tub_interacting/sweet_berry_ice_cream.json
 d0cc702986f72b4321c74a2df96641cb716b8a2a data/cosmopolitan/recipes/tub_interacting/torchberry_ice_cream.json
 e14b939504eddfe1d8b521c59beb90a4f3900b22 data/cosmopolitan/recipes/tub_interacting/vanilla_ice_cream.json

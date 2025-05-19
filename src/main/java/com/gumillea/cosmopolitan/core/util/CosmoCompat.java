@@ -11,6 +11,7 @@ import mod.schnappdragon.habitat.core.registry.HabitatEffects;
 import net.brdle.collectorsreap.common.effect.CREffects;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -90,6 +91,7 @@ public class CosmoCompat {
     //farmersdelight
     public static final MobEffect COMFORT = ((ModList.get().isLoaded(FD)) ? (ModEffects.COMFORT.get()) : CosmoEffects.PLACEHOLDER.get());
     public static final MobEffect NOURISHMENT = ((ModList.get().isLoaded(FD)) ? (ModEffects.NOURISHMENT.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffectInstance COMFORT_STEW = fd ? new MobEffectInstance(ModEffects.COMFORT.get(), 6000) : new MobEffectInstance(MobEffects.REGENERATION, 100);
 
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get());

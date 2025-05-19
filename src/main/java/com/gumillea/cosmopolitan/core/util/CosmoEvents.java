@@ -117,7 +117,7 @@ public class CosmoEvents {
         if (user instanceof LivingEntity living && stack.isEdible()) {
             int nutrition = Objects.requireNonNull(stack.getFoodProperties(living)).getNutrition();
             if (stack.hasTag() && stack.getTag().getBoolean("has_cream")) {
-                int creamNutrition = nutrition / 5;
+                int creamNutrition =  nutrition == 0 ? 1 : (int) Math.ceil(nutrition / 5.0);
                 if (living instanceof Player player) {
                     player.getFoodData().eat(creamNutrition, 0);
                 }

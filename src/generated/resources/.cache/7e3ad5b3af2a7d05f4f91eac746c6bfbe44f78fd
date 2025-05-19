@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-11T15:41:41.1812296	Item Models: cosmopolitan
+// 1.20.1	2025-05-19T00:52:55.0792404	Item Models: cosmopolitan
 fbe1a9fb1d5b0502f76ef9da43a7a06152e9fea2 assets/cosmopolitan/models/item/aloe_ice_cream_cone.json
 fd5f1d9fdaf72af5bebbc1041fc8f3f5e006f851 assets/cosmopolitan/models/item/apple_milkshake.json
 0397e30ea4175d128e72b12dc003c622095a578c assets/cosmopolitan/models/item/aurora_ice_cream_cone.json
@@ -46,13 +46,15 @@ b38948bc862d631f84a617a4849cbacbeeea93cb assets/cosmopolitan/models/item/gulime.
 861ebf75f9cc3e3d4b41cb3fc3708fc266f4c423 assets/cosmopolitan/models/item/ink_roll.json
 206bfd13b2ced95cc24af083dbf1cf13f155566e assets/cosmopolitan/models/item/ink_roll_slice.json
 d1cdcc95a67afdd7e1560cf3c393c085542d3c38 assets/cosmopolitan/models/item/iron_fiddlehead.json
-eaca5f3b1e1ba83d47a664bb07a471d255aa1a48 assets/cosmopolitan/models/item/jelly_cup.json
+e5a659fa8815e89429114c477eca14ad50a4b151 assets/cosmopolitan/models/item/jello_salad.json
+56a29d569ab0aa2cf79edf9df11dce7cebadb969 assets/cosmopolitan/models/item/jello_salad_cup.json
 5c91ebf83be396e8bcc279dcf813b67a8f4f08db assets/cosmopolitan/models/item/jelly_roll.json
 53f0715a11efd463ebf1ed786ec5095d2abd4701 assets/cosmopolitan/models/item/jelly_roll_slice.json
 e941679f8b7a52718eb64815307cc584ebb19d2e assets/cosmopolitan/models/item/kabloom_milkshake.json
 d2c74dde5c3556ee291ca9f87584265cee86c7b4 assets/cosmopolitan/models/item/kabloom_pips.json
 8d1ecb07ea232c74f53c9f40b59964ce74d417a8 assets/cosmopolitan/models/item/lime_ice_cream_cone.json
-ad3ec7081eb6442e3a3085c54ca1b72acab3bc9e assets/cosmopolitan/models/item/magma_jelly_cup.json
+39bb86da35d9a682dd256b97550803b3c38aaeb4 assets/cosmopolitan/models/item/lush_stew.json
+5bb85fc7d81f3653f3336a1e9486fdb874098589 assets/cosmopolitan/models/item/lush_stew_cup.json
 7553656673631c1e28597d08884a9ca9182a49be assets/cosmopolitan/models/item/matcha_ice_cream_cone.json
 59adf14a7a22d44d39e73d0748c2d37601b4cfd0 assets/cosmopolitan/models/item/mendosteen_tart.json
 3f686b27b25dc744d7bfea6678877138ca112039 assets/cosmopolitan/models/item/neapolitan_ice_cream_sandwich.json

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "cosmopolitan:item/magma_jelly_cup"
+    "layer0": "cosmopolitan:item/jello_salad"
   }
 }

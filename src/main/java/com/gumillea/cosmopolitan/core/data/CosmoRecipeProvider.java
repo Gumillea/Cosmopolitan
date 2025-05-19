@@ -15,6 +15,7 @@ import com.gumillea.exquisito.core.reg.ExquisitoItems;
 import com.gumillea.exquisito.core.util.tags.ExquisitoItemTags;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
+import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
 import net.brdle.collectorsreap.common.item.CRItems;
@@ -119,7 +120,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFlavorRecipes(finished, SeasonalsItems.SWEET_BERRY_ICE_CREAM.get(), SeasonalsItems.SWEET_BERRY_MILKSHAKE.get(), CosmoFluids.SWEET_BERRY_ICE_CREAM.get(), CosmoCompat.SEA);
 
         //special thanks to Delightful...
-        registerIceCreamInteraction(finished, DelightfulItemTags.FRUITS_STRAWBERRIES, CosmoFluids.STRAWBERRY_ICE_CREAM.get());
+        registerIceCreamInteraction(finished, NeapolitanItemTags.FRUITS_STRAWBERRY, CosmoFluids.STRAWBERRY_ICE_CREAM.get());
         registerIceCreamInteraction(finished, CosmoItemTags.CHOCOLATE, CosmoFluids.CHOCOLATE_ICE_CREAM.get());
         registerIceCreamInteraction(finished, NeapolitanItems.DRIED_VANILLA_PODS.get(), CosmoFluids.VANILLA_ICE_CREAM.get());
         registerIceCreamInteraction(finished, DelightfulItemTags.FRUITS_BANANA, CosmoFluids.BANANA_ICE_CREAM.get());

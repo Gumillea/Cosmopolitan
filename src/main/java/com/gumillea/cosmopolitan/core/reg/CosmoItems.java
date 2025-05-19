@@ -66,6 +66,11 @@ public class CosmoItems {
     public static final RegistryObject<Item> AUTUMN_TEA = HELPER.createItem("autumn_tea", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.DRINK), false, "autumn"));
     public static final RegistryObject<Item> WINTER_GLOGG = HELPER.createItem("winter_glogg", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.DRINK), false, "winter"));
 
+    public static final RegistryObject<Item> LUSH_STEW = HELPER.createItem("lush_stew", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.LUSH_STEW)));
+    public static final RegistryObject<Item> LUSH_STEW_CUP = HELPER.createItem("lush_stew_cup", createCupItem(CosmopolitanFoods.LUSH_STEW));
+    public static final RegistryObject<Item> JELLO_SALAD = HELPER.createItem("jello_salad", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.JELLO_SALAD)));
+    public static final RegistryObject<Item> JELLO_SALAD_CUP = HELPER.createItem("jello_salad_cup", createCupItem(CosmopolitanFoods.JELLO_SALAD));
+
     public static final RegistryObject<Item> GULIME = HELPER.createItem("gulime", () -> new GulimeItem(new Item.Properties().food(CosmopolitanFoods.GULIME), true, CosmoItems.GULIME_SMALL));
     public static final RegistryObject<Item> GULIME_SMALL = HELPER.createItem("gulime_small", () -> new GulimeItem(new Item.Properties().food(CosmopolitanFoods.GULIME_SMALL), false, CosmoItems.GULIME));
     public static final RegistryObject<Item> UNDERGROUND_GULIME = HELPER.createItem("underground_gulime", () -> new GulimeItem(new Item.Properties().food(CosmopolitanFoods.UNDERGROUND_GULIME), true, CosmoItems.UNDERGROUND_GULIME_SMALL));
@@ -83,6 +88,7 @@ public class CosmoItems {
     public static final RegistryObject<Item> POTATO_PANCAKES = HELPER.createItem("potato_pancakes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
     public static final RegistryObject<Item> GREEN_SAUCE = HELPER.createItem("green_sauce", () -> new BowlFoodItem(new Item.Properties().food(CosmopolitanFoods.GREEN_SAUCE)));
     public static final RegistryObject<Item> GREEN_CREAM_STEW = HELPER.createItem("green_cream_stew", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.GREEN_STEW).stacksTo(16)));
+    public static final RegistryObject<Item> GREEN_CREAM_STEW_CUP = HELPER.createItem("green_cream_stew_cup", createCupItem(CosmopolitanFoods.GREEN_STEW));
     public static final RegistryObject<Item> GREEN_PASTA = HELPER.createItem("green_pasta", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.GREEN_PASTA).stacksTo(16)));
     public static final RegistryObject<Item> WILD_RISOTTO = HELPER.createItem("wild_risotto", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.WILD_RISOTTO).stacksTo(16)));
 
@@ -197,11 +203,6 @@ public class CosmoItems {
     public static final RegistryObject<Item> COSMOPOLITAN_COCKTAIL = HELPER.createItem("cosmopolitan_cocktail", () -> new CocktailItem(new Item.Properties().food(CosmopolitanFoods.DRINK)));
     public static final RegistryObject<Item> ENCHANTED_COSMOPOLITAN_COCKTAIL = HELPER.createItem("enchanted_cosmopolitan_cocktail", () -> new CocktailItem(new Item.Properties().food(CosmopolitanFoods.DRINK).stacksTo(1).rarity(Rarity.RARE)));
 
-    //miners_delight
-    public static final RegistryObject<Item> GREEN_CREAM_STEW_CUP = HELPER.createItem("green_cream_stew_cup", createCupItem(CosmopolitanFoods.GREEN_STEW));
-    public static final RegistryObject<Item> JELLY_CUP = HELPER.createItem("jelly_cup", createCupItem(CosmopolitanFoods.VC_JELLY));
-    public static final RegistryObject<Item> MAGMA_JELLY_CUP = HELPER.createItem("magma_jelly_cup", createCupItem(CosmopolitanFoods.VC_JELLY));
-
     public static Supplier<Item> createCupItem(FoodProperties food) {
         return () -> {
             if (CosmoCompat.mf) {
@@ -262,6 +263,9 @@ public class CosmoItems {
         public static final FoodProperties CHORUS_GULIME_SMALL = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(MobEffects.JUMP, 200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.RESONANCE, 200), 1.0F).fast().build();
         public static final FoodProperties GLIMMERING_GULIME = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.1F).effect(() -> new MobEffectInstance(MobEffects.JUMP, 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).build();
         public static final FoodProperties GLIMMERING_GULIME_SMALL = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(MobEffects.JUMP, 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).fast().build();
+
+        public static final FoodProperties LUSH_STEW = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).effect(() -> CosmoCompat.COMFORT_STEW, 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 400), 1.0F).build();
+        public static final FoodProperties JELLO_SALAD = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400), 1.0F).build();
 
         //farmersdelight
         public static final FoodProperties POTATO_PANCAKES = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.8F).build();

@@ -111,14 +111,16 @@ public class CosmoCreativeTabs {
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.GREEN_SAUCE.get());
                     output.accept(CosmoItems.GREEN_CREAM_STEW.get());
+                    output.accept(CosmoItems.LUSH_STEW.get());
                     output.accept(CosmoItems.GREEN_PASTA.get());
                     output.accept(CosmoItems.WILD_RISOTTO.get());
                 }
                 if (CosmoCompat.mf) {
                     output.accept(CosmoItems.GREEN_CREAM_STEW_CUP.get());
+                    output.accept(CosmoItems.LUSH_STEW_CUP.get());
                     if (CosmoCompat.vc) {
-                        output.accept(CosmoItems.JELLY_CUP.get());
-                        output.accept(CosmoItems.MAGMA_JELLY_CUP.get());
+
+
                     }
                 }
 
