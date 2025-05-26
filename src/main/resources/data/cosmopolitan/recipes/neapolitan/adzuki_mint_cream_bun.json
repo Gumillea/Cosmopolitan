@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "neapolitan:roasted_adzuki_beans"
+    },
+    {
+      "item": "neapolitan:mint_leaves"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:adzuki_mint_cream_bun",
+    "count": 4
+  }
+}

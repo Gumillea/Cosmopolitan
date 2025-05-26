@@ -1,6 +1,15 @@
 {
   "type": "cosmopolitan:tub_extracting",
-  "conditions": [],
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "cosmopolitan:cream_bucket"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:bucket"
+    }
+  ],
   "ingredient": [
     {
       "item": "minecraft:bucket"

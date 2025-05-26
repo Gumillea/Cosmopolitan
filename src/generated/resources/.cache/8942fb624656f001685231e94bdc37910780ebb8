@@ -1,11 +1,11 @@
-// 1.20.1	2025-05-15T00:28:29.0558582	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2025-05-24T23:12:17.2421381	Tags for minecraft:item mod id cosmopolitan
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
 32d6782776245a4bb07443f2eb4a2871982b5b8c data/blueprint/tags/items/pig_food.json
 f2386f28918a72073a589f3b819e044dae304d40 data/cosmopolitan/tags/items/abysmal_torch_sources.json
 18383a62299c491fe24195d822acff14ba7fb2f6 data/cosmopolitan/tags/items/biome_gulimes.json
 628fcf892d0b35d9730907c37570dbe5170b8077 data/cosmopolitan/tags/items/carotene_sources.json
 7c99740743f1d7cacb9eff509358be362e151199 data/cosmopolitan/tags/items/exuberant_sources.json
-f42d9821710d96f28225d7a2dbebecfe3b2b991b data/cosmopolitan/tags/items/ice_cream_cones.json
+efe1ad71cfcbaf824be5ad950532f968fb76ab89 data/cosmopolitan/tags/items/ice_cream_cones.json
 830b675c126a1e308858571302e8ce0de13bb5af data/cosmopolitan/tags/items/tracer_sources.json
 653a914a92b5723b28c55731f1fbf6ee9fba4aec data/cosmopolitan/tags/items/vardoger_sources.json
 f4b16af790a1c39d3adfa358c7a701fb92a8b0da data/create/tags/items/upright_on_belt.json
@@ -18,8 +18,10 @@ bd38e56a90a3ce76bb301193722ac62a983fca50 data/forge/tags/items/cream.json
 3a6049fdf6a247720cef5ea417a0c9519f707e01 data/forge/tags/items/crops/carrot.json
 f1d2ec36738e8d13c4d8047fc27b41bf13d388e5 data/forge/tags/items/crops/potato.json
 b33dde3cf95c3f821d49bc84b8c46f9fd65289e8 data/forge/tags/items/fruits/apple.json
+ec051f2240735f3946628a24424560bef6e61162 data/forge/tags/items/fruits/cherry.json
+b4cc0642cc95aece33ec9cce364d245dd186c647 data/forge/tags/items/fruits/chorus.json
 33221392eaadbbebce9b701da69e2f20fd46c490 data/forge/tags/items/fruits/glow_berries.json
-814fe5838791d700256cfa0273c5d62387b04b5d data/forge/tags/items/fruits/melon.json
+3fc49343f8b34a46531354a6796b3e2836a6defc data/forge/tags/items/fruits/melon.json
 65a948972be54d0dc9ce5ee6eb59a29341fd6ec0 data/forge/tags/items/fruits/sweet_berries.json
 9c99444249ea9362072a08ee44c2d01c8ab03176 data/forge/tags/items/grain.json
 f0b8b8def942f91edee9e15268f2aa67d04b4b74 data/forge/tags/items/jams.json
@@ -31,7 +33,7 @@ f9a6617524ca4298156314736ac62ef87e784329 data/forge/tags/items/pumpkins.json
 90e5227e3913eb052610246ff767ca019c16195e data/forge/tags/items/vegetables.json
 60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/items/birch_logs.json
 fc23a5982411ecbc42ef20032162ac3032bd0736 data/minecraft/tags/items/piglin_loved.json
-e5df8e17ab2144f085ddc2df6c517da721b79ff4 data/neapolitan/tags/items/ice_cream.json
+9066f27f97db2cf1e8ddedfebac1157871592bb6 data/neapolitan/tags/items/ice_cream.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/sereneseasons/tags/items/autumn_crops.json
 002c893f6118a9c9e862c691bafe83bfe142d943 data/sereneseasons/tags/items/spring_crops.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/sereneseasons/tags/items/summer_crops.json

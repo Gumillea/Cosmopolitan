@@ -2,10 +2,13 @@ package com.gumillea.cosmopolitan.core.misc;
 
 import com.google.gson.JsonElement;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
+import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.google.gson.JsonObject;
+import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -40,10 +43,6 @@ public class TubExtractRecipe implements Recipe<Container> {
 
     public Ingredient getIngredient() {
         return ingredient;
-    }
-
-    public ItemStack getResultItem() {
-        return resultItem.copy();
     }
 
     public FluidStack getFluid() {
@@ -101,26 +100,37 @@ public class TubExtractRecipe implements Recipe<Container> {
     public static ItemStack tryApply(Level level, FrozenDessertTubBlockEntity tub, ItemStack heldItem, Player player, InteractionHand hand) {
         var recipes = level.getRecipeManager().getAllRecipesFor(CosmoRecipes.TUB_EXTRACT_TYPE.get());
         for (TubExtractRecipe recipe : recipes) {
-            if (recipe.getIngredient().test(heldItem)) {
-                if (tub.getFluidHandler().drain(recipe.getFluid(), IFluidHandler.FluidAction.SIMULATE).getAmount() >= recipe.getFluid().getAmount()) {
-                    tub.getFluidHandler().drain(recipe.getFluid(), IFluidHandler.FluidAction.EXECUTE);
-                    ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
-                    if (!player.isCreative()) {
-                        heldItem.shrink(1);
-                        if (heldItem.isEmpty()) {
-                            player.setItemInHand(hand, result);
-                        } else if (!player.addItem(result)) {
-                            player.drop(result, false);
-                        }
-                        return player.getItemInHand(hand);
-                    }
+            if (!recipe.getIngredient().test(heldItem)) continue;
 
-                    if (!player.addItem(result)) {
+            FluidStack ingredient = recipe.getFluid();
+            FluidStack inTank = tub.getTank().getFluid();
+
+            if (inTank.getFluid().isSame(ingredient.getFluid()) && inTank.getAmount() >= ingredient.getAmount()) {
+                tub.getFluidHandler().drain(ingredient.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+
+                ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
+
+                if (inTank.hasTag() && inTank.getTag().getBoolean("has_cream")) {
+                    if (result.isEdible() && !result.is(CosmoItemTags.CREAM)) {
+                        result.getOrCreateTag().putBoolean("has_cream", true);
+                    }
+                }
+
+                if (!player.isCreative()) {
+                    heldItem.shrink(1);
+                    if (heldItem.isEmpty()) {
+                        player.setItemInHand(hand, result);
+                    } else if (!player.addItem(result)) {
                         player.drop(result, false);
                     }
-
-                    return heldItem;
+                    return player.getItemInHand(hand);
                 }
+
+                if (!player.addItem(result)) {
+                    player.drop(result, false);
+                }
+
+                return heldItem;
             }
         }
         return ItemStack.EMPTY;

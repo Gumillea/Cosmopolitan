@@ -77,7 +77,6 @@ public class Cosmopolitan {
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
-        modEventBus.addListener(this::addBuiltinPacks);
         modEventBus.addListener(this::gatherData);
 
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
@@ -102,12 +101,6 @@ public class Cosmopolitan {
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.LIFELIGHT.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.GLOW_PETALS.get(), RenderType.cutout());
         });
-    }
-
-    private void addBuiltinPacks(AddPackFindersEvent event) {
-        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-            CosmoResourcePacks.addPackFinders(event);
-        }
     }
 
     private void gatherData(GatherDataEvent event) {

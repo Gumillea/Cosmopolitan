@@ -27,7 +27,7 @@ public class CosmoLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.addItem(
-                CosmoItems.COFFEE_ICE_CREAM_CONE.get(), CosmoItems.BLACK_TEA_ICE_CREAM_CONE.get(), CosmoItems.YELLOW_TEA_ICE_CREAM_CONE.get(), CosmoItems.GREEN_TEA_ICE_CREAM_CONE.get(), CosmoItems.JELLO_SALAD.get(), CosmoItems.JELLO_SALAD_CUP.get(), CosmoItems.CREAM_BUCKET.get(), CosmoItems.CREAM.get(), CosmoItems.CONDENSED_MILK_BUCKET.get(), CosmoItems.CONDENSED_MILK_BOTTLE.get(), CosmoItems.KABLOOM_MILKSHAKE.get(), CosmoItems.SOURCE_BERRY_MILKSHAKE.get(), CosmoItems.ENCHANTED_FRUIT_MILKSHAKE.get(), CosmoItems.APPLE_MILKSHAKE.get(), CosmoItems.CARROT_MILKSHAKE.get(), CosmoItems.GLOW_BERRY_MILKSHAKE.get(), CosmoItems.WILD_RISOTTO.get(), CosmoItems.ROASTED_MUSHROOM.get(), CosmoItems.INK_ROLL.get(), CosmoItems.SUMMER_CORDIAL.get(), CosmoItems.AUTUMN_TEA.get(), CosmoItems.WINTER_GLOGG.get(), CosmoItems.BIRCH_SAP_BOTTLE.get(), CosmoItems.SPRING_SODA.get(), CosmoItems.SPROUTED_UNDERBEANS.get(), CosmoItems.CLASSIC_ICE_CREAM.get(), CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get(), CosmoItems.CLASSIC_FRUIT_SALAD.get(), CosmoItems.TOFFEE_GOLDEN_APPLE.get(), CosmoItems.LUSH_STEW_CUP.get(), CosmoItems.LUSH_STEW.get(), CosmoItems.WILDBERRY.get(), CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoItems.COSMOPOLITAN_COCKTAIL.get(), CosmoItems.FIDDLEHEAD.get(), CosmoItems.IRON_FIDDLEHEAD.get(), CosmoItems.GREEN_CREAM_STEW.get(), CosmoItems.CUT_POTATOES.get(), CosmoItems.POTATO_WEDGES.get(), CosmoItems.MASHED_POTATO.get(), CosmoItems.MASHED_POTATO_CONE.get(), CosmoItems.WAFER.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.SNOW_CONE.get(), CosmoItems.POTATO_PANCAKES.get(), CosmoItems.ADZUKI_ICE_CREAM_CONE.get(), CosmoItems.BANANA_ICE_CREAM_CONE.get(), CosmoItems.CHOCOLATE_ICE_CREAM_CONE.get(), CosmoItems.MINT_ICE_CREAM_CONE.get(), CosmoItems.STRAWBERRY_ICE_CREAM_CONE.get(), CosmoItems.VANILLA_ICE_CREAM_CONE.get(), CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get(), CosmoItems.CHORUS_ICE_CREAM_CONE.get(), CosmoItems.WARZIPAN_ICE_CREAM_CONE.get(), CosmoItems.MIDNIGHT_ICE_CREAM_CONE.get(), CosmoItems.STARCLOUD_ICE_CREAM_CONE.get(), CosmoItems.JELLY_RING_ICE_CREAM_CONE.get(), CosmoItems.AZURE_BERRY_ICE_CREAM_CONE.get(), CosmoItems.BEETROOT_ICE_CREAM_CONE.get(), CosmoItems.PUMPKIN_ICE_CREAM_CONE.get(), CosmoItems.SWEET_BERRY_ICE_CREAM_CONE.get(), CosmoItems.SEASONAL_ICE_CREAM.get(), CosmoItems.SEASONAL_ICE_CREAM_SANDWICH.get(), CosmoItems.APPLE_ICE_CREAM.get(), CosmoItems.APPLE_ICE_CREAM_CONE.get(), CosmoItems.CARROT_ICE_CREAM.get(), CosmoItems.CARROT_ICE_CREAM_CONE.get(), CosmoItems.GLOW_BERRY_ICE_CREAM.get(), CosmoItems.GLOW_BERRY_ICE_CREAM_CONE.get(), CosmoItems.DROOPFRUIT_PIPS.get(), CosmoItems.SOURCE_BERRY_PIPS.get(), CosmoItems.KABLOOM_PIPS.get(), CosmoItems.BLISTERBERRY_PIPS.get(), CosmoItems.SOURCE_BERRY_ICE_CREAM.get(), CosmoItems.SOURCE_BERRY_ICE_CREAM_CONE.get(), CosmoItems.KABLOOM_ICE_CREAM.get(), CosmoItems.KABLOOM_ICE_CREAM_CONE.get(), CosmoItems.ENCHANTED_FRUIT_ICE_CREAM.get(), CosmoItems.ENCHANTED_FRUIT_ICE_CREAM_CONE.get(), CosmoItems.AURORA_KOHAKUTOU.get(), CosmoItems.GLACIER_ESSENCE.get(), CosmoItems.STEELEAF_NECTAR.get(), CosmoItems.AURORA_ICE_CREAM_CONE.get(), CosmoItems.GLACIER_ICE_CREAM_CONE.get(), CosmoItems.PHYTOCHEMICAL_ICE_CREAM_CONE.get(), CosmoItems.TORCHBERRY_ICE_CREAM_CONE.get(), CosmoItems.RAINBOW_ICE_CREAM_SANDWICH.get(), CosmoItems.REFRESHING_ICE_CREAM_SANDWICH.get(), CosmoItems.TWILIGHT_ICE_CREAM_SANDWICH.get(),
+                CosmoItems.TRICOLORED_ICE_CREAM_SANDWICH.get(), CosmoItems.RESPITEFUL_ICE_CREAM_SANDWICH.get(), CosmoItems.WHEATGRASS_CUBECAKE.get(), CosmoItems.ADZUKI_MINT_CREAM_BUN.get(), CosmoItems.STRAWBERRY_VANILLA_CREAM_BUN.get(), CosmoItems.CHOCOLATE_BANANA_CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.GLOW_BERRY_CUBECAKE.get(), CosmoItems.CHORUS_FRUIT_POPSICLE.get(), CosmoItems.GLOWY_ICE_CREAM_CONE.get(), CosmoItems.FLAVORED_ICE_CREAM_CONE.get(), CosmoItems.CHERRY_ICE_CREAM_CONE.get(), CosmoItems.BERRY_CHEESECAKE_BAR.get(), CosmoItems.BERRY_POPSICLE.get(), CosmoItems.COFFEE_ICE_CREAM_CONE.get(), CosmoItems.BLACK_TEA_ICE_CREAM_CONE.get(), CosmoItems.YELLOW_TEA_ICE_CREAM_CONE.get(), CosmoItems.GREEN_TEA_ICE_CREAM_CONE.get(), CosmoItems.JELLO_SALAD.get(), CosmoItems.JELLO_SALAD_CUP.get(), CosmoItems.CREAM_BUCKET.get(), CosmoItems.CREAM.get(), CosmoItems.CONDENSED_MILK_BUCKET.get(), CosmoItems.CONDENSED_MILK_BOTTLE.get(), CosmoItems.KABLOOM_MILKSHAKE.get(), CosmoItems.SOURCE_BERRY_MILKSHAKE.get(), CosmoItems.ENCHANTED_FRUIT_MILKSHAKE.get(), CosmoItems.APPLE_MILKSHAKE.get(), CosmoItems.CARROT_MILKSHAKE.get(), CosmoItems.GLOW_BERRY_MILKSHAKE.get(), CosmoItems.WILD_RISOTTO.get(), CosmoItems.ROASTED_MUSHROOM.get(), CosmoItems.INK_ROLL.get(), CosmoItems.SUMMER_CORDIAL.get(), CosmoItems.AUTUMN_TEA.get(), CosmoItems.WINTER_GLOGG.get(), CosmoItems.BIRCH_SAP_BOTTLE.get(), CosmoItems.SPRING_SODA.get(), CosmoItems.SPROUTED_UNDERBEANS.get(), CosmoItems.CLASSIC_ICE_CREAM.get(), CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get(), CosmoItems.CLASSIC_FRUIT_SALAD.get(), CosmoItems.TOFFEE_GOLDEN_APPLE.get(), CosmoItems.LUSH_STEW_CUP.get(), CosmoItems.LUSH_STEW.get(), CosmoItems.WILDBERRY.get(), CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoItems.COSMOPOLITAN_COCKTAIL.get(), CosmoItems.FIDDLEHEAD.get(), CosmoItems.IRON_FIDDLEHEAD.get(), CosmoItems.GREEN_CREAM_STEW.get(), CosmoItems.CUT_POTATOES.get(), CosmoItems.POTATO_WEDGES.get(), CosmoItems.MASHED_POTATO.get(), CosmoItems.MASHED_POTATO_CONE.get(), CosmoItems.WAFER.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.SNOW_CONE.get(), CosmoItems.POTATO_PANCAKES.get(), CosmoItems.ADZUKI_ICE_CREAM_CONE.get(), CosmoItems.BANANA_ICE_CREAM_CONE.get(), CosmoItems.CHOCOLATE_ICE_CREAM_CONE.get(), CosmoItems.MINT_ICE_CREAM_CONE.get(), CosmoItems.STRAWBERRY_ICE_CREAM_CONE.get(), CosmoItems.VANILLA_ICE_CREAM_CONE.get(), CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get(), CosmoItems.CHORUS_ICE_CREAM_CONE.get(), CosmoItems.WARZIPAN_ICE_CREAM_CONE.get(), CosmoItems.MIDNIGHT_ICE_CREAM_CONE.get(), CosmoItems.STARCLOUD_ICE_CREAM_CONE.get(), CosmoItems.JELLY_RING_ICE_CREAM_CONE.get(), CosmoItems.AZURE_BERRY_ICE_CREAM_CONE.get(), CosmoItems.BEETROOT_ICE_CREAM_CONE.get(), CosmoItems.PUMPKIN_ICE_CREAM_CONE.get(), CosmoItems.SWEET_BERRY_ICE_CREAM_CONE.get(), CosmoItems.SEASONAL_ICE_CREAM.get(), CosmoItems.SEASONAL_ICE_CREAM_SANDWICH.get(), CosmoItems.APPLE_ICE_CREAM.get(), CosmoItems.APPLE_ICE_CREAM_CONE.get(), CosmoItems.CARROT_ICE_CREAM.get(), CosmoItems.CARROT_ICE_CREAM_CONE.get(), CosmoItems.GLOW_BERRY_ICE_CREAM.get(), CosmoItems.GLOW_BERRY_ICE_CREAM_CONE.get(), CosmoItems.DROOPFRUIT_PIPS.get(), CosmoItems.SOURCE_BERRY_PIPS.get(), CosmoItems.KABLOOM_PIPS.get(), CosmoItems.BLISTERBERRY_PIPS.get(), CosmoItems.SOURCE_BERRY_ICE_CREAM.get(), CosmoItems.SOURCE_BERRY_ICE_CREAM_CONE.get(), CosmoItems.KABLOOM_ICE_CREAM.get(), CosmoItems.KABLOOM_ICE_CREAM_CONE.get(), CosmoItems.ENCHANTED_FRUIT_ICE_CREAM.get(), CosmoItems.ENCHANTED_FRUIT_ICE_CREAM_CONE.get(), CosmoItems.AURORA_KOHAKUTOU.get(), CosmoItems.GLACIER_ESSENCE.get(), CosmoItems.STEELEAF_NECTAR.get(), CosmoItems.AURORA_ICE_CREAM_CONE.get(), CosmoItems.GLACIER_ICE_CREAM_CONE.get(), CosmoItems.PHYTOCHEMICAL_ICE_CREAM_CONE.get(), CosmoItems.TORCHBERRY_ICE_CREAM_CONE.get(), CosmoItems.RAINBOW_ICE_CREAM_SANDWICH.get(), CosmoItems.REFRESHING_ICE_CREAM_SANDWICH.get(), CosmoItems.TWILIGHT_ICE_CREAM_SANDWICH.get(),
                 CosmoItems.WHEATGRASS.get(), CosmoItems.PAW_COOKIE.get(),  CosmoItems.BAKED_FIDDLEHEAD.get(), CosmoItems.GREEN_SAUCE.get(), CosmoItems.GREEN_PASTA.get(), CosmoItems.ALOE_ICE_CREAM_CONE.get(), CosmoItems.STRAWBERRY_GULIME.get() , CosmoItems.PASSION_FRUIT_ICE_CREAM_CONE.get(), CosmoItems.YUCCA_ICE_CREAM_CONE.get(), CosmoItems.PECULIAR_ICE_CREAM.get(), CosmoItems.PECULIAR_ICE_CREAM_SANDWICH.get(), CosmoItems.JELLY_ROLL.get(), CosmoItems.CHOCOLATE_ROLL.get(),  CosmoItems.SALMONBERRY_ICE_CREAM_CONE.get(), CosmoItems.MATCHA_ICE_CREAM_CONE.get(), CosmoItems.LIME_ICE_CREAM_CONE.get(), CosmoItems.POMEGRANATE_ICE_CREAM_CONE.get(), CosmoItems.BLISTERBERRY_TART.get(), CosmoItems.RAINDROOP_CAKE.get(), CosmoItems.BLISTERBERRY_SORBET.get(), CosmoItems.DROOPFRUIT_SORBET.get(), CosmoItems.UNDERGROUND_GULIME.get(), CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get(), CosmoItems.TAIGA_GULIME.get(), CosmoItems.GULIME.get(), CosmoItems.GLIMMERING_GULIME.get(), CosmoItems.CHORUS_GULIME.get(), CosmoItems.BLISTERBERRY_POPSICLE.get(), CosmoItems.MENDOSTEEN_TART.get(), CosmoItems.GREEN_CREAM_STEW_CUP.get(), CosmoItems.TOFFEE_APPLE.get()
         );
         this.addSmallGulime(
@@ -37,7 +37,7 @@ public class CosmoLanguageProvider extends LanguageProvider {
                 CosmoItems.JELLY_ROLL_SLICE.get(), CosmoItems.CHOCOLATE_ROLL_SLICE.get(), CosmoItems.INK_ROLL_SLICE.get()
         );
         this.addDoublePopsicle(
-                CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()
+                CosmoItems.CHORUS_FRUIT_DOUBLE_POPSICLE.get(), CosmoItems.LIME_DOUBLE_POPSICLE.get(), CosmoItems.BERRY_DOUBLE_POPSICLE.get(), CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()
         );
         this.addBlock(
                 CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get(), CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS.get(), CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get(), CosmoBlocks.MINT_ICE_CREAM_BRICKS.get(), CosmoBlocks.BANANA_ICE_CREAM_BRICKS.get(), CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get(),
@@ -48,18 +48,9 @@ public class CosmoLanguageProvider extends LanguageProvider {
         this.addPotion(
                 CosmoEffects.IRON_HEART.get(), CosmoEffects.IRON_HEART_LONG.get(), CosmoEffects.IRON_HEART_STRONG.get()
         );
-        this.addSplashPotion(
-                CosmoEffects.IRON_HEART.get(), CosmoEffects.IRON_HEART_LONG.get(), CosmoEffects.IRON_HEART_STRONG.get()
-        );
-        this.addLingeringPotion(
-                CosmoEffects.IRON_HEART.get(), CosmoEffects.IRON_HEART_LONG.get(), CosmoEffects.IRON_HEART_STRONG.get()
-        );
-        this.addTippedArrow(
-                CosmoEffects.IRON_HEART.get(), CosmoEffects.IRON_HEART_LONG.get(), CosmoEffects.IRON_HEART_STRONG.get()
-        );
         this.addFluidType(
                 CosmoFluids.CONDENSED_MILK_TYPE.get(), CosmoFluids.CREAM_TYPE.get(), CosmoFluids.VANILLA_ICE_CREAM_TYPE.get(), CosmoFluids.STRAWBERRY_ICE_CREAM_TYPE.get(), CosmoFluids.CHOCOLATE_ICE_CREAM_TYPE.get(), CosmoFluids.MINT_ICE_CREAM_TYPE.get(), CosmoFluids.ADZUKI_ICE_CREAM_TYPE.get(), CosmoFluids.BANANA_ICE_CREAM_TYPE.get(), CosmoFluids.APPLE_ICE_CREAM_TYPE.get(), CosmoFluids.CARROT_ICE_CREAM_TYPE.get(), CosmoFluids.GLOW_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.ALOE_ICE_CREAM_TYPE.get(), CosmoFluids.PASSION_FRUIT_ICE_CREAM_TYPE.get(), CosmoFluids.YUCCA_ICE_CREAM_TYPE.get(), CosmoFluids.BEETROOT_ICE_CREAM_TYPE.get(), CosmoFluids.SWEET_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.PUMPKIN_ICE_CREAM_TYPE.get(), CosmoFluids.LIME_ICE_CREAM_TYPE.get(), CosmoFluids.POMEGRANATE_ICE_CREAM_TYPE.get(), CosmoFluids.MATCHA_ICE_CREAM_TYPE.get(), CosmoFluids.SALMONBERRY_ICE_CREAM_TYPE.get(), CosmoFluids.CHORUS_FRUIT_ICE_CREAM_TYPE.get(), CosmoFluids.WARZIPAN_ICE_CREAM_TYPE.get(), CosmoFluids.JELLY_RING_ICE_CREAM_TYPE.get(), CosmoFluids.AZURE_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.MIDNIGHT_ICE_CREAM_TYPE.get(), CosmoFluids.STARCLOUD_ICE_CREAM_TYPE.get(), CosmoFluids.KABLOOM_ICE_CREAM_TYPE.get(), CosmoFluids.SOURCE_BERRY_ICE_CREAM_TYPE.get(), CosmoFluids.ENCHANTED_FRUIT_ICE_CREAM_TYPE.get(),
-                CosmoFluids.AURORA_ICE_CREAM_TYPE.get(), CosmoFluids.PHYTOCHEMICAL_ICE_CREAM_TYPE.get(), CosmoFluids.GLACIER_ICE_CREAM_TYPE.get(), CosmoFluids.TORCHBERRY_ICE_CREAM_TYPE.get()
+                CosmoFluids.CHERRY_ICE_CREAM_TYPE.get(), CosmoFluids.GLOWY_ICE_CREAM_TYPE.get(), CosmoFluids.FLAVORED_ICE_CREAM_TYPE.get(), CosmoFluids.BLACK_TEA_ICE_CREAM_TYPE.get(), CosmoFluids.COFFEE_ICE_CREAM_TYPE.get(), CosmoFluids.GREEN_TEA_ICE_CREAM_TYPE.get(), CosmoFluids.YELLOW_TEA_ICE_CREAM_TYPE.get(), CosmoFluids.AURORA_ICE_CREAM_TYPE.get(), CosmoFluids.PHYTOCHEMICAL_ICE_CREAM_TYPE.get(), CosmoFluids.GLACIER_ICE_CREAM_TYPE.get(), CosmoFluids.TORCHBERRY_ICE_CREAM_TYPE.get()
         );
 
         this.addEffect("Gain a small amount of extra health at the end of the duration. It will be removed if the user takes damage before it ends.", CosmoEffects.EXUBERANT.get());
@@ -121,33 +112,14 @@ public class CosmoLanguageProvider extends LanguageProvider {
             ResourceLocation id = ForgeRegistries.POTIONS.getKey(potion);
             String key = "item.minecraft.potion.effect." + id.getPath();
             add(key, "Potion of " + format(id).replace(" Long", "").replace(" Strong", ""));
+            String key2 = "item.minecraft.splash_potion.effect." + id.getPath();
+            add(key2,  "Splash Potion of " + format(id).replace(" Long", "").replace(" Strong", ""));
+            String key3 = "item.minecraft.lingering_potion.effect." + id.getPath();
+            add(key3,  "Lingering Potion of " + format(id).replace(" Long", "").replace(" Strong", ""));
+            String key4 = "item.minecraft.tipped_arrow.effect." + id.getPath();
+            add(key4,  "Arrow of " + format(id).replace(" Long", "").replace(" Strong", ""));
         }
     }
-
-    private void addSplashPotion(Potion... potions) {
-        for (Potion potion : potions) {
-            ResourceLocation id = ForgeRegistries.POTIONS.getKey(potion);
-            String key = "item.minecraft.splash_potion.effect." + id.getPath();
-            add(key,  "Splash Potion of " + format(id).replace(" Long", "").replace(" Strong", ""));
-        }
-    }
-
-    private void addLingeringPotion(Potion... potions) {
-        for (Potion potion : potions) {
-            ResourceLocation id = ForgeRegistries.POTIONS.getKey(potion);
-            String key = "item.minecraft.lingering_potion.effect." + id.getPath();
-            add(key,  "Lingering Potion of " + format(id).replace(" Long", "").replace(" Strong", ""));
-        }
-    }
-
-    private void addTippedArrow(Potion... potions) {
-        for (Potion potion : potions) {
-            ResourceLocation id = ForgeRegistries.POTIONS.getKey(potion);
-            String key = "item.minecraft.tipped_arrow.effect." + id.getPath();
-            add(key,  "Arrow of " + format(id).replace(" Long", "").replace(" Strong", ""));
-        }
-    }
-
     private void addEffect(String description, MobEffect... effects) {
         for (MobEffect effect : effects) {
             ResourceLocation key = Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getKey(effect));

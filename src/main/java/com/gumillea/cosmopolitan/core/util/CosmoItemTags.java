@@ -6,6 +6,8 @@ import net.minecraft.world.item.Item;
 
 public class CosmoItemTags {
     public static final TagKey<Item> APPLE = TagUtil.itemTag("forge", "fruits/apple");
+    public static final TagKey<Item> CHORUS = TagUtil.itemTag("forge", "fruits/chorus");
+    public static final TagKey<Item> CHERRY = TagUtil.itemTag("forge", "fruits/cherry");
     public static final TagKey<Item> MELON = TagUtil.itemTag("forge", "fruits/melon");
     public static final TagKey<Item> CARROT = TagUtil.itemTag("forge", "crops/carrot");
     public static final TagKey<Item> SWEET_BERRY = TagUtil.itemTag("forge", "fruits/sweet_berries");
@@ -26,6 +28,7 @@ public class CosmoItemTags {
     public static final TagKey<Item> CREAM = TagUtil.itemTag("forge", "cream");
     public static final TagKey<Item> CONDENSED_MILK = TagUtil.itemTag("forge", "condensed_milk");
     public static final TagKey<Item> MILK_BOTTLE = TagUtil.itemTag("forge", "milk/milk_bottle");
+    public static final TagKey<Item> KNIVES = TagUtil.itemTag("forge", "tools/knives");
 
     public static final TagKey<Item> UPRIGHT_ON_BELT = TagUtil.itemTag("create", "upright_on_belt");
     public static final TagKey<Item> ICE_CREAM = TagUtil.itemTag("neapolitan", "ice_cream");

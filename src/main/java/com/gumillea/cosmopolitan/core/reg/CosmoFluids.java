@@ -185,5 +185,39 @@ public class CosmoFluids {
     public static final RegistryObject<FlowingFluid> ENCHANTED_FRUIT_ICE_CREAM = FLUIDS.register("enchanted_fruit_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.ENCHANTED_FRUIT_ICE_CREAM_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_ENCHANTED_FRUIT_ICE_CREAM = FLUIDS.register("flowing_enchanted_fruit_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.ENCHANTED_FRUIT_ICE_CREAM_PROPERTIES));
     public static final ForgeFlowingFluid.Properties ENCHANTED_FRUIT_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(ENCHANTED_FRUIT_ICE_CREAM_TYPE, ENCHANTED_FRUIT_ICE_CREAM, FLOWING_ENCHANTED_FRUIT_ICE_CREAM);
+    //respiteful
+    public static final RegistryObject<FluidType> GREEN_TEA_ICE_CREAM_TYPE = FLUID_TYPES.register("green_tea_ice_cream", () -> new CosmoIceCreamFluidType("green_tea"));
+    public static final RegistryObject<FlowingFluid> GREEN_TEA_ICE_CREAM = FLUIDS.register("green_tea_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.GREEN_TEA_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_GREEN_TEA_ICE_CREAM = FLUIDS.register("flowing_green_tea_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.GREEN_TEA_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties GREEN_TEA_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(GREEN_TEA_ICE_CREAM_TYPE, GREEN_TEA_ICE_CREAM, FLOWING_GREEN_TEA_ICE_CREAM);
 
+    public static final RegistryObject<FluidType> YELLOW_TEA_ICE_CREAM_TYPE = FLUID_TYPES.register("yellow_tea_ice_cream", () -> new CosmoIceCreamFluidType("yellow_tea"));
+    public static final RegistryObject<FlowingFluid> YELLOW_TEA_ICE_CREAM = FLUIDS.register("yellow_tea_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.YELLOW_TEA_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_YELLOW_TEA_ICE_CREAM = FLUIDS.register("flowing_yellow_tea_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.YELLOW_TEA_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties YELLOW_TEA_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(YELLOW_TEA_ICE_CREAM_TYPE, YELLOW_TEA_ICE_CREAM, FLOWING_YELLOW_TEA_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> BLACK_TEA_ICE_CREAM_TYPE = FLUID_TYPES.register("black_tea_ice_cream", () -> new CosmoIceCreamFluidType("black_tea"));
+    public static final RegistryObject<FlowingFluid> BLACK_TEA_ICE_CREAM = FLUIDS.register("black_tea_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.BLACK_TEA_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_BLACK_TEA_ICE_CREAM = FLUIDS.register("flowing_black_tea_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.BLACK_TEA_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties BLACK_TEA_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(BLACK_TEA_ICE_CREAM_TYPE, BLACK_TEA_ICE_CREAM, FLOWING_BLACK_TEA_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> COFFEE_ICE_CREAM_TYPE = FLUID_TYPES.register("coffee_ice_cream", () -> new CosmoIceCreamFluidType("coffee"));
+    public static final RegistryObject<FlowingFluid> COFFEE_ICE_CREAM = FLUIDS.register("coffee_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.COFFEE_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_COFFEE_ICE_CREAM = FLUIDS.register("flowing_coffee_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.COFFEE_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties COFFEE_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(COFFEE_ICE_CREAM_TYPE, COFFEE_ICE_CREAM, FLOWING_COFFEE_ICE_CREAM);
+    //sunflowerdelight
+    public static final RegistryObject<FluidType> GLOWY_ICE_CREAM_TYPE = FLUID_TYPES.register("glowy_ice_cream", () -> new CosmoIceCreamFluidType("glowy"));
+    public static final RegistryObject<FlowingFluid> GLOWY_ICE_CREAM = FLUIDS.register("glowy_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.GLOWY_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_GLOWY_ICE_CREAM = FLUIDS.register("flowing_glowy_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.GLOWY_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties GLOWY_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(GLOWY_ICE_CREAM_TYPE, GLOWY_ICE_CREAM, FLOWING_GLOWY_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> FLAVORED_ICE_CREAM_TYPE = FLUID_TYPES.register("flavored_ice_cream", () -> new CosmoIceCreamFluidType("flavored"));
+    public static final RegistryObject<FlowingFluid> FLAVORED_ICE_CREAM = FLUIDS.register("flavored_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.FLAVORED_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_FLAVORED_ICE_CREAM = FLUIDS.register("flowing_flavored_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.FLAVORED_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties FLAVORED_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(FLAVORED_ICE_CREAM_TYPE, FLAVORED_ICE_CREAM, FLOWING_FLAVORED_ICE_CREAM);
+    //seeddelight
+    public static final RegistryObject<FluidType> CHERRY_ICE_CREAM_TYPE = FLUID_TYPES.register("cherry_ice_cream", () -> new CosmoIceCreamFluidType("cherry"));
+    public static final RegistryObject<FlowingFluid> CHERRY_ICE_CREAM = FLUIDS.register("cherry_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.CHERRY_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_CHERRY_ICE_CREAM = FLUIDS.register("flowing_cherry_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.CHERRY_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties CHERRY_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(CHERRY_ICE_CREAM_TYPE, CHERRY_ICE_CREAM, FLOWING_CHERRY_ICE_CREAM);
 }

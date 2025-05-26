@@ -20,7 +20,6 @@ public class CuttingBoardRecipeMixin {
     @Unique
     private boolean hasCream;
 
-
     @Inject(method = "matches(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/world/level/Level;)Z", at = @At("RETURN"), cancellable = true)
     private void onMatches(RecipeWrapper inv, Level level, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {

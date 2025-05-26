@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "tag": "forge:fruits/glow_berries"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:glow_berry_cubecake",
+    "count": 2
+  }
+}

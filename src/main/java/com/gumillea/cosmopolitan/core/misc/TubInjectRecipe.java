@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.google.gson.JsonObject;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -94,28 +95,49 @@ public class TubInjectRecipe implements net.minecraft.world.item.crafting.Recipe
     @Nullable
     public static ItemStack tryApply(Level level, FrozenDessertTubBlockEntity tub, ItemStack inHand, Player player, InteractionHand hand) {
         var recipes = level.getRecipeManager().getAllRecipesFor(CosmoRecipes.TUB_INJECT_TYPE.get());
+
         for (TubInjectRecipe recipe : recipes) {
             if (recipe.getIngredient().test(inHand)) {
-                if (tub.getFluidHandler().fill(recipe.getFluid(), IFluidHandler.FluidAction.SIMULATE) >= recipe.getFluid().getAmount()) {
-                    tub.getFluidHandler().fill(recipe.getFluid(), IFluidHandler.FluidAction.EXECUTE);
-                    ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
-                    if (!player.isCreative()) {
-                        inHand.shrink(1);
-                        if (inHand.isEmpty()) {
-                            player.setItemInHand(hand, result);
-                            return result;
-                        } else {
-                            if (!player.addItem(result)) {
-                                player.drop(result, false);
+                FluidStack newFluid = recipe.getFluid().copy();
+                if (inHand.hasTag() && inHand.getTag().getBoolean("has_cream")) {
+                    CompoundTag tag = newFluid.getOrCreateTag();
+                    tag.putBoolean("has_cream", true);
+                }
+
+                FluidStack currentFluid = tub.getTank().getFluid();
+                if (currentFluid.isEmpty() || isSameNBT(currentFluid, newFluid)) {
+                    if (tub.getFluidHandler().fill(newFluid, IFluidHandler.FluidAction.SIMULATE) >= newFluid.getAmount()) {
+                        tub.getFluidHandler().fill(newFluid, IFluidHandler.FluidAction.EXECUTE);
+
+                        ItemStack result = recipe.getResultItem(level.registryAccess()).copy();
+                        if (!player.isCreative()) {
+                            inHand.shrink(1);
+                            if (inHand.isEmpty()) {
+                                player.setItemInHand(hand, result);
+                                return result;
+                            } else {
+                                if (!player.addItem(result)) {
+                                    player.drop(result, false);
+                                }
+                                return inHand;
                             }
-                            return inHand;
                         }
+                        return inHand.isEmpty() ? ItemStack.EMPTY : inHand;
                     }
-                    return inHand.isEmpty() ? ItemStack.EMPTY : inHand;
+                } else {
+                    return ItemStack.EMPTY;
                 }
             }
         }
         return ItemStack.EMPTY;
+    }
+    private static boolean isSameNBT(FluidStack currentFluid, FluidStack newFluid) {
+        if (!newFluid.getFluid().isSame(newFluid.getFluid())) return false;
+        CompoundTag tag = currentFluid.getTag();
+        CompoundTag tag1 = newFluid.getTag();
+        if (tag == null && tag1 == null) return true;
+        if (tag == null || tag1 == null) return false;
+        return tag.equals(tag1);
     }
 
     public static class Serializer implements RecipeSerializer<TubInjectRecipe> {

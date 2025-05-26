@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "sunflowerdelight"
+    }
+  ],
+  "key": {
+    "A": {
+      "item": "cosmopolitan:wafer"
+    },
+    "B": {
+      "item": "sunflowerdelight:tricolored_ice_cream"
+    }
+  },
+  "pattern": [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "cosmopolitan:tricolored_ice_cream_sandwich",
+    "count": 2
+  }
+}

@@ -24,7 +24,7 @@ public class CosmoJEIPlugin implements IModPlugin {
     public static final ResourceLocation ID = new ResourceLocation(Cosmopolitan.MODID, "jei_plugin");
 
     private static final List<Supplier<Item>> INFO_ITEMS = List.of(
-            CosmoItems.FIDDLEHEAD, CosmoItems.WILDBERRY, CosmoItems.WHEATGRASS, CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE
+            CosmoItems.FIDDLEHEAD, CosmoItems.WILDBERRY, CosmoItems.WHEATGRASS
     );
 
     @Override
@@ -81,6 +81,17 @@ public class CosmoJEIPlugin implements IModPlugin {
                 ),
                 VanillaTypes.ITEM_STACK,
                 Component.translatable("jei." + Cosmopolitan.MODID + ".frozen_dessert_tub.desc")
+        );
+
+        registration.addIngredientInfo(
+                List.of(
+                        new ItemStack(CosmoItems.BERRY_DOUBLE_POPSICLE.get()),
+                        new ItemStack(CosmoItems.CHORUS_FRUIT_DOUBLE_POPSICLE.get()),
+                        new ItemStack(CosmoItems.LIME_DOUBLE_POPSICLE.get()),
+                        new ItemStack(CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get())
+                ),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei." + Cosmopolitan.MODID + ".blisterberry_popsicle_double.desc")
         );
     }
     @Override

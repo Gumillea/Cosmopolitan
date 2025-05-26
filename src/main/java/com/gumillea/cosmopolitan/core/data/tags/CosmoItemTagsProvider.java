@@ -11,7 +11,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -71,7 +70,7 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.MELON).add(
-                Items.MELON
+                Items.MELON_SLICE
         );
 
         this.tag(CosmoItemTags.GRAIN).add(
@@ -102,6 +101,8 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                         CosmoItems.SEASONAL_ICE_CREAM_SANDWICH.get(),
                         CosmoItems.PECULIAR_ICE_CREAM_SANDWICH.get(),
                         CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.RESPITEFUL_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.TRICOLORED_ICE_CREAM_SANDWICH.get(),
                         CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get()
                 )
                 .addTag(CosmoItemTags.ICE_CREAM_CONES
@@ -144,6 +145,14 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.CARROT_ICE_CREAM_CONE.get(),
                 CosmoItems.GLOW_BERRY_ICE_CREAM_CONE.get(),
 
+                CosmoItems.GREEN_TEA_ICE_CREAM_CONE.get(),
+                CosmoItems.YELLOW_TEA_ICE_CREAM_CONE.get(),
+                CosmoItems.BLACK_TEA_ICE_CREAM_CONE.get(),
+                CosmoItems.COFFEE_ICE_CREAM_CONE.get(),
+
+                CosmoItems.GLOWY_ICE_CREAM_CONE.get(),
+                CosmoItems.FLAVORED_ICE_CREAM_CONE.get(),
+
                 CosmoItems.ENCHANTED_FRUIT_ICE_CREAM_CONE.get(),
                 CosmoItems.KABLOOM_ICE_CREAM_CONE.get(),
                 CosmoItems.SOURCE_BERRY_ICE_CREAM_CONE.get()
@@ -157,6 +166,13 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.COOKIE).add(
                 CosmoItems.PAW_COOKIE.get()
         );
+
+        this.tag(CosmoItemTags.CHORUS).add(
+                Items.CHORUS_FRUIT
+        );
+
+        this.tag(CosmoItemTags.CHERRY)
+                .addOptional(new ResourceLocation(CosmoCompat.SD, "cherry"));
 
         this.tag(CosmoItemTags.BERRIES).add(
                 CosmoItems.WILDBERRY.get()

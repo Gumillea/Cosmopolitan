@@ -12,4 +12,5 @@ public class CosmoBlockTags {
 
     public static final TagKey<Block> CAROTENE_SOURCES = TagUtil.blockTag(Cosmopolitan.MODID, "carotene_sources");
     public static final TagKey<Block> TRACER_SOURCES = TagUtil.blockTag(Cosmopolitan.MODID, "tracer_sources");
+    public static final TagKey<Block> EXUBERANT_SOURCES = TagUtil.blockTag(Cosmopolitan.MODID, "exuberant_sources");
 }

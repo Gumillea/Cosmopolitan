@@ -1,6 +1,15 @@
 {
   "type": "cosmopolitan:tub_extracting",
-  "conditions": [],
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "cosmopolitan:condensed_milk_bottle"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:glass_bottle"
+    }
+  ],
   "ingredient": [
     {
       "item": "minecraft:glass_bottle"

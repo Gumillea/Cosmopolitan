@@ -3,8 +3,11 @@ package com.gumillea.cosmopolitan.core.data.tags;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
+import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -60,5 +63,14 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 Blocks.SNOW_BLOCK,
                 Blocks.POWDER_SNOW)
                 .addTag(BlockTags.ICE);
+
+        this.tag(CosmoBlockTags.EXUBERANT_SOURCES)
+                .addOptional(new ResourceLocation(CosmoCompat.FD, "apple_pie"));
+
+        this.tag(CosmoBlockTags.CAROTENE_SOURCES)
+                .addOptional(new ResourceLocation(CosmoCompat.VC, "carrot_cake"));
+
+        this.tag(CosmoBlockTags.TRACER_SOURCES)
+                .addOptional(new ResourceLocation(CosmoCompat.VC, "glow_berry_cake"));
     }
 }

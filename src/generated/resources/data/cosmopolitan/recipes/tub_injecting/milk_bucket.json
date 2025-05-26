@@ -1,6 +1,15 @@
 {
   "type": "cosmopolitan:tub_injecting",
-  "conditions": [],
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:bucket"
+    }
+  ],
   "ingredient": {
     "item": "minecraft:milk_bucket"
   },

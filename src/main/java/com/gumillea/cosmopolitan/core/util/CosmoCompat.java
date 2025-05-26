@@ -3,12 +3,14 @@ package com.gumillea.cosmopolitan.core.util;
 import com.cosmicgelatin.seasonals.core.registry.SeasonalsMobEffects;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
+import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
 import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericMobEffects;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import mod.schnappdragon.habitat.core.registry.HabitatEffects;
 import net.brdle.collectorsreap.common.effect.CREffects;
+import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,6 +20,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import plus.dragons.respiteful.entries.RespitefulMobEffects;
 import quek.undergarden.registry.UGBlocks;
 import umpaz.farmersrespite.common.registry.FREffects;
@@ -65,40 +68,45 @@ public class CosmoCompat {
     public static final String TF  = "twilightforest";
     public static final boolean tf = ModList.get().isLoaded(TF);
     public static final String TFD = "twilightdelight";
-    public static final boolean tfd = ModList.get().isLoaded(TFD);
+    public static final boolean tfd = ModList.get().isLoaded(TFD);;
     public static final String RF = "respiteful";
     public static final boolean rf = ModList.get().isLoaded(RF);
+    public static final String SD = "seeddelight";
+    public static final boolean sd = ModList.get().isLoaded(SD);
     public static final String SEA = "seasonals";
     public static final boolean sea = ModList.get().isLoaded(SEA);
     public static final String SS = "sereneseasons";
     public static final boolean ss = ModList.get().isLoaded(SS);
+    public static final String SUD = "sunflowerdelight";
+    public static final boolean sud = ModList.get().isLoaded(SUD);
     public static final String UG  = "undergarden";
     public static final boolean ug = ModList.get().isLoaded(UG);
     public static final String VC  = "vanillacookbook";
     public static final boolean vc = ModList.get().isLoaded(VC);
 
     //ars_nouveau
-    public static final MobEffect MANA_REGEN = ((ModList.get().isLoaded(AN)) ? (ModPotions.MANA_REGEN_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect RECOVERY = ((ModList.get().isLoaded(AN)) ? (ModPotions.RECOVERY_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect MANA_REGEN = an ? (ModPotions.MANA_REGEN_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect RECOVERY = an ? (ModPotions.RECOVERY_EFFECT.get()) : CosmoEffects.PLACEHOLDER.get();
     public static Item SOURCEBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(AN, "sourceberry_bush"));
-    public static Block SOURCE_BERRY_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(AN, "sourceberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block SOURCE_BERRY_BLOCK = an ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(AN, "sourceberry_bush")) : Blocks.SWEET_BERRY_BUSH;
 
     //atmospheric
-    public static final MobEffect PERSISTENCE = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.PERSISTENCE.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect RELIEF = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.RELIEF.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect SPITTING = ((ModList.get().isLoaded(AT)) ? (AtmosphericMobEffects.SPITTING.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect PERSISTENCE = at ? (AtmosphericMobEffects.PERSISTENCE.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect RELIEF = at ? (AtmosphericMobEffects.RELIEF.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect SPITTING = at ? (AtmosphericMobEffects.SPITTING.get()) : CosmoEffects.PLACEHOLDER.get();
 
     //collectorsreap
-    public static final MobEffect CORROSION = ((ModList.get().isLoaded(CR)) ? (CREffects.CORROSION.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect VOLATILITY = ((ModList.get().isLoaded(CR)) ? (CREffects.VOLATILITY.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect CORROSION = cr ? (CREffects.CORROSION.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect VOLATILITY = cr ? (CREffects.VOLATILITY.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static RegistryObject<Item> LIME_POPSICLE = cr ? CRItems.LIME_POPSICLE : CosmoItems.BERRY_POPSICLE;
 
     //farmersdelight
-    public static final MobEffect COMFORT = ((ModList.get().isLoaded(FD)) ? (ModEffects.COMFORT.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect NOURISHMENT = ((ModList.get().isLoaded(FD)) ? (ModEffects.NOURISHMENT.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect COMFORT = fd ? (ModEffects.COMFORT.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect NOURISHMENT = fd ? (ModEffects.NOURISHMENT.get()) : CosmoEffects.PLACEHOLDER.get();
     public static final MobEffectInstance COMFORT_STEW = fd ? new MobEffectInstance(ModEffects.COMFORT.get(), 6000) : new MobEffectInstance(MobEffects.REGENERATION, 100);
 
     //habitat
-    public static final MobEffect BLAST_ENDURANCE = ((ModList.get().isLoaded(HA)) ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect BLAST_ENDURANCE = ha ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get();
     public static Item KABLOOM = ForgeRegistries.ITEMS.getValue(new ResourceLocation(HA, "kabloom_pulp"));
     public static Block KABLOOM_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
 
@@ -116,32 +124,35 @@ public class CosmoCompat {
     public static final MobEffect CAFFEINATED = rf ? FREffects.CAFFEINATED.get() : CosmoEffects.PLACEHOLDER.get();
 
     //exquisito
-    public static final MobEffect RESONANCE_ICE_CREAM = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.RESONANCE.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect RESONANCE = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.RESONANCE.get()) : MobEffects.SLOW_FALLING);
-    public static final MobEffect MODULATION = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.MODULATION.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect FUCHSIA_GOO = ((ModList.get().isLoaded(EX) && ModList.get().isLoaded(EE)) ? (ExquisitoEffects.FUCHSIA_GOO.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect SPACE_DIVING = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.SPACE_DIVING.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect EARENDEL = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.EARENDEL.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect MORGOTH = ((ModList.get().isLoaded(EX)) ? (ExquisitoEffects.MORGOTH.get()) : CosmoEffects.PLACEHOLDER.get());
+    public static final MobEffect RESONANCE_ICE_CREAM = ex ? (ExquisitoEffects.RESONANCE.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect RESONANCE = ex ? (ExquisitoEffects.RESONANCE.get()) : MobEffects.SLOW_FALLING;
+    public static final MobEffect MODULATION = ex ? (ExquisitoEffects.MODULATION.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect FUCHSIA_GOO = ex ? (ExquisitoEffects.FUCHSIA_GOO.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect SPACE_DIVING = ex ? (ExquisitoEffects.SPACE_DIVING.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect EARENDEL = ex ? (ExquisitoEffects.EARENDEL.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect MORGOTH = ex ? (ExquisitoEffects.MORGOTH.get()) : CosmoEffects.PLACEHOLDER.get();
 
     //seasonals
-    public static final MobEffect ROOTED = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.ROOTED.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect STUFFED = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.STUFFED.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect THORN_RESISTANCE_ICE_CREAM = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : CosmoEffects.PLACEHOLDER.get());
-    public static final MobEffect THORN_RESISTANCE = ((ModList.get().isLoaded(SEA)) ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : MobEffects.REGENERATION);
+    public static final MobEffect ROOTED = sea ? (SeasonalsMobEffects.ROOTED.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect STUFFED = sea ? (SeasonalsMobEffects.STUFFED.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect THORN_RESISTANCE_ICE_CREAM = sea ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect THORN_RESISTANCE = sea ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : MobEffects.REGENERATION;
 
     //twilight_delight
-    public static MobEffect AURORA = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "aurora_glowing")): MobEffects.MOVEMENT_SPEED;
-    public static MobEffect FIRE_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "fire_range")): MobEffects.GLOWING;
-    public static MobEffect POISON_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "poison_range")): MobEffects.DAMAGE_BOOST;
-    public static MobEffect FROZEN_RANGE = ModList.get().isLoaded(TFD) ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "frozen_range")): MobEffects.FIRE_RESISTANCE;
+    public static MobEffect AURORA = tfd ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "aurora_glowing")): MobEffects.MOVEMENT_SPEED;
+    public static MobEffect FIRE_RANGE = tfd ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "fire_range")): MobEffects.GLOWING;
+    public static MobEffect POISON_RANGE = tfd ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "poison_range")): MobEffects.DAMAGE_BOOST;
+    public static MobEffect FROZEN_RANGE = tfd ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(TFD, "frozen_range")): MobEffects.FIRE_RESISTANCE;
+
+    //sunflowerdelight
+    public static MobEffect PURE_MIND = sud ? ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(SUD, "pure_mind")): CosmoEffects.PLACEHOLDER.get();
 
     //undergarden
     public static Item BLISTERBERRY = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "blisterberry"));
     public static Item UNDERBEANS = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "underbeans"));
     public static Item DROOPFRUIT = ForgeRegistries.ITEMS.getValue(new ResourceLocation(UG, "droopvine_item"));
-    public static Block BLISTERBERRY_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
-    public static Block UNDERBEAN_BUSH = ModList.get().isLoaded(UG) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "underbean_bush")) : Blocks.SWEET_BERRY_BUSH;
-    public static Block DROOP_VINE = ModList.get().isLoaded(UG) ? UGBlocks.DROOPVINE.get() : Blocks.CAVE_VINES;
+    public static Block BLISTERBERRY_BUSH = ug ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block UNDERBEAN_BUSH = ug ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "underbean_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block DROOP_VINE = ug ? UGBlocks.DROOPVINE.get() : Blocks.CAVE_VINES;
 }
 

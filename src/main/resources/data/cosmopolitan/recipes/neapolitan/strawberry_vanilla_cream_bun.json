@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "tag": "forge:fruits/strawberry"
+    },
+    {
+      "item": "neapolitan:dried_vanilla_pods"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:strawberry_vanilla_cream_bun",
+    "count": 4
+  }
+}

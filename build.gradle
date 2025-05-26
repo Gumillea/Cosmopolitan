@@ -163,6 +163,7 @@ dependencies {
     implementation fg.deobf("curse.maven:frycooks-delight-1081410:5630141")
     implementation fg.deobf("curse.maven:farmers-respite-551453:5543547")
     implementation fg.deobf("curse.maven:miners-delight-plus-689630:5038950")
+    implementation fg.deobf("curse.maven:seed-delight-1016377:5734725")
 
     implementation fg.deobf("curse.maven:vanilla-cookbook-402659:6435382")
     implementation fg.deobf("curse.maven:kitchen-karrot-880555:4936114")

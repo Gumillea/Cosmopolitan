@@ -2,12 +2,14 @@ package com.gumillea.cosmopolitan.core.util;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.common.item.DoublePopsicleItem;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.misc.CaroteneCapability;
 import com.gumillea.cosmopolitan.core.misc.CaroteneTickHandler;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.hollingsworth.arsnouveau.common.datagen.ItemTagProvider;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -55,6 +57,7 @@ import quek.undergarden.registry.UGDimensions;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
 import vectorwing.farmersdelight.common.utility.MathUtils;
+import vectorwing.farmersdelight.data.ItemTags;
 
 import java.util.*;
 
@@ -188,16 +191,18 @@ public class CosmoEvents {
         Entity target = event.getTarget();
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
-        if (player !=null && item == CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get() && !player.getCooldowns().isOnCooldown(item) && target instanceof LivingEntity living) {
+        if (player !=null && item instanceof DoublePopsicleItem doublePopsicle && !player.getCooldowns().isOnCooldown(item) && target instanceof LivingEntity living) {
             if (living instanceof Player player1) {
                 player1.getFoodData().eat(3, 0.2F);
             }
             living.setTicksFrozen(living.getTicksFrozen() + 80);
             living.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
-            living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), 500));
+            if (item == CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()) living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), 500));
+            if (item == CosmoItems.CHORUS_FRUIT_DOUBLE_POPSICLE.get()) living.addEffect(new MobEffectInstance(CosmoCompat.RESONANCE, 400));
+            if (item == CosmoItems.LIME_DOUBLE_POPSICLE.get()) living.addEffect(new MobEffectInstance(CosmoCompat.CORROSION, 450));
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
-                ItemStack popsicle = new ItemStack(CosmoItems.BLISTERBERRY_POPSICLE.get());
+                ItemStack popsicle = new ItemStack(doublePopsicle.getResult().get());
 
                 if (!player.getInventory().add(popsicle)) {
                     player.drop(popsicle, false);
@@ -262,7 +267,12 @@ public class CosmoEvents {
             }
         }
 
-        if (player.getItemInHand(hand).isEmpty() && block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
+        if (block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
+            if (CosmoCompat.fd && player.getItemInHand(hand).is(CosmoItemTags.KNIVES)) return;
+
+            if (CosmoConfig.Common.APPLE_FLAVOR.get() && state.is(CosmoBlockTags.EXUBERANT_SOURCES)) {
+                player.addEffect(new MobEffectInstance(CosmoEffects.EXUBERANT.get(), 2100));
+            }
             if (CosmoConfig.Common.GLOW_BERRY_FLAVOR.get() && state.is(CosmoBlockTags.TRACER_SOURCES)) {
                 player.addEffect(new MobEffectInstance(CosmoEffects.TRACER.get(), 300));
             }

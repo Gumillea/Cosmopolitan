@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wheatgrass"
+    },
+    {
+      "item": "cosmopolitan:wheatgrass"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:wheatgrass_cubecake",
+    "count": 2
+  }
+}

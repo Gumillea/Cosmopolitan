@@ -1,0 +1,18 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "ingredient": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:cream_bun"
+  }
+}

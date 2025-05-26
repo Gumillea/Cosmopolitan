@@ -16,7 +16,7 @@
   ],
   "ingredients": [
     {
-      "tag": "neapolitan:mint_leaves"
+      "item": "neapolitan:mint_leaves"
     },
     {
       "tag": "forge:ice_cubes"

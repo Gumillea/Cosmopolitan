@@ -3,6 +3,10 @@
   "category": "misc",
   "conditions": [
     {
+      "type": "forge:item_exists",
+      "item": "ars_nouveau:sourceberry_bush"
+    },
+    {
       "type": "forge:not",
       "value":     {
         "type": "forge:mod_loaded",

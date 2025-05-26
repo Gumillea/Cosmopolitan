@@ -5,11 +5,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
+import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -147,6 +149,11 @@ public class TubInteractingRecipe implements Recipe<Container> {
                 }
 
                 FluidStack newFluid = recipe.result.copy();
+                if (currentFluid.getFluid() == CosmoFluids.CREAM.get() || (currentFluid.hasTag() && currentFluid.getTag().getBoolean("has_cream"))) {
+                    CompoundTag tag = newFluid.getOrCreateTag();
+                    tag.putBoolean("has_cream", true);
+                }
+
                 newFluid.setAmount(currentFluid.getAmount());
                 tub.getTank().setFluid(newFluid);
                 level.sendBlockUpdated(pos, state, state, 3);
@@ -158,7 +165,7 @@ public class TubInteractingRecipe implements Recipe<Container> {
     }
 
     private static boolean hasCoolingSource(Level level, BlockPos pos) {
-        return BlockPos.betweenClosedStream(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))
+        return BlockPos.betweenClosedStream(pos.offset(-1, -1, -1), pos.offset(1, 2, 1))
                 .anyMatch(checkPos -> {
                     BlockState state = level.getBlockState(checkPos);
                     return state.is(CosmoBlockTags.COOLING_SOURCES);
@@ -180,13 +187,9 @@ public class TubInteractingRecipe implements Recipe<Container> {
                     JsonObject fluidObj = obj.getAsJsonObject("fluid");
                     ResourceLocation fluidId = new ResourceLocation(GsonHelper.getAsString(fluidObj, "name"));
                     int amount = GsonHelper.getAsInt(fluidObj, "amount", 1);
-                    fluidIngredient = new FluidStack(
-                            Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(fluidId)),
-                            amount
-                    );
+                    fluidIngredient = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(fluidId)), amount);
                 }
             }
-
             JsonObject resultJson = GsonHelper.getAsJsonObject(json, "result");
             FluidStack result = new FluidStack(Objects.requireNonNull(ForgeRegistries.FLUIDS.getValue(new ResourceLocation(GsonHelper.getAsString(resultJson, "fluid")))), GsonHelper.getAsInt(resultJson, "amount", 1));
 

@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidType;
@@ -31,6 +32,7 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
     @Override
     public void render(FrozenDessertTubBlockEntity tub, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         FluidStack stack = tub.getTank().getFluid();
+        FluidState state = tub.getTank().getFluid().getFluid().defaultFluidState();
         if (stack.isEmpty()) return;
 
         try {
@@ -52,7 +54,7 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
             poseStack.translate(-0.5, 0, -0.5);
 
             TextureAtlasSprite sprite = getFluidSprite(stack);
-            renderFluidPlane(poseStack, buffer, sprite, height, packedLight);
+            renderFluidPlane(poseStack, buffer, tub, stack, state, sprite, height, packedLight);
 
             poseStack.popPose();
         } finally {
@@ -68,16 +70,22 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
         return Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS).apply(texture);
     }
 
-    private void renderFluidPlane(PoseStack poseStack, MultiBufferSource buffer, TextureAtlasSprite sprite, float height, int light) {
+    private void renderFluidPlane(PoseStack poseStack, MultiBufferSource buffer, FrozenDessertTubBlockEntity tub, FluidStack stack, FluidState state, TextureAtlasSprite sprite, float height, int light) {
         VertexConsumer vertexBuilder = buffer.getBuffer(RenderType.translucent());
         Matrix4f matrix = poseStack.last().pose();
         Matrix3f normal = poseStack.last().normal();
+
+        int tint = IClientFluidTypeExtensions.of(stack.getFluid().getFluidType()).getTintColor(state, tub.getLevel(), tub.getBlockPos());
+
+        int r = (tint >> 16) & 0xFF;
+        int g = (tint >> 8) & 0xFF;
+        int b = tint & 0xFF;
+        int a = 255;
 
         float uMin = sprite.getU(2);
         float uMax = sprite.getU(14);
         float vMin = sprite.getV(2);
         float vMax = sprite.getV(14);
-        int r = 255, g = 255, b = 255, a = 255;
 
         vertexBuilder.vertex(matrix, INNER_MIN, height, INNER_MIN).color(r, g, b, a).uv(uMin, vMin).uv2(light).normal(normal, 0, 1, 0).endVertex();
         vertexBuilder.vertex(matrix, INNER_MIN, height, INNER_MAX).color(r, g, b, a).uv(uMin, vMax).uv2(light).normal(normal, 0, 1, 0).endVertex();

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "respiteful"
+    }
+  ],
+  "key": {
+    "A": {
+      "item": "cosmopolitan:wafer"
+    },
+    "B": {
+      "item": "respiteful:respiteful_ice_cream"
+    }
+  },
+  "pattern": [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "cosmopolitan:respiteful_ice_cream_sandwich",
+    "count": 2
+  }
+}

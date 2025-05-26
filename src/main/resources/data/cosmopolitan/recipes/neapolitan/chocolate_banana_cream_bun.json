@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "item": "cosmopolitan:cream_bun"
+    },
+    {
+      "tag": "forge:chocolate"
+    },
+    {
+      "tag": "forge:fruits/banana"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:chocolate_banana_cream_bun",
+    "count": 4
+  }
+}

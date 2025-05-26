@@ -21,9 +21,17 @@ public class CaroteneCapability implements ICapabilityProvider, INBTSerializable
 
     private final LazyOptional<CaroteneCapability> holder = LazyOptional.of(() -> this);
 
-    public int get() { return value; }
-    public void set(int v) { value = Mth.clamp(v, 0, MAX); }
-    public void add(int delta) { set(value + delta); }
+    public int get() {
+        return value;
+    }
+
+    public void set(int v) {
+        value = Mth.clamp(v, 0, MAX);
+    }
+
+    public void add(int delta) {
+        set(value + delta);
+    }
 
     public static Capability<CaroteneCapability> CAP = CapabilityManager.get(new CapabilityToken<>(){});
 

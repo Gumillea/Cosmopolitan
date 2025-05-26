@@ -5,6 +5,7 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
+import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -70,7 +71,8 @@ public class CaroteneTickHandler {
         InteractionHand hand = event.getHand();
         BlockState state = level.getBlockState(event.getPos());
         Block block = state.getBlock();
-        if (event.getEntity() instanceof ServerPlayer player && player.getItemInHand(hand).isEmpty() && block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
+        if (event.getEntity() instanceof ServerPlayer player && block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
+            if (CosmoCompat.fd && player.getItemInHand(hand).is(CosmoItemTags.KNIVES)) return;
             if (CosmoConfig.Common.CARROT_FLAVOR.get() && state.is(CosmoBlockTags.CAROTENE_SOURCES)) {
                 player.getCapability(CaroteneCapability.CAP).ifPresent(cap -> {
                     cap.add(60);

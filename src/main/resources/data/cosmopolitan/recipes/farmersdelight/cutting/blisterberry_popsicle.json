@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "undergarden:blisterberry"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:blisterberry_popsicle_double"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "cosmopolitan:blisterberry_popsicle",
+      "count": 2
+    }
+  ]
+}

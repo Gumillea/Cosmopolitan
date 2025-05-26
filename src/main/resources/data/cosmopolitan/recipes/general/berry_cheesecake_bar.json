@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:berry_syrup_bottle"
+    },
+    {
+      "tag": "forge:cookies"
+    },
+    {
+      "tag": "forge:cookies"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "forge:eggs"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:berry_cheesecake_bar",
+    "count": 2
+  }
+}
