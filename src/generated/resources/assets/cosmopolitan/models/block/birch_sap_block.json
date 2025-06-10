@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/honey_block",
+  "textures": {
+    "down": "cosmopolitan:block/birch_sap_block",
+    "particle": "cosmopolitan:block/birch_sap_block",
+    "side": "cosmopolitan:block/birch_sap_block",
+    "up": "cosmopolitan:block/birch_sap_block"
+  }
+}

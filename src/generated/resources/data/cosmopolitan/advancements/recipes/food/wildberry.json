@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cosmopolitan:wildberries_basket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:wildberries_basket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:wildberry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cosmopolitan:wildberries_basket",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:wildberry"
+    ]
+  },
+  "sends_telemetry_event": false
+}

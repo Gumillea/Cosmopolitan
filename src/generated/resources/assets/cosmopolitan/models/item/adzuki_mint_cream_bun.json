@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cosmopolitan:item/adzuki_mint_cream_bun"
+  }
+}

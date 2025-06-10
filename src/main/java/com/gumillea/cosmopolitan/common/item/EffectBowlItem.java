@@ -26,12 +26,24 @@ public class EffectBowlItem extends EffectItem{
     }
 
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity living) {
-        ItemStack $$3 = super.finishUsingItem(itemStack, level, living);
+        super.finishUsingItem(itemStack, level, living);
+
         if (this == CosmoItems.CREAM.get()) {
             CosmoEvents.creamEffect(level, living, itemStack);
         }
 
-        return living instanceof Player && ((Player)living).getAbilities().instabuild ? $$3 : new ItemStack(Items.BOWL);
+        if (itemStack.isEmpty()) {
+            return new ItemStack(Items.BOWL);
+        } else {
+            if (living instanceof Player player && !((Player)living).getAbilities().instabuild) {
+                ItemStack stack = new ItemStack(Items.BOWL);
+                if (!player.getInventory().add(stack)) {
+                    player.drop(stack, false);
+                }
+            }
+
+            return itemStack;
+        }
     }
 
     @OnlyIn(Dist.CLIENT)

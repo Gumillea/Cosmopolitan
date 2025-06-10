@@ -1,6 +1,8 @@
 package com.gumillea.cosmopolitan.core.data;
 
+import com.cosmicgelatin.peculiars.core.registry.PeculiarsBlocks;
 import com.cosmicgelatin.peculiars.core.registry.PeculiarsItems;
+import com.cosmicgelatin.seasonals.core.registry.SeasonalsBlocks;
 import com.cosmicgelatin.seasonals.core.registry.SeasonalsItems;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -11,6 +13,7 @@ import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
+import com.gumillea.exquisito.core.reg.ExquisitoBlocks;
 import com.gumillea.exquisito.core.reg.ExquisitoItems;
 import com.gumillea.exquisito.core.util.tags.ExquisitoItemTags;
 import com.sammy.minersdelight.setup.MDItems;
@@ -21,7 +24,9 @@ import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanItems;
+import net.brdle.collectorsreap.common.block.CRBlocks;
 import net.brdle.collectorsreap.common.item.CRItems;
+import net.brnbrd.delightful.common.block.DelightfulBlocks;
 import net.brnbrd.delightful.common.item.DelightfulItems;
 import net.brnbrd.delightful.data.tags.DelightfulItemTags;
 import net.minecraft.data.PackOutput;
@@ -43,14 +48,13 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.*;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.hiedacamellia.seeddelight.registry.BlockRegistry;
 import org.hiedacamellia.seeddelight.registry.ItemRegistry;
 import org.jetbrains.annotations.NotNull;
 import twilightforest.init.TFItems;
 import umpaz.farmersrespite.common.registry.FRItems;
-import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -62,6 +66,12 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
     }
 
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> finished) {
+        registerFourStorageRecipe(finished, CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoBlocks.BERRY_SYRUP_BLOCK.get());
+        registerFourStorageRecipe(finished, CosmoItems.BIRCH_SAP_BOTTLE.get(), CosmoBlocks.BIRCH_SAP_BLOCK.get());
+
+        registerNineStorageRecipe(finished, CosmoItems.WILDBERRY.get(), CosmoBlocks.WILDBERRIES_BASKET.get());
+        registerNineStorageRecipe(finished, CosmoItems.FIDDLEHEAD.get(), CosmoBlocks.FIDDLEHEAD_CRATE.get());
+
         registerConeRecipe(finished, CosmoItemTags.CHERRY, ItemRegistry.CherryIceCream.get(), CosmoItems.CHERRY_ICE_CREAM_CONE.get());
 
         registerConeRecipe(finished, FRItems.GREEN_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "green_tea_ice_cream")), CosmoItems.GREEN_TEA_ICE_CREAM_CONE.get());
@@ -79,6 +89,33 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFourBlocksRecipe(finished, NeapolitanBlocks.ADZUKI_ICE_CREAM_BLOCK.get(), CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, NeapolitanBlocks.MINT_ICE_CREAM_BLOCK.get(), CosmoBlocks.MINT_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, NeapolitanBlocks.BANANA_ICE_CREAM_BLOCK.get(), CosmoBlocks.BANANA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, DelightfulBlocks.SALMONBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.SALMONBERRY_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, DelightfulBlocks.MATCHA_ICE_CREAM_BLOCK.get(), CosmoBlocks.MATCHA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CRBlocks.POMEGRANATE_ICE_CREAM_BLOCK.get(), CosmoBlocks.POMEGRANATE_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CRBlocks.LIME_ICE_CREAM_BLOCK.get(), CosmoBlocks.LIME_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ExquisitoBlocks.CHORUS_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHORUS_FRUIT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ExquisitoBlocks.WARZIPAN_ICE_CREAM_BLOCK.get(), CosmoBlocks.WARZIPAN_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ExquisitoBlocks.ZURE_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.AZURE_BERRY_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ExquisitoBlocks.JELLY_RING_ICE_CREAM_BLOCK.get(), CosmoBlocks.JELLY_RING_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ExquisitoBlocks.NIGHTSHADE_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.MIDNIGHT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ExquisitoBlocks.ETHER_BULB_ICE_CREAM_BLOCK.get(), CosmoBlocks.STARCLOUD_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, SeasonalsBlocks.BEETROOT_ICE_CREAM_BLOCK.get(), CosmoBlocks.BEETROOT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, SeasonalsBlocks.SWEET_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.SWEET_BERRY_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, SeasonalsBlocks.PUMPKIN_ICE_CREAM_BLOCK.get(), CosmoBlocks.PUMPKIN_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, PeculiarsBlocks.ALOE_ICE_CREAM_BLOCK.get(), CosmoBlocks.ALOE_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, PeculiarsBlocks.PASSION_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.PASSION_FRUIT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, PeculiarsBlocks.YUCCA_ICE_CREAM_BLOCK.get(), CosmoBlocks.YUCCA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "green_tea_ice_cream_block")), CosmoBlocks.GREEN_TEA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "yellow_tea_ice_cream_block")), CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "black_tea_ice_cream_block")), CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "coffee_ice_cream_block")), CosmoBlocks.COFFEE_ICE_CREAM_BRICKS.get());
+
+        registerFourBlocksRecipe(finished, CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(), CosmoBlocks.APPLE_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(), CosmoBlocks.CARROT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.GLOW_BERRY_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(), CosmoBlocks.KABLOOM_ICE_CREAM_BRICKS.get());
 
         registerFourBlocksRecipe(finished, CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get(), CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get());
         registerFourBlocksRecipe(finished, CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get(), CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get());
@@ -194,7 +231,36 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerIceCreamInteraction(finished, CosmoItemTags.CHERRY, CosmoFluids.CHERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SD);
     }
 
-    private void registerConeRecipe (Consumer<FinishedRecipe> finished, ItemLike item, ItemLike iceCream, ItemLike result) {
+    private void registerNineStorageRecipe(Consumer<FinishedRecipe> finished, ItemLike item, ItemLike result){
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) item);
+        ResourceLocation resultKey = ForgeRegistries.BLOCKS.getKey(((Block) result));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result)
+                .define('A', item)
+                .pattern("AAA").pattern("AAA").pattern("AAA")
+                .unlockedBy("has_" + key, has(item)).save(finished);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item, 9)
+                .requires(result)
+                .unlockedBy("has_" + resultKey, has(result)).save(finished);
+    }
+
+    private void registerFourStorageRecipe(Consumer<FinishedRecipe> finished, ItemLike item, ItemLike result){
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) item);
+        ResourceLocation resultKey = ForgeRegistries.BLOCKS.getKey(((Block) result));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result)
+                .define('A', item)
+                .pattern("AA").pattern("AA")
+                .unlockedBy("has_" + key, has(item)).save(finished);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, item, 4)
+                .requires(result)
+                .requires(Items.GLASS_BOTTLE).requires(Items.GLASS_BOTTLE).requires(Items.GLASS_BOTTLE).requires(Items.GLASS_BOTTLE)
+                .unlockedBy("has_" + resultKey, has(result)).save(finished);
+    }
+
+    private void registerConeRecipe(Consumer<FinishedRecipe> finished, ItemLike item, ItemLike iceCream, ItemLike result) {
         ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) item);
         ResourceLocation iceCreamKey = ForgeRegistries.ITEMS.getKey((Item) iceCream);
         ResourceLocation resultKey = ForgeRegistries.ITEMS.getKey((Item) result);

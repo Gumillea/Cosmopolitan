@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "caverns_and_chasms:golden_milk_bucket"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "caverns_and_chasms:golden_bucket"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "caverns_and_chasms:golden_bucket"
+    },
+    {
+      "fluid": {
+        "amount": 1000,
+        "name": "minecraft:milk"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "caverns_and_chasms:golden_milk_bucket"
+  }
+}

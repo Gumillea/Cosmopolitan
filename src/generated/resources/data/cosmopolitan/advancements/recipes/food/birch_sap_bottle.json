@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cosmopolitan:birch_sap_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:birch_sap_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:birch_sap_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cosmopolitan:birch_sap_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:birch_sap_bottle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

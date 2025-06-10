@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "cosmopolitan:block/fiddlehead_crate_bottom",
+    "side": "cosmopolitan:block/fiddlehead_crate_side",
+    "top": "cosmopolitan:block/fiddlehead_crate_top"
+  }
+}

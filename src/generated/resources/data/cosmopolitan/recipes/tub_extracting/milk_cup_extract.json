@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "miners_delight:milk_cup"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "miners_delight:copper_cup"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "miners_delight:copper_cup"
+    },
+    {
+      "fluid": {
+        "amount": 500,
+        "name": "minecraft:milk"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "miners_delight:milk_cup"
+  }
+}

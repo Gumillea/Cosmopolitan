@@ -1,0 +1,26 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "caverns_and_chasms:golden_milk_bucket"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "caverns_and_chasms:golden_bucket"
+    }
+  ],
+  "ingredient": {
+    "item": "caverns_and_chasms:golden_milk_bucket"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "caverns_and_chasms:golden_bucket"
+    },
+    {
+      "amount": 1000,
+      "fluid": "minecraft:milk"
+    }
+  ]
+}

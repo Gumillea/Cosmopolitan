@@ -31,6 +31,11 @@ public class SappyLogBlock extends RotatedPillarBlock {
         ItemStack inHand = player.getItemInHand(hand);
         if (inHand.is(Items.GLASS_BOTTLE)) {
             level.playSound(player, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+            if (!player.isCreative()) {
+                inHand.shrink(1);
+            }
+
             if (inHand.isEmpty()) {
                 player.setItemInHand(hand, new ItemStack(CosmoItems.BIRCH_SAP_BOTTLE.get()));
             } else if (!player.getInventory().add(new ItemStack(CosmoItems.BIRCH_SAP_BOTTLE.get()))) {

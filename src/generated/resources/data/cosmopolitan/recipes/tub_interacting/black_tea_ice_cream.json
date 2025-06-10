@@ -1,0 +1,30 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "respiteful"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "farmersrespite:black_tea_leaves"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "requiresCooling": true,
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:black_tea_ice_cream"
+  }
+}

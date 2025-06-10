@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cosmopolitan:block/warzipan_ice_cream_bricks"
+  }
+}

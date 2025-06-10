@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cosmopolitan:block/pumpkin_ice_cream_bricks"
+  }
+}

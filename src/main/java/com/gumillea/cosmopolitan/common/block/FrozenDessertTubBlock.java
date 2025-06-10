@@ -39,6 +39,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -132,8 +133,6 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
         level.gameEvent(player, !open ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
     }
 
-
-
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new FrozenDessertTubBlockEntity(pos, state);
@@ -180,6 +179,11 @@ public class FrozenDessertTubBlock extends BaseEntityBlock implements EntityBloc
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, CosmoBlockEntityTypes.FROZEN_DESSERT_TUB.get(), FrozenDessertTubBlockEntity::tick);
+    }
+
+    @Override
+    public boolean isPathfindable(BlockState state, BlockGetter getter, BlockPos pos, PathComputationType type) {
+        return false;
     }
 
     public static void contentApply(Level level, BlockPos pos) {

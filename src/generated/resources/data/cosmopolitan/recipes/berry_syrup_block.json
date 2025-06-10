@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "cosmopolitan:berry_syrup_bottle"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "result": {
+    "item": "cosmopolitan:berry_syrup_block"
+  },
+  "show_notification": true
+}

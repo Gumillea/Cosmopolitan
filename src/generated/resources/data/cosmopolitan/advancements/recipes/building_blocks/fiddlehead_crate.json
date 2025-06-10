@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cosmopolitan:fiddlehead": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:fiddlehead"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:fiddlehead_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cosmopolitan:fiddlehead",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:fiddlehead_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

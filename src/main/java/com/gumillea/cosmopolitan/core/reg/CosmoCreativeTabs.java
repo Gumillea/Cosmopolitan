@@ -24,7 +24,11 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get());
                 output.accept(CosmoBlocks.SAPPY_BIRCH_LOG.get());
                 output.accept(CosmoBlocks.WHEATGRASS_BALE.get());
+                output.accept(CosmoBlocks.WILDBERRIES_BASKET.get());
+                output.accept(CosmoBlocks.FIDDLEHEAD_CRATE.get());
                 output.accept(CosmoBlocks.MASHED_POTATO_BLOCK.get());
+                output.accept(CosmoBlocks.BERRY_SYRUP_BLOCK.get());
+                output.accept(CosmoBlocks.BIRCH_SAP_BLOCK.get());
                 if (CosmoCompat.nea) {
                     if (CosmoConfig.Common.APPLE_FLAVOR.get()) output.accept(CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get());
                     if (CosmoConfig.Common.CARROT_FLAVOR.get()) output.accept(CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get());
@@ -32,12 +36,20 @@ public class CosmoCreativeTabs {
                     if (CosmoCompat.qua && CosmoConfig.Common.ENCHANTED_FRUIT_FLAVOR.get()) output.accept(CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get());
                     if (CosmoCompat.ha && CosmoConfig.Common.KABLOOM_FLAVOR.get()) output.accept(CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get());
                     if (CosmoCompat.an && CosmoConfig.Common.SOURCE_BERRY_FLAVOR.get()) output.accept(CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get());
+
                     output.accept(CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get());
                     output.accept(CosmoBlocks.BANANA_ICE_CREAM_BRICKS.get());
                     output.accept(CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS.get());
                     output.accept(CosmoBlocks.MINT_ICE_CREAM_BRICKS.get());
                     output.accept(CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get());
                     output.accept(CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get());
+                    if (CosmoConfig.Common.APPLE_FLAVOR.get()) output.accept(CosmoBlocks.APPLE_ICE_CREAM_BRICKS.get());
+                    if (CosmoConfig.Common.CARROT_FLAVOR.get()) output.accept(CosmoBlocks.CARROT_ICE_CREAM_BRICKS.get());
+                    if (CosmoConfig.Common.GLOW_BERRY_FLAVOR.get()) output.accept(CosmoBlocks.GLOW_BERRY_ICE_CREAM_BRICKS.get());
+                    if (CosmoCompat.qua && CosmoConfig.Common.ENCHANTED_FRUIT_FLAVOR.get()) output.accept(CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BRICKS.get());
+                    if (CosmoCompat.ha && CosmoConfig.Common.KABLOOM_FLAVOR.get()) output.accept(CosmoBlocks.KABLOOM_ICE_CREAM_BRICKS.get());
+                    if (CosmoCompat.an && CosmoConfig.Common.SOURCE_BERRY_FLAVOR.get()) output.accept(CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BRICKS.get());
+
                     output.accept(CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get());
                     output.accept(CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get());
                     output.accept(CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get());

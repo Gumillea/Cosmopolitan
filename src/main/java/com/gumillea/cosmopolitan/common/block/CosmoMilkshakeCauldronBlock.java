@@ -1,6 +1,5 @@
 package com.gumillea.cosmopolitan.common.block;
 
-import com.teamabnormals.neapolitan.core.registry.NeapolitanBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.item.Item;

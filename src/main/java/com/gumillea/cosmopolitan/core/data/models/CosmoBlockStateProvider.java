@@ -30,6 +30,42 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.block(CosmoBlocks.MINT_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.BANANA_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.APPLE_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.CARROT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.GLOW_BERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.KABLOOM_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.GLOWY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.FLAVORED_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.CHERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.TORCHBERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.GLACIER_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.AURORA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.SALMONBERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.MATCHA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.POMEGRANATE_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.LIME_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.CHORUS_FRUIT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.WARZIPAN_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.AZURE_BERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.JELLY_RING_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.MIDNIGHT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.STARCLOUD_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.BEETROOT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.SWEET_BERRY_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.PUMPKIN_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.ALOE_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.PASSION_FRUIT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.YUCCA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.GREEN_TEA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.COFFEE_ICE_CREAM_BRICKS);
+
+        this.syrupBlock(CosmoBlocks.BERRY_SYRUP_BLOCK);
+        this.syrupBlock(CosmoBlocks.BIRCH_SAP_BLOCK);
 
         this.crossBlock(CosmoBlocks.LIFELIGHT);
 
@@ -41,6 +77,22 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.cauldronBlock(CosmoBlocks.SOURCE_BERRY_MILKSHAKE_CAULDRON);
 
         this.logBlock(CosmoBlocks.WHEATGRASS_BALE);
+        this.directionalBlock(CosmoBlocks.WILDBERRIES_BASKET);
+        this.directionalBlock(CosmoBlocks.FIDDLEHEAD_CRATE);
+    }
+
+    public void syrupBlock(RegistryObject<Block> block) {
+        String path = block.getId().getPath();
+        ResourceLocation texture = new ResourceLocation(Cosmopolitan.MODID, "block/" + path);
+
+        ModelFile syrupBlock = models().withExistingParent(path, mcLoc("block/honey_block"))
+                .texture("particle", texture)
+                .texture("down", texture)
+                .texture("up", texture)
+                .texture("side", texture);
+
+        simpleBlock(block.get(), syrupBlock);
+        this.blockItem(block);
     }
 
     public void cauldronBlock(RegistryObject<Block> block) {

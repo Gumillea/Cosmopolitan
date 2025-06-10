@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/cherry"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "seeddelight:cherry_ice_cream"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "seeddelight:cherry_ice_cream"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:cherry_ice_cream_cone"
+        }
+      }
+    }
+  ]
+}

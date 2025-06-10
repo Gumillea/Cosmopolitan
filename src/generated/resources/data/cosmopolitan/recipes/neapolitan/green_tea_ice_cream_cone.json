@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "farmersrespite:green_tea_leaves"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "respiteful:green_tea_ice_cream"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "farmersrespite:green_tea_leaves"
+          },
+          {
+            "tag": "forge:milk"
+          },
+          {
+            "tag": "forge:ice_cubes"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:green_tea_ice_cream_cone"
+        }
+      }
+    }
+  ]
+}

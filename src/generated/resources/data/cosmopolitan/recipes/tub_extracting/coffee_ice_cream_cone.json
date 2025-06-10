@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "respiteful"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:coffee_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:coffee_ice_cream_cone"
+  }
+}

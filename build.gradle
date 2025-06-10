@@ -150,7 +150,7 @@ dependencies {
     implementation fg.deobf("curse.maven:habitat-422972:5293408")
     implementation fg.deobf("curse.maven:enlightend-502786:4880586")
 
-    implementation fg.deobf("curse.maven:exquisito-859262:6410831")
+    implementation fg.deobf("curse.maven:exquisito-859262:6586448")
     implementation fg.deobf("curse.maven:seasonals-416471:6058164")
     implementation fg.deobf("curse.maven:peculiars-418551:6058169")
     implementation fg.deobf("curse.maven:respiteful-836471:5563825")

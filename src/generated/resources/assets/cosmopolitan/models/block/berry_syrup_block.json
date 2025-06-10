@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/honey_block",
+  "textures": {
+    "down": "cosmopolitan:block/berry_syrup_block",
+    "particle": "cosmopolitan:block/berry_syrup_block",
+    "side": "cosmopolitan:block/berry_syrup_block",
+    "up": "cosmopolitan:block/berry_syrup_block"
+  }
+}

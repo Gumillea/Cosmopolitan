@@ -1,0 +1,30 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seeddelight"
+    }
+  ],
+  "ingredient": [
+    {
+      "tag": "forge:fruits/cherry"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "requiresCooling": true,
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:cherry_ice_cream"
+  }
+}

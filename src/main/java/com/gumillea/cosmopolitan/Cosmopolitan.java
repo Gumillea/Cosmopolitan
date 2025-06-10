@@ -1,6 +1,5 @@
 package com.gumillea.cosmopolitan;
 
-import com.google.common.eventbus.Subscribe;
 import com.gumillea.cosmopolitan.core.data.CosmoLanguageProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoLootModifierProvider;
 import com.gumillea.cosmopolitan.core.data.CosmoLootTableProvider;
@@ -10,35 +9,19 @@ import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoEffectTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
-import com.gumillea.cosmopolitan.core.misc.CaroteneCapability;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
-import com.gumillea.exquisito.core.reg.ExquisitoCauldronInteractions;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
-import net.brnbrd.delightful.Util;
-import net.brnbrd.delightful.common.block.DelightfulCauldronInteractions;
-import net.brnbrd.delightful.common.item.DelightfulItems;
-import net.brnbrd.delightful.network.DPacketHandler;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.animal.Parrot;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -49,7 +32,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 @Mod(Cosmopolitan.MODID)
@@ -66,6 +48,8 @@ public class Cosmopolitan {
         MinecraftForge.EVENT_BUS.register(this);
 
         REGISTRY_HELPER.register(modEventBus);
+
+        ForgeMod.enableMilkFluid();
 
         CosmoEffects.EFFECTS.register(modEventBus);
         CosmoEffects.POTIONS.register(modEventBus);
@@ -98,6 +82,8 @@ public class Cosmopolitan {
 
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BIRCH_SAP_BLOCK.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.LIFELIGHT.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.GLOW_PETALS.get(), RenderType.cutout());
         });

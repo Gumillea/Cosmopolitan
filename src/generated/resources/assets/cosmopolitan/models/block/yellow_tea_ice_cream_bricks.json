@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cosmopolitan:block/yellow_tea_ice_cream_bricks"
+  }
+}

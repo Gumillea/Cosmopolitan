@@ -1,0 +1,26 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "neapolitan:milk_bottle"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "ingredient": {
+    "item": "neapolitan:milk_bottle"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:milk"
+    }
+  ]
+}

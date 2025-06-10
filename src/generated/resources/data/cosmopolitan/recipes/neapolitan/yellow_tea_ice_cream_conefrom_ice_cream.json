@@ -1,0 +1,43 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "farmersrespite:yellow_tea_leaves"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "respiteful:yellow_tea_ice_cream"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "respiteful:yellow_tea_ice_cream"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:yellow_tea_ice_cream_cone"
+        }
+      }
+    }
+  ]
+}

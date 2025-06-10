@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "seeddelight"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:cherry_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:cherry_ice_cream_cone"
+  }
+}

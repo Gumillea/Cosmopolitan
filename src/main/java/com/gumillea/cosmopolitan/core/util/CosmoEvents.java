@@ -4,12 +4,9 @@ import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.DoublePopsicleItem;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
-import com.gumillea.cosmopolitan.core.misc.CaroteneCapability;
-import com.gumillea.cosmopolitan.core.misc.CaroteneTickHandler;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
-import com.hollingsworth.arsnouveau.common.datagen.ItemTagProvider;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -57,7 +54,6 @@ import quek.undergarden.registry.UGDimensions;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
 import vectorwing.farmersdelight.common.utility.MathUtils;
-import vectorwing.farmersdelight.data.ItemTags;
 
 import java.util.*;
 

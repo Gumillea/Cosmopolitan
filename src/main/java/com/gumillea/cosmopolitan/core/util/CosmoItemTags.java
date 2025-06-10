@@ -23,6 +23,7 @@ public class CosmoItemTags {
     public static final TagKey<Item> CHOCOLATE = TagUtil.itemTag("forge", "chocolate");
     public static final TagKey<Item> VEGETABLES = TagUtil.itemTag("forge", "vegetables");
     public static final TagKey<Item> PUMPKINS = TagUtil.itemTag("forge", "pumpkins");
+    public static final TagKey<Item> MOSS = TagUtil.itemTag("forge", "moss");
     public static final TagKey<Item> SALAD_INGREDIENTS = TagUtil.itemTag("forge", "salad_ingredients");
     public static final TagKey<Item> MILK = TagUtil.itemTag("forge", "milk");
     public static final TagKey<Item> CREAM = TagUtil.itemTag("forge", "cream");

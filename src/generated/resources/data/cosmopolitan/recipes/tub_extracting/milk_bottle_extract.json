@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "neapolitan:milk_bottle"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "minecraft:milk"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "neapolitan:milk_bottle"
+  }
+}

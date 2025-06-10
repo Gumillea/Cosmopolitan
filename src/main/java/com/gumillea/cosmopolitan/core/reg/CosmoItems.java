@@ -415,8 +415,6 @@ public class CosmoItems {
         public static final FoodProperties RAINBOW_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.AURORA, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.AGILITY, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.HARMONY, 300), 1.0F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 2), 1.0F).effect(() -> new MobEffectInstance(MobEffects.JUMP, 300, 1), 1.0F).build();
         public static final FoodProperties REFRESHING_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RANGE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.FROZEN_RANGE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.BERSERKING, 300), 1.0F).build();
         public static final FoodProperties TWILIGHT_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.FIRE_RANGE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH, 900), 1.0F).build();
-
-
     }
 
 }

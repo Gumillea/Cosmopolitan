@@ -30,17 +30,17 @@ public class SourceBerryPipsItem extends Item {
         Level level = context.getLevel();
         BlockPos clickedPos = context.getClickedPos();
         Direction direction = context.getClickedFace();
-        BlockState block = bush.defaultBlockState();
+        BlockState bush = this.bush.defaultBlockState();
         Player player = context.getPlayer();
         ItemStack stack = context.getItemInHand();
 
-        if (level.getBlockState(clickedPos).canBeReplaced() && block.canSurvive(level, clickedPos)) {
+        if (level.getBlockState(clickedPos).canBeReplaced() && bush.canSurvive(level, clickedPos)) {
             placeBush(level, clickedPos, player, stack);
             return InteractionResult.sidedSuccess(level.isClientSide());
         }
 
         BlockPos targetPos = clickedPos.relative(direction);
-        if (level.getBlockState(targetPos).canBeReplaced() && block.canSurvive(level, targetPos)) {
+        if (level.getBlockState(targetPos).canBeReplaced() && bush.canSurvive(level, targetPos)) {
             placeBush(level, targetPos, player, stack);
             return InteractionResult.sidedSuccess(level.isClientSide());
         }

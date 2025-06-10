@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "cosmopolitan:block/wildberries_basket_bottom",
+    "side": "cosmopolitan:block/wildberries_basket_side",
+    "top": "cosmopolitan:block/wildberries_basket_top"
+  }
+}

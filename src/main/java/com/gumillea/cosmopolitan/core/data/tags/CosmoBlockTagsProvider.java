@@ -4,7 +4,6 @@ import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
-import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -58,6 +57,9 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
         );
         this.tag(BlockTags.BIRCH_LOGS).add(
                 CosmoBlocks.SAPPY_BIRCH_LOG.get()
+        );
+        this.tag(BlockTags.CLIMBABLE).add(
+                CosmoBlocks.BERRY_SYRUP_BLOCK.get()
         );
         this.tag(CosmoBlockTags.COOLING_SOURCES).add(
                 Blocks.SNOW_BLOCK,

@@ -5,7 +5,6 @@
     {
       "type": "forge:not",
       "value": {
-
         "type": "cosmopolitan:config",
         "value": "tfd_recipe_tweaks"
       }

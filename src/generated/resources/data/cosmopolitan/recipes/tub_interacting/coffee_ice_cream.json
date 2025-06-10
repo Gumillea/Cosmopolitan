@@ -1,0 +1,30 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "respiteful"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "farmersrespite:coffee_beans"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "requiresCooling": true,
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:coffee_ice_cream"
+  }
+}

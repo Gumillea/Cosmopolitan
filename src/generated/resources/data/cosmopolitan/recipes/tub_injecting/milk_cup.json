@@ -1,0 +1,26 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "miners_delight:milk_cup"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "miners_delight:copper_cup"
+    }
+  ],
+  "ingredient": {
+    "item": "miners_delight:milk_cup"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "miners_delight:copper_cup"
+    },
+    {
+      "amount": 500,
+      "fluid": "minecraft:milk"
+    }
+  ]
+}
