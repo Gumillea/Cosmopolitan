@@ -1,0 +1,52 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "twilightforest:steeleaf_ingot"
+    }
+  ],
+  "basefluid": {
+    "count": 1000,
+    "fluid": "cosmopolitan:steeleaf_nectar"
+  },
+  "experience": 1.0,
+  "fermentingtime": 9600,
+  "ingredients": [
+    [
+      {
+        "item": "twilightforest:moss_patch"
+      },
+      {
+        "item": "twilightforest:mayapple"
+      },
+      {
+        "item": "twilightforest:clover_patch"
+      }
+    ],
+    [
+      {
+        "item": "twilightforest:moss_patch"
+      },
+      {
+        "item": "twilightforest:mayapple"
+      },
+      {
+        "item": "twilightforest:clover_patch"
+      }
+    ],
+    {
+      "item": "twilightforest:liveroot"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "cosmopolitan:twilight_chartreuse"
+  },
+  "temperature": 3
+}

@@ -1,0 +1,42 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "seeddelight:cherry_ice_cream"
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:fruits/cherry"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:fruits/cherry"
+    },
+    {
+      "tag": "forge:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "amount": 750,
+      "fluid": "minecraft:milk",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:cherry_ice_cream"
+    }
+  ]
+}

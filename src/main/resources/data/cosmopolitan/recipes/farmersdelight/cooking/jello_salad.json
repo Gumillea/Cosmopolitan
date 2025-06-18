@@ -6,13 +6,6 @@
         {
           "type": "forge:mod_loaded",
           "modid": "farmersdelight"
-        },
-        {
-          "type": "forge:not",
-          "value":         {
-            "type": "forge:mod_loaded",
-            "modid": "vanillacookbook"
-          }
         }
       ],
       "recipe": {
@@ -24,7 +17,7 @@
             "tag": "forge:jams"
           },
           {
-            "item": "minecraft:slime_balls"
+            "tag": "forge:slimeballs"
           },
           {
             "item": "minecraft:sugar"

@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "environmental:cattail",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:cattail",
+      "required": false
+    },
+    {
+      "id": "bwg:cattail",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:cattail",
+      "required": false
+    }
+  ]
+}

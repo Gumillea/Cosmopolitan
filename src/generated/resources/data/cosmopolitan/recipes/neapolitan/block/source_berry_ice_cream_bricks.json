@@ -6,6 +6,10 @@
         {
           "type": "forge:mod_loaded",
           "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:source_berry_ice_cream_block"
         }
       ],
       "recipe": {

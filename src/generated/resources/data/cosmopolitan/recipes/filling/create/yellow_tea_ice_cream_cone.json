@@ -1,0 +1,36 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "respiteful:yellow_tea_ice_cream"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "farmersrespite:yellow_tea_leaves"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "amount": 250,
+      "fluid": "cosmopolitan:yellow_tea_ice_cream",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "cosmopolitan:yellow_tea_ice_cream_cone"
+    }
+  ]
+}

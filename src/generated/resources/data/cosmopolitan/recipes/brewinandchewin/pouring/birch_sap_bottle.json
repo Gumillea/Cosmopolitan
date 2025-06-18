@@ -1,0 +1,10 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 250,
+  "filling": true,
+  "fluid": "cosmopolitan:birch_sap",
+  "output": {
+    "item": "cosmopolitan:birch_sap_bottle"
+  },
+  "strict": false
+}

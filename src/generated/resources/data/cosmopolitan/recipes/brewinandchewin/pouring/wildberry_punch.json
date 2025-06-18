@@ -1,0 +1,10 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 250,
+  "filling": true,
+  "fluid": "cosmopolitan:wildberry_punch",
+  "output": {
+    "item": "cosmopolitan:wildberry_punch"
+  },
+  "strict": false
+}

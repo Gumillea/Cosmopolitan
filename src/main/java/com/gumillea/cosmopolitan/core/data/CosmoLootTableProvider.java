@@ -91,13 +91,18 @@ public class CosmoLootTableProvider extends LootTableProvider {
             this.dropSelf(CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get());
             this.dropSelf(CosmoBlocks.COFFEE_ICE_CREAM_BRICKS.get());
 
-
             this.dropSelf(CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CHISELED_STRAWBERRY_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CHISELED_MINT_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get());
+
+            this.dropSelf(CosmoBlocks.CHERRY_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.AURORA_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.GLACIER_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.TORCHBERRY_ICE_CREAM_BLOCK.get());
 
             this.dropSelf(CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get());
@@ -112,6 +117,7 @@ public class CosmoLootTableProvider extends LootTableProvider {
 
             this.dropSelf(CosmoBlocks.WILDBERRIES_BASKET.get());
             this.dropSelf(CosmoBlocks.FIDDLEHEAD_CRATE.get());
+            this.dropSelf(CosmoBlocks.IRON_FIDDLEHEAD_CRATE.get());
 
             this.dropSelf(CosmoBlocks.BERRY_SYRUP_BLOCK.get());
             this.dropSelf(CosmoBlocks.BIRCH_SAP_BLOCK.get());

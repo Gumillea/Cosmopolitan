@@ -9,11 +9,11 @@ import net.minecraftforge.fluids.FluidType;
 
 import java.util.function.Consumer;
 
-public class CreamFluidType extends FluidType {
+public class CosmoFluidType extends FluidType {
     private final ResourceLocation stillTexture;
     private final ResourceLocation flowingTexture;
 
-    public CreamFluidType(String texture) {
+    public CosmoFluidType(String texture) {
         super(FluidType.Properties.create()
                 .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
                 .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)

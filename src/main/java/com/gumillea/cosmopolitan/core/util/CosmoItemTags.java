@@ -13,6 +13,7 @@ public class CosmoItemTags {
     public static final TagKey<Item> SWEET_BERRY = TagUtil.itemTag("forge", "fruits/sweet_berries");
     public static final TagKey<Item> GLOW_BERRY = TagUtil.itemTag("forge", "fruits/glow_berries");
 
+    public static final TagKey<Item> CATTAILS = TagUtil.itemTag("forge", "cattails");
     public static final TagKey<Item> COOKIE = TagUtil.itemTag("forge", "cookies");
     public static final TagKey<Item> CROPS = TagUtil.itemTag("forge", "crops");
     public static final TagKey<Item> POTATO = TagUtil.itemTag("forge", "crops/potato");
@@ -32,6 +33,9 @@ public class CosmoItemTags {
     public static final TagKey<Item> KNIVES = TagUtil.itemTag("forge", "tools/knives");
 
     public static final TagKey<Item> UPRIGHT_ON_BELT = TagUtil.itemTag("create", "upright_on_belt");
+
+    public static final TagKey<Item> FERMENTED_DRINKS = TagUtil.itemTag(CosmoCompat.BAC, "fermented_drinks");
+
     public static final TagKey<Item> ICE_CREAM = TagUtil.itemTag("neapolitan", "ice_cream");
     public static final TagKey<Item> ICE_CREAM_CONES = TagUtil.itemTag("cosmopolitan", "ice_cream_cones");
     public static final TagKey<Item> BIOME_GULIME = TagUtil.itemTag("cosmopolitan", "biome_gulimes");

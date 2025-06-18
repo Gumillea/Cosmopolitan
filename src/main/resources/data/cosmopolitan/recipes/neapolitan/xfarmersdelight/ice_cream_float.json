@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "neapolitan:vanilla_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:spring_soda"
+    },
+    {
+      "item": "cosmopolitan:spring_soda"
+    },
+    {
+      "item": "cosmopolitan:spring_soda"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:ice_cream_float",
+    "count": 3
+  }
+}

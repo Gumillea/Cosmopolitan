@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "brewinandchewin"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "neapolitan:vanilla_ice_cream"
+    },
+    {
+      "item": "cosmopolitan:root_beer"
+    },
+    {
+      "item": "cosmopolitan:root_beer"
+    },
+    {
+      "item": "cosmopolitan:root_beer"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:black_cow",
+    "count": 3
+  }
+}

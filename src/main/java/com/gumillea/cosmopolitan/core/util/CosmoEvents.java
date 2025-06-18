@@ -309,6 +309,7 @@ public class CosmoEvents {
 
     @SubscribeEvent
     public static void onWandererTradesEvent(WandererTradesEvent event) {
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(4, CosmoItems.WANDERING_GELATO.get(), 1, 16, 2));
         if(CosmoCompat.an && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.SOURCE_BERRY_PIPS.get(), 1, 12, 1));
         if(CosmoCompat.ha && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.KABLOOM_PIPS.get(), 1, 12, 1));
         if(CosmoConfig.Common.COSMOPOLITAN_COCKTAIL.get()) TradeUtil.addRareWandererTrades(event, new TradeUtil.BlueprintTrade(64, CosmoItems.COSMOPOLITAN_COCKTAIL.get(), 1, 1, 5));

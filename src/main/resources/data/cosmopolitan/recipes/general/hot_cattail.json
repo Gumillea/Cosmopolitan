@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:cattails"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:cattails"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:hot_cattail"
+  }
+}

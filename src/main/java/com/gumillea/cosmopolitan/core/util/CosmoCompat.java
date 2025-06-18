@@ -1,7 +1,6 @@
 package com.gumillea.cosmopolitan.core.util;
 
 import com.cosmicgelatin.seasonals.core.registry.SeasonalsMobEffects;
-import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
@@ -11,18 +10,22 @@ import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import mod.schnappdragon.habitat.core.registry.HabitatEffects;
 import net.brdle.collectorsreap.common.effect.CREffects;
 import net.brdle.collectorsreap.common.item.CRItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import plus.dragons.respiteful.entries.RespitefulMobEffects;
 import quek.undergarden.registry.UGBlocks;
+import umpaz.brewinandchewin.common.registry.BnCEffects;
+import umpaz.brewinandchewin.common.registry.BnCItems;
 import umpaz.farmersrespite.common.registry.FREffects;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 
@@ -36,15 +39,19 @@ public class CosmoCompat {
     public static final String CR  = "collectorsreap";
     public static final boolean cr = ModList.get().isLoaded(CR);
     public static final String BAC = "brewinandchewin";
-    public static final boolean bac = ModList.get().isLoaded(BAC);
+    public static final boolean bnc = ModList.get().isLoaded(BAC);
     public static final String BG  = "berry_good";
     public static final boolean bg = ModList.get().isLoaded(BG);
+    public static final String BOP  = "biomesoplenty";
+    public static final boolean bop = ModList.get().isLoaded(BOP);
     public static final String DF  = "delightful";
     public static final boolean df = ModList.get().isLoaded(DF);
     public static final String EX  = "exquisito";
     public static final boolean ex = ModList.get().isLoaded(EX);
     public static final String EE  = "enlightened_end";
     public static final boolean ee = ModList.get().isLoaded(EE);
+    public static final String EN  = "environmental";
+    public static final boolean en = ModList.get().isLoaded(EN);
     public static final String CAD = "casualness_delight";
     public static final boolean cad = ModList.get().isLoaded(CAD);
     public static final String FCD = "frycooks_delight";
@@ -105,6 +112,11 @@ public class CosmoCompat {
     public static final MobEffect NOURISHMENT = fd ? (ModEffects.NOURISHMENT.get()) : CosmoEffects.PLACEHOLDER.get();
     public static final MobEffectInstance COMFORT_STEW = fd ? new MobEffectInstance(ModEffects.COMFORT.get(), 6000) : new MobEffectInstance(MobEffects.REGENERATION, 100);
 
+    //b&c
+    public static Item TANKARD = bnc ? BnCItems.TANKARD.get() : Items.GLASS_BOTTLE;
+    public static final MobEffect TIPSY = bnc ? (BnCEffects.TIPSY.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect INTOXICATION = bnc ? (BnCEffects.INTOXICATION.get()) : CosmoEffects.PLACEHOLDER.get();
+
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ha ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get();
     public static Item KABLOOM = ForgeRegistries.ITEMS.getValue(new ResourceLocation(HA, "kabloom_pulp"));
@@ -154,5 +166,9 @@ public class CosmoCompat {
     public static Block BLISTERBERRY_BUSH = ug ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "blisterberry_bush")) : Blocks.SWEET_BERRY_BUSH;
     public static Block UNDERBEAN_BUSH = ug ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(UG, "underbean_bush")) : Blocks.SWEET_BERRY_BUSH;
     public static Block DROOP_VINE = ug ? UGBlocks.DROOPVINE.get() : Blocks.CAVE_VINES;
+
+    public static boolean isTagEmpty(TagKey<Item> tagKey) {
+        return BuiltInRegistries.ITEM.getTag(tagKey).map(tag -> tag.size() == 0).orElse(true);
+    }
 }
 

@@ -98,16 +98,24 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> KABLOOM_ICE_CREAM_BLOCK = HELPER.createBlock("kabloom_ice_cream_block", () -> new Block(Properties.KABLOOM_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> SOURCE_BERRY_ICE_CREAM_BLOCK = HELPER.createBlock("source_berry_ice_cream_block", () -> new Block(Properties.SOURCE_BERRY_ICE_CREAM_BLOCK));
 
+    public static final RegistryObject<Block> CHERRY_ICE_CREAM_BLOCK = HELPER.createBlock("cherry_ice_cream_block", () -> new Block(Properties.CHERRY_ICE_CREAM_BLOCK));
+
+    public static final RegistryObject<Block> TORCHBERRY_ICE_CREAM_BLOCK = HELPER.createBlock("torchberry_ice_cream_block", () -> new Block(Properties.TORCHBERRY_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> PHYTOCHEMICAL_ICE_CREAM_BLOCK = HELPER.createBlock("phytochemical_ice_cream_block", () -> new Block(Properties.PHYTOCHEMICAL_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> GLACIER_ICE_CREAM_BLOCK = HELPER.createBlock("glacier_ice_cream_block", () -> new Block(Properties.GLACIER_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> AURORA_ICE_CREAM_BLOCK = HELPER.createBlock("aurora_ice_cream_block", () -> new Block(Properties.AURORA_ICE_CREAM_BLOCK));
+
     //Storage Blocks
+    public static final RegistryObject<Block> WHEATGRASS_BALE = HELPER.createBlock("wheatgrass_bale", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
     public static final RegistryObject<Block> MASHED_POTATO_BLOCK = HELPER.createBlock("mashed_potato_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistryObject<Block> WILDBERRIES_BASKET = HELPER.createBlock("wildberries_basket", () -> new BlueprintDirectionalBlock(Properties.WILDBERRY_BASKET));
     public static final RegistryObject<Block> FIDDLEHEAD_CRATE = HELPER.createBlock("fiddlehead_crate", () -> new BlueprintDirectionalBlock(Properties.FIDDLEHEAD_CRATE));
+    public static final RegistryObject<Block> IRON_FIDDLEHEAD_CRATE = HELPER.createBlock("iron_fiddlehead_crate", () -> new BlueprintDirectionalBlock(Properties.FIDDLEHEAD_CRATE));
     public static final RegistryObject<Block> BERRY_SYRUP_BLOCK = HELPER.createBlock("berry_syrup_block", () -> new SyrupBlock(Properties.BERRY_SYRUP_BLOCK));
     public static final RegistryObject<Block> BIRCH_SAP_BLOCK = HELPER.createBlock("birch_sap_block", () -> new SyrupBlock(Properties.BIRCH_SAP_BLOCK));
 
     //Others
     public static final RegistryObject<Block> SAPPY_BIRCH_LOG = HELPER.createBlock("sappy_birch_log", () -> new SappyLogBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_LOG), Blocks.STRIPPED_BIRCH_LOG));
-   public static final RegistryObject<Block> WHEATGRASS_BALE = HELPER.createBlock("wheatgrass_bale", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
     public static final RegistryObject<Block> LIFELIGHT = HELPER.createBlock("lifelight", () -> new LifelightBlock(Properties.LIFELIGHT));
     public static final RegistryObject<Block> GLOW_PETALS = HELPER.createBlock("glow_petals", () -> new GlowPetalsBlock(Properties.LIFELIGHT));
 
@@ -122,7 +130,7 @@ public class CosmoBlocks {
 
         public static final BlockBehaviour.Properties APPLE_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties CARROT_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
-        public static final BlockBehaviour.Properties GLOW_BERRY_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties GLOW_BERRY_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
 
         public static final BlockBehaviour.Properties ENCHANTED_FRUIT_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties KABLOOM_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
@@ -131,8 +139,8 @@ public class CosmoBlocks {
         public static final BlockBehaviour.Properties CHORUS_FRUIT_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties AZURE_BERRY_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties JELLY_RING_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
-        public static final BlockBehaviour.Properties MIDNIGHT_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
-        public static final BlockBehaviour.Properties STARCLOUD_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties MIDNIGHT_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
+        public static final BlockBehaviour.Properties STARCLOUD_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
         public static final BlockBehaviour.Properties WARZIPAN_ICE_CREAM_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
 
         public static final BlockBehaviour.Properties PUMPKIN_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
@@ -154,14 +162,14 @@ public class CosmoBlocks {
         public static final BlockBehaviour.Properties SALMONBERRY_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties MATCHA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
 
-        public static final BlockBehaviour.Properties GLOWY_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties GLOWY_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
         public static final BlockBehaviour.Properties FLAVORED_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties CHERRY_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_PINK).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
 
-        public static final BlockBehaviour.Properties TORCHBERRY_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties TORCHBERRY_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
         public static final BlockBehaviour.Properties PHYTOCHEMICAL_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties GLACIER_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.SNOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
-        public static final BlockBehaviour.Properties AURORA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties AURORA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
 
         //storage blocks
         public static final BlockBehaviour.Properties BERRY_SYRUP_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);

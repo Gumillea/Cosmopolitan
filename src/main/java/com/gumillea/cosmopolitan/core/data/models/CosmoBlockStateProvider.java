@@ -23,6 +23,11 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.block(CosmoBlocks.APPLE_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.CARROT_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.CHERRY_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.TORCHBERRY_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.GLACIER_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.AURORA_ICE_CREAM_BLOCK);
 
         this.block(CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS);
@@ -79,6 +84,7 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.logBlock(CosmoBlocks.WHEATGRASS_BALE);
         this.directionalBlock(CosmoBlocks.WILDBERRIES_BASKET);
         this.directionalBlock(CosmoBlocks.FIDDLEHEAD_CRATE);
+        this.directionalBlock(CosmoBlocks.IRON_FIDDLEHEAD_CRATE);
     }
 
     public void syrupBlock(RegistryObject<Block> block) {

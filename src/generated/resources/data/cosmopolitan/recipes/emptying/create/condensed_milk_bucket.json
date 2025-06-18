@@ -1,0 +1,23 @@
+{
+  "type": "create:emptying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:condensed_milk_bucket"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "amount": 1000,
+      "fluid": "cosmopolitan:condensed_milk"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
-// 1.20.1	2025-05-24T23:12:17.2421381	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2025-06-17T18:26:22.1472527	Tags for minecraft:item mod id cosmopolitan
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
 32d6782776245a4bb07443f2eb4a2871982b5b8c data/blueprint/tags/items/pig_food.json
+610cb5f85825d58f4605c273fb39ed5a60fb687c data/brewinandchewin/tags/items/fermented_drinks.json
 f2386f28918a72073a589f3b819e044dae304d40 data/cosmopolitan/tags/items/abysmal_torch_sources.json
 18383a62299c491fe24195d822acff14ba7fb2f6 data/cosmopolitan/tags/items/biome_gulimes.json
 628fcf892d0b35d9730907c37570dbe5170b8077 data/cosmopolitan/tags/items/carotene_sources.json
@@ -10,9 +11,10 @@ efe1ad71cfcbaf824be5ad950532f968fb76ab89 data/cosmopolitan/tags/items/ice_cream_
 653a914a92b5723b28c55731f1fbf6ee9fba4aec data/cosmopolitan/tags/items/vardoger_sources.json
 f4b16af790a1c39d3adfa358c7a701fb92a8b0da data/create/tags/items/upright_on_belt.json
 67188dce22d633fd6a46d93b90c67ad01a8e073e data/forge/tags/items/berries.json
+3627352f35a99f345d31df5c43fe145478631f98 data/forge/tags/items/cattails.json
 25093b4c17b8b5f98c63dc3e27ae9a68bd9d68a8 data/forge/tags/items/chocolate.json
 648d0504a9c8f2ce140f40e54f1c12503ace928a data/forge/tags/items/condensed_milk.json
-bd281e974f38adc9c77433d23bc3cef8b88fb717 data/forge/tags/items/cookies.json
+df1c340183af3e43018c270e209fe94dac59f4da data/forge/tags/items/cookies.json
 bd38e56a90a3ce76bb301193722ac62a983fca50 data/forge/tags/items/cream.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/forge/tags/items/crops.json
 3a6049fdf6a247720cef5ea417a0c9519f707e01 data/forge/tags/items/crops/carrot.json
@@ -27,6 +29,7 @@ b4cc0642cc95aece33ec9cce364d245dd186c647 data/forge/tags/items/fruits/chorus.jso
 f0b8b8def942f91edee9e15268f2aa67d04b4b74 data/forge/tags/items/jams.json
 c760608ec71fb669fd1cce4980d52aa45dbe0913 data/forge/tags/items/milk.json
 cc0ad57e179d30a25f1e7b87fb921153d917a1db data/forge/tags/items/milk/milk_bottle.json
+efe6d58e86177a50d0cd62cbaa1b811e7f7c0715 data/forge/tags/items/moss.json
 f9a6617524ca4298156314736ac62ef87e784329 data/forge/tags/items/pumpkins.json
 90e5227e3913eb052610246ff767ca019c16195e data/forge/tags/items/salad_ingredients.json
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/forge/tags/items/seeds.json

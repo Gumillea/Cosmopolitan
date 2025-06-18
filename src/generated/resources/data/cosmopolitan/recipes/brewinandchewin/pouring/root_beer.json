@@ -1,0 +1,10 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 250,
+  "filling": true,
+  "fluid": "cosmopolitan:root_beer",
+  "output": {
+    "item": "cosmopolitan:root_beer"
+  },
+  "strict": false
+}

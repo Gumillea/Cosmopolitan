@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "cosmopolitan:iron_fiddlehead"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "item": "cosmopolitan:iron_fiddlehead_crate"
+  },
+  "show_notification": true
+}

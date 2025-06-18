@@ -128,6 +128,7 @@ dependencies {
     implementation fg.deobf("curse.maven:abnormals-delight-442719:6057626")
     implementation fg.deobf("curse.maven:neapolitan-382016:6248885")
     implementation fg.deobf("curse.maven:autumnity-365045:6151402")
+    implementation fg.deobf("curse.maven:environmental-388992:6060255")
     implementation fg.deobf("curse.maven:atmospheric-362393:6248868")
     implementation fg.deobf("curse.maven:caverns-and-chasms-438005:6040957")
     implementation fg.deobf("curse.maven:berry-good-355589:5228437")

@@ -28,6 +28,33 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.MINT_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.BANANA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.GLOWY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.FLAVORED_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.CHERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.TORCHBERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.GLACIER_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.AURORA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.SALMONBERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.MATCHA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.POMEGRANATE_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.LIME_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.CHORUS_FRUIT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.WARZIPAN_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.AZURE_BERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.JELLY_RING_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.MIDNIGHT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.STARCLOUD_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.BEETROOT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.SWEET_BERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.PUMPKIN_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.ALOE_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.PASSION_FRUIT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.YUCCA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.GREEN_TEA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.COFFEE_ICE_CREAM_BRICKS.get(),
 
                 CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(),
@@ -35,6 +62,11 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.CHERRY_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.TORCHBERRY_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.GLACIER_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.AURORA_ICE_CREAM_BLOCK.get(),
 
                 CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get(),
@@ -53,6 +85,9 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.WHEATGRASS_BALE.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+                CosmoBlocks.WILDBERRIES_BASKET.get(),
+                CosmoBlocks.FIDDLEHEAD_CRATE.get(),
+                CosmoBlocks.IRON_FIDDLEHEAD_CRATE.get(),
                 CosmoBlocks.SAPPY_BIRCH_LOG.get()
         );
         this.tag(BlockTags.BIRCH_LOGS).add(

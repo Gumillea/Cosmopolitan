@@ -25,7 +25,7 @@ public class CocktailItem extends DrinkItem {
     private final RegistryObject<Item> enchanted = CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL;
 
     public CocktailItem(Properties properties) {
-        super(properties, false);
+        super(properties, false, false);
     }
 
     public boolean isFoil(ItemStack p_41172_) {

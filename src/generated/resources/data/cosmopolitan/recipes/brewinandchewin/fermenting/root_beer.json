@@ -1,0 +1,26 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "count": 1000,
+    "fluid": "cosmopolitan:birch_sap"
+  },
+  "experience": 1.0,
+  "fermentingtime": 9600,
+  "ingredients": [
+    {
+      "item": "minecraft:hanging_roots"
+    },
+    {
+      "item": "farmersdelight:tree_bark"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "cosmopolitan:root_beer"
+  },
+  "temperature": 3
+}

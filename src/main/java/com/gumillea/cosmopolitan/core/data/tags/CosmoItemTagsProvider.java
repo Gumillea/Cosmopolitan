@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -73,9 +74,28 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 Items.MELON_SLICE
         );
 
+        this.tag(CosmoItemTags.MOSS).add(
+                Blocks.MOSS_BLOCK.asItem(),
+                Blocks.MOSS_CARPET.asItem()
+        );
+
         this.tag(CosmoItemTags.GRAIN).add(
                 Items.WHEAT
         );
+
+        this.tag(CosmoItemTags.FERMENTED_DRINKS).add(
+                CosmoItems.TWILIGHT_CHARTREUSE.get(),
+                CosmoItems.SMOGGY_APEROL.get(),
+                CosmoItems.WILDBERRY_PUNCH.get(),
+                CosmoItems.ROOT_BEER.get()
+        );
+
+        this.tag(CosmoItemTags.CATTAILS)
+                .addOptional(new ResourceLocation(CosmoCompat.EN, "cattail"))
+                .addOptional(new ResourceLocation(CosmoCompat.BOP, "cattail"))
+                .addOptional(new ResourceLocation("bwg", "cattail"))
+                .addOptional(new ResourceLocation("regions_unexplored", "cattail"))
+        ;
 
         this.tag(CosmoItemTags.CROPS).add(
                 CosmoItems.WHEATGRASS.get()
@@ -164,7 +184,8 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 );
 
         this.tag(CosmoItemTags.COOKIE).add(
-                CosmoItems.PAW_COOKIE.get()
+                CosmoItems.PAW_COOKIE.get(),
+                Items.COOKIE
         );
 
         this.tag(CosmoItemTags.CHORUS).add(

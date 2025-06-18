@@ -37,12 +37,12 @@ public class SeasonalDrinkItem extends DrinkItem{
     private final Supplier<List<MobEffectInstance>> SEASONAL_EFFECTS;
 
     public SeasonalDrinkItem(Properties properties, boolean honey_drink, String season) {
-        super(properties, honey_drink);
+        super(properties, honey_drink, false);
         this.season = season;
-        this.isSpring = season.equals("spring");
-        this.isSummer = season.equals("summer");
-        this.isAutumn = season.equals("autumn");
-        this.isWinter = season.equals("winter");
+        this.isSpring = season.contains("spring");
+        this.isSummer = season.contains("summer");
+        this.isAutumn = season.contains("autumn");
+        this.isWinter = season.contains("winter");
 
         this.SEASONAL_EFFECTS = () -> {
             if (isSpring) {

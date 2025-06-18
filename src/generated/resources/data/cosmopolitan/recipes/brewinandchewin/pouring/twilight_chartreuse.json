@@ -1,0 +1,10 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 250,
+  "filling": true,
+  "fluid": "cosmopolitan:twilight_chartreuse",
+  "output": {
+    "item": "cosmopolitan:twilight_chartreuse"
+  },
+  "strict": false
+}

@@ -17,8 +17,13 @@ import com.gumillea.exquisito.core.reg.ExquisitoBlocks;
 import com.gumillea.exquisito.core.reg.ExquisitoItems;
 import com.gumillea.exquisito.core.util.tags.ExquisitoItemTags;
 import com.sammy.minersdelight.setup.MDItems;
+import com.simibubi.create.content.fluids.transfer.EmptyingRecipe;
+import com.simibubi.create.content.fluids.transfer.FillingRecipe;
+import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
+import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.teamabnormals.atmospheric.core.other.tags.AtmosphericItemTags;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
+import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
@@ -48,11 +53,16 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.*;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.hiedacamellia.seeddelight.registry.BlockRegistry;
 import org.hiedacamellia.seeddelight.registry.ItemRegistry;
 import org.jetbrains.annotations.NotNull;
 import twilightforest.init.TFItems;
+import umpaz.brewinandchewin.client.recipebook.FermentingRecipeBookTab;
+import umpaz.brewinandchewin.common.registry.BnCItems;
+import umpaz.brewinandchewin.data.builder.KegFermentingRecipeBuilder;
+import umpaz.brewinandchewin.data.builder.KegPouringRecipeBuilder;
+import umpaz.brewinandchewin.data.recipe.KegFermentingRecipes;
 import umpaz.farmersrespite.common.registry.FRItems;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,11 +76,45 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
     }
 
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> finished) {
+        createFillingRecipe(finished, CosmoFluids.VANILLA_ICE_CREAM.get(), 250, CosmoItems.SPRING_SODA.get(), CosmoItems.ICE_CREAM_FLOAT.get(), new ModLoadedCondition(CosmoCompat.NEA), new ModLoadedCondition(CosmoCompat.FD));
+
+        kegPouringRecipe(finished, CosmoFluids.CONDENSED_MILK.get(), 250, CosmoItems.CONDENSED_MILK_BOTTLE.get());
+        kegPouringRecipe(finished, CosmoFluids.CONDENSED_MILK.get(), 1000, CosmoItems.CONDENSED_MILK_BUCKET.get());
+        kegPouringRecipe(finished, CosmoFluids.BIRCH_SAP.get(), 250, CosmoItems.BIRCH_SAP_BOTTLE.get());
+        kegPouringRecipe(finished, CosmoFluids.BERRY_SYRUP.get(), 250, CosmoItems.BERRY_SYRUP_BOTTLE.get());
+        kegPouringRecipe(finished, CosmoFluids.STEELEAF_NECTAR.get(), 250, CosmoItems.STEELEAF_NECTAR.get());
+        kegPouringRecipe(finished, CosmoFluids.ROOT_BEER.get(), 250, CosmoItems.ROOT_BEER.get());
+        kegPouringRecipe(finished, CosmoFluids.WILDBERRY_PUNCH.get(), 250, CosmoItems.WILDBERRY_PUNCH.get());
+        kegPouringRecipe(finished, CosmoFluids.SMOGGY_APEROL.get(), 250, CosmoItems.SMOGGY_APEROL.get());
+        kegPouringRecipe(finished, CosmoFluids.TWILIGHT_CHARTREUSE.get(), 250, CosmoItems.TWILIGHT_CHARTREUSE.get());
+
+        KegFermentingRecipeBuilder.kegFermentingRecipe(CosmoFluids.ROOT_BEER.get(), 1000, KegFermentingRecipes.NORMAL_FERMENTING, KegFermentingRecipes.MEDIUM_EXP)
+                .addFluidIngredient(CosmoFluids.BIRCH_SAP.get(), 1000)
+                .addIngredient(Items.HANGING_ROOTS)
+                .addIngredient(ModItems.TREE_BARK.get())
+                .addIngredient(Items.WHEAT)
+                .setRecipeBookTab(FermentingRecipeBookTab.DRINKS)
+                .unlockedByItems("has_tankard", BnCItems.TANKARD.get())
+                .unlockedByItems("has_wheat", Items.WHEAT)
+                .unlockedByItems("has_hanging_roots", Items.HANGING_ROOTS)
+                .unlockedByItems("has_birch_sap_bottle", CosmoItems.BIRCH_SAP_BOTTLE.get())
+                .build(finished, new ResourceLocation("cosmopolitan", "brewinandchewin/fermenting/root_beer"));
+
+        KegFermentingRecipeBuilder.kegFermentingRecipe(CosmoFluids.WILDBERRY_PUNCH.get(), 1000, KegFermentingRecipes.NORMAL_FERMENTING, KegFermentingRecipes.MEDIUM_EXP, 2)
+                .addFluidIngredient(CosmoFluids.BERRY_SYRUP.get(), 1000)
+                .addIngredient(CosmoItemTags.FRUITS)
+                .addIngredient(CosmoItemTags.FRUITS)
+                .setRecipeBookTab(FermentingRecipeBookTab.DRINKS)
+                .unlockedByItems("has_tankard", BnCItems.TANKARD.get())
+                .unlockedByItems("has_berry_syrup_bottle", CosmoItems.BERRY_SYRUP_BOTTLE.get())
+                .build(finished, new ResourceLocation("cosmopolitan", "brewinandchewin/fermenting/wildberry_punch"));
+
         registerFourStorageRecipe(finished, CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoBlocks.BERRY_SYRUP_BLOCK.get());
         registerFourStorageRecipe(finished, CosmoItems.BIRCH_SAP_BOTTLE.get(), CosmoBlocks.BIRCH_SAP_BLOCK.get());
 
         registerNineStorageRecipe(finished, CosmoItems.WILDBERRY.get(), CosmoBlocks.WILDBERRIES_BASKET.get());
         registerNineStorageRecipe(finished, CosmoItems.FIDDLEHEAD.get(), CosmoBlocks.FIDDLEHEAD_CRATE.get());
+        registerNineStorageRecipe(finished, CosmoItems.IRON_FIDDLEHEAD.get(), CosmoBlocks.IRON_FIDDLEHEAD_CRATE.get());
 
         registerConeRecipe(finished, CosmoItemTags.CHERRY, ItemRegistry.CherryIceCream.get(), CosmoItems.CHERRY_ICE_CREAM_CONE.get());
 
@@ -78,6 +122,12 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerConeRecipe(finished, FRItems.YELLOW_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "yellow_tea_ice_cream")), CosmoItems.YELLOW_TEA_ICE_CREAM_CONE.get());
         registerConeRecipe(finished, FRItems.BLACK_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "black_tea_ice_cream")), CosmoItems.BLACK_TEA_ICE_CREAM_CONE.get());
         registerConeRecipe(finished, FRItems.COFFEE_BEANS.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "coffee_ice_cream")), CosmoItems.COFFEE_ICE_CREAM_CONE.get());
+
+        registerIceCreamBlocksRecipe(finished, ItemRegistry.CherryIceCream.get(), CosmoBlocks.CHERRY_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "phytochemical_ice_cream")), CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "glacier_ice_cream")), CosmoBlocks.GLACIER_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "aurora_ice_cream")), CosmoBlocks.AURORA_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.TFD, "torchberry_ice_cream")), CosmoBlocks.TORCHBERRY_ICE_CREAM_BLOCK.get());
 
         registerIceCreamBlocksRecipe(finished, CosmoItems.APPLE_ICE_CREAM.get(), CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get());
         registerIceCreamBlocksRecipe(finished, CosmoItems.CARROT_ICE_CREAM.get(), CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get());
@@ -109,6 +159,12 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "yellow_tea_ice_cream_block")), CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "black_tea_ice_cream_block")), CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(CosmoCompat.RF, "coffee_ice_cream_block")), CosmoBlocks.COFFEE_ICE_CREAM_BRICKS.get());
+
+        registerFourBlocksRecipe(finished, CosmoBlocks.CHERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHERRY_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.AURORA_ICE_CREAM_BLOCK.get(), CosmoBlocks.AURORA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK.get(), CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.GLACIER_ICE_CREAM_BLOCK.get(), CosmoBlocks.GLACIER_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.TORCHBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.TORCHBERRY_ICE_CREAM_BRICKS.get());
 
         registerFourBlocksRecipe(finished, CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(), CosmoBlocks.APPLE_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(), CosmoBlocks.CARROT_ICE_CREAM_BRICKS.get());
@@ -229,6 +285,133 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerIceCreamInteraction(finished, FRItems.COFFEE_BEANS.get(), CosmoFluids.COFFEE_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.RF);
 
         registerIceCreamInteraction(finished, CosmoItemTags.CHERRY, CosmoFluids.CHERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SD);
+
+        iceCreamCreateRecipe(finished, CosmoFluids.GREEN_TEA_ICE_CREAM.get(), 750, FRItems.GREEN_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "green_tea_ice_cream")));
+        iceCreamCreateRecipe(finished, CosmoFluids.YELLOW_TEA_ICE_CREAM.get(), 750, FRItems.YELLOW_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "yellow_tea_ice_cream")));
+        iceCreamCreateRecipe(finished, CosmoFluids.BLACK_TEA_ICE_CREAM.get(), 750, FRItems.BLACK_TEA_LEAVES.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "black_tea_ice_cream")));
+        iceCreamCreateRecipe(finished, CosmoFluids.COFFEE_ICE_CREAM.get(), 750, FRItems.COFFEE_BEANS.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "coffee_ice_cream")));
+        iceCreamCreateRecipe(finished, CosmoFluids.CHERRY_ICE_CREAM.get(), 750, CosmoItemTags.CHERRY, ItemRegistry.CherryIceCream.get());
+    }
+
+    private void kegPouringRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, ItemLike item) {
+        ResourceLocation key2 = ForgeRegistries.ITEMS.getKey((Item) item);
+
+        KegPouringRecipeBuilder.kegPouringRecipe(fluid, i, item)
+                .build(finished, new ResourceLocation("cosmopolitan", "brewinandchewin/pouring/" + key2.getPath()));
+
+        createEmptyingAndFillingRecipe(finished, fluid, i, item, ((Item) item).getCraftingRemainingItem());
+    }
+
+    private void iceCreamCreateRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, TagKey<Item> item, ItemLike iceCream) {
+        ResourceLocation iceCreamKey = ForgeRegistries.ITEMS.getKey((Item) iceCream);
+        ICondition[] conditions = new ICondition[]{new ModLoadedCondition("neapolitan"), new ItemExistsCondition(iceCreamKey.toString()), new NotCondition(new TagEmptyCondition(item.location()))};
+
+        ProcessingRecipeBuilder<MixingRecipe> builder =
+                new ProcessingRecipeBuilder<>(MixingRecipe::new, new ResourceLocation("cosmopolitan", "create/" + iceCreamKey.getPath()))
+                        .require(item)
+                        .require(DelightfulItemTags.ICE_CUBES)
+                        .require(Items.SUGAR)
+                        .require(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("minecraft", "milk")), i)
+                        .output(fluid, i);
+
+        for (ICondition condition : conditions) {
+            builder.withCondition(condition);
+        }
+
+        Item Cone = ForgeRegistries.ITEMS.getValue(new ResourceLocation(Cosmopolitan.MODID, iceCreamKey.getPath() + "_cone"));
+        Item Milkshake = ForgeRegistries.ITEMS.getValue(new ResourceLocation(iceCreamKey.getNamespace(), iceCreamKey.getPath().replace("_ice_cream", "") + "_milkshake"));
+
+        builder.build(finished);
+
+        createEmptyingAndFillingRecipe(finished, fluid, i, iceCream, Items.BOWL, conditions);
+        if (Cone != Items.AIR) createFillingRecipe(finished, fluid, 250, CosmoItems.WAFER_CONE.get(), Cone, conditions);
+        if (Milkshake != Items.AIR) createFillingRecipe(finished, fluid, 250, CosmoItemTags.MILK_BOTTLE, Milkshake, conditions);
+    }
+
+    private void iceCreamCreateRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, ItemLike item, ItemLike iceCream) {
+        ResourceLocation iceCreamKey = ForgeRegistries.ITEMS.getKey((Item) iceCream);
+        ResourceLocation key2 = ForgeRegistries.ITEMS.getKey((Item) item);
+        ICondition[] conditions = new ICondition[]{new ModLoadedCondition("neapolitan"), new ItemExistsCondition(iceCreamKey.toString()), new ItemExistsCondition(key2.toString())};
+
+        ProcessingRecipeBuilder<MixingRecipe> builder =
+                new ProcessingRecipeBuilder<>(MixingRecipe::new, new ResourceLocation("cosmopolitan", "create/" + iceCreamKey.getPath()))
+                        .require(item)
+                        .require(DelightfulItemTags.ICE_CUBES)
+                        .require(Items.SUGAR)
+                        .require(ForgeRegistries.FLUIDS.getValue(new ResourceLocation("minecraft", "milk")), i)
+                        .output(fluid, i);
+
+        for (ICondition condition : conditions) {
+            builder.withCondition(condition);
+        }
+
+        Item Cone = ForgeRegistries.ITEMS.getValue(new ResourceLocation(Cosmopolitan.MODID, iceCreamKey.getPath() + "_cone"));
+        Item Milkshake = ForgeRegistries.ITEMS.getValue(new ResourceLocation(iceCreamKey.getNamespace(), iceCreamKey.getPath().replace("_ice_cream", "") + "_milkshake"));
+
+        builder.build(finished);
+
+        createEmptyingAndFillingRecipe(finished, fluid, i, iceCream, Items.BOWL, conditions);
+        if (Cone != Items.AIR) createFillingRecipe(finished, fluid, 250, CosmoItems.WAFER_CONE.get(), Cone, conditions);
+        if (Milkshake != Items.AIR) createFillingRecipe(finished, fluid, 250, CosmoItemTags.MILK_BOTTLE, Milkshake, conditions);
+    }
+
+    private void createEmptyingAndFillingRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, ItemLike item, ItemLike result, ICondition... conditions) {
+        createEmptyingRecipe(finished, fluid, i, item, result, conditions);
+        createFillingRecipe(finished, fluid, i, result, item, conditions);
+    }
+
+    private void createEmptyingRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, ItemLike item, ItemLike result, ICondition... conditions) {
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) item);
+
+        ProcessingRecipeBuilder<EmptyingRecipe> builder =
+                new ProcessingRecipeBuilder<>(EmptyingRecipe::new, new ResourceLocation("cosmopolitan", "create/" + key.getPath()))
+                        .require(item)
+                        .output(fluid, i)
+                        .output(result);
+
+        builder.withCondition(new ModLoadedCondition("create"));
+
+        for (ICondition condition : conditions) {
+            builder.withCondition(condition);
+        }
+
+        builder.build(finished);
+    }
+
+    private void createFillingRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, ItemLike item, ItemLike result, ICondition... conditions) {
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) result);
+
+        ProcessingRecipeBuilder<FillingRecipe> builder =
+                new ProcessingRecipeBuilder<>(FillingRecipe::new, new ResourceLocation("cosmopolitan", "create/" + key.getPath()))
+                        .require(fluid, i)
+                        .require(item)
+                        .output(result);
+
+        builder.withCondition(new ModLoadedCondition("create"));
+
+        for (ICondition condition : conditions) {
+            builder.withCondition(condition);
+        }
+
+        builder.build(finished);
+    }
+
+    private void createFillingRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, TagKey<Item> item, ItemLike result, ICondition... conditions) {
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) result);
+
+        ProcessingRecipeBuilder<FillingRecipe> builder =
+                new ProcessingRecipeBuilder<>(FillingRecipe::new, new ResourceLocation("cosmopolitan", "create/" + key.getPath()))
+                        .require(fluid, i)
+                        .require(item)
+                        .output(result);
+
+        builder.withCondition(new ModLoadedCondition("create"));
+
+        for (ICondition condition : conditions) {
+            builder.withCondition(condition);
+        }
+
+        builder.build(finished);
     }
 
     private void registerNineStorageRecipe(Consumer<FinishedRecipe> finished, ItemLike item, ItemLike result){
@@ -266,6 +449,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         ResourceLocation resultKey = ForgeRegistries.ITEMS.getKey((Item) result);
         ResourceLocation id = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath());
         ResourceLocation id2 = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath() + "from_ice_cream");
+        ICondition[] conditions = {new ModLoadedCondition("neapolitan"), new ItemExistsCondition(key.toString()), new ItemExistsCondition(iceCreamKey.toString())};
 
         ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, result, 3)
                 .requires(CosmoItems.WAFER_CONE.get())
@@ -284,12 +468,6 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
                 .requires(CosmoItems.WAFER_CONE.get())
                 .unlockedBy("has_" + iceCreamKey.getPath(), has(iceCream));
 
-        ICondition[] conditions = {
-                new ModLoadedCondition("neapolitan"),
-                new ItemExistsCondition(key.toString()),
-                new ItemExistsCondition(iceCreamKey.toString())
-        };
-
         registerConditionalRecipe(finished, id, builder, conditions);
         registerConditionalRecipe(finished, id2, builder2, conditions);
     }
@@ -299,6 +477,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         ResourceLocation resultKey = ForgeRegistries.ITEMS.getKey((Item) result);
         ResourceLocation id = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath());
         ResourceLocation id2 = new ResourceLocation(Cosmopolitan.MODID, "neapolitan/" + resultKey.getPath() + "from_ice_cream");
+        ICondition[] conditions = {new ModLoadedCondition("neapolitan"), new NotCondition(new TagEmptyCondition(item.location())), new ItemExistsCondition(iceCreamKey.toString())};
 
         ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, result, 3)
                 .requires(CosmoItems.WAFER_CONE.get())
@@ -317,12 +496,6 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
                 .requires(CosmoItems.WAFER_CONE.get())
                 .unlockedBy("has_" + iceCreamKey.getPath(), has(iceCream));
 
-        ICondition[] conditions = {
-                new ModLoadedCondition("neapolitan"),
-                new NotCondition(new TagEmptyCondition(item.location())),
-                new ItemExistsCondition(iceCreamKey.toString())
-        };
-
         registerConditionalRecipe(finished, id, builder, conditions);
         registerConditionalRecipe(finished, id2, builder2, conditions);
     }
@@ -340,6 +513,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
 
         ConditionalRecipe.builder()
                 .addCondition(new ModLoadedCondition("neapolitan"))
+                .addCondition(new ItemExistsCondition(key.toString()))
                 .addRecipe(consumer -> builder.save(consumer, id))
                 .build(finished, id);
     }
@@ -359,6 +533,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
 
         ConditionalRecipe.builder()
                 .addCondition(new ModLoadedCondition("neapolitan"))
+                .addCondition(new ItemExistsCondition(key.toString()))
                 .addRecipe(consumer -> builder.save(consumer, id))
                 .build(finished, id);
     }

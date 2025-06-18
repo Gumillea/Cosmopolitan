@@ -1,0 +1,23 @@
+{
+  "type": "create:emptying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:root_beer"
+    }
+  ],
+  "results": [
+    {
+      "item": "brewinandchewin:tankard"
+    },
+    {
+      "amount": 250,
+      "fluid": "cosmopolitan:root_beer"
+    }
+  ]
+}
