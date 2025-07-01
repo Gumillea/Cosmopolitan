@@ -5,12 +5,14 @@ import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -29,6 +31,9 @@ public class CosmoJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
+        List<CraftingRecipe> herbalCookie = HerbalCookieRecipeMaker.createRecipes();
+        registration.addRecipes(RecipeTypes.CRAFTING, herbalCookie);
+
         for (Supplier<Item> itemSupplier : INFO_ITEMS) {
             Item item = itemSupplier.get();
             ResourceLocation key = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
@@ -92,6 +97,16 @@ public class CosmoJEIPlugin implements IModPlugin {
                 ),
                 VanillaTypes.ITEM_STACK,
                 Component.translatable("jei." + Cosmopolitan.MODID + ".blisterberry_popsicle_double.desc")
+        );
+
+        registration.addIngredientInfo(
+                List.of(
+                        new ItemStack(CosmoItems.WANDERING_GELATO.get()),
+                        new ItemStack(CosmoItems.TRAVELERS_PANINI.get()),
+                        new ItemStack(CosmoItems.LLAMA_MARSHMALLOW_TRADER.get())
+                ),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei." + Cosmopolitan.MODID + ".wandering_gelato.desc")
         );
     }
     @Override

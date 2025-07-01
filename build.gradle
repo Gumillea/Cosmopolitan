@@ -141,6 +141,9 @@ dependencies {
     implementation fg.deobf("curse.maven:zeta-968868:6312779")
     implementation fg.deobf("curse.maven:quark-243121:6312787")
 
+    implementation fg.deobf("curse.maven:selene-499980:6693288")
+    implementation fg.deobf("curse.maven:supplementaries-412082:6615104")
+
     implementation fg.deobf("curse.maven:create-328085:6323270")
 
     implementation fg.deobf("curse.maven:ars-nouveau-401955:5894609")
@@ -155,6 +158,7 @@ dependencies {
     implementation fg.deobf("curse.maven:seasonals-416471:6058164")
     implementation fg.deobf("curse.maven:peculiars-418551:6058169")
     implementation fg.deobf("curse.maven:respiteful-836471:5563825")
+    implementation fg.deobf("curse.maven:cookielicious-409577:6415811")
 
     implementation fg.deobf("curse.maven:farmers-delight-398521:6154802")
     implementation fg.deobf("curse.maven:brewin-and-chewin-637808:6237884")

@@ -120,7 +120,7 @@ public class CosmoCompat {
     //habitat
     public static final MobEffect BLAST_ENDURANCE = ha ? (HabitatEffects.BLAST_ENDURANCE.get()) : CosmoEffects.PLACEHOLDER.get();
     public static Item KABLOOM = ForgeRegistries.ITEMS.getValue(new ResourceLocation(HA, "kabloom_pulp"));
-    public static Block KABLOOM_BLOCK = ModList.get().isLoaded(AN) ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
+    public static Block KABLOOM_BLOCK = ha ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(HA, "kabloom_bush")) : Blocks.SWEET_BERRY_BUSH;
 
     //neapolitan
     public static final MobEffect AGILITY = nea ? (NeapolitanMobEffects.AGILITY.get()) : CosmoEffects.PLACEHOLDER.get();

@@ -11,8 +11,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
-import static net.minecraft.world.item.crafting.Ingredient.of;
-
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoBlocks {
     public static final BlockSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockSubHelper();
@@ -113,6 +111,7 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> IRON_FIDDLEHEAD_CRATE = HELPER.createBlock("iron_fiddlehead_crate", () -> new BlueprintDirectionalBlock(Properties.FIDDLEHEAD_CRATE));
     public static final RegistryObject<Block> BERRY_SYRUP_BLOCK = HELPER.createBlock("berry_syrup_block", () -> new SyrupBlock(Properties.BERRY_SYRUP_BLOCK));
     public static final RegistryObject<Block> BIRCH_SAP_BLOCK = HELPER.createBlock("birch_sap_block", () -> new SyrupBlock(Properties.BIRCH_SAP_BLOCK));
+    public static final RegistryObject<Block> STEELEAF_NECTAR_BLOCK = HELPER.createBlock("steeleaf_nectar_block", () -> new SyrupBlock(Properties.STEELEAF_NECTAR_BLOCK));
 
     //Others
     public static final RegistryObject<Block> SAPPY_BIRCH_LOG = HELPER.createBlock("sappy_birch_log", () -> new SappyLogBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_LOG), Blocks.STRIPPED_BIRCH_LOG));
@@ -174,6 +173,7 @@ public class CosmoBlocks {
         //storage blocks
         public static final BlockBehaviour.Properties BERRY_SYRUP_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);
         public static final BlockBehaviour.Properties BIRCH_SAP_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);
+        public static final BlockBehaviour.Properties STEELEAF_NECTAR_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);
         public static final BlockBehaviour.Properties WILDBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava();
         public static final BlockBehaviour.Properties FIDDLEHEAD_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava();
 

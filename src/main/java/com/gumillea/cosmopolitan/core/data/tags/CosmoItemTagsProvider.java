@@ -101,6 +101,15 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.WHEATGRASS.get()
         );
 
+        this.tag(CosmoItemTags.EDIBLE_FLOWERS).add(
+                Items.ALLIUM,
+                Items.CORNFLOWER,
+                Items.DANDELION,
+                Items.OXEYE_DAISY,
+                Items.BLUE_ORCHID,
+                Items.TORCHFLOWER
+        );
+
         this.tag(CosmoItemTags.ICE_CREAM)
                 .add(
                         CosmoItems.APPLE_ICE_CREAM.get(),
@@ -185,6 +194,8 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.COOKIE).add(
                 CosmoItems.PAW_COOKIE.get(),
+                CosmoItems.BIRCH_COOKIE.get(),
+                CosmoItems.HERBAL_COOKIE.get(),
                 Items.COOKIE
         );
 

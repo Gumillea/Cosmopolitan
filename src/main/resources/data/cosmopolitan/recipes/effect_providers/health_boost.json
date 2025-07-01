@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "sereneseasons"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "minecraft:health_boost",
+        "providers": [
+          {
+            "item": "cosmopolitan:ice_cream_float"
+          },
+          {
+            "item": "cosmopolitan:spring_soda"
+          }
+        ]
+      }
+    }
+  ]
+}

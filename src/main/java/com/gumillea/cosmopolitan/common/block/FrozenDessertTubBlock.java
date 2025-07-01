@@ -2,12 +2,11 @@ package com.gumillea.cosmopolitan.common.block;
 
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
 import com.gumillea.cosmopolitan.common.fluid.CosmoIceCreamFluidType;
-import com.gumillea.cosmopolitan.core.misc.TubExtractRecipe;
-import com.gumillea.cosmopolitan.core.misc.TubInjectRecipe;
-import com.gumillea.cosmopolitan.core.misc.TubInteractingRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.TubExtractRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.TubInjectRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.TubInteractingRecipe;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlockEntityTypes;
 import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
-import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;

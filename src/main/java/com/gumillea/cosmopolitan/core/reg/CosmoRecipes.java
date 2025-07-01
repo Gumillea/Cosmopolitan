@@ -1,19 +1,24 @@
 package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
-import com.gumillea.cosmopolitan.core.misc.TubExtractRecipe;
-import com.gumillea.cosmopolitan.core.misc.TubInjectRecipe;
-import com.gumillea.cosmopolitan.core.misc.TubInteractingRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.HerbalCookieRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.TubExtractRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.TubInjectRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.TubInteractingRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
+import net.minecraft.world.item.crafting.SuspiciousStewRecipe;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public class CosmoRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, Cosmopolitan.MODID);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPE = DeferredRegister.create(Registries.RECIPE_TYPE, Cosmopolitan.MODID);
+
+    public static final RegistryObject<RecipeSerializer<?>> HERBAL_COOKIE = RECIPE_SERIALIZERS.register("herbal_cookie", () -> new SimpleCraftingRecipeSerializer<>(HerbalCookieRecipe::new));
 
     //public static final RegistryObject<RecipeSerializer<?>> JELLY_BEANS = RECIPE_SERIALIZERS.register("jean_beans", () -> new SimpleCraftingRecipeSerializer<>(JellyBeansRecipe::new));
 

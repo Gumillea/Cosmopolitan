@@ -24,13 +24,14 @@
   ],
   "ingredients": [
     {
-      "item": "cosmopolitan:steeleaf_nectar"
-    },
-    {
       "tag": "forge:ice_cubes"
     },
     {
       "item": "minecraft:sugar"
+    },
+    {
+      "amount": 250,
+      "fluid": "cosmopolitan:steeleaf_nectar"
     },
     {
       "amount": 750,

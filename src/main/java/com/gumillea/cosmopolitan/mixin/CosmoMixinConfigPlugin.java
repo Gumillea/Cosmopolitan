@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan.mixin;
 
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -20,9 +21,16 @@ public class CosmoMixinConfigPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (mixinClassName.endsWith("CookingPotRecipeMixin") || mixinClassName.endsWith("CuttingBoardRecipeMixin")) {
-            return LoadingModList.get().getModFileById("farmersdelight") != null;
+            return modLoaded("farmersdelight");
+        }
+        if (mixinClassName.endsWith("GameRendererMixin")) {
+            return !modLoaded("no_nv_flash") && !modLoaded("flickerfix") && !modLoaded("betternightvision") && !modLoaded("apoli");
         }
         return true;
+    }
+
+    private boolean modLoaded(String mod) {
+        return LoadingModList.get().getModFileById(mod) != null;
     }
 
     @Override public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {

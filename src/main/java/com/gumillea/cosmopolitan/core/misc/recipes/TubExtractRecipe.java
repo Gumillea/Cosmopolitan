@@ -1,14 +1,12 @@
-package com.gumillea.cosmopolitan.core.misc;
+package com.gumillea.cosmopolitan.core.misc.recipes;
 
 import com.google.gson.JsonElement;
 import com.gumillea.cosmopolitan.common.blockEntity.FrozenDessertTubBlockEntity;
-import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
 import com.gumillea.cosmopolitan.core.reg.CosmoRecipes;
 import com.google.gson.JsonObject;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;

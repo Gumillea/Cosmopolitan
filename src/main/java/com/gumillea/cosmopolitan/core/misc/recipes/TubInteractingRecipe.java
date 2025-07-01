@@ -1,4 +1,4 @@
-package com.gumillea.cosmopolitan.core.misc;
+package com.gumillea.cosmopolitan.core.misc.recipes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

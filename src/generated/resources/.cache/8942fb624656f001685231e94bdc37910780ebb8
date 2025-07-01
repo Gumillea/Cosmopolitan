@@ -1,10 +1,11 @@
-// 1.20.1	2025-06-17T18:26:22.1472527	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2025-07-01T01:17:47.3036059	Tags for minecraft:item mod id cosmopolitan
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
 32d6782776245a4bb07443f2eb4a2871982b5b8c data/blueprint/tags/items/pig_food.json
 610cb5f85825d58f4605c273fb39ed5a60fb687c data/brewinandchewin/tags/items/fermented_drinks.json
 f2386f28918a72073a589f3b819e044dae304d40 data/cosmopolitan/tags/items/abysmal_torch_sources.json
 18383a62299c491fe24195d822acff14ba7fb2f6 data/cosmopolitan/tags/items/biome_gulimes.json
 628fcf892d0b35d9730907c37570dbe5170b8077 data/cosmopolitan/tags/items/carotene_sources.json
+f629bfa604d65e68316714810b5e9f2474dcd97a data/cosmopolitan/tags/items/edible_flowers.json
 7c99740743f1d7cacb9eff509358be362e151199 data/cosmopolitan/tags/items/exuberant_sources.json
 efe1ad71cfcbaf824be5ad950532f968fb76ab89 data/cosmopolitan/tags/items/ice_cream_cones.json
 830b675c126a1e308858571302e8ce0de13bb5af data/cosmopolitan/tags/items/tracer_sources.json
@@ -14,7 +15,7 @@ f4b16af790a1c39d3adfa358c7a701fb92a8b0da data/create/tags/items/upright_on_belt.
 3627352f35a99f345d31df5c43fe145478631f98 data/forge/tags/items/cattails.json
 25093b4c17b8b5f98c63dc3e27ae9a68bd9d68a8 data/forge/tags/items/chocolate.json
 648d0504a9c8f2ce140f40e54f1c12503ace928a data/forge/tags/items/condensed_milk.json
-df1c340183af3e43018c270e209fe94dac59f4da data/forge/tags/items/cookies.json
+db913c036296253b4d678f38499d5ab82249a36b data/forge/tags/items/cookies.json
 bd38e56a90a3ce76bb301193722ac62a983fca50 data/forge/tags/items/cream.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/forge/tags/items/crops.json
 3a6049fdf6a247720cef5ea417a0c9519f707e01 data/forge/tags/items/crops/carrot.json

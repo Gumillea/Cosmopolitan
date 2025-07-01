@@ -9,9 +9,13 @@ import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoEffectTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
+import com.gumillea.cosmopolitan.core.misc.compat.supplementaries.SappyBirchLogInteraction;
+import com.gumillea.cosmopolitan.core.misc.compat.supplementaries.CosmoSoftFluids;
 import com.gumillea.cosmopolitan.core.reg.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
+import net.mehvahdjukaar.supplementaries.common.block.faucet.FaucetBehaviorsManager;
+import net.mehvahdjukaar.supplementaries.common.block.tiles.FaucetBlockTile;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.HolderLookup;
@@ -76,7 +80,10 @@ public class Cosmopolitan {
             if (ModList.get().isLoaded("neapolitan")) {
                 CosmoCauldronInteractions.registerCauldronInteractions();
             }
-
+            if (ModList.get().isLoaded("supplementaries")) {
+                CosmoSoftFluids.init();
+                FaucetBehaviorsManager.addRegisterFaucetInteraction(() -> FaucetBlockTile.registerInteraction(new SappyBirchLogInteraction()));
+            }
         });
     }
 
@@ -84,6 +91,7 @@ public class Cosmopolitan {
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BIRCH_SAP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.STEELEAF_NECTAR_BLOCK.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.LIFELIGHT.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.GLOW_PETALS.get(), RenderType.cutout());
         });

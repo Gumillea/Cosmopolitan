@@ -7,10 +7,12 @@ import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
@@ -30,9 +32,6 @@ import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -141,7 +140,7 @@ public class CosmoEvents {
         if (entity.hasEffect(CosmoEffects.CAROTENE.get())) {
             ITagManager<MobEffect> mobEffectTags = ForgeRegistries.MOB_EFFECTS.tags();
             if (mobEffectTags != null && mobEffectTags.getTag(CosmoEffectTags.CONVERTIBLE_BY_CAROTENE).contains(effect)) {
-                for (int i = 0; i < 5; ++i) {
+                for (int i = 0; i < 8; ++i) {
                     double d0 = MathUtils.RAND.nextGaussian() * 0.02D;
                     double d1 = MathUtils.RAND.nextGaussian() * 0.02D;
                     double d2 = MathUtils.RAND.nextGaussian() * 0.02D;
@@ -188,14 +187,24 @@ public class CosmoEvents {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
         if (player !=null && item instanceof DoublePopsicleItem doublePopsicle && !player.getCooldowns().isOnCooldown(item) && target instanceof LivingEntity living) {
+            FoodProperties food =  item.getFoodProperties();
+            if (food == null) return;
+
             if (living instanceof Player player1) {
-                player1.getFoodData().eat(3, 0.2F);
+                player1.getFoodData().eat(food.getNutrition() / 2, food.getSaturationModifier());
             }
+
             living.setTicksFrozen(living.getTicksFrozen() + 80);
             living.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
-            if (item == CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get()) living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), 500));
-            if (item == CosmoItems.CHORUS_FRUIT_DOUBLE_POPSICLE.get()) living.addEffect(new MobEffectInstance(CosmoCompat.RESONANCE, 400));
-            if (item == CosmoItems.LIME_DOUBLE_POPSICLE.get()) living.addEffect(new MobEffectInstance(CosmoCompat.CORROSION, 450));
+
+            if (!food.getEffects().isEmpty()) {
+                for (Pair<MobEffectInstance, Float> effectPair : food.getEffects()) {
+                    MobEffectInstance doubleEffect = effectPair.getFirst();
+                    MobEffectInstance effect = new MobEffectInstance(doubleEffect.getEffect(), doubleEffect.getDuration() / 2, doubleEffect.getAmplifier());
+                    living.addEffect(effect);
+                }
+            }
+
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
                 ItemStack popsicle = new ItemStack(doublePopsicle.getResult().get());
@@ -204,6 +213,7 @@ public class CosmoEvents {
                     player.drop(popsicle, false);
                 }
             }
+
             player.getCooldowns().addCooldown(item, 80);
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
@@ -263,6 +273,14 @@ public class CosmoEvents {
             }
         }
 
+        if (!level.isClientSide && inHand.getItem() instanceof HoeItem && block == Blocks.ROOTED_DIRT) {
+            for (int i = 0; i < 4 ; i++) {
+                if (level.getRandom().nextFloat() < 0.25) {
+                    Block.popResource(level, pos, new ItemStack(CosmoItems.TUBER.get()));
+                }
+            }
+        }
+
         if (block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
             if (CosmoCompat.fd && player.getItemInHand(hand).is(CosmoItemTags.KNIVES)) return;
 
@@ -309,7 +327,18 @@ public class CosmoEvents {
 
     @SubscribeEvent
     public static void onWandererTradesEvent(WandererTradesEvent event) {
-        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(4, CosmoItems.WANDERING_GELATO.get(), 1, 16, 2));
+        if (!CosmoCompat.fd) {
+            TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(2, CosmoItems.LLAMA_MARSHMALLOW.get(), 1, 16, 2));
+            TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.LLAMA_MARSHMALLOW.get(), 2, 8, 3));
+            TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(2, CosmoItems.LLAMA_MARSHMALLOW_BROWN.get(), 1, 16, 2));
+            TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.LLAMA_MARSHMALLOW_BROWN.get(), 2, 8, 3));
+        }
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(2, CosmoItems.WANDERING_GELATO.get(), 1, 16, 2));
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.WANDERING_GELATO.get(), 2, 8, 3));
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(2, CosmoItems.LLAMA_MARSHMALLOW_TRADER.get(), 1, 16, 2));
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.LLAMA_MARSHMALLOW_TRADER.get(), 2, 8, 3));
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(6, CosmoItems.TRAVELERS_PANINI.get(), 1, 8, 2));
+        TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(9, CosmoItems.TRAVELERS_PANINI.get(), 2, 4, 3));
         if(CosmoCompat.an && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.SOURCE_BERRY_PIPS.get(), 1, 12, 1));
         if(CosmoCompat.ha && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.KABLOOM_PIPS.get(), 1, 12, 1));
         if(CosmoConfig.Common.COSMOPOLITAN_COCKTAIL.get()) TradeUtil.addRareWandererTrades(event, new TradeUtil.BlueprintTrade(64, CosmoItems.COSMOPOLITAN_COCKTAIL.get(), 1, 1, 5));

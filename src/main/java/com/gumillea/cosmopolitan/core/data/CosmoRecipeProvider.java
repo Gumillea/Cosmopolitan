@@ -23,7 +23,6 @@ import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.teamabnormals.atmospheric.core.other.tags.AtmosphericItemTags;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericItems;
-import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import com.teamabnormals.neapolitan.core.other.tags.NeapolitanItemTags;
@@ -34,6 +33,8 @@ import net.brdle.collectorsreap.common.item.CRItems;
 import net.brnbrd.delightful.common.block.DelightfulBlocks;
 import net.brnbrd.delightful.common.item.DelightfulItems;
 import net.brnbrd.delightful.data.tags.DelightfulItemTags;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -63,10 +64,9 @@ import umpaz.brewinandchewin.data.builder.KegPouringRecipeBuilder;
 import umpaz.brewinandchewin.data.recipe.KegFermentingRecipes;
 import umpaz.farmersrespite.common.registry.FRItems;
 import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -76,6 +76,19 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
     }
 
     public void buildRecipes(@NotNull Consumer<FinishedRecipe> finished) {
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE.get(), 1, Items.BOWL, CosmoItems.ROASTED_TUBER.get(), CosmoItems.ROASTED_TUBER.get(), ForgeTags.MILK);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE_CONE.get(), 3, CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.TUBER_PUREE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE_CONE.get(), 3, CosmoItems.ROASTED_TUBER.get(), CosmoItems.ROASTED_TUBER.get(), ForgeTags.MILK, CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get());
+
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE_WITH_BERRY_SYRUP.get(), 1, CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoItems.TUBER_PUREE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE_WITH_BERRY_SYRUP.get(), 1, Items.BOWL, CosmoItems.ROASTED_TUBER.get(), CosmoItems.ROASTED_TUBER.get(), ForgeTags.MILK, CosmoItems.BERRY_SYRUP_BOTTLE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE_CONE_WITH_BERRY_SYRUP.get(), 3, CosmoItems.TUBER_PUREE_WITH_BERRY_SYRUP.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TUBER_PUREE_CONE_WITH_BERRY_SYRUP.get(), 3, CosmoItems.TUBER_PUREE_CONE.get(), CosmoItems.TUBER_PUREE_CONE.get(), CosmoItems.TUBER_PUREE_CONE.get(), CosmoItems.BERRY_SYRUP_BOTTLE.get());
+
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.WOODLAND_SUB.get(), 1, ForgeTags.BREAD, CosmoItems.BAKED_FIDDLEHEAD.get(), CosmoItems.BAKED_FIDDLEHEAD.get(), ForgeTags.COOKED_FISHES_SALMON);
+
+        foodCookingRecipes(finished, CosmoItems.TUBER.get(), CosmoItems.ROASTED_TUBER.get());
+
         createFillingRecipe(finished, CosmoFluids.VANILLA_ICE_CREAM.get(), 250, CosmoItems.SPRING_SODA.get(), CosmoItems.ICE_CREAM_FLOAT.get(), new ModLoadedCondition(CosmoCompat.NEA), new ModLoadedCondition(CosmoCompat.FD));
 
         kegPouringRecipe(finished, CosmoFluids.CONDENSED_MILK.get(), 250, CosmoItems.CONDENSED_MILK_BOTTLE.get());
@@ -111,6 +124,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
 
         registerFourStorageRecipe(finished, CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoBlocks.BERRY_SYRUP_BLOCK.get());
         registerFourStorageRecipe(finished, CosmoItems.BIRCH_SAP_BOTTLE.get(), CosmoBlocks.BIRCH_SAP_BLOCK.get());
+        registerFourStorageRecipe(finished, CosmoItems.STEELEAF_NECTAR.get(), CosmoBlocks.STEELEAF_NECTAR_BLOCK.get());
 
         registerNineStorageRecipe(finished, CosmoItems.WILDBERRY.get(), CosmoBlocks.WILDBERRIES_BASKET.get());
         registerNineStorageRecipe(finished, CosmoItems.FIDDLEHEAD.get(), CosmoBlocks.FIDDLEHEAD_CRATE.get());
@@ -292,6 +306,38 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         iceCreamCreateRecipe(finished, CosmoFluids.COFFEE_ICE_CREAM.get(), 750, FRItems.COFFEE_BEANS.get(), ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.RF, "coffee_ice_cream")));
         iceCreamCreateRecipe(finished, CosmoFluids.CHERRY_ICE_CREAM.get(), 750, CosmoItemTags.CHERRY, ItemRegistry.CherryIceCream.get());
     }
+
+    private void shapelessRecipe(Consumer<FinishedRecipe> finished, RecipeCategory category, ItemLike result, int count, Object... ingredients) {
+        ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(category, result, count);
+        Set<ItemLike> itemUnlocks = new HashSet<>();
+        Set<TagKey<Item>> tagUnlocks = new HashSet<>();
+
+        for (Object ingredient : ingredients) {
+            if (ingredient instanceof ItemLike item) {
+                builder.requires(item);
+                itemUnlocks.add(item);
+            }
+            if (ingredient instanceof TagKey<?> tag && tag.registry().equals(Registries.ITEM)) {
+                builder.requires((TagKey<Item>) tag);
+                tagUnlocks.add((TagKey<Item>) tag);
+            }
+        }
+
+        ResourceLocation key = ForgeRegistries.ITEMS.getKey((Item) itemUnlocks.stream().findFirst().get());
+        ResourceLocation resultKey = ForgeRegistries.ITEMS.getKey((Item) result);
+
+        for (ItemLike item : itemUnlocks) {
+            builder.unlockedBy("has_" + BuiltInRegistries.ITEM.getKey(item.asItem()).getPath(), has(item));
+        }
+
+        for (TagKey<Item> tag : tagUnlocks) {
+            builder.unlockedBy("has_" + tag.location().getPath(), has(tag));
+        }
+
+        builder.save(finished, new ResourceLocation("cosmopolitan", resultKey.getPath() + "_from_" + key.getPath()));
+    }
+
+    //one day, I'll tidy up all these ice cream things...
 
     private void kegPouringRecipe(Consumer<FinishedRecipe> finished, Fluid fluid, int i, ItemLike item) {
         ResourceLocation key2 = ForgeRegistries.ITEMS.getKey((Item) item);

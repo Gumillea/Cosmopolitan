@@ -2,16 +2,20 @@ package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.common.item.HerbalCookieItem;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import com.gumillea.exquisito.core.ExquisitoConfig;
 import net.brdle.collectorsreap.common.item.CRItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.SuspiciousEffectHolder;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.List;
+import java.util.Set;
 
 public class CosmoCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Cosmopolitan.MODID);
@@ -31,6 +35,7 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoBlocks.MASHED_POTATO_BLOCK.get());
                 output.accept(CosmoBlocks.BERRY_SYRUP_BLOCK.get());
                 output.accept(CosmoBlocks.BIRCH_SAP_BLOCK.get());
+                if (CosmoCompat.tf) output.accept(CosmoBlocks.STEELEAF_NECTAR_BLOCK.get());
                 if (CosmoCompat.nea) {
                     if (CosmoConfig.Common.APPLE_FLAVOR.get()) output.accept(CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get());
                     if (CosmoConfig.Common.CARROT_FLAVOR.get()) output.accept(CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get());
@@ -124,6 +129,8 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.BAKED_FIDDLEHEAD.get());
                 output.accept(CosmoItems.IRON_FIDDLEHEAD.get());
                 output.accept(CosmoItems.WHEATGRASS.get());
+                output.accept(CosmoItems.TUBER.get());
+                output.accept(CosmoItems.ROASTED_TUBER.get());
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.CUT_POTATOES.get());
                     output.accept(CosmoItems.POTATO_WEDGES.get());
@@ -137,6 +144,8 @@ public class CosmoCreativeTabs {
                     output.accept(CosmoItems.GLACIER_ESSENCE.get());
                 }
 
+                output.accept(CosmoItems.WOODLAND_SUB.get());
+                output.accept(CosmoItems.TRAVELERS_PANINI.get());
                 if (!CosmoCompat.isTagEmpty(CosmoItemTags.CATTAILS)) output.accept(CosmoItems.HOT_CATTAIL.get());
                 output.accept(CosmoItems.CREAM_BUN.get());
                 if (CosmoCompat.nea) {
@@ -150,7 +159,9 @@ public class CosmoCreativeTabs {
                 if (CosmoCompat.fd) output.accept(CosmoItems.CHOCOLATE_ROLL_SLICE.get());
                 output.accept(CosmoItems.INK_ROLL.get());
                 if (CosmoCompat.fd) output.accept(CosmoItems.INK_ROLL_SLICE.get());
+                output.accept(CosmoItems.BIRCH_COOKIE.get());
                 output.accept(CosmoItems.PAW_COOKIE.get());
+                generateHerbalCookies(output, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 if (CosmoCompat.an) output.accept(CosmoItems.MENDOSTEEN_TART.get());
                 if (CosmoCompat.ug) {
                     output.accept(CosmoItems.BLISTERBERRY_TART.get());
@@ -159,6 +170,11 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.BERRY_CHEESECAKE_BAR.get());
                 output.accept(CosmoItems.WHEATGRASS_CUBECAKE.get());
                 output.accept(CosmoItems.GLOW_BERRY_CUBECAKE.get());
+
+                output.accept(CosmoItems.LLAMA_MARSHMALLOW.get());
+                output.accept(CosmoItems.LLAMA_MARSHMALLOW_BROWN.get());
+                output.accept(CosmoItems.LLAMA_MARSHMALLOW_TRADER.get());
+
                 output.accept(CosmoItems.TOFFEE_APPLE.get());
                 output.accept(CosmoItems.TOFFEE_GOLDEN_APPLE.get());
 
@@ -184,6 +200,8 @@ public class CosmoCreativeTabs {
                 output.accept(CosmoItems.CLASSIC_FRUIT_SALAD.get());
                 output.accept(CosmoItems.JELLO_SALAD.get());
                 output.accept(CosmoItems.MASHED_POTATO.get());
+                output.accept(CosmoItems.TUBER_PUREE.get());
+                output.accept(CosmoItems.TUBER_PUREE_WITH_BERRY_SYRUP.get());
                 if (CosmoCompat.fd) {
                     output.accept(CosmoItems.GREEN_SAUCE.get());
                     output.accept(CosmoItems.GREEN_CREAM_STEW.get());
@@ -277,6 +295,8 @@ public class CosmoCreativeTabs {
                 }
                 output.accept(CosmoItems.WAFER_CONE.get());
                 output.accept(CosmoItems.MASHED_POTATO_CONE.get());
+                output.accept(CosmoItems.TUBER_PUREE_CONE.get());
+                output.accept(CosmoItems.TUBER_PUREE_CONE_WITH_BERRY_SYRUP.get());
                 output.accept(CosmoItems.SNOW_CONE.get());
                 output.accept(CosmoItems.WANDERING_GELATO.get());
                 if (CosmoCompat.nea) {
@@ -338,4 +358,18 @@ public class CosmoCreativeTabs {
                 }
             })
             .build());
+
+    private static void generateHerbalCookies(CreativeModeTab.Output output, CreativeModeTab.TabVisibility visibility) {
+        List<SuspiciousEffectHolder> list = SuspiciousEffectHolder.getAllEffectHolders();
+        Set<ItemStack> set = ItemStackLinkedSet.createTypeAndTagSet();
+
+        for(SuspiciousEffectHolder suspiciouseffectholder : list) {
+            ItemStack itemstack = new ItemStack(CosmoItems.HERBAL_COOKIE.get());
+            HerbalCookieItem.saveMobEffect(itemstack, suspiciouseffectholder.getSuspiciousEffect(), suspiciouseffectholder.getEffectDuration());
+            set.add(itemstack);
+        }
+
+        output.acceptAll(set, visibility);
+    }
+
 }

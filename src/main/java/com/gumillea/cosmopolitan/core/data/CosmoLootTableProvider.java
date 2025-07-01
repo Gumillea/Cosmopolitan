@@ -121,6 +121,7 @@ public class CosmoLootTableProvider extends LootTableProvider {
 
             this.dropSelf(CosmoBlocks.BERRY_SYRUP_BLOCK.get());
             this.dropSelf(CosmoBlocks.BIRCH_SAP_BLOCK.get());
+            this.dropSelf(CosmoBlocks.STEELEAF_NECTAR_BLOCK.get());
 
             this.dropCauldron(CosmoBlocks.APPLE_MILKSHAKE_CAULDRON.get());
             this.dropCauldron(CosmoBlocks.CARROT_MILKSHAKE_CAULDRON.get());

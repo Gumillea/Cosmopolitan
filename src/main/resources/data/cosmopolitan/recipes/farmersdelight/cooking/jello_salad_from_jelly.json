@@ -15,7 +15,7 @@
       "recipe": {
         "type": "farmersdelight:cooking",
         "cookingtime": 200,
-        "experience": 1,
+        "experience": 2,
         "ingredients": [
           {
             "tag": "forge:jams"

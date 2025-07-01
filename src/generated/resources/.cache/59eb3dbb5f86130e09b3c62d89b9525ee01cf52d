@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-11T14:42:20.9322272	Loot Tables
+// 1.20.1	2025-06-20T02:24:43.1180356	Loot Tables
 32c3952627cb2fb79639e5c8a698890cb4e89d57 data/cosmopolitan/loot_tables/blocks/adzuki_ice_cream_bricks.json
 3104086f3c546583895da85ac330371a2be1a2b6 data/cosmopolitan/loot_tables/blocks/aloe_ice_cream_bricks.json
 2668a17e96a4e34f6e4a5a527eab400655ec5d79 data/cosmopolitan/loot_tables/blocks/apple_ice_cream_block.json
@@ -64,6 +64,7 @@ a05ec68fff030a8514a513a17fb575f7b1d8a370 data/cosmopolitan/loot_tables/blocks/so
 80095bc48b4707b026bf169682bfa9f605a218a6 data/cosmopolitan/loot_tables/blocks/source_berry_ice_cream_bricks.json
 68942f9deaced176849c708bb7629224a214d3f3 data/cosmopolitan/loot_tables/blocks/source_berry_milkshake_cauldron.json
 d2cecd3c17529e0687f4c8f64dd45122af0dfe19 data/cosmopolitan/loot_tables/blocks/starcloud_ice_cream_bricks.json
+91dd23deb8b91071c2951dc1f9fd044fc6df54bd data/cosmopolitan/loot_tables/blocks/steeleaf_nectar_block.json
 721ab5e531631ad41e19f772b1174733b8825bfa data/cosmopolitan/loot_tables/blocks/strawberry_ice_cream_bricks.json
 1f2f7d4d5c8a666e495b13d4d8eeff0532071c9c data/cosmopolitan/loot_tables/blocks/sweet_berry_ice_cream_bricks.json
 209537a79b1aac215c5a59be82157ac79132849a data/cosmopolitan/loot_tables/blocks/torchberry_ice_cream_block.json

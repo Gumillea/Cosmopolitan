@@ -71,6 +71,7 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
 
         this.syrupBlock(CosmoBlocks.BERRY_SYRUP_BLOCK);
         this.syrupBlock(CosmoBlocks.BIRCH_SAP_BLOCK);
+        this.syrupBlock(CosmoBlocks.STEELEAF_NECTAR_BLOCK);
 
         this.crossBlock(CosmoBlocks.LIFELIGHT);
 

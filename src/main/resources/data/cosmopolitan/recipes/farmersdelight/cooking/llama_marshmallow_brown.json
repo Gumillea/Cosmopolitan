@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "tag": "forge:slimeballs"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "tag": "forge:eggs"
+          },
+          {
+            "item": "minecraft:cocoa_beans"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:stick"
+        },
+        "result": {
+          "item": "cosmopolitan:llama_marshmallow_brown",
+          "count": 2
+        }
+      }
+    }
+  ]
+}
