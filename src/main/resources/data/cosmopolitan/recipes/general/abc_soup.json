@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:crops/tomato"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:crops/carrot"
+    },
+    {
+      "tag": "forge:crops/potato"
+    },
+    {
+      "tag": "forge:crops/tomato"
+    },
+    {
+      "tag": "forge:bones"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:abc_soup"
+  }
+}

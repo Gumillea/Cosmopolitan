@@ -1,7 +1,6 @@
 package com.gumillea.cosmopolitan.core.misc.compat.supplementaries;
 
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
-import net.mehvahdjukaar.moonlight.api.fluids.SoftFluidStack;
 import net.mehvahdjukaar.supplementaries.common.block.faucet.FaucetSource;
 import net.mehvahdjukaar.supplementaries.common.block.faucet.FluidOffer;
 import net.minecraft.core.BlockPos;

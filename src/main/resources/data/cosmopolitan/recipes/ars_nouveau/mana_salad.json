@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "ars_nouveau:sourceberry_bush"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "ars_nouveau:magebloom"
+    },
+    {
+      "item": "ars_nouveau:sourceberry_bush"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:mana_salad"
+  }
+}

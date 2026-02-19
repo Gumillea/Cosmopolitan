@@ -1,0 +1,19 @@
+{
+  "type": "frycooks_delight:frying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "frycooks_delight"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:cut_tubers"
+    }
+  ],
+  "result": [
+    {
+      "item": "cosmopolitan:tuber_chips"
+    }
+  ]
+}

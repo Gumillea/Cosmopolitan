@@ -1,5 +1,17 @@
 {
   "values": [
+    "cosmopolitan:birch_cookie_tiles",
+    "cosmopolitan:birch_cookie_tile_slab",
+    "cosmopolitan:birch_cookie_tile_wall",
+    "cosmopolitan:birch_cookie_tile_stairs",
+    "cosmopolitan:herbal_cookie_tiles",
+    "cosmopolitan:herbal_cookie_tile_slab",
+    "cosmopolitan:herbal_cookie_tile_wall",
+    "cosmopolitan:herbal_cookie_tile_stairs",
+    "cosmopolitan:paw_cookie_tiles",
+    "cosmopolitan:paw_cookie_tile_slab",
+    "cosmopolitan:paw_cookie_tile_wall",
+    "cosmopolitan:paw_cookie_tile_stairs",
     "cosmopolitan:wheatgrass_bale"
   ]
 }

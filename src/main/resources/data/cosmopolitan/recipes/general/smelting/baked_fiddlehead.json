@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "cosmopolitan:fiddlehead"
+    "tag": "forge:crops/fiddleheads"
   },
   "result": "cosmopolitan:baked_fiddlehead",
   "experience": 0.35,

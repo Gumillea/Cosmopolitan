@@ -1,6 +1,6 @@
 package com.gumillea.cosmopolitan.core.util.jei;
 
-import com.gumillea.cosmopolitan.common.item.HerbalCookieItem;
+import com.gumillea.cosmopolitan.common.item.HerbalFoodItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import mezz.jei.api.constants.ModIds;
 import net.minecraft.core.Holder;
@@ -25,8 +25,10 @@ public class HerbalCookieRecipeMaker {
 
     public static List<CraftingRecipe> createRecipes() {
         String group = "jei.cosmopolitan.herbal.cookie";
-        Ingredient fiddlehead = Ingredient.of(CosmoItems.BAKED_FIDDLEHEAD.get());
-        Ingredient wheat = Ingredient.of(Items.WHEAT);
+        Ingredient powder = Ingredient.of(CosmoItems.HERBAL_POWDER.get());
+        Ingredient wheat1 = Ingredient.of(Items.WHEAT);
+        Ingredient wheat2 = Ingredient.of(Items.WHEAT);
+        Ingredient honey = Ingredient.of(Items.HONEY_BOTTLE);
 
         return BuiltInRegistries.ITEM.getTag(ItemTags.SMALL_FLOWERS)
                 .stream()
@@ -38,10 +40,10 @@ public class HerbalCookieRecipeMaker {
                 .map(FlowerBlock.class::cast)
                 .<CraftingRecipe>map(flowerBlock -> {
                     Ingredient flower = Ingredient.of(flowerBlock.asItem());
-                    NonNullList<Ingredient> inputs = NonNullList.of(Ingredient.EMPTY, wheat, wheat, fiddlehead, flower);
-                    ItemStack output = new ItemStack(CosmoItems.HERBAL_COOKIE.get(), 4);
+                    NonNullList<Ingredient> inputs = NonNullList.of(Ingredient.EMPTY, wheat1, wheat2, honey, powder, flower);
+                    ItemStack output = new ItemStack(CosmoItems.HERBAL_COOKIE.get(), 8);
                     MobEffect mobeffect = flowerBlock.getSuspiciousEffect();
-                    HerbalCookieItem.saveMobEffect(output, mobeffect, flowerBlock.getEffectDuration());
+                    HerbalFoodItem.saveMobEffect(output, mobeffect, flowerBlock.getEffectDuration());
                     ResourceLocation id = new ResourceLocation(ModIds.MINECRAFT_ID, "jei.cosmopolitan.herbal.cookie." + flowerBlock.getDescriptionId());
                     return new ShapelessRecipe(id, group, CraftingBookCategory.MISC, output, inputs);
                 })

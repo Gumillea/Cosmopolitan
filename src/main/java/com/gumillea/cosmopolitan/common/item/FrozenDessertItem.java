@@ -34,5 +34,9 @@ public class FrozenDessertItem extends EffectItem {
         return CosmoCompat.nea ? NeapolitanSoundEvents.ICE_CUBES_EAT.get() : SoundEvents.GENERIC_EAT;
     }
 
+    public int gettFrozen() {
+        return tFrozen;
+    }
+
 }
 

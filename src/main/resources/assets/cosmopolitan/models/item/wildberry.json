@@ -1,0 +1,17 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "cosmopolitan:item/wildberry_0"
+  },
+  "overrides": [
+    { "predicate": { "shape": 0.0   }, "model": "cosmopolitan:item/wildberry_0" },
+    { "predicate": { "shape": 0.125 }, "model": "cosmopolitan:item/wildberry_1" },
+    { "predicate": { "shape": 0.25  }, "model": "cosmopolitan:item/wildberry_2" },
+    { "predicate": { "shape": 0.375 }, "model": "cosmopolitan:item/wildberry_3" },
+    { "predicate": { "shape": 0.5   }, "model": "cosmopolitan:item/wildberry_4" },
+    { "predicate": { "shape": 0.625 }, "model": "cosmopolitan:item/wildberry_5" },
+    { "predicate": { "shape": 0.75  }, "model": "cosmopolitan:item/wildberry_6" },
+    { "predicate": { "shape": 0.875 }, "model": "cosmopolitan:item/wildberry_7" },
+    { "predicate": { "shape": 1.0   }, "model": "cosmopolitan:item/wildberry_8" }
+  ]
+}

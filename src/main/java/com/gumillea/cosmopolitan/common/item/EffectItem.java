@@ -1,14 +1,8 @@
 package com.gumillea.cosmopolitan.common.item;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
-import com.gumillea.cosmopolitan.Cosmopolitan;
-import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
-import com.mojang.datafixers.util.Pair;
+import com.gumillea.cosmopolitan.core.util.CosmoTooltipEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffectUtil;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -30,22 +24,6 @@ public class EffectItem extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag flag) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
 
-        FoodProperties properties = this.getFoodProperties(stack, null);
-        if (properties == null) return;
-
-        for (Pair<MobEffectInstance, Float> pair : properties.getEffects()) {
-            MobEffectInstance effect = pair.getFirst();
-            float probability = pair.getSecond();
-
-            if (effect.getEffect() == CosmoEffects.PLACEHOLDER.get()) continue;
-
-            MutableComponent effectTooltip = Component
-                    .translatable(effect.getDescriptionId())
-                    .append(effect.getAmplifier() > 0 ? Component.literal(" ").append(Component.translatable("potion.potency." + effect.getAmplifier())) : Component.empty())
-                    .append(effect.getDuration() > 20 ? Component.literal(" (").append(MobEffectUtil.formatDuration(effect, 1.0F)).append(")") : Component.empty())
-                    .append(probability < 1.0f ? Component.literal(" - " + (int)(probability * 100) + "%") : Component.empty());
-
-            tooltip.add(effectTooltip.withStyle(effect.getEffect().getCategory().getTooltipFormatting()));
-        }
+        CosmoTooltipEvent.addEffectTooltip(this, stack, tooltip);
     }
 }

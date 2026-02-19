@@ -19,8 +19,10 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
 import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
@@ -51,6 +53,21 @@ public class CosmoLootTableProvider extends LootTableProvider {
 
         @Override
         public void generate() {
+            this.dropSelf(CosmoBlocks.BIRCH_COOKIE_TILE.get());
+            this.add(CosmoBlocks.BIRCH_COOKIE_TILE_SLAB.get(), this::createSlabItemTable);
+            this.dropSelf(CosmoBlocks.BIRCH_COOKIE_TILE_STAIRS.get());
+            this.dropSelf(CosmoBlocks.BIRCH_COOKIE_TILE_WALL.get());
+
+            this.dropSelf(CosmoBlocks.HERBAL_COOKIE_TILE.get());
+            this.add(CosmoBlocks.HERBAL_COOKIE_TILE_SLAB.get(), this::createSlabItemTable);
+            this.dropSelf(CosmoBlocks.HERBAL_COOKIE_TILE_STAIRS.get());
+            this.dropSelf(CosmoBlocks.HERBAL_COOKIE_TILE_WALL.get());
+
+            this.dropSelf(CosmoBlocks.PAW_COOKIE_TILE.get());
+            this.add(CosmoBlocks.PAW_COOKIE_TILE_SLAB.get(), this::createSlabItemTable);
+            this.dropSelf(CosmoBlocks.PAW_COOKIE_TILE_STAIRS.get());
+            this.dropSelf(CosmoBlocks.PAW_COOKIE_TILE_WALL.get());
+
             this.dropSelf(CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get());
             this.dropSelf(CosmoBlocks.ADZUKI_ICE_CREAM_BRICKS.get());
             this.dropSelf(CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get());
@@ -116,8 +133,11 @@ public class CosmoLootTableProvider extends LootTableProvider {
             this.dropSelf(CosmoBlocks.WHEATGRASS_BALE.get());
 
             this.dropSelf(CosmoBlocks.WILDBERRIES_BASKET.get());
+            this.dropSelf(CosmoBlocks.ARBUTUS_BERRIES_BASKET.get());
+            this.dropSelf(CosmoBlocks.GOLDEN_ARBUTUS_BERRIES_BASKET.get());
             this.dropSelf(CosmoBlocks.FIDDLEHEAD_CRATE.get());
             this.dropSelf(CosmoBlocks.IRON_FIDDLEHEAD_CRATE.get());
+            this.dropSelf(CosmoBlocks.TUBER_CRATE.get());
 
             this.dropSelf(CosmoBlocks.BERRY_SYRUP_BLOCK.get());
             this.dropSelf(CosmoBlocks.BIRCH_SAP_BLOCK.get());
@@ -134,8 +154,18 @@ public class CosmoLootTableProvider extends LootTableProvider {
             this.dropTub(CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get());
             this.dropTub(CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get());
 
+            this.dropNothing(CosmoBlocks.WATER_PIE.get());
+            this.dropNothing(CosmoBlocks.GLOW_BERRY_CUBECAKE.get());
+            this.dropNothing(CosmoBlocks.WHEATGRASS_CUBECAKE.get());
+            this.dropNothing(CosmoBlocks.CHORUS_FRUIT_CUBECAKE.get());
+            this.dropNothing(CosmoBlocks.WARPED_VELVET_CUBECAKE.get());
+
             this.dropNothing(CosmoBlocks.GLOW_PETALS.get());
             this.dropNothing(CosmoBlocks.LIFELIGHT.get());
+            this.dropNothing(CosmoBlocks.PLACEHOLDER.get());
+
+            this.dropFlowerPotAndCrop(CosmoBlocks.POTTED_WILDBERRY_BUSH.get());
+            this.dropFlowerPotAndCrop(CosmoBlocks.POTTED_FIDDLEHEAD_GREENS.get());
         }
 
         private void dropCauldron(Block block) {
@@ -144,6 +174,26 @@ public class CosmoLootTableProvider extends LootTableProvider {
 
         private void dropNothing(Block block) {
             this.add(block, noDrop());
+        }
+
+        private void dropFlowerPotAndCrop(Block block) {
+            final String poolName = ForgeRegistries.BLOCKS.getKey(block).getPath();
+            Item item = block.getCloneItemStack(null, null, block.defaultBlockState()).getItem();
+
+            LootPool.Builder pool1 = LootPool.lootPool()
+                    .name(poolName + "_pot")
+                    .setRolls(ConstantValue.exactly(1))
+                    .add(LootItem.lootTableItem(Blocks.FLOWER_POT)
+                            .apply(ApplyExplosionDecay.explosionDecay()));
+
+            LootPool.Builder pool2 = LootPool.lootPool()
+                    .name(poolName + "_crop")
+                    .setRolls(ConstantValue.exactly(1))
+                    .add(LootItem.lootTableItem(item)
+                            .apply(ApplyExplosionDecay.explosionDecay()));
+
+            this.add(block, LootTable.lootTable().withPool(pool1).withPool(pool2));
+
         }
 
         private void dropTub(Block block) {

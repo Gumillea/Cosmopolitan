@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "cosmopolitan:wattleseeds"
+    },
+    {
+      "item": "cosmopolitan:wattleseeds"
+    },
+    {
+      "item": "cosmopolitan:wattleseeds"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:bush_bread"
+  }
+}

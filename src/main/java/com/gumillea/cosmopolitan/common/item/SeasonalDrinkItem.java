@@ -1,12 +1,15 @@
 package com.gumillea.cosmopolitan.common.item;
 
-import com.google.common.collect.Lists;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.teamtea.eclipticseasons.api.constant.solar.SolarTerm;
+import com.teamtea.eclipticseasons.common.core.SolarHolders;
+import com.teamtea.eclipticseasons.common.core.solar.SolarDataManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
@@ -19,7 +22,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
-import sereneseasons.init.ModConfig;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -67,8 +69,11 @@ public class SeasonalDrinkItem extends DrinkItem{
             living.setTicksFrozen(0);
         }
 
-        if (CosmoCompat.ss && ModConfig.fertility.seasonalCrops) {
-            Season currentSeason = SeasonHelper.getSeasonState(level).getSeason();
+
+        if (!(level instanceof ServerLevel serverLevel)) return super.finishUsingItem(stack, level, living);
+
+        if (CosmoCompat.ss) {
+            Season currentSeason = SeasonHelper.getSeasonState(serverLevel).getSeason();
 
             Map<Season, Boolean> map = Map.of(
                     Season.SPRING, isSpring,
@@ -77,12 +82,28 @@ public class SeasonalDrinkItem extends DrinkItem{
                     Season.WINTER, isWinter
             );
 
-            if (map.get(currentSeason)){
+            if (map.get(currentSeason)) {
+                for (MobEffectInstance effect : SEASONAL_EFFECTS.get()) {
+                    living.addEffect(new MobEffectInstance(effect));
+                }
+            }
+        } else if (CosmoCompat.es) {
+            com.teamtea.eclipticseasons.api.constant.solar.Season currentSeason = SolarHolders.getSaveData(serverLevel).getSolarTerm().getSeason();
+
+            Map<com.teamtea.eclipticseasons.api.constant.solar.Season, Boolean> map = Map.of(
+                    com.teamtea.eclipticseasons.api.constant.solar.Season.SPRING, isSpring,
+                    com.teamtea.eclipticseasons.api.constant.solar.Season.SUMMER, isSummer,
+                    com.teamtea.eclipticseasons.api.constant.solar.Season.AUTUMN, isAutumn,
+                    com.teamtea.eclipticseasons.api.constant.solar.Season.WINTER, isWinter
+            );
+
+            if (map.get(currentSeason)) {
                 for (MobEffectInstance effect : SEASONAL_EFFECTS.get()) {
                     living.addEffect(new MobEffectInstance(effect));
                 }
             }
         }
+
 
         return super.finishUsingItem(stack, level, living);
     }
@@ -100,7 +121,7 @@ public class SeasonalDrinkItem extends DrinkItem{
             tooltip.add(hotDrink.withStyle(ChatFormatting.BLUE));
         }
 
-        if (!CosmoCompat.ss) return;
+        if (!CosmoCompat.ss && !CosmoCompat.es) return;
         MutableComponent seasonalEffect = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.in_" + season);
         tooltip.add(seasonalEffect.withStyle(ChatFormatting.GRAY));
 

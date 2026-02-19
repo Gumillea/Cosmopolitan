@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "cosmopolitan:berry_syrup_bottle"
+    },
+    {
+      "tag": "forge:cream"
+    },
+    {
+      "tag": "forge:berries"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:berry_cream_cheese_bagel",
+    "count": 2
+  }
+}

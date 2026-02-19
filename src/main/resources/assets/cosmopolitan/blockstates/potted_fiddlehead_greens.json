@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "age=0":  { "model": "cosmopolitan:block/potted_fiddlehead_greens_age0" },
+    "age=1":  { "model": "cosmopolitan:block/potted_fiddlehead_greens_age1" }
+  }
+}

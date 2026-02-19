@@ -1,15 +1,23 @@
 package com.gumillea.cosmopolitan.core.data.models;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
+import com.gumillea.cosmopolitan.common.block.FDPieBlock;
+import com.gumillea.cosmopolitan.core.misc.CosmoBlockFamilies;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
+import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
+import net.brnbrd.delightful.Util;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.block.PieBlock;
 
 public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
 
@@ -19,6 +27,10 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        this.blockFamily(CosmoBlockFamilies.BIRCH_COOKIE_FAMILY);
+        this.blockFamily(CosmoBlockFamilies.HERBAL_COOKIE_FAMILY);
+        this.blockFamily(CosmoBlockFamilies.PAW_COOKIE_FAMILY);
+
         this.block(CosmoBlocks.MASHED_POTATO_BLOCK);
         this.block(CosmoBlocks.APPLE_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.CARROT_ICE_CREAM_BLOCK);
@@ -84,8 +96,16 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
 
         this.logBlock(CosmoBlocks.WHEATGRASS_BALE);
         this.directionalBlock(CosmoBlocks.WILDBERRIES_BASKET);
+        this.directionalBlock(CosmoBlocks.ARBUTUS_BERRIES_BASKET);
+        this.directionalBlock(CosmoBlocks.GOLDEN_ARBUTUS_BERRIES_BASKET);
         this.directionalBlock(CosmoBlocks.FIDDLEHEAD_CRATE);
         this.directionalBlock(CosmoBlocks.IRON_FIDDLEHEAD_CRATE);
+        this.directionalBlock(CosmoBlocks.TUBER_CRATE);
+
+        this.pieBlock(CosmoBlocks.WATER_PIE);
+        this.cubecakeBlock(CosmoBlocks.GLOW_BERRY_CUBECAKE);
+        this.cubecakeBlock(CosmoBlocks.WHEATGRASS_CUBECAKE);
+        this.cubecakeBlock(CosmoBlocks.WARPED_VELVET_CUBECAKE);
     }
 
     public void syrupBlock(RegistryObject<Block> block) {
@@ -135,4 +155,44 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
                 .partialState().with(LayeredCauldronBlock.LEVEL, 2).modelForState().modelFile(level2).addModel()
                 .partialState().with(LayeredCauldronBlock.LEVEL, 3).modelForState().modelFile(full).addModel();
     }
+
+    public void pieBlock(RegistryObject<Block> block) {
+        String path = block.getId().getPath().replace("_block", "");
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            int bites = state.getValue(FDPieBlock.BITES);
+            Direction facing = state.getValue(FDPieBlock.FACING);
+            String suffix = bites > 0 ? "_slice" + bites : "";
+
+            BlockModelBuilder model = models()
+                    .withExistingParent("block/" + path + suffix, modLoc("block/pie" + suffix))
+                    .texture("top", CosmoCompat.id(Cosmopolitan.MODID, "block/" + path + "_top"))
+                    .texture("bottom", CosmoCompat.id(Cosmopolitan.MODID,"block/" + path + "_bottom"))
+                    .texture("particle", CosmoCompat.id(Cosmopolitan.MODID,"block/" + path + "_bottom"))
+                    .texture("side", CosmoCompat.id(Cosmopolitan.MODID,"block/" + path + "_side"));
+
+            if (bites > 0) {
+                model.texture("inner", CosmoCompat.id(Cosmopolitan.MODID,"block/" + path + "_inner"));
+            }
+
+            return ConfiguredModel.builder().modelFile(model).rotationY(((int) facing.toYRot() + 180) % 360).build();
+        });
+    }
+
+    public void cubecakeBlock(RegistryObject<Block> block) {
+        String path = block.getId().getPath().replace("_block", "");
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            int bites = state.getValue(FDPieBlock.BITES);
+            Direction facing = state.getValue(FDPieBlock.FACING);
+            String suffix = bites > 0 ? "_cake" + bites : "";
+
+            BlockModelBuilder model = models()
+                    .withExistingParent("block/" + path + suffix, modLoc("block/cubecake" + suffix))
+                    .texture("cubecake", CosmoCompat.id(Cosmopolitan.MODID, "block/" + path));
+
+            return ConfiguredModel.builder().modelFile(model).rotationY(((int) facing.toYRot() + 180) % 360).build();
+        });
+    }
+
 }

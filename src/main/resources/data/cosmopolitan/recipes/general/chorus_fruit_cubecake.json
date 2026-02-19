@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "tag": "forge:fruits/chorus"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:chorus_fruit_cubecake",
+    "count": 2
+  }
+}

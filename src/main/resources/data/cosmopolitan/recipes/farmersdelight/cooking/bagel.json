@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "tag": "forge:dough"
+          },
+          {
+            "tag": "forge:seeds"
+          },
+          {
+            "item": "minecraft:honey_bottle"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "item": "cosmopolitan:bagel",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

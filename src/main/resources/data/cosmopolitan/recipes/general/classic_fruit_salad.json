@@ -2,9 +2,6 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:bowl"
-    },
-    {
       "tag": "forge:fruits/apple"
     },
     {
@@ -12,6 +9,9 @@
     },
     {
       "item": "cosmopolitan:wildberry"
+    },
+    {
+      "item": "minecraft:bowl"
     }
   ],
   "result": {

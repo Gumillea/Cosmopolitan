@@ -30,7 +30,7 @@ public class GlowPetalsBlock extends Block {
         if (entity instanceof LivingEntity living && living.hasEffect(CosmoEffects.MARKED.get())) return;
 
         Vec3 movement = entity.getDeltaMovement();
-        Vec3 boosted = new Vec3(movement.x * 1.25, movement.y, movement.z * 1.25);
+        Vec3 boosted = new Vec3(movement.x * 1.1, movement.y, movement.z * 1.1);
         entity.setDeltaMovement(boosted);
     }
 

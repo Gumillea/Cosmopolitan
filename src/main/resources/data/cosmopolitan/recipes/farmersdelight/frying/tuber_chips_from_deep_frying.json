@@ -1,0 +1,14 @@
+{
+  "type": "casualness_delight:deep_frying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "casualness_delight"
+    }
+  ],
+  "ingredient": {
+    "item": "cosmopolitan:cut_tubers"
+  },
+  "cookingtime": 100,
+  "result": "cosmopolitan:tuber_chips"
+}

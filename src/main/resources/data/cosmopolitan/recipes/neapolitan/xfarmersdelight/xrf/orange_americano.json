@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    },
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:ice_cubes"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:fruits/orange"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:fruits/orange"
+    },
+    {
+      "item": "cosmopolitan:iced_americano"
+    },
+    {
+      "item": "cosmopolitan:iced_americano"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:orange_americano",
+    "count": 2
+  }
+}

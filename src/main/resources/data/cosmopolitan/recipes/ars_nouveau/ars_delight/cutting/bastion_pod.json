@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "arsdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "ars_nouveau:bastion_pod"
+    }
+  ],
+  "tool": {
+    "item": "arsdelight:enchanters_knife"
+  },
+  "result": [
+    {
+      "item": "minecraft:magenta_dye",
+      "count": 1
+    },
+    {
+      "item": "ars_nouveau:abjuration_essence",
+      "chance": 0.03
+    }
+  ]
+}

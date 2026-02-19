@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "tag": "forge:cooked_beef"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "tag": "forge:crops/tomato"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:bagel_sandwich",
+    "count": 2
+  }
+}

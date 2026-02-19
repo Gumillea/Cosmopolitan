@@ -9,6 +9,9 @@
     "cosmopolitan:seasonal_ice_cream",
     "cosmopolitan:peculiar_ice_cream",
     "cosmopolitan:classic_ice_cream",
+    "cosmopolitan:collective_ice_cream",
+    "cosmopolitan:delightful_ice_cream",
+    "cosmopolitan:exquisite_ice_cream",
     "cosmopolitan:refreshing_ice_cream_sandwich",
     "cosmopolitan:twilight_ice_cream_sandwich",
     "cosmopolitan:rainbow_ice_cream_sandwich",
@@ -18,6 +21,10 @@
     "cosmopolitan:respiteful_ice_cream_sandwich",
     "cosmopolitan:tricolored_ice_cream_sandwich",
     "cosmopolitan:classic_ice_cream_sandwich",
+    "cosmopolitan:collective_ice_cream_sandwich",
+    "cosmopolitan:delightful_ice_cream_sandwich",
+    "cosmopolitan:exquisite_ice_cream_sandwich",
+    "cosmopolitan:sunny_ice_cream_sandwich",
     "#cosmopolitan:ice_cream_cones"
   ]
 }

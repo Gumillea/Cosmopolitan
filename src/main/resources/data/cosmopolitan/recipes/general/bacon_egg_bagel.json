@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:cooked_bacon"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:cooked_eggs"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "tag": "forge:cooked_bacon"
+    },
+    {
+      "tag": "forge:cooked_bacon"
+    },
+    {
+      "tag": "forge:cooked_eggs"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:bacon_egg_bagel",
+    "count": 2
+  }
+}

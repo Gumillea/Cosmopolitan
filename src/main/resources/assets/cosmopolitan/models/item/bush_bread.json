@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/bush_bread1",
+      "predicate": {
+        "minecraft:damage": 0.25
+      }
+    },
+    {
+      "model": "cosmopolitan:item/bush_bread2",
+      "predicate": {
+        "minecraft:damage": 0.5
+      }
+    },
+    {
+      "model": "cosmopolitan:item/bush_bread3",
+      "predicate": {
+        "minecraft:damage": 0.75
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/bush_bread0"
+  }
+}

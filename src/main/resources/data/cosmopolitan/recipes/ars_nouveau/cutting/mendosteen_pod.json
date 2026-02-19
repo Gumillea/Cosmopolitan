@@ -1,0 +1,34 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    },
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "arsdelight"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "ars_nouveau:mendosteen_pod"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "minecraft:lime_dye",
+      "count": 1
+    }
+  ]
+}

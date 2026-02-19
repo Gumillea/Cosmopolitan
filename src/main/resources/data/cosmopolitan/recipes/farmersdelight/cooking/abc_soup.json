@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "tag": "forge:crops/carrot"
+          },
+          {
+            "tag": "forge:crops/potato"
+          },
+          {
+            "tag": "forge:crops/tomato"
+          },
+          {
+            "tag": "forge:bones"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "result": {
+          "item": "cosmopolitan:abc_soup"
+        }
+      }
+    }
+  ]
+}

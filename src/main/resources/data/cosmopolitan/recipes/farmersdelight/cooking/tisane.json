@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 1800,
+        "experience": 1,
+        "ingredients": [
+          {
+            "item": "cosmopolitan:herbal_powder"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          },
+          {
+            "tag": "minecraft:small_flowers"
+          },
+          {
+            "tag": "minecraft:small_flowers"
+          },
+          {
+            "tag": "forge:seeds"
+          }
+        ],
+        "container": {
+          "item": "minecraft:honey_bottle"
+        },
+        "recipe_book_tab": "drinks",
+        "result": {
+          "item": "cosmopolitan:tisane"
+        }
+      }
+    }
+  ]
+}

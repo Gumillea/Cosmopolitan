@@ -18,6 +18,7 @@ public class CaroteneCapability implements ICapabilityProvider, INBTSerializable
     public static final int REMOVE_THRESHOLD = 500;
     public static final int DECAY_RATE = 10;
     public static final int TICK_INTERVAL = 400;
+    public String ID = "carotene";
 
     private final LazyOptional<CaroteneCapability> holder = LazyOptional.of(() -> this);
 
@@ -44,13 +45,13 @@ public class CaroteneCapability implements ICapabilityProvider, INBTSerializable
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
-        nbt.putInt("carotene", value);
+        nbt.putInt(ID, value);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        value = Mth.clamp(nbt.getInt("carotene"), 0, MAX);
+        value = Mth.clamp(nbt.getInt(ID), 0, MAX);
     }
 
 }

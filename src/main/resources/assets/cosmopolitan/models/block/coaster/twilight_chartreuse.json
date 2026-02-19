@@ -1,0 +1,7 @@
+{
+  "parent": "brewinandchewin:block/coaster_tankard",
+  "textures": {
+    "particle": "cosmopolitan:block/coaster/twilight_chartreuse",
+    "tankard": "cosmopolitan:block/coaster/twilight_chartreuse"
+  }
+}

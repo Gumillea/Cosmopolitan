@@ -10,8 +10,8 @@
     }
   ],
   "pattern": [
-    " CC",
-    "BDC",
+    " EC",
+    "BDE",
     "AB "
   ],
   "key": {
@@ -26,6 +26,9 @@
     },
     "D": {
       "item": "cosmopolitan:berry_syrup_bottle"
+    },
+    "E": {
+      "item": "cosmopolitan:wildberry"
     }
   },
   "result": {

@@ -59,11 +59,14 @@ public class CosmoConfig
         public static ForgeConfigSpec.DoubleValue EXUBERANT_MAXIMUM;
         public static ForgeConfigSpec.DoubleValue BLISTERBERRY_CHANCE;
 
+        public static ForgeConfigSpec.IntValue PLACEABLE_FOOD_SETTING;
         public static ForgeConfigSpec.IntValue GULIME_TICK;
         public static ForgeConfigSpec.DoubleValue GULIME_CHANCE;
 
         Common(ForgeConfigSpec.Builder builder) {
             builder.push("Items");
+            PLACEABLE_FOOD_SETTING = builder.comment("Defines the interval in ticks between each Gulime regeneration check")
+                    .defineInRange("placeableFoodSetting", 1, 0, 2);
             GULIME = builder.comment("Allows Gulime and its biome varieties.")
                     .define("gulime", true);
             GULIME_TICK = builder.comment("Defines the interval in ticks between each Gulime regeneration check")

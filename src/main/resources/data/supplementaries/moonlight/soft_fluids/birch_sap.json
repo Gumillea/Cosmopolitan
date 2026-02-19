@@ -1,0 +1,32 @@
+{
+  "containers": [
+    {
+      "filled": [
+        "cosmopolitan:birch_sap_bottle"
+      ],
+      "empty": "minecraft:glass_bottle",
+      "capacity": "BOTTLE"
+    },
+    {
+      "filled": [
+        "cosmopolitan:birch_sap_block"
+      ],
+      "fill_sound": "minecraft:block.honey_block.place",
+      "empty_sound": "minecraft:block.honey_block.break",
+      "empty": "minecraft:air",
+      "capacity": "BLOCK"
+    }
+  ],
+  "equivalent_fluids": [
+    "cosmopolitan:birch_sap"
+  ],
+  "flowing_texture": "cosmopolitan:block/fluids/birch_sap",
+  "still_texture": "cosmopolitan:block/fluids/birch_sap",
+  "food": {
+    "item": "cosmopolitan:birch_sap_bottle"
+  },
+  "from_mod": "cosmopolitan",
+  "tint_method": "no_tint",
+  "translation_key": "fluid.cosmopolitan.birch_sap",
+  "use_texture_from": "cosmopolitan:birch_sap"
+}

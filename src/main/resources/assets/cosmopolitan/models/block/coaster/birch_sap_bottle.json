@@ -1,0 +1,6 @@
+{
+  "parent": "brewinandchewin:block/coaster_honey_bottle",
+  "textures": {
+    "jar": "cosmopolitan:block/coaster/birch_sap_bottle"
+  }
+}

@@ -1,6 +1,10 @@
 {
   "values": [
     "cosmopolitan:condensed_milk_bottle",
-    "cosmopolitan:condensed_milk_bucket"
+    "cosmopolitan:condensed_milk_bucket",
+    {
+      "id": "neapolitan:milk_bottle",
+      "required": false
+    }
   ]
 }

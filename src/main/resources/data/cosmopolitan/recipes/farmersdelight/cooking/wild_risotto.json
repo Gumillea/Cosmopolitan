@@ -22,10 +22,10 @@
             }
           ],
           {
-            "item": "cosmopolitan:fiddlehead"
+            "tag": "forge:crops/fiddleheads"
           },
           {
-            "item": "cosmopolitan:fiddlehead"
+            "tag": "forge:crops/fiddleheads"
           },
           {
             "tag": "forge:mushrooms"

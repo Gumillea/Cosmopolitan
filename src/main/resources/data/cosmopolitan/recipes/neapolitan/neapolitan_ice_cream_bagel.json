@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "neapolitan:neapolitan_ice_cream"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:neapolitan_ice_cream_bagel",
+    "count": 2
+  }
+}

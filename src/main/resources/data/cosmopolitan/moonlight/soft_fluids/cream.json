@@ -1,0 +1,30 @@
+{
+  "containers": [
+    {
+      "filled": [
+        "cosmopolitan:cream"
+      ],
+      "empty": "minecraft:bowl",
+      "capacity": "BOWL"
+    },
+    {
+      "filled": [
+        "cosmopolitan:cream_bucket"
+      ],
+      "empty": "minecraft:bucket",
+      "capacity": "BUCKET"
+    }
+  ],
+  "equivalent_fluids": [
+    "cosmopolitan:cream"
+  ],
+  "flowing_texture": "cosmopolitan:block/fluids/cream",
+  "still_texture": "cosmopolitan:block/fluids/cream",
+  "food": {
+    "item": "cosmopolitan:cream"
+  },
+  "from_mod": "cosmopolitan",
+  "tint_method": "no_tint",
+  "translation_key": "fluid.cosmopolitan.cream",
+  "use_texture_from": "cosmopolitan:cream"
+}

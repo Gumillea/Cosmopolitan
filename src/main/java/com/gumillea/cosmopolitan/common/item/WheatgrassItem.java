@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.gumillea.cosmopolitan.core.util.CosmoTooltipEvent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -31,31 +32,14 @@ public class WheatgrassItem extends Item {
         super(properties);
     }
 
-    // Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.20/src/main/java/vectorwing/farmersdelight/common/item/DogFoodItem.java
+
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
-
-        MutableComponent whenFeeding = Component.translatable("tooltip." + Cosmopolitan.MODID + ".wheatgrass.when_feeding");
-        tooltip.add(whenFeeding.withStyle(ChatFormatting.GRAY));
-
-        for (MobEffectInstance effectinstance : EFFECTS) {
-            MutableComponent effectDescription = Component.literal(" ");
-            MutableComponent effectName = Component.translatable(effectinstance.getDescriptionId());
-            effectDescription.append(effectName);
-            MobEffect effect = effectinstance.getEffect();
-
-            if (effectinstance.getAmplifier() > 0) {
-                effectDescription.append(" ").append(Component.translatable("potion.potency." + effectinstance.getAmplifier()));
-            }
-
-            if (effectinstance.getDuration() > 20) {
-                effectDescription.append(" (").append(MobEffectUtil.formatDuration(effectinstance, 1.0F)).append(")");
-            }
-
-            tooltip.add(effectDescription.withStyle(effect.getCategory().getTooltipFormatting()));
+        if (CosmoConfig.Client.EFFECT_TOOLTIP.get()) {
+            CosmoTooltipEvent.addWheatgrassTooltip(tooltip);
         }
+
     }
 
 

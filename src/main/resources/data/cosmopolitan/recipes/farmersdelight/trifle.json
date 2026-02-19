@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:berries"
+    },
+    {
+      "tag": "forge:cream"
+    },
+    {
+      "tag": "forge:cake_slices"
+    },
+    {
+      "item": "cosmopolitan:berry_syrup_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:trifle"
+  }
+}

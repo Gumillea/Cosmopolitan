@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:vegetables/onion"
+    },
+    {
+      "item": "farmersdelight:beef_patty"
+    },
+    {
+      "item": "farmersdelight:beef_patty"
+    },
+    {
+      "item": "farmersdelight:tomato_sauce"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:flying_dutchman_burger"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:seeds"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:bagel",
+    "count": 2
+  }
+}

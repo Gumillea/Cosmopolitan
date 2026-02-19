@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 600,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "item": "cosmopolitan:arbutus_berries"
+          },
+          {
+            "item": "minecraft:glow_berries"
+          },
+          {
+            "item": "minecraft:glow_berries"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:lush_confiture_bottle",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

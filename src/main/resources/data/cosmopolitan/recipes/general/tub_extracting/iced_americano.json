@@ -1,0 +1,22 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "ingredient": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:water\"}"
+    },
+    {
+      "fluid": {
+        "amount": 125,
+        "name": "farmersrespite:coffee"
+      }
+    }
+  ],
+  "requiresCooling": true,
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:iced_americano"
+  }
+}

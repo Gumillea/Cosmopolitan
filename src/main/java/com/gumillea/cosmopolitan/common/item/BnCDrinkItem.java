@@ -1,6 +1,7 @@
 package com.gumillea.cosmopolitan.common.item;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
+import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -27,7 +28,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 // Adapted from: https://github.com/MerchantCalico/BrewinAndChewin/blob/1.20.1/src/main/java/umpaz/brewinandchewin/common/item/BoozeItem.java
-public class BnCDrinkItem extends DrinkItem{
+public class BnCDrinkItem extends DrinkItem {
 
     private final Fluid fluid;
 
@@ -88,7 +89,7 @@ public class BnCDrinkItem extends DrinkItem{
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+        if (!CosmoCompat.bnc && !CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
         for(int i = 0; i < tooltip.size(); ++i) {

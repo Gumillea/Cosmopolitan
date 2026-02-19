@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "arsdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "ars_nouveau:bombegranate_pod"
+    }
+  ],
+  "tool": {
+    "item": "arsdelight:enchanters_knife"
+  },
+  "result": [
+    {
+      "item": "minecraft:red_dye",
+      "count": 1
+    },
+    {
+      "item": "ars_nouveau:fire_essence",
+      "chance": 0.03
+    }
+  ]
+}

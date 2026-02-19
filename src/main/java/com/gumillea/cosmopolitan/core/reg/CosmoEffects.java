@@ -1,16 +1,16 @@
 package com.gumillea.cosmopolitan.core.reg;
 
-import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.effect.ExuberantEffect;
 import com.gumillea.cosmopolitan.common.effect.MarkedEffect;
+import com.gumillea.cosmopolitan.common.effect.PhototaxisEffect;
+import com.gumillea.cosmopolitan.common.effect.SatietyEffect;
 import com.teamabnormals.blueprint.common.effect.BlueprintMobEffect;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
@@ -27,6 +27,13 @@ public class CosmoEffects {
     public static final RegistryObject<MobEffect> TRACER = EFFECTS.register("tracer", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0xE98F3F));
     public static final RegistryObject<MobEffect> MARKED = EFFECTS.register("marked", MarkedEffect::new);
 
+    public static final RegistryObject<MobEffect> PHOTOTAXIS = EFFECTS.register("phototaxis", PhototaxisEffect::new);
+    public static final RegistryObject<MobEffect> INGRAINED = EFFECTS.register("ingrained", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0x734937));
+
+    public static final RegistryObject<MobEffect> SATIETY = EFFECTS.register("satiety", SatietyEffect::new);
+    public static final RegistryObject<MobEffect> LIBERATION = EFFECTS.register("liberation", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0x734937));
+    public static final RegistryObject<MobEffect> EMPATHY = EFFECTS.register("empathy", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0x734937));
+
     public static final RegistryObject<MobEffect> ABYSMAL_TORCH = EFFECTS.register("abysmal_torch", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0x97B5D9));
     public static final RegistryObject<MobEffect> VARDOGER = EFFECTS.register("vardoger", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0xEE4A34));
 
@@ -37,9 +44,18 @@ public class CosmoEffects {
     public static final RegistryObject<Potion> IRON_HEART_LONG = POTIONS.register("iron_heart_long", () -> new Potion(new MobEffectInstance(MobEffects.POISON, 1600, 2), new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 1)));
     public static final RegistryObject<Potion> IRON_HEART_STRONG = POTIONS.register("iron_heart_strong", () -> new Potion(new MobEffectInstance(MobEffects.POISON, 800, 3), new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 2)));
 
+    public static final RegistryObject<Potion> LUSH = POTIONS.register("lush", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 1200, 1), new MobEffectInstance(MobEffects.GLOWING, 400)));
+    public static final RegistryObject<Potion> LUSH_LONG = POTIONS.register("lush_long", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 2000, 1), new MobEffectInstance(MobEffects.GLOWING, 1000)));
+    public static final RegistryObject<Potion> LUSH_STRONG = POTIONS.register("lush_strong", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 1200, 2), new MobEffectInstance(MobEffects.GLOWING, 200)));
+
+
     public static void registerBrewingRecipes() {
         DataUtil.addMix(Potions.AWKWARD, CosmoItems.IRON_FIDDLEHEAD.get(), IRON_HEART.get());
         DataUtil.addMix(IRON_HEART.get(), Items.GLOWSTONE_DUST, IRON_HEART_STRONG.get());
         DataUtil.addMix(IRON_HEART.get(), Items.REDSTONE, IRON_HEART_LONG.get());
+
+        DataUtil.addMix(Potions.AWKWARD, CosmoItems.GOLDEN_ARBUTUS_BERRIES.get(), LUSH.get());
+        DataUtil.addMix(LUSH.get(), Items.GLOWSTONE_DUST, LUSH_STRONG.get());
+        DataUtil.addMix(LUSH.get(), Items.REDSTONE, LUSH_LONG.get());
     }
 }

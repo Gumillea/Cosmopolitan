@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_gulime"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "cosmopolitan:biome_gulimes"
+    },
+    {
+      "item": "supplementaries:soap"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:gulime"
+  }
+}

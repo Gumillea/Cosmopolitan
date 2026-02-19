@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/cosmic_snow_cone1",
+      "predicate": {
+        "minecraft:damage": 0.5
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/cosmic_snow_cone0"
+  }
+}

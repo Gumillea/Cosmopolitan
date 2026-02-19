@@ -1,10 +1,7 @@
 package com.gumillea.cosmopolitan.core.reg;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
-import com.gumillea.cosmopolitan.core.misc.recipes.HerbalCookieRecipe;
-import com.gumillea.cosmopolitan.core.misc.recipes.TubExtractRecipe;
-import com.gumillea.cosmopolitan.core.misc.recipes.TubInjectRecipe;
-import com.gumillea.cosmopolitan.core.misc.recipes.TubInteractingRecipe;
+import com.gumillea.cosmopolitan.core.misc.recipes.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -13,6 +10,7 @@ import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
 import net.minecraft.world.item.crafting.SuspiciousStewRecipe;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 public class CosmoRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, Cosmopolitan.MODID);

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "cosmopolitan:block/wildberry_bush_age1_c"
+  }
+}

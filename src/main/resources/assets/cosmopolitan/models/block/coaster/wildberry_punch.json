@@ -1,0 +1,7 @@
+{
+  "parent": "brewinandchewin:block/coaster_tankard",
+  "textures": {
+    "particle": "cosmopolitan:block/coaster/wildberry_punch",
+    "tankard": "cosmopolitan:block/coaster/wildberry_punch"
+  }
+}

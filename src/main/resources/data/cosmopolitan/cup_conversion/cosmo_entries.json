@@ -11,6 +11,14 @@
     {
       "bowl": "cosmopolitan:jello_salad",
       "cup": "cosmopolitan:jello_salad_cup"
+    },
+    {
+      "bowl": "cosmopolitan:abc_soup",
+      "cup": "cosmopolitan:abc_soup_cup"
+    },
+    {
+      "bowl": "cosmopolitan:stobhach_gaelach",
+      "cup": "cosmopolitan:stobhach_gaelach_cup"
     }
   ]
 }

@@ -1,12 +1,15 @@
-// 1.20.1	2025-05-06T20:49:37.3053356	Object Modifiers (loot_tables): cosmopolitan
-76aa99250cb173b0eef415d275a2acd93268a304 data/cosmopolitan/modifiers/loot_tables/ancien_city.json
+// 1.20.1	2026-02-17T22:01:53.4886144	Object Modifiers (loot_tables): cosmopolitan
+9c54a700320a59c7528b3b5ffe9f23efa90765bc data/cosmopolitan/modifiers/loot_tables/acacia_leaves.json
+b8b41c8ae97b801ff72b2ff7b75260d102b6cfd2 data/cosmopolitan/modifiers/loot_tables/ancien_city.json
+fc908513313320fbe0c98a8710bf34d75fa4815a data/cosmopolitan/modifiers/loot_tables/azalea_leaves.json
 dfc19b434c0955ea709b1eee60775d9e31cada41 data/cosmopolitan/modifiers/loot_tables/blisterberry_bush.json
 2f859ed2b8fbbaa4756e6b122f2ed79e57bdb25a data/cosmopolitan/modifiers/loot_tables/droopvine.json
 f3be6338e3f597c8d6d38063285391ecbb18acfa data/cosmopolitan/modifiers/loot_tables/fern.json
+6dd545d3d3895ed6a12ece2e1998d4fad01eba5f data/cosmopolitan/modifiers/loot_tables/flowering_azalea_leaves.json
 13fb500f8632bec7c10b1c437a5a7b144df6e6bf data/cosmopolitan/modifiers/loot_tables/grass.json
 a21687ca17cc67c8d8b830eeeae717aa81d30cca data/cosmopolitan/modifiers/loot_tables/kabloom_bush.json
 aebdcefba37947b1c38c164aa3a75ed737c2462c data/cosmopolitan/modifiers/loot_tables/large_fern.json
 46157a748bf793eae1c987674978fc7c16f411dd data/cosmopolitan/modifiers/loot_tables/sourceberry_bush.json
-05a4cd6ce12f52b82d4a415cb3699fb028d32226 data/cosmopolitan/modifiers/loot_tables/stronghold_library.json
+0ad8cff73e37d8d3158251db6e07b7b84cbc93ed data/cosmopolitan/modifiers/loot_tables/stronghold_library.json
 a007ccb9c32de1107f7a047d7190bd0f76376670 data/cosmopolitan/modifiers/loot_tables/tall_grass.json
 d49ae755a0e82f98a9eb99b48a64bbd9b1521e8b data/cosmopolitan/modifiers/loot_tables/wheat.json

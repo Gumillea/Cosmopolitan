@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":         {
+        "type": "forge:tag_empty",
+        "tag": "forge:matcha"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "cosmopolitan:bagel"
+    },
+    {
+      "item": "minecraft:ink_sac"
+    },
+    {
+      "tag": "forge:cream"
+    },
+    {
+      "tag": "forge:matcha"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:matcha_cream_cheese_ink_bagel",
+    "count": 2
+  }
+}

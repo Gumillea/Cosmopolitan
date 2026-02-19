@@ -1,0 +1,30 @@
+{
+  "containers": [
+    {
+      "filled": [
+        "cosmopolitan:condensed_milk_bottle"
+      ],
+      "empty": "minecraft:glass_bottle",
+      "capacity": "BOTTLE"
+    },
+    {
+      "filled": [
+        "cosmopolitan:condensed_milk_bucket"
+      ],
+      "empty": "minecraft:bucket",
+      "capacity": "BUCKET"
+    }
+  ],
+  "equivalent_fluids": [
+    "cosmopolitan:condensed_milk"
+  ],
+  "flowing_texture": "cosmopolitan:block/fluids/condensed_milk",
+  "still_texture": "cosmopolitan:block/fluids/condensed_milk",
+  "food": {
+    "item": "cosmopolitan:condensed_milk_bottle"
+  },
+  "from_mod": "cosmopolitan",
+  "tint_method": "no_tint",
+  "translation_key": "fluid.cosmopolitan.condensed_milk",
+  "use_texture_from": "cosmopolitan:condensed_milk"
+}

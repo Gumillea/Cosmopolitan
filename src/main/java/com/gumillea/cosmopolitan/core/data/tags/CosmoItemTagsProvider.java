@@ -10,7 +10,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -39,7 +38,8 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(ItemTags.PIGLIN_LOVED).add(
-                CosmoItems.TOFFEE_GOLDEN_APPLE.get()
+                CosmoItems.TOFFEE_GOLDEN_APPLE.get(),
+                CosmoItems.GOLDEN_ARBUTUS_BERRIES.get()
         );
 
         this.tag(BlueprintItemTags.CHICKEN_FOOD).add(
@@ -80,7 +80,13 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.GRAIN).add(
-                Items.WHEAT
+                Items.WHEAT,
+                CosmoItems.WATTLESEEDS.get()
+        );
+
+        this.tag(CosmoItemTags.BREAD).add(
+                CosmoItems.BUSH_BREAD.get(),
+                CosmoItems.BAGEL.get()
         );
 
         this.tag(CosmoItemTags.FERMENTED_DRINKS).add(
@@ -91,24 +97,24 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.CATTAILS)
-                .addOptional(new ResourceLocation(CosmoCompat.EN, "cattail"))
-                .addOptional(new ResourceLocation(CosmoCompat.BOP, "cattail"))
-                .addOptional(new ResourceLocation("bwg", "cattail"))
-                .addOptional(new ResourceLocation("regions_unexplored", "cattail"))
+                .addOptional(CosmoCompat.id(CosmoCompat.EN, "cattail"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BOP, "cattail"))
+                .addOptional(CosmoCompat.id("bwg", "cattail"))
+                .addOptional(CosmoCompat.id("regions_unexplored", "cattail"))
         ;
 
         this.tag(CosmoItemTags.CROPS).add(
                 CosmoItems.WHEATGRASS.get()
         );
 
-        this.tag(CosmoItemTags.EDIBLE_FLOWERS).add(
-                Items.ALLIUM,
-                Items.CORNFLOWER,
-                Items.DANDELION,
-                Items.OXEYE_DAISY,
-                Items.BLUE_ORCHID,
-                Items.TORCHFLOWER
+        this.tag(CosmoItemTags.TUBER).add(
+                CosmoItems.TUBER.get(),
+                CosmoItems.CUT_TUBERS.get()
         );
+
+        this.tag(CosmoItemTags.FRUITS)
+                .addOptional(CosmoCompat.id(CosmoCompat.HA, "kabloom_pulp"))
+        ;
 
         this.tag(CosmoItemTags.ICE_CREAM)
                 .add(
@@ -123,6 +129,9 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                         CosmoItems.SEASONAL_ICE_CREAM.get(),
                         CosmoItems.PECULIAR_ICE_CREAM.get(),
                         CosmoItems.CLASSIC_ICE_CREAM.get(),
+                        CosmoItems.COLLECTIVE_ICE_CREAM.get(),
+                        CosmoItems.DELIGHTFUL_ICE_CREAM.get(),
+                        CosmoItems.EXQUISITE_ICE_CREAM.get(),
 
                         CosmoItems.REFRESHING_ICE_CREAM_SANDWICH.get(),
                         CosmoItems.TWILIGHT_ICE_CREAM_SANDWICH.get(),
@@ -132,7 +141,11 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                         CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get(),
                         CosmoItems.RESPITEFUL_ICE_CREAM_SANDWICH.get(),
                         CosmoItems.TRICOLORED_ICE_CREAM_SANDWICH.get(),
-                        CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get()
+                        CosmoItems.CLASSIC_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.COLLECTIVE_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.DELIGHTFUL_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.EXQUISITE_ICE_CREAM_SANDWICH.get(),
+                        CosmoItems.SUNNY_ICE_CREAM_SANDWICH.get()
                 )
                 .addTag(CosmoItemTags.ICE_CREAM_CONES
                 );
@@ -187,10 +200,12 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.SOURCE_BERRY_ICE_CREAM_CONE.get()
         );
 
-        this.tag(CosmoItemTags.UPRIGHT_ON_BELT).add(
-                        CosmoItems.WAFER_CONE.get())
-                .addTag(CosmoItemTags.ICE_CREAM
-                );
+        this.tag(CosmoItemTags.UPRIGHT_ON_BELT)
+                .add(
+                        CosmoItems.WAFER_CONE.get(),
+                        CosmoItems.WATER_PIE.get()
+                )
+                .addTag(CosmoItemTags.ICE_CREAM);
 
         this.tag(CosmoItemTags.COOKIE).add(
                 CosmoItems.PAW_COOKIE.get(),
@@ -204,10 +219,11 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.CHERRY)
-                .addOptional(new ResourceLocation(CosmoCompat.SD, "cherry"));
+                .addOptional(CosmoCompat.id(CosmoCompat.SD, "cherry"));
 
         this.tag(CosmoItemTags.BERRIES).add(
-                CosmoItems.WILDBERRY.get()
+                CosmoItems.WILDBERRY.get(),
+                CosmoItems.ARBUTUS_BERRIES.get()
         );
 
         this.tag(CosmoItemTags.POTATO).add(
@@ -218,16 +234,31 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.FIDDLEHEAD.get()
         );
 
+        this.tag(CosmoItemTags.NUTS).add(
+                CosmoItems.WATTLESEEDS.get()
+        );
+
         this.tag(CosmoItemTags.SALAD_INGREDIENTS).add(
                 CosmoItems.FIDDLEHEAD.get()
         );
 
+        this.tag(CosmoItemTags.HERBAL_POWDER_INGREDIENTS).add(
+                CosmoItems.BAKED_FIDDLEHEAD.get(),
+                CosmoItems.WHEATGRASS.get()
+        );
+
+        this.tag(CosmoItemTags.FIDDLEHEADS)
+                .add(CosmoItems.FIDDLEHEAD.get())
+                .addOptional(CosmoCompat.id("alexscaves", "fiddlehead"))
+                .addOptional(CosmoCompat.id(CosmoCompat.TF, "fiddlehead"))
+        ;
+
         this.tag(CosmoItemTags.PUMPKINS)
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "pumpkin_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "pumpkin_slice"))
         ;
 
         this.tag(CosmoItemTags.CHOCOLATE)
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "chocolate_bar"))
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "chocolate_bar"))
         ;
 
         this.tag(CosmoItemTags.MILK)
@@ -236,20 +267,32 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.CREAM).add(
                 CosmoItems.CREAM.get(),
-                CosmoItems.CREAM_BUCKET.get()
-        );
+                CosmoItems.CREAM_BUCKET.get())
+                .addOptional(CosmoCompat.id("braziliandelight", "heavy_cream_bucket"));
 
         this.tag(CosmoItemTags.CONDENSED_MILK).add(
                 CosmoItems.CONDENSED_MILK_BOTTLE.get(),
-                CosmoItems.CONDENSED_MILK_BUCKET.get()
-        );
+                CosmoItems.CONDENSED_MILK_BUCKET.get())
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "milk_bottle"));
 
         this.tag(CosmoItemTags.MILK_BOTTLE)
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "milk_bottle"))
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "milk_bottle"))
         ;
+
+        this.tag(CosmoItemTags.CAKE_SLICES)
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "vanilla_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "banana_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "strawberry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "adzuki_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "chocolate_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "mint_cake_slice"))
+        ;
+
 
         this.tag(CosmoItemTags.JAMS).add(
                 CosmoItems.BERRY_SYRUP_BOTTLE.get(),
+                CosmoItems.LUSH_CONFITURE_BOTTLE.get(),
                 CosmoItems.STEELEAF_NECTAR.get()
         );
 
@@ -258,7 +301,24 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.TAIGA_GULIME.get(),
                 CosmoItems.CHORUS_GULIME.get(),
                 CosmoItems.GLIMMERING_GULIME.get(),
+                CosmoItems.ARID_GULIME.get(),
+                CosmoItems.WARPED_GULIME.get(),
                 CosmoItems.STRAWBERRY_GULIME.get()
+        );
+
+        this.tag(CosmoItemTags.ALL_SEASONS_CROPS).add(
+                CosmoItems.WILDBERRY.get(),
+                CosmoItems.FIDDLEHEAD.get()
+        );
+
+        this.tag(CosmoItemTags.AVERAGE_HUMID_CROPS).add(
+                CosmoItems.WILDBERRY.get(),
+                CosmoItems.FIDDLEHEAD.get()
+        );
+
+        this.tag(CosmoItemTags.YEAR_ROUND_CROPS).add(
+                CosmoItems.WILDBERRY.get(),
+                CosmoItems.FIDDLEHEAD.get()
         );
 
         this.tag(CosmoItemTags.SPRING_CROPS).add(
@@ -308,21 +368,21 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.EXUBERANT_SOURCES)
                 .addTag(CosmoItemTags.APPLE)
-                .addOptional(new ResourceLocation(CosmoCompat.BAC, "apple_jelly"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "apple_pie_slice"))
-                .addOptional(new ResourceLocation(CosmoCompat.BF, "apple_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.BF, "candied_apple"))
-                .addOptional(new ResourceLocation(CosmoCompat.BF, "apple_cider_jar"))
-                .addOptional(new ResourceLocation(CosmoCompat.BF, "apple_compote_jar"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "deluxe_salad"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "fruit_salad"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "baked_apple"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "apple_chips"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "apple_pie"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "apple_juice"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "apple_sauce"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "fruit_salad"))
-                .addOptional(new ResourceLocation(CosmoCompat.MB, "apple_juice"));
+                .addOptional(CosmoCompat.id(CosmoCompat.BAC, "apple_jelly"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "apple_pie_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BF, "apple_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BF, "candied_apple"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BF, "apple_cider_jar"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BF, "apple_compote_jar"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "deluxe_salad"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "fruit_salad"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "baked_apple"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "apple_chips"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "apple_pie"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "apple_juice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "apple_sauce"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "fruit_salad"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MB, "apple_juice"));
 
         this.tag(CosmoItemTags.CAROTENE_SOURCES)
                 .addTag(CosmoItemTags.CARROT)
@@ -333,58 +393,63 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                         CosmoItems.CARROT_MILKSHAKE.get(),
                         CosmoItems.CARROT_ICE_CREAM.get(),
                         CosmoItems.CARROT_ICE_CREAM_CONE.get())
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "adzuki_curry"))
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "adzuki_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.CAD, "beef_noodles"))
-                .addOptional(new ResourceLocation(CosmoCompat.BAC, "vegetable_omelet"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "portobello_rice_soup"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "portobello_wrap"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "crimson_carrot_roast"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "venison_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "chieftain_carb"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "clam_meatball_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.CR, "pomegranate_pork"))
-                .addOptional(new ResourceLocation(CosmoCompat.DF, "field_salad"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "beef_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "chicken_sandwich"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "fried_rice"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "kelp_roll"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "kelp_roll_slice"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "vegetable_noodles"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "vegetable_soup"))
-                .addOptional(new ResourceLocation(CosmoCompat.KK, "gem_carrot"))
-                .addOptional(new ResourceLocation(CosmoCompat.KK, "carrot_and_carrot"))
-                .addOptional(new ResourceLocation(CosmoCompat.KK, "carrot_tart"))
-                .addOptional(new ResourceLocation(CosmoCompat.KK, "curry_udon"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "chicken_soup"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "garden_soup"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "carrot_cake_slice"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "meaty_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "vegetable_stew"))
-                .addOptional(new ResourceLocation(CosmoCompat.TFD, "fried_insect"))
-                .addOptional(new ResourceLocation(CosmoCompat.MB, "forest_medley"));
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "adzuki_curry"))
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "adzuki_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CAD, "beef_noodles"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BAC, "vegetable_omelet"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "portobello_rice_soup"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "portobello_wrap"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "crimson_carrot_roast"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "venison_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "chieftain_carb"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "clam_meatball_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "pomegranate_pork"))
+                .addOptional(CosmoCompat.id(CosmoCompat.DF, "field_salad"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "beef_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "chicken_sandwich"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "fried_rice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "kelp_roll"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "kelp_roll_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "vegetable_noodles"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "vegetable_soup"))
+                .addOptional(CosmoCompat.id(CosmoCompat.KK, "gem_carrot"))
+                .addOptional(CosmoCompat.id(CosmoCompat.KK, "carrot_and_carrot"))
+                .addOptional(CosmoCompat.id(CosmoCompat.KK, "carrot_tart"))
+                .addOptional(CosmoCompat.id(CosmoCompat.KK, "curry_udon"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "chicken_soup"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "garden_soup"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "carrot_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "meaty_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "vegetable_stew"))
+                .addOptional(CosmoCompat.id(CosmoCompat.TFD, "fried_insect"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MB, "forest_medley"));
 
         this.tag(CosmoItemTags.TRACER_SOURCES)
                 .addTag(CosmoItemTags.GLOW_BERRY)
-                .addOptional(new ResourceLocation(CosmoCompat.NEA, "glowgurt"))
-                .addOptional(new ResourceLocation(CosmoCompat.BAC, "glow_berry_marmalade"))
-                .addOptional(new ResourceLocation(CosmoCompat.BAC, "pickled_pickles"))
-                .addOptional(new ResourceLocation(CosmoCompat.MF, "glow_ink_pasta"))
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "glow_berry_custard"))
-                .addOptional(new ResourceLocation(CosmoCompat.KK, "lush_salad"))
-                .addOptional(new ResourceLocation(CosmoCompat.TFD, "berry_stick"))
-                .addOptional(new ResourceLocation(CosmoCompat.SEA, "mixed_berry_muffin"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "golden_fruit_salad"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "glow_berry_cake_slice"))
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "glazed_glow_berries"));
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "glowgurt"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BAC, "glow_berry_marmalade"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BAC, "pickled_pickles"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "glow_ink_pasta"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "glow_berry_custard"))
+                .addOptional(CosmoCompat.id(CosmoCompat.KK, "lush_salad"))
+                .addOptional(CosmoCompat.id(CosmoCompat.TFD, "berry_stick"))
+                .addOptional(CosmoCompat.id(CosmoCompat.SEA, "mixed_berry_muffin"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "golden_fruit_salad"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "glow_berry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "glazed_glow_berries"));
 
         this.tag(CosmoItemTags.ABYSMAL_TORCH_SOURCES)
-                .addOptional(new ResourceLocation(CosmoCompat.UG, "droopvine_item"))
-                .addOptional(new ResourceLocation("undergardendelight", "droopstew"));
+                .addOptional(CosmoCompat.id(CosmoCompat.UG, "droopvine_item"))
+                .addOptional(CosmoCompat.id("undergardendelight", "droopstew"));
 
         this.tag(CosmoItemTags.VARDOGER_SOURCES)
-                .addOptional(new ResourceLocation(CosmoCompat.UG, "blisterberry"))
-                .addOptional(new ResourceLocation("undergardendelight", "mogsteak"))
-                .addOptional(new ResourceLocation("undergardendelight", "glitterdish"));
+                .addOptional(CosmoCompat.id(CosmoCompat.UG, "blisterberry"))
+                .addOptional(CosmoCompat.id("undergardendelight", "mogsteak"))
+                .addOptional(CosmoCompat.id("undergardendelight", "glitterdish"));
+
+        this.tag(CosmoItemTags.BLACK_COFFEE)
+                .addOptional(CosmoCompat.id(CosmoCompat.FR, "coffee"))
+                .addOptional(CosmoCompat.id("youkaishomecoming", "espresso"))
+                .addOptional(CosmoCompat.id("croptopia", "coffee"));
     }
 }

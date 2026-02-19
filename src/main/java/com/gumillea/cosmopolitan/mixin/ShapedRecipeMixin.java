@@ -18,31 +18,36 @@ public abstract class ShapedRecipeMixin {
 
     @Inject(method = "assemble(Lnet/minecraft/world/inventory/CraftingContainer;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
     private void onAssemble(CraftingContainer inv, RegistryAccess access, CallbackInfoReturnable<ItemStack> cir) {
+        ItemStack result = cir.getReturnValue();
+
+        if (!result.getItem().isEdible()) return;
+
         TagKey<Item> CONDENSED_MILK = CosmoItemTags.CONDENSED_MILK;
         TagKey<Item> CREAM = CosmoItemTags.CREAM;
-        ItemStack result = cir.getReturnValue();
         boolean hasMilk = false;
-        boolean  hasCream = false;
+        boolean hasCream = false;
 
-        if (!result.getItem().isEdible() && !result.is(CONDENSED_MILK) && !result.is(CREAM)) return;
+        if (!result.is(CONDENSED_MILK) && !result.is(CREAM)){
 
-        for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack slot = inv.getItem(i);
-            CompoundTag tag = slot.getTag();
-            if (slot.is(CONDENSED_MILK)) hasMilk  = true;
-            if (slot.is(CREAM)) hasCream = true;
-            if (tag != null) {
-                if (tag.getBoolean("has_condensed_milk")) hasMilk = true;
-                if (tag.getBoolean("has_cream")) hasCream = true;
+            for (int i = 0; i < inv.getContainerSize(); i++) {
+                ItemStack slot = inv.getItem(i);
+                CompoundTag tag = slot.getTag();
+                if (slot.is(CONDENSED_MILK)) hasMilk  = true;
+                if (slot.is(CREAM)) hasCream = true;
+                if (tag != null) {
+                    if (tag.getBoolean("has_condensed_milk")) hasMilk = true;
+                    if (tag.getBoolean("has_cream")) hasCream = true;
+                }
+                if (hasMilk && hasCream) break;
             }
-            if (hasMilk && hasCream) break;
-        }
 
-        if (hasMilk || hasCream) {
-            CompoundTag tag = result.getOrCreateTag();
-            if (hasMilk)  tag.putBoolean("has_condensed_milk", true);
-            if (hasCream) tag.putBoolean("has_cream", true);
-            cir.setReturnValue(result);
+            if (hasMilk || hasCream) {
+                CompoundTag tag = result.getOrCreateTag();
+                if (hasMilk)  tag.putBoolean("has_condensed_milk", true);
+                if (hasCream) tag.putBoolean("has_cream", true);
+                cir.setReturnValue(result);
+            }
         }
     }
+
 }

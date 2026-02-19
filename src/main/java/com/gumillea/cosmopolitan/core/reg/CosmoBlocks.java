@@ -14,6 +14,15 @@ import net.minecraftforge.registries.RegistryObject;
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoBlocks {
     public static final BlockSubRegistryHelper HELPER = Cosmopolitan.REGISTRY_HELPER.getBlockSubHelper();
+
+    //Placeable
+    public static final RegistryObject<Block> WATER_PIE = HELPER.createBlockNoItem("water_pie_block", () -> new FDPieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.WATER_PIE_SLICE));
+
+    public static final RegistryObject<Block> GLOW_BERRY_CUBECAKE = HELPER.createBlockNoItem("glow_berry_cubecake_block", () -> new CubecakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.GLOW_BERRY_CUBECAKE));
+    public static final RegistryObject<Block> WHEATGRASS_CUBECAKE = HELPER.createBlockNoItem("wheatgrass_cubecake_block", () -> new CubecakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.WHEATGRASS_CUBECAKE));
+    public static final RegistryObject<Block> CHORUS_FRUIT_CUBECAKE = HELPER.createBlockNoItem("chorus_fruit_cubecake_block", () -> new CubecakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.CHORUS_FRUIT_CUBECAKE));
+    public static final RegistryObject<Block> WARPED_VELVET_CUBECAKE = HELPER.createBlockNoItem("warped_velvet_cubecake_block", () -> new CubecakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.WARPED_VELVET_CUBECAKE));
+
     //Milkshake
     public static final RegistryObject<Block> APPLE_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("apple_milkshake_cauldron", () -> new CosmoMilkshakeCauldronBlock(CosmoCauldronInteractions.APPLE_MILKSHAKE.map()));
     public static final RegistryObject<Block> CARROT_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("carrot_milkshake_cauldron", () -> new CosmoMilkshakeCauldronBlock(CosmoCauldronInteractions.CARROT_MILKSHAKE.map()));
@@ -22,10 +31,30 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> KABLOOM_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("kabloom_milkshake_cauldron", () -> new CosmoMilkshakeCauldronBlock(CosmoCauldronInteractions.KABLOOM_MILKSHAKE.map()));
     public static final RegistryObject<Block> SOURCE_BERRY_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("source_berry_milkshake_cauldron", () -> new CosmoMilkshakeCauldronBlock(CosmoCauldronInteractions.SOURCE_BERRY_MILKSHAKE.map()));
 
+    //Crops
+    public static final RegistryObject<Block> POTTED_WILDBERRY_BUSH = HELPER.createBlockNoItem("potted_wildberry_bush", () -> new PottedCropBlock(BlockBehaviour.Properties.copy(Blocks.POTTED_AZALEA), CosmoItems.WILDBERRY));
+    public static final RegistryObject<Block> POTTED_FIDDLEHEAD_GREENS = HELPER.createBlockNoItem("potted_fiddlehead_greens", () -> new PottedCropBlock(BlockBehaviour.Properties.copy(Blocks.POTTED_AZALEA), CosmoItems.FIDDLEHEAD));
+
     //Ice Cream Tub Blocks//
     public static final RegistryObject<Block> COPPER_FROZEN_DESSERT_TUB = HELPER.createBlock("copper_frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
     public static final RegistryObject<Block> IRON_FROZEN_DESSERT_TUB = HELPER.createBlock("frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> NETHERITE_FROZEN_DESSERT_TUB = HELPER.createBlock("netherite_frozen_dessert_tub", () -> new FrozenDessertTubBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
+
+    //Cookie Tiles//
+    public static final RegistryObject<Block> BIRCH_COOKIE_TILE = HELPER.createBlock("birch_cookie_tiles", () -> new Block(Properties.BIRCH_COOKIE));
+    public static final RegistryObject<Block> BIRCH_COOKIE_TILE_SLAB = HELPER.createBlock("birch_cookie_tile_slab", () -> new SlabBlock(Properties.BIRCH_COOKIE));
+    public static final RegistryObject<Block> BIRCH_COOKIE_TILE_STAIRS = HELPER.createBlock("birch_cookie_tile_stairs", () -> new StairBlock(() -> BIRCH_COOKIE_TILE.get().defaultBlockState(), Properties.BIRCH_COOKIE));
+    public static final RegistryObject<Block> BIRCH_COOKIE_TILE_WALL = HELPER.createBlock("birch_cookie_tile_wall", () -> new WallBlock(Properties.BIRCH_COOKIE));
+
+    public static final RegistryObject<Block> HERBAL_COOKIE_TILE = HELPER.createBlock("herbal_cookie_tiles", () -> new Block(Properties.HERBAL_COOKIE));
+    public static final RegistryObject<Block> HERBAL_COOKIE_TILE_SLAB = HELPER.createBlock("herbal_cookie_tile_slab", () -> new SlabBlock(Properties.HERBAL_COOKIE));
+    public static final RegistryObject<Block> HERBAL_COOKIE_TILE_STAIRS = HELPER.createBlock("herbal_cookie_tile_stairs", () -> new StairBlock(() -> HERBAL_COOKIE_TILE.get().defaultBlockState(), Properties.HERBAL_COOKIE));
+    public static final RegistryObject<Block> HERBAL_COOKIE_TILE_WALL = HELPER.createBlock("herbal_cookie_tile_wall", () -> new WallBlock(Properties.HERBAL_COOKIE));
+
+    public static final RegistryObject<Block> PAW_COOKIE_TILE = HELPER.createBlock("paw_cookie_tiles", () -> new Block(Properties.PAW_COOKIE));
+    public static final RegistryObject<Block> PAW_COOKIE_TILE_SLAB = HELPER.createBlock("paw_cookie_tile_slab", () -> new SlabBlock(Properties.PAW_COOKIE));
+    public static final RegistryObject<Block> PAW_COOKIE_TILE_STAIRS = HELPER.createBlock("paw_cookie_tile_stairs", () -> new StairBlock(() -> PAW_COOKIE_TILE.get().defaultBlockState(), Properties.PAW_COOKIE));
+    public static final RegistryObject<Block> PAW_COOKIE_TILE_WALL = HELPER.createBlock("paw_cookie_tile_wall", () -> new WallBlock(Properties.PAW_COOKIE));
 
     //Ice Cream Bricks
     public static final RegistryObject<Block> ADZUKI_ICE_CREAM_BRICKS = HELPER.createBlock("adzuki_ice_cream_bricks", () -> new Block(Properties.ADZUKI_ICE_CREAM_BLOCK));
@@ -106,9 +135,15 @@ public class CosmoBlocks {
     //Storage Blocks
     public static final RegistryObject<Block> WHEATGRASS_BALE = HELPER.createBlock("wheatgrass_bale", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
     public static final RegistryObject<Block> MASHED_POTATO_BLOCK = HELPER.createBlock("mashed_potato_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
+
     public static final RegistryObject<Block> WILDBERRIES_BASKET = HELPER.createBlock("wildberries_basket", () -> new BlueprintDirectionalBlock(Properties.WILDBERRY_BASKET));
+    public static final RegistryObject<Block> ARBUTUS_BERRIES_BASKET = HELPER.createBlock("arbutus_berries_basket", () -> new BlueprintDirectionalBlock(Properties.WILDBERRY_BASKET));
+    public static final RegistryObject<Block> GOLDEN_ARBUTUS_BERRIES_BASKET = HELPER.createBlock("golden_arbutus_berries_basket", () -> new BlueprintDirectionalBlock(Properties.GOLDEN_ARBUTUS_BERRIES_BASKET));
+
     public static final RegistryObject<Block> FIDDLEHEAD_CRATE = HELPER.createBlock("fiddlehead_crate", () -> new BlueprintDirectionalBlock(Properties.FIDDLEHEAD_CRATE));
-    public static final RegistryObject<Block> IRON_FIDDLEHEAD_CRATE = HELPER.createBlock("iron_fiddlehead_crate", () -> new BlueprintDirectionalBlock(Properties.FIDDLEHEAD_CRATE));
+    public static final RegistryObject<Block> IRON_FIDDLEHEAD_CRATE = HELPER.createBlock("iron_fiddlehead_crate", () -> new BlueprintDirectionalBlock(Properties.IRON_FIDDLEHEAD_CRATE));
+    public static final RegistryObject<Block> TUBER_CRATE = HELPER.createBlock("tuber_crate", () -> new BlueprintDirectionalBlock(Properties.TUBER_CRATE));
+
     public static final RegistryObject<Block> BERRY_SYRUP_BLOCK = HELPER.createBlock("berry_syrup_block", () -> new SyrupBlock(Properties.BERRY_SYRUP_BLOCK));
     public static final RegistryObject<Block> BIRCH_SAP_BLOCK = HELPER.createBlock("birch_sap_block", () -> new SyrupBlock(Properties.BIRCH_SAP_BLOCK));
     public static final RegistryObject<Block> STEELEAF_NECTAR_BLOCK = HELPER.createBlock("steeleaf_nectar_block", () -> new SyrupBlock(Properties.STEELEAF_NECTAR_BLOCK));
@@ -117,6 +152,7 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> SAPPY_BIRCH_LOG = HELPER.createBlock("sappy_birch_log", () -> new SappyLogBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_LOG), Blocks.STRIPPED_BIRCH_LOG));
     public static final RegistryObject<Block> LIFELIGHT = HELPER.createBlock("lifelight", () -> new LifelightBlock(Properties.LIFELIGHT));
     public static final RegistryObject<Block> GLOW_PETALS = HELPER.createBlock("glow_petals", () -> new GlowPetalsBlock(Properties.LIFELIGHT));
+    public static final RegistryObject<Block> PLACEHOLDER = HELPER.createBlock("placeholder", () -> new AirBlock(BlockBehaviour.Properties.copy(Blocks.AIR)));
 
     static class Properties {
         //Ice Cream Blocks
@@ -170,14 +206,25 @@ public class CosmoBlocks {
         public static final BlockBehaviour.Properties GLACIER_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.SNOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties AURORA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
 
+        //cookie tiles
+        public static final BlockBehaviour.Properties PAW_COOKIE = Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD);
+        public static final BlockBehaviour.Properties BIRCH_COOKIE = Block.Properties.of().mapColor(MapColor.SNOW).strength(2.0F, 3.0F).sound(SoundType.WOOD);
+        public static final BlockBehaviour.Properties HERBAL_COOKIE = Block.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD);
+
         //storage blocks
         public static final BlockBehaviour.Properties BERRY_SYRUP_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);
         public static final BlockBehaviour.Properties BIRCH_SAP_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);
         public static final BlockBehaviour.Properties STEELEAF_NECTAR_BLOCK = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).noOcclusion().instabreak().sound(SoundType.HONEY_BLOCK);
         public static final BlockBehaviour.Properties WILDBERRY_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava();
+        public static final BlockBehaviour.Properties GOLDEN_ARBUTUS_BERRIES_BASKET = BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD);
+
         public static final BlockBehaviour.Properties FIDDLEHEAD_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava();
+        public static final BlockBehaviour.Properties IRON_FIDDLEHEAD_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava();
+        public static final BlockBehaviour.Properties TUBER_CRATE = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.BASS).strength(1.5F).sound(SoundType.WOOD).ignitedByLava();
 
         public static final BlockBehaviour.Properties LIFELIGHT = BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noCollission().randomTicks().replaceable().sound(SoundType.MOSS);
+
+
 
     }
 }

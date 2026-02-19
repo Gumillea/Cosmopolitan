@@ -9,6 +9,7 @@
     "CookingPotRecipeMixin",
     "CuttingBoardRecipeMixin",
     "ItemMixin",
+    "PlayerMixin",
     "ShapedRecipeMixin",
     "ShapelessRecipeMixin"
   ],

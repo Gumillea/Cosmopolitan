@@ -7,9 +7,14 @@
     }
   ],
   "ingredients": [
-    {
-      "item": "cosmopolitan:mashed_potato"
-    },
+    [
+      {
+        "item": "cosmopolitan:mashed_potato"
+      },
+      {
+        "item": "cosmopolitan:tuber_puree"
+      }
+    ],
     {
       "tag": "forge:cooked_mutton"
     },

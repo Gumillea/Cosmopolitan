@@ -1,0 +1,24 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "tag": "cosmopolitan:herbal_powder_ingredients"
+    }
+  ],
+  "processingTime": 150,
+  "results": [
+    {
+      "count": 2,
+      "item": "cosmopolitan:herbal_powder"
+    },
+    {
+      "chance": 0.5,
+      "count": 2,
+      "item": "cosmopolitan:herbal_powder"
+    },
+    {
+      "chance": 0.25,
+      "item": "minecraft:green_dye"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "containers": [
+    {
+      "filled": [
+        "cosmopolitan:steeleaf_nectar"
+      ],
+      "empty": "minecraft:glass_bottle",
+      "capacity": "BOTTLE"
+    },
+    {
+      "filled": [
+        "cosmopolitan:steeleaf_nectar_block"
+      ],
+      "fill_sound": "minecraft:block.honey_block.place",
+      "empty_sound": "minecraft:block.honey_block.break",
+      "empty": "minecraft:air",
+      "capacity": "BLOCK"
+    }
+  ],
+  "equivalent_fluids": [
+    "cosmopolitan:steeleaf_nectar"
+  ],
+  "flowing_texture": "cosmopolitan:block/fluids/steeleaf_nectar",
+  "still_texture": "cosmopolitan:block/fluids/steeleaf_nectar",
+  "food": {
+    "item": "cosmopolitan:steeleaf_nectar"
+  },
+  "from_mod": "cosmopolitan",
+  "tint_method": "no_tint",
+  "translation_key": "fluid.cosmopolitan.steeleaf_nectar",
+  "use_texture_from": "cosmopolitan:steeleaf_nectar"
+}

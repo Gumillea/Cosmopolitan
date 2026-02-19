@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_blisterberry_flavor"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "undergarden:blisterberry"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "undergarden:cooked_gwibling"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "tag": "forge:vegetables"
+    },
+    {
+      "item": "undergarden:blisterberry"
+    },
+    {
+      "tag": "undergarden:mushrooms"
+    },
+    {
+      "item": "undergarden:glitterkelp"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:glitterkelp_burrito",
+    "count": 2
+  }
+}

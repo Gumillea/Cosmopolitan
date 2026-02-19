@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "supplementaries"
+      }
+    },
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_gulime"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "cosmopolitan:biome_gulimes"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:water\"}"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:gulime"
+  }
+}

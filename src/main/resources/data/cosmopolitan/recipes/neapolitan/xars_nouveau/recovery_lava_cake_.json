@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "ars_nouveau:mendosteen_pod"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "ars_nouveau:mendosteen_pod"
+    },
+    {
+      "tag": "forge:chocolate"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "tag": "forge:eggs"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:recovery_lava_cake",
+    "count": 2
+  }
+}

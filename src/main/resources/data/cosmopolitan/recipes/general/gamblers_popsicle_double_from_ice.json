@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:tag_empty",
+      "tag": "forge:ice_cubes"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ],
+  "pattern": [
+    " CD",
+    "BDC",
+    "AB "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "minecraft:ice"
+    },
+    "C": {
+      "tag": "forge:fruits/glow_berries"
+    },
+    "D": {
+      "item": "farmersrespite:coffee_berries"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:gamblers_popsicle_double"
+  }
+}

@@ -1,6 +1,10 @@
 {
   "values": [
     "cosmopolitan:cream",
-    "cosmopolitan:cream_bucket"
+    "cosmopolitan:cream_bucket",
+    {
+      "id": "braziliandelight:heavy_cream_bucket",
+      "required": false
+    }
   ]
 }

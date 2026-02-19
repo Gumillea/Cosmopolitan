@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "cosmopolitan:herbal_powder_ingredients"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "cosmopolitan:herbal_powder",
+      "count": 2
+    },
+    {
+      "item": "cosmopolitan:herbal_powder",
+      "chance": 0.33
+    }
+  ]
+}

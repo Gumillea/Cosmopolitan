@@ -27,7 +27,9 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
     private static final float INNER_MAX = 14F / 16F;
     private static final float BASE_HEIGHT = 1F / 16F;
 
-    public FrozenDessertTubRenderer(BlockEntityRendererProvider.Context context) {}
+    public FrozenDessertTubRenderer(BlockEntityRendererProvider.Context context) {
+
+    }
 
     @Override
     public void render(FrozenDessertTubBlockEntity tub, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {

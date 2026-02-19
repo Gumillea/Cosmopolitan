@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": { "model": "cosmopolitan:block/potted_wildberry_bush_age0" },
+    "age=1": [
+      { "model": "cosmopolitan:block/potted_wildberry_bush_age1_a" },
+      { "model": "cosmopolitan:block/potted_wildberry_bush_age1_b" },
+      { "model": "cosmopolitan:block/potted_wildberry_bush_age1_c" }
+    ]
+  }
+}

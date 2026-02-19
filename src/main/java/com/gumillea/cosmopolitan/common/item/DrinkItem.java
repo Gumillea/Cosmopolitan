@@ -72,7 +72,7 @@ public class DrinkItem extends EffectItem {
             }
         }
 
-        if (this == CosmoItems.BLACK_COW.get() || this == CosmoItems.ICE_CREAM_FLOAT.get()) {
+        if (this == CosmoItems.ICE_CREAM_FLOAT.get()) {
             living.setTicksFrozen(living.getTicksFrozen() + 80);
         }
 

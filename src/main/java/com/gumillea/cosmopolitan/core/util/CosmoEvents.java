@@ -3,12 +3,17 @@ package com.gumillea.cosmopolitan.core.util;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.DoublePopsicleItem;
+import com.gumillea.cosmopolitan.common.item.DoubleSplitPopsicleItem;
+import com.gumillea.cosmopolitan.common.item.PottedCropItem;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
+import com.gumillea.cosmopolitan.core.misc.CosmoCriteriaTriggers;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.core.util.TradeUtil;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.food.FoodProperties;
@@ -52,7 +57,6 @@ import net.minecraftforge.registries.tags.ITagManager;
 import quek.undergarden.registry.UGDimensions;
 import sereneseasons.api.season.Season;
 import sereneseasons.api.season.SeasonHelper;
-import vectorwing.farmersdelight.common.utility.MathUtils;
 
 import java.util.*;
 
@@ -63,6 +67,17 @@ public class CosmoEvents {
     public static void onEntityAttacked(LivingDamageEvent event) {
         DamageSource source = event.getSource();
         LivingEntity target = event.getEntity();
+        float amount = event.getAmount();
+        if (target.hasEffect(CosmoEffects.INGRAINED.get())) {
+            if (event.getSource() != target.damageSources().fellOutOfWorld() && event.getSource() != target.damageSources().starve()) {
+                double y = target.getY();
+                double maxHeight = target.level().getMaxBuildHeight();
+                int segment = (int) ((1.0 - (y / maxHeight)) * 4);
+                double reduction = Math.max(0, Math.min(segment, 4)) * 0.05;
+
+                event.setAmount((float) (amount * (1 - reduction)));
+            }
+        }
         if (target.hasEffect(CosmoEffects.EXUBERANT.get())) {
             target.removeEffect(CosmoEffects.EXUBERANT.get());
             if (target instanceof Player player){
@@ -106,12 +121,14 @@ public class CosmoEvents {
         Entity user = event.getEntity();
         if (user instanceof LivingEntity living && stack.isEdible()) {
             int nutrition = Objects.requireNonNull(stack.getFoodProperties(living)).getNutrition();
+
             if (stack.hasTag() && stack.getTag().getBoolean("has_cream")) {
-                int creamNutrition =  nutrition == 0 ? 1 : (int) Math.ceil(nutrition / 5.0);
+                int creamNutrition =  nutrition == 0 ? 1 : (int) Math.ceil(nutrition / 4.0);
                 if (living instanceof Player player) {
                     player.getFoodData().eat(creamNutrition, 0);
                 }
             }
+
             int duration = nutrition < 10 ? 300 : 600;
             int amplifier = nutrition < 10 ? 0 : 1;
             if (CosmoConfig.Common.APPLE_FLAVOR.get() && stack.is(CosmoItemTags.EXUBERANT_SOURCES)){
@@ -122,7 +139,7 @@ public class CosmoEvents {
                 living.addEffect(new MobEffectInstance(CosmoEffects.TRACER.get(), duration, amplifier));
             }
             if (CosmoConfig.Common.DROOPFRUIT_FLAVOR.get() && stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)){
-                living.addEffect(new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), -1, amplifier));
+                living.addEffect(new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), 600, amplifier));
             }
             if (CosmoConfig.Common.BLISTERBERRY_FLAVOR.get() && stack.is(CosmoItemTags.VARDOGER_SOURCES)){
                 living.addEffect(new MobEffectInstance(CosmoEffects.VARDOGER.get(), (int) (duration * 1.5)));
@@ -137,13 +154,14 @@ public class CosmoEvents {
         if (effect == CosmoEffects.PLACEHOLDER.get()) {
             event.setResult(Event.Result.DENY);
         }
+
         if (entity.hasEffect(CosmoEffects.CAROTENE.get())) {
             ITagManager<MobEffect> mobEffectTags = ForgeRegistries.MOB_EFFECTS.tags();
             if (mobEffectTags != null && mobEffectTags.getTag(CosmoEffectTags.CONVERTIBLE_BY_CAROTENE).contains(effect)) {
                 for (int i = 0; i < 8; ++i) {
-                    double d0 = MathUtils.RAND.nextGaussian() * 0.02D;
-                    double d1 = MathUtils.RAND.nextGaussian() * 0.02D;
-                    double d2 = MathUtils.RAND.nextGaussian() * 0.02D;
+                    double d0 = new Random().nextGaussian() * 0.02D;
+                    double d1 = new Random().nextGaussian() * 0.02D;
+                    double d2 = new Random().nextGaussian() * 0.02D;
                     entity.level().addParticle(ParticleTypes.HAPPY_VILLAGER, entity.getRandomX(1.0D), entity.getRandomY() + 0.5D, entity.getRandomZ(1.0D), d0, d1, d2);
                 }
                 entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600));
@@ -157,6 +175,25 @@ public class CosmoEvents {
                 int d2 = Objects.requireNonNull(entity.getEffect(CosmoEffects.EXUBERANT.get())).getDuration();
                 float a2 = Objects.requireNonNull(entity.getEffect(CosmoEffects.EXUBERANT.get())).getAmplifier();
                 if (a2 >= a1 && d2 < d1) event.setResult(Event.Result.DENY);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEffectAdded(MobEffectEvent.Added event) {
+        MobEffectInstance instance = event.getEffectInstance();
+        MobEffect effect = instance.getEffect();
+        LivingEntity entity = event.getEntity();
+        if (CosmoCompat.rf && effect == CosmoCompat.CAFFEINATED && entity instanceof ServerPlayer player) {
+            int amplifier = instance.getAmplifier();
+            var restTime = Stats.CUSTOM.get(Stats.TIME_SINCE_REST);
+            if (amplifier >= 2) {
+                player.resetStat(restTime);
+            } else {
+                var stats = player.getStats();
+                int current = stats.getValue(restTime);
+
+                stats.setValue(player, restTime, (int) (current * (1.0 - (amplifier + 1) * 0.3)));
             }
         }
     }
@@ -203,6 +240,8 @@ public class CosmoEvents {
                     MobEffectInstance effect = new MobEffectInstance(doubleEffect.getEffect(), doubleEffect.getDuration() / 2, doubleEffect.getAmplifier());
                     living.addEffect(effect);
                 }
+            } else if (item instanceof DoubleSplitPopsicleItem splitPopsicle) {
+                CosmoUtils.gainRandomEffect(living.level(), living, splitPopsicle.getEffect1(), splitPopsicle.getEffect2(), splitPopsicle.getDuration() / 2);
             }
 
             if (!player.getAbilities().instabuild) {
@@ -219,16 +258,16 @@ public class CosmoEvents {
             event.setCanceled(true);
         }
         if (target instanceof Cat cat) {
-            if (cat.isAlive() && cat.isTame() && stack.getItem() instanceof WheatgrassItem) {
+            if (cat.isAlive() && cat.isTame() && (stack.getItem() instanceof WheatgrassItem || stack.getItem() == CosmoItems.WHEATGRASS_CUBECAKE.get())) {
                 for (MobEffectInstance effect : WheatgrassItem.EFFECTS) {
                     cat.addEffect(new MobEffectInstance(effect));
                 }
                 cat.level().playSound(null, target.blockPosition(), SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
 
                 for (int i = 0; i < 5; ++i) {
-                    double d0 = MathUtils.RAND.nextGaussian() * 0.02D;
-                    double d1 = MathUtils.RAND.nextGaussian() * 0.02D;
-                    double d2 = MathUtils.RAND.nextGaussian() * 0.02D;
+                    double d0 = new Random().nextGaussian() * 0.02D;
+                    double d1 = new Random().nextGaussian() * 0.02D;
+                    double d2 = new Random().nextGaussian() * 0.02D;
                     cat.level().addParticle(ParticleTypes.HAPPY_VILLAGER, cat.getRandomX(1.0D), cat.getRandomY() + 0.5D, cat.getRandomZ(1.0D), d0, d1, d2);
                 }
 
@@ -236,6 +275,7 @@ public class CosmoEvents {
                     if (!player.getAbilities().instabuild) {
                         stack.shrink(1);
                     }
+                    if (player instanceof ServerPlayer serverPlayer) CosmoCriteriaTriggers.WHEATGRASS.trigger(serverPlayer);
                 }
 
                 event.setCancellationResult(InteractionResult.SUCCESS);
@@ -279,6 +319,16 @@ public class CosmoEvents {
                     Block.popResource(level, pos, new ItemStack(CosmoItems.TUBER.get()));
                 }
             }
+        }
+
+        if (!level.isClientSide && inHand.getItem() instanceof PottedCropItem seed && block == Blocks.FLOWER_POT) {
+            player.swing(hand);
+            seed.plantCrop(level, pos, player, inHand);
+
+            if (player instanceof ServerPlayer serverPlayer) CosmoCriteriaTriggers.POTTED_CROP.trigger(serverPlayer);
+
+            event.setCancellationResult(InteractionResult.SUCCESS);
+            event.setCanceled(true);
         }
 
         if (block.getStateDefinition().getProperties().stream().anyMatch(prop -> prop.getName().equals("bites"))) {
@@ -337,6 +387,7 @@ public class CosmoEvents {
         TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.WANDERING_GELATO.get(), 2, 8, 3));
         TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(2, CosmoItems.LLAMA_MARSHMALLOW_TRADER.get(), 1, 16, 2));
         TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.LLAMA_MARSHMALLOW_TRADER.get(), 2, 8, 3));
+        if (CosmoCompat.en) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(3, CosmoItems.SLABFISH_JELLY_POPSICLE.get(), 1, 16, 2));
         TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(6, CosmoItems.TRAVELERS_PANINI.get(), 1, 8, 2));
         TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(9, CosmoItems.TRAVELERS_PANINI.get(), 2, 4, 3));
         if(CosmoCompat.an && CosmoConfig.Common.BERRY_GOOD_COMPAT_TWEAKS.get()) TradeUtil.addWandererTrades(event, new TradeUtil.BlueprintTrade(1, CosmoItems.SOURCE_BERRY_PIPS.get(), 1, 12, 1));

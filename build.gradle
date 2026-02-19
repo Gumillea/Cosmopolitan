@@ -110,7 +110,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {url = "https://www.cursemaven.com"}
-    maven {url = "https://maven.jaackson.me"}
+    maven {url = "https://maven.teamabnormals.com"}
     maven {url = "https://dvs1.progwml6.com/files/maven/" }
     maven {url = "https://modmaven.k-4u.nl" }
 }
@@ -133,7 +133,7 @@ dependencies {
     implementation fg.deobf("curse.maven:caverns-and-chasms-438005:6040957")
     implementation fg.deobf("curse.maven:berry-good-355589:5228437")
     implementation fg.deobf("curse.maven:gallery-1173553:6133771")
-    implementation fg.deobf("com.teamabnormals:blueprint:1.20.1-7.1.0")
+    implementation fg.deobf("com.teamabnormals:blueprint:1.20.1-7.1.3")
 
     implementation fg.deobf("curse.maven:jei-238222:6075247")
     implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:6172935")
@@ -142,16 +142,19 @@ dependencies {
     implementation fg.deobf("curse.maven:quark-243121:6312787")
 
     implementation fg.deobf("curse.maven:selene-499980:6693288")
+    implementation fg.deobf("curse.maven:ecliptic-seasons-1118306:6730023")
+
     implementation fg.deobf("curse.maven:supplementaries-412082:6615104")
 
     implementation fg.deobf("curse.maven:create-328085:6323270")
 
-    implementation fg.deobf("curse.maven:ars-nouveau-401955:5894609")
+    implementation fg.deobf("curse.maven:ars-nouveau-401955:6688854")
     implementation fg.deobf("curse.maven:curios-309927:5367944")
     implementation fg.deobf("curse.maven:patchouli-306770:4966125")
     implementation fg.deobf("curse.maven:geckolib-388172:5460309")
 
     implementation fg.deobf("curse.maven:habitat-422972:5293408")
+    implementation fg.deobf("curse.maven:windsweptmod-636321:7088921")
     implementation fg.deobf("curse.maven:enlightend-502786:4880586")
 
     implementation fg.deobf("curse.maven:exquisito-859262:6586448")
@@ -160,15 +163,19 @@ dependencies {
     implementation fg.deobf("curse.maven:respiteful-836471:5563825")
     implementation fg.deobf("curse.maven:cookielicious-409577:6415811")
 
-    implementation fg.deobf("curse.maven:farmers-delight-398521:6154802")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:6917255")
     implementation fg.deobf("curse.maven:brewin-and-chewin-637808:6237884")
-    implementation fg.deobf("curse.maven:delightful-637529:6168851")
-    implementation fg.deobf("curse.maven:collectors-reap-807101:6249047")
+    implementation fg.deobf("curse.maven:delightful-637529:6988183")
+    implementation fg.deobf("curse.maven:collectors-reap-807101:7187709")
     implementation fg.deobf("curse.maven:casualness-delight-909519:5181805")
     implementation fg.deobf("curse.maven:frycooks-delight-1081410:5630141")
     implementation fg.deobf("curse.maven:farmers-respite-551453:5543547")
     implementation fg.deobf("curse.maven:miners-delight-plus-689630:5038950")
     implementation fg.deobf("curse.maven:seed-delight-1016377:5734725")
+    implementation fg.deobf("curse.maven:windswept-delights-1372501:7150782")
+    implementation fg.deobf("curse.maven:delighto-flight-1347014:7530249")
+    implementation fg.deobf("curse.maven:youkais-homecoming-957437:7412691")
+    implementation fg.deobf("curse.maven:frights-delight-927591:7366955")
 
     implementation fg.deobf("curse.maven:vanilla-cookbook-402659:6435382")
     implementation fg.deobf("curse.maven:kitchen-karrot-880555:4936114")
@@ -177,6 +184,9 @@ dependencies {
     implementation fg.deobf("curse.maven:twilights-flavors-delight-871735:5802985")
 
     implementation fg.deobf("curse.maven:the-undergarden-379849:5182632")
+
+    implementation fg.deobf("curse.maven:enigmatic-legacy-336184:5600004")
+    implementation fg.deobf("curse.maven:caelus-308989:5281700")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

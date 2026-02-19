@@ -82,6 +82,21 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
+                CosmoBlocks.BIRCH_COOKIE_TILE.get(),
+                CosmoBlocks.BIRCH_COOKIE_TILE_SLAB.get(),
+                CosmoBlocks.BIRCH_COOKIE_TILE_WALL.get(),
+                CosmoBlocks.BIRCH_COOKIE_TILE_STAIRS.get(),
+
+                CosmoBlocks.HERBAL_COOKIE_TILE.get(),
+                CosmoBlocks.HERBAL_COOKIE_TILE_SLAB.get(),
+                CosmoBlocks.HERBAL_COOKIE_TILE_WALL.get(),
+                CosmoBlocks.HERBAL_COOKIE_TILE_STAIRS.get(),
+
+                CosmoBlocks.PAW_COOKIE_TILE.get(),
+                CosmoBlocks.PAW_COOKIE_TILE_SLAB.get(),
+                CosmoBlocks.PAW_COOKIE_TILE_WALL.get(),
+                CosmoBlocks.PAW_COOKIE_TILE_STAIRS.get(),
+
                 CosmoBlocks.WHEATGRASS_BALE.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
@@ -96,18 +111,38 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
         this.tag(BlockTags.CLIMBABLE).add(
                 CosmoBlocks.BERRY_SYRUP_BLOCK.get()
         );
+        this.tag(BlockTags.SLABS).add(
+                CosmoBlocks.BIRCH_COOKIE_TILE_SLAB.get(),
+                CosmoBlocks.HERBAL_COOKIE_TILE_SLAB.get(),
+                CosmoBlocks.PAW_COOKIE_TILE_SLAB.get()
+        );
+        this.tag(BlockTags.STAIRS).add(
+                CosmoBlocks.BIRCH_COOKIE_TILE_STAIRS.get(),
+                CosmoBlocks.HERBAL_COOKIE_TILE_STAIRS.get(),
+                CosmoBlocks.PAW_COOKIE_TILE_STAIRS.get()
+        );
+        this.tag(BlockTags.WALLS).add(
+                CosmoBlocks.BIRCH_COOKIE_TILE_WALL.get(),
+                CosmoBlocks.HERBAL_COOKIE_TILE_WALL.get(),
+                CosmoBlocks.PAW_COOKIE_TILE_WALL.get()
+        );
+        this.tag(BlockTags.CROPS).add(
+                CosmoBlocks.POTTED_FIDDLEHEAD_GREENS.get(),
+                CosmoBlocks.POTTED_WILDBERRY_BUSH.get()
+        );
+
         this.tag(CosmoBlockTags.COOLING_SOURCES).add(
                 Blocks.SNOW_BLOCK,
                 Blocks.POWDER_SNOW)
                 .addTag(BlockTags.ICE);
 
         this.tag(CosmoBlockTags.EXUBERANT_SOURCES)
-                .addOptional(new ResourceLocation(CosmoCompat.FD, "apple_pie"));
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "apple_pie"));
 
         this.tag(CosmoBlockTags.CAROTENE_SOURCES)
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "carrot_cake"));
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "carrot_cake"));
 
         this.tag(CosmoBlockTags.TRACER_SOURCES)
-                .addOptional(new ResourceLocation(CosmoCompat.VC, "glow_berry_cake"));
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "glow_berry_cake"));
     }
 }
