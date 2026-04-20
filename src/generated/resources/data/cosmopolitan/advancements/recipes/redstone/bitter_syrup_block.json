@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cosmopolitan:berry_syrup_block": {
+    "has_berry_syrup_bottle": {
       "conditions": {
         "items": [
           {
             "items": [
-              "cosmopolitan:berry_syrup_block"
+              "cosmopolitan:berry_syrup_bottle"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "cosmopolitan:berry_syrup_bottle"
+        "recipe": "cosmopolitan:bitter_syrup_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cosmopolitan:berry_syrup_block",
+      "has_berry_syrup_bottle",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "cosmopolitan:berry_syrup_bottle"
+      "cosmopolitan:bitter_syrup_block"
     ]
   },
   "sends_telemetry_event": false

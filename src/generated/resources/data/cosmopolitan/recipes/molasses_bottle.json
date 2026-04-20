@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cosmopolitan:berry_syrup_block"
+      "item": "cosmopolitan:molasses_block"
     },
     {
       "item": "minecraft:glass_bottle"
@@ -20,6 +20,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "cosmopolitan:berry_syrup_bottle"
+    "item": "cosmopolitan:molasses_bottle"
   }
 }

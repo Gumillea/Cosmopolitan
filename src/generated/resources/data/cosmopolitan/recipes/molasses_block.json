@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "A": {
-      "item": "cosmopolitan:berry_syrup_bottle"
+      "item": "cosmopolitan:molasses_bottle"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "AA"
   ],
   "result": {
-    "item": "cosmopolitan:berry_syrup_block"
+    "item": "cosmopolitan:molasses_block"
   },
   "show_notification": true
 }

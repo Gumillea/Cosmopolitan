@@ -2,9 +2,9 @@
   "type": "brewinandchewin:keg_pouring",
   "amount": 250,
   "filling": true,
-  "fluid": "cosmopolitan:berry_syrup",
+  "fluid": "cosmopolitan:cachaca",
   "output": {
-    "item": "cosmopolitan:berry_syrup_bottle"
+    "item": "cosmopolitan:cachaca"
   },
   "strict": false
 }

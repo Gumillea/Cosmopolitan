@@ -3,16 +3,16 @@
   "conditions": [
     {
       "type": "forge:not",
-      "value":     {
+      "value":             {
         "type": "forge:mod_loaded",
         "modid": "farmersdelight"
       }
     }
   ],
   "ingredient": {
-    "item": "cosmopolitan:condensed_milk_bucket"
+    "tag": "cosmopolitan:herbal_powder_ingredients"
   },
-  "result": "cosmopolitan:cream_bucket",
-  "experience": 1,
-  "cookingtime": 2400
+  "result": "cosmopolitan:herbal_powder",
+  "experience": 0.35,
+  "cookingtime": 400
 }

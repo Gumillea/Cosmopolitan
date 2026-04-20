@@ -8,7 +8,7 @@
   ],
   "ingredients": [
     {
-      "item": "cosmopolitan:berry_syrup_bottle"
+      "item": "cosmopolitan:molasses_bottle"
     }
   ],
   "results": [
@@ -17,7 +17,7 @@
     },
     {
       "amount": 250,
-      "fluid": "cosmopolitan:berry_syrup"
+      "fluid": "cosmopolitan:molasses"
     }
   ]
 }
