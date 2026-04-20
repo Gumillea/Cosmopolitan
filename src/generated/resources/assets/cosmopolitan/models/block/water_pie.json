@@ -1,0 +1,9 @@
+{
+  "parent": "cosmopolitan:block/pie",
+  "textures": {
+    "bottom": "cosmopolitan:block/water_pie_bottom",
+    "particle": "cosmopolitan:block/water_pie_bottom",
+    "side": "cosmopolitan:block/water_pie_side",
+    "top": "cosmopolitan:block/water_pie_top"
+  }
+}

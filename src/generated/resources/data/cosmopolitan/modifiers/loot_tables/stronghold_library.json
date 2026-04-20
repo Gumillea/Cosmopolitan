@@ -6,8 +6,13 @@
         "entries": [
           {
             "type": "minecraft:item",
+            "name": "cosmopolitan:enchanted_golden_arbutus_berries",
+            "weight": 3
+          },
+          {
+            "type": "minecraft:item",
             "name": "cosmopolitan:kykeon",
-            "weight": 15
+            "weight": 8
           }
         ],
         "index": 0,

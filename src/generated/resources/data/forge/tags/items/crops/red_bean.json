@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "neapolitan:adzuki_beans",
+      "required": false
+    },
+    {
+      "id": "youkaishomecoming:redbean",
+      "required": false
+    },
+    {
+      "id": "youkaisfeasts:redbean",
+      "required": false
+    }
+  ]
+}

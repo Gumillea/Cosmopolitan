@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "collectorsreap"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": {
+        "amount": 750,
+        "name": "cosmopolitan:lucuma_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "collectorsreap:lucuma_ice_cream"
+  }
+}

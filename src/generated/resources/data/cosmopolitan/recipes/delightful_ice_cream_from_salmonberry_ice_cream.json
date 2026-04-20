@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "delightful:salmonberry_ice_cream"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:matcha"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "ars_nouveau:sourceberry_bush"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "delightful:salmonberry_ice_cream"
+          },
+          {
+            "tag": "forge:matcha"
+          },
+          {
+            "item": "ars_nouveau:sourceberry_bush"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:delightful_ice_cream"
+        }
+      }
+    }
+  ]
+}

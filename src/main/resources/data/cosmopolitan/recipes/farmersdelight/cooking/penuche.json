@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 800,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "tag": "forge:condensed_milk"
+          },
+          {
+            "item": "cosmopolitan:molasses_bottle"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "item": "cosmopolitan:penuche",
+          "count": 8
+        }
+      }
+    }
+  ]
+}

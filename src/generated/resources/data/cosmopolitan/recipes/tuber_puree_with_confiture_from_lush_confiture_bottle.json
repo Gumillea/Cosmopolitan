@@ -1,0 +1,32 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:lush_confiture_bottle"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:tuber_puree"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:lush_confiture_bottle"
+          },
+          {
+            "item": "cosmopolitan:tuber_puree"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:tuber_puree_with_confiture"
+        }
+      }
+    }
+  ]
+}

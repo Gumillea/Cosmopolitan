@@ -1,0 +1,36 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "item": "minecraft:wheat"
+          },
+          {
+            "item": "minecraft:wheat"
+          },
+          {
+            "tag": "forge:nuts"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "result": {
+          "item": "cosmopolitan:farina"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "brewinandchewin:block/coaster_tankard",
+  "textures": {
+    "particle": "cosmopolitan:block/coaster/neverending_night",
+    "tankard": "cosmopolitan:block/coaster/neverending_night"
+  }
+}

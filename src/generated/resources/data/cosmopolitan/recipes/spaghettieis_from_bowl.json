@@ -1,0 +1,59 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bowl"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:berries"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:jams"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "neapolitan:vanilla_ice_cream"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "tag": "forge:berries"
+          },
+          {
+            "tag": "forge:jams"
+          },
+          {
+            "item": "cosmopolitan:wafer"
+          },
+          {
+            "item": "neapolitan:vanilla_ice_cream"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:spaghettieis"
+        }
+      }
+    }
+  ]
+}

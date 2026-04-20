@@ -1,0 +1,10 @@
+{
+  "parent": "cosmopolitan:block/pie_slice1",
+  "textures": {
+    "bottom": "cosmopolitan:block/shoofly_pie_bottom",
+    "inner": "cosmopolitan:block/shoofly_pie_inner",
+    "particle": "cosmopolitan:block/shoofly_pie_bottom",
+    "side": "cosmopolitan:block/shoofly_pie_side",
+    "top": "cosmopolitan:block/shoofly_pie_top"
+  }
+}

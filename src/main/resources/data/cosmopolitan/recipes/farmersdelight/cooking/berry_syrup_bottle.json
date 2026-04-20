@@ -10,7 +10,7 @@
       ],
       "recipe": {
         "type": "farmersdelight:cooking",
-        "cookingtime": 600,
+        "cookingtime": 1200,
         "experience": 0.5,
         "ingredients": [
           {
@@ -23,7 +23,7 @@
             "tag": "forge:berries"
           },
           {
-            "item": "minecraft:sugar"
+            "tag": "forge:berries"
           },
           {
             "item": "minecraft:sugar"

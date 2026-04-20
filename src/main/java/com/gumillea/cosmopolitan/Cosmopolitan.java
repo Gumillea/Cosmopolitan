@@ -1,5 +1,6 @@
 package com.gumillea.cosmopolitan;
 
+import com.gumillea.cosmopolitan.common.client.FrozenDessertTubRenderer;
 import com.gumillea.cosmopolitan.core.data.*;
 import com.gumillea.cosmopolitan.core.data.models.CosmoBlockStateProvider;
 import com.gumillea.cosmopolitan.core.data.models.CosmoItemModelProvider;
@@ -7,9 +8,11 @@ import com.gumillea.cosmopolitan.core.data.modifier.CosmoLootModifierProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoBlockTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoEffectTagsProvider;
 import com.gumillea.cosmopolitan.core.data.tags.CosmoItemTagsProvider;
+import com.gumillea.cosmopolitan.core.misc.CosmoPacketHandler;
 import com.gumillea.cosmopolitan.core.misc.compat.supplementaries.SappyBirchLogInteraction;
 import com.gumillea.cosmopolitan.core.misc.compat.supplementaries.CosmoSoftFluids;
 import com.gumillea.cosmopolitan.core.reg.*;
+import com.gumillea.cosmopolitan.core.reg.client.CosmoItemProperties;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoCompostableItems;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -17,11 +20,10 @@ import net.mehvahdjukaar.supplementaries.common.block.faucet.FaucetBehaviorsMana
 import net.mehvahdjukaar.supplementaries.common.block.tiles.FaucetBlockTile;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
@@ -82,6 +84,8 @@ public class Cosmopolitan {
         e.enqueueWork(() -> {
             CosmoCompostableItems.registerCompostableItems();
             CosmoEffects.registerBrewingRecipes();
+            CosmoPacketHandler.register();
+
             if (CosmoCompat.nea) {
                 CosmoCauldronInteractions.registerCauldronInteractions();
             }
@@ -94,7 +98,12 @@ public class Cosmopolitan {
 
     private void clientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.MOLASSES_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.SWEET_BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.SOUR_BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.SPICY_BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BITTER_BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.STRANGE_BERRY_SYRUP_BLOCK.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.BIRCH_SAP_BLOCK.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.STEELEAF_NECTAR_BLOCK.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.LIFELIGHT.get(), RenderType.cutout());
@@ -104,10 +113,16 @@ public class Cosmopolitan {
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.GLOW_BERRY_CUBECAKE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.WHEATGRASS_CUBECAKE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.WARPED_VELVET_CUBECAKE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.JELLY_ROLL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.CHOCOLATE_ROLL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.INK_ROLL.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.YULE_LOG.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(CosmoBlocks.SAPPY_BIRCH_LOG.get(), RenderType.cutout());
 
-            // Based on the item property implementation from Snowy Spirit by MehVahdJukaar: https://github.com/MehVahdJukaar/SnowySpirit/blob/1.20/common/src/main/java/net/mehvahdjukaar/snowyspirit/reg/ClientRegistry.java
-            ItemProperties.register(CosmoItems.WILDBERRY.get(), new ResourceLocation("shape"), (stack, world, entity, s) -> (stack.hasTag() && stack.getTag().contains("icon")) ? 0F : (System.identityHashCode(stack) % 9) / 8F);
-        });
+            BlockEntityRenderers.register(CosmoBlockEntityTypes.FROZEN_DESSERT_TUB.get(), FrozenDessertTubRenderer::new);
+
+            CosmoItemProperties.registerItemProperties();
+           });
     }
 
     private void gatherData(GatherDataEvent event) {
@@ -124,6 +139,7 @@ public class Cosmopolitan {
         generator.addProvider(includeServer, new CosmoRecipeProvider(output));
         generator.addProvider(includeServer, new CosmoEffectTagsProvider(output, provider, helper));
         generator.addProvider(includeServer, new CosmoLootTableProvider(output));
+        generator.addProvider(includeServer, new CosmoBerrfectDataProvider(output));
         generator.addProvider(includeServer, CosmoAdvancementProvider.create(output, provider, helper));
 
         boolean client = event.includeClient();

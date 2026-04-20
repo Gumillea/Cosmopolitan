@@ -1,0 +1,66 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:wheat"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:wheat"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "ars_nouveau:bastion_pod"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:eggs"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:milk"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:sugar"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:wheat"
+          },
+          {
+            "item": "minecraft:wheat"
+          },
+          {
+            "item": "ars_nouveau:bastion_pod"
+          },
+          {
+            "tag": "forge:eggs"
+          },
+          {
+            "tag": "forge:milk"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:shielding_butter_bun"
+        }
+      }
+    }
+  ]
+}

@@ -32,6 +32,31 @@ public class CosmoAdvancementProvider implements ForgeAdvancementProvider.Advanc
                 .addCriterion("eat_special_wildberry", CosmoCriteriaTriggers.WILDBERRY.createInstance())
                 .save(consumer, Cosmopolitan.MODID + ":husbandry/eat_special_wildberry");
 
+        createAdvancement("craft_a_berry_syrup_bottle", "husbandry", new ResourceLocation("husbandry/plant_seed"), CosmoItems.BERRY_SYRUP_BOTTLE.get(), FrameType.TASK, true, true, false)
+                .addCriterion("berry_syrup_bottle", InventoryChangeTrigger.TriggerInstance.hasItems(CosmoItems.BERRY_SYRUP_BOTTLE.get()))
+                .save(consumer, Cosmopolitan.MODID + ":husbandry/craft_a_berry_syrup_bottle");
+
+        createAdvancement("has_a_sour_flavor", "husbandry", new ResourceLocation(Cosmopolitan.MODID, "husbandry/craft_a_berry_syrup_bottle"), Items.GLOW_BERRIES, FrameType.TASK, true, true, false)
+                .addCriterion("has_a_sour_flavor", CosmoCriteriaTriggers.SOUR.createInstance())
+                .save(consumer, Cosmopolitan.MODID + ":husbandry/has_a_sour_flavor");
+
+        createAdvancement("has_a_sweet_flavor", "husbandry", new ResourceLocation(Cosmopolitan.MODID, "husbandry/craft_a_berry_syrup_bottle"), Items.SWEET_BERRIES, FrameType.TASK, true, true, false)
+                .addCriterion("has_a_sweet_flavor", CosmoCriteriaTriggers.SWEET.createInstance())
+                .save(consumer, Cosmopolitan.MODID + ":husbandry/has_a_sweet_flavor");
+
+        createAdvancement("has_a_bitter_flavor", "husbandry", new ResourceLocation(Cosmopolitan.MODID, "husbandry/craft_a_berry_syrup_bottle"), CosmoItems.SPINALBERRY.get(), FrameType.TASK, true, true, false)
+                .addCriterion("has_a_bitter_flavor", CosmoCriteriaTriggers.BITTER.createInstance())
+                .save(consumer, Cosmopolitan.MODID + ":husbandry/has_a_bitter_flavor");
+
+        createAdvancement("has_a_spicy_flavor", "husbandry", new ResourceLocation(Cosmopolitan.MODID, "husbandry/craft_a_berry_syrup_bottle"), CosmoItems.BOILBERRY.get(), FrameType.TASK, true, true, false)
+                .addCriterion("has_a_spicy_flavor", CosmoCriteriaTriggers.SPICY.createInstance())
+                .save(consumer, Cosmopolitan.MODID + ":husbandry/has_a_spicy_flavor");
+
+        createAdvancement("has_all_four_flavors", "husbandry", new ResourceLocation(Cosmopolitan.MODID, "husbandry/craft_a_berry_syrup_bottle"), CosmoItems.COSMOPOLITAN_COCKTAIL.get(), FrameType.CHALLENGE, true, true, true)
+                .addCriterion("has_all_four_flavors", CosmoCriteriaTriggers.ALL_FLAVORS.createInstance())
+                .rewards(AdvancementRewards.Builder.experience(50))
+                .save(consumer, Cosmopolitan.MODID + ":husbandry/has_all_four_flavors");
+
         createAdvancement("plant_potted_crop", "husbandry", new ResourceLocation("husbandry/plant_seed"), Items.FLOWER_POT, FrameType.TASK, true, true, false)
                 .addCriterion("plant_potted_crop", CosmoCriteriaTriggers.POTTED_CROP.createInstance())
                 .save(consumer, Cosmopolitan.MODID + ":husbandry/plant_potted_crop");

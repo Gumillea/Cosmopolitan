@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "criteria": {
+    "restore_gulime": {
+      "trigger": "cosmopolitan:gulime"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.restore_gulime.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "cosmopolitan:gulime"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.restore_gulime.title"
+    }
+  },
+  "requirements": [
+    [
+      "restore_gulime"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

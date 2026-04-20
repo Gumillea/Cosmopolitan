@@ -1,0 +1,6 @@
+{
+  "parent": "cosmopolitan:block/roll",
+  "textures": {
+    "roll": "cosmopolitan:block/yule_log"
+  }
+}

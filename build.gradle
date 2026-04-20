@@ -118,14 +118,18 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
+
     implementation fg.deobf("curse.maven:jade-324717:6271651")
     implementation fg.deobf("curse.maven:appleskin-248787:4770828")
 
     implementation fg.deobf("curse.maven:glitchcore-955399:5787839")
     implementation fg.deobf("curse.maven:serene-seasons-291874:6398227")
     implementation fg.deobf("curse.maven:tough-as-nails-246391:5815863")
+    implementation fg.deobf("curse.maven:biomes-o-plenty-220318:6364065")
 
     implementation fg.deobf("curse.maven:abnormals-delight-442719:6057626")
+    implementation fg.deobf("curse.maven:upgrade-aquatic-326895:6393133")
     implementation fg.deobf("curse.maven:neapolitan-382016:6248885")
     implementation fg.deobf("curse.maven:autumnity-365045:6151402")
     implementation fg.deobf("curse.maven:environmental-388992:6060255")
@@ -174,8 +178,9 @@ dependencies {
     implementation fg.deobf("curse.maven:seed-delight-1016377:5734725")
     implementation fg.deobf("curse.maven:windswept-delights-1372501:7150782")
     implementation fg.deobf("curse.maven:delighto-flight-1347014:7530249")
-    implementation fg.deobf("curse.maven:youkais-homecoming-957437:7412691")
+    implementation fg.deobf("curse.maven:gensokyo-delight-youkais-feasts-1309991:6955520")
     implementation fg.deobf("curse.maven:frights-delight-927591:7366955")
+    implementation fg.deobf("curse.maven:my-nethers-delight-1003673:6529919")
 
     implementation fg.deobf("curse.maven:vanilla-cookbook-402659:6435382")
     implementation fg.deobf("curse.maven:kitchen-karrot-880555:4936114")
@@ -187,6 +192,20 @@ dependencies {
 
     implementation fg.deobf("curse.maven:enigmatic-legacy-336184:5600004")
     implementation fg.deobf("curse.maven:caelus-308989:5281700")
+
+    implementation fg.deobf("curse.maven:bclib-forge-1435106:7654257")
+    implementation fg.deobf("curse.maven:betterend-forge-1435127:7654241")
+    implementation fg.deobf("curse.maven:wunderlib-forge-1435097:7486522")
+
+    implementation fg.deobf("curse.maven:elysium-api-1158628:6589093")
+    implementation fg.deobf("curse.maven:jadens-nether-expansion-1111833:6729020")
+    implementation fg.deobf("curse.maven:gardens-of-the-dead-683174:7309542")
+
+    implementation fg.deobf("curse.maven:platform-997634:7609676")
+    implementation fg.deobf("curse.maven:vanillabackport-417430:7597658")
+
+    implementation fg.deobf("curse.maven:epherolib-885449:4889101")
+    implementation fg.deobf("curse.maven:croptopia-415438:4997459")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

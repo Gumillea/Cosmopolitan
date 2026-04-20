@@ -1,0 +1,29 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "cosmopolitan:spring_soda"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:vanilla_ice_cream"
+      }
+    }
+  ],
+  "requiresCooling": false,
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:ice_cream_float"
+  }
+}

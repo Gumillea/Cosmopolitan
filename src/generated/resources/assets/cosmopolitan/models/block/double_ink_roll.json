@@ -1,0 +1,6 @@
+{
+  "parent": "cosmopolitan:block/double_roll",
+  "textures": {
+    "roll": "cosmopolitan:block/ink_roll"
+  }
+}

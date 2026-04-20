@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cosmopolitan:block/birch_cookie_tile_slab"
+    },
+    "type=double": {
+      "model": "cosmopolitan:block/birch_cookie_tiles"
+    },
+    "type=top": {
+      "model": "cosmopolitan:block/birch_cookie_tile_slab_top"
+    }
+  }
+}

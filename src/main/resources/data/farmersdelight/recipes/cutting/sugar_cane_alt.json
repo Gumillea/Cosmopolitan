@@ -1,0 +1,30 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "delightful"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:sugar_cane"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  },
+  "result": [
+    {
+      "item": "cosmopolitan:sugarcane_pieces",
+      "count": 2
+    },
+    {
+      "item": "minecraft:sugar",
+      "chance": 0.5
+    }
+  ]
+}

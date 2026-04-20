@@ -1,0 +1,47 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:nether_wart"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:nether_wart"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:ectocaramel"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:boilberry"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "cosmopolitan:ectocaramel"
+          },
+          {
+            "item": "cosmopolitan:boilberry"
+          }
+        ],
+        "result": {
+          "count": 8,
+          "item": "cosmopolitan:howling_cookie"
+        }
+      }
+    }
+  ]
+}

@@ -20,8 +20,6 @@ public class CosmoEffectTagsProvider extends IntrinsicHolderTagsProvider<MobEffe
 
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(CosmoEffectTags.BLACKLIST)
-                .add(MobEffects.LEVITATION, MobEffects.BAD_OMEN, MobEffects.HERO_OF_THE_VILLAGE);
-        this.tag(CosmoEffectTags.CONVERTIBLE_BY_CAROTENE)
-                .add(MobEffects.DARKNESS, MobEffects.BLINDNESS, MobEffects.CONFUSION);
+                .add(MobEffects.BAD_OMEN, MobEffects.HERO_OF_THE_VILLAGE);
     }
 }

@@ -1,0 +1,36 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 1200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "tag": "forge:crops/sugarcane"
+          },
+          {
+            "tag": "forge:crops/sugarcane"
+          },
+          {
+            "tag": "forge:crops/sugarcane"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:molasses_bottle"
+        }
+      }
+    }
+  ]
+}

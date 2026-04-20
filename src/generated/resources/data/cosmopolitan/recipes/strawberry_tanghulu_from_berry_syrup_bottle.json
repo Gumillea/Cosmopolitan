@@ -1,0 +1,60 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/strawberry"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/strawberry"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:berry_syrup_bottle"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:stick"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:stick"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "tag": "forge:fruits/strawberry"
+          },
+          {
+            "tag": "forge:fruits/strawberry"
+          },
+          {
+            "item": "cosmopolitan:berry_syrup_bottle"
+          },
+          {
+            "item": "minecraft:stick"
+          },
+          {
+            "item": "minecraft:stick"
+          }
+        ],
+        "result": {
+          "count": 2,
+          "item": "cosmopolitan:strawberry_tanghulu"
+        }
+      }
+    }
+  ]
+}

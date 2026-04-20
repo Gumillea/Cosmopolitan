@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "plant_potted_crop": {
+      "trigger": "cosmopolitan:potted_crop"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.plant_potted_crop.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:flower_pot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.plant_potted_crop.title"
+    }
+  },
+  "requirements": [
+    [
+      "plant_potted_crop"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

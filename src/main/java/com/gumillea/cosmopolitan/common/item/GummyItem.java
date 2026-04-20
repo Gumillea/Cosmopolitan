@@ -8,6 +8,7 @@ public class GummyItem extends EffectItem{
     public GummyItem(Properties properties) {
         super(properties);
     }
+
     public SoundEvent getDrinkingSound() {
         return SoundEvents.HONEY_BLOCK_HIT;
     }

@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -20,7 +21,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class EffectBowlItem extends EffectItem{
+public class EffectBowlItem extends EffectItem {
     public EffectBowlItem(Item.Properties properties) {
         super(properties);
     }
@@ -32,11 +33,21 @@ public class EffectBowlItem extends EffectItem{
             CosmoEvents.creamEffect(level, living, itemStack);
         }
 
+        if (this == CosmoItems.CLASSIC_FRUIT_SALAD.get()) {
+            WildberryItem.applyBerryEffect(level, living, 1);
+        }
+
+        if (this == CosmoItems.WILDBERRY_MEDLEY.get()) {
+            WildberryItem.applyBerryEffect(level, living, 4);
+        }
+
+        if (this.getCraftingRemainingItem() == null) return itemStack;
+
         if (itemStack.isEmpty()) {
-            return new ItemStack(Items.BOWL);
+            return new ItemStack(this.getCraftingRemainingItem());
         } else {
-            if (living instanceof Player player && !((Player)living).getAbilities().instabuild) {
-                ItemStack stack = new ItemStack(Items.BOWL);
+            if (living instanceof Player player && !player.getAbilities().instabuild) {
+                ItemStack stack = new ItemStack(this.getCraftingRemainingItem());
                 if (!player.getInventory().add(stack)) {
                     player.drop(stack, false);
                 }
@@ -50,11 +61,13 @@ public class EffectBowlItem extends EffectItem{
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        
+
+
         if (this == CosmoItems.CREAM.get()) {
             MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".cream.when_consumed");
             tooltip.add(coldDrink.withStyle(ChatFormatting.BLUE));
         }
     }
+
 }
 

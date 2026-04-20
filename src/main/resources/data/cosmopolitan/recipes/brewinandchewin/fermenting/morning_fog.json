@@ -1,0 +1,36 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "conditions": [
+    {
+      "type": "exquisito:config",
+      "value": "enable_ether_bulb_flavor"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "ars_nouveau:magebloom"
+    }
+  ],
+  "basefluid": {
+    "count": 1000,
+    "fluid": "cosmopolitan:cachaca"
+  },
+  "experience": 1.0,
+  "fermentingtime": 9600,
+  "ingredients": [
+    {
+      "item": "minecraft:torchflower"
+    },
+    {
+      "item": "ars_nouveau:magebloom"
+    },
+    {
+      "tag": "exquisito:starcloud_ingredients"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "cosmopolitan:morning_fog"
+  },
+  "temperature": 5
+}

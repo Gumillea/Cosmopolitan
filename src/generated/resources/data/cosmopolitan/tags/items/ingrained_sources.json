@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "miners_delight:cave_carrot",
+      "required": false
+    },
+    {
+      "id": "miners_delight:baked_cave_carrot",
+      "required": false
+    },
+    {
+      "id": "miners_delight:vegan_patty",
+      "required": false
+    },
+    {
+      "id": "miners_delight:vegan_wrap",
+      "required": false
+    },
+    {
+      "id": "miners_delight:vegan_hamburger",
+      "required": false
+    },
+    {
+      "id": "miners_delight:vegan_steak_and_potatoes",
+      "required": false
+    },
+    {
+      "id": "miners_delight:pasta_with_veggieballs",
+      "required": false
+    },
+    {
+      "id": "miners_delight:cave_soup",
+      "required": false
+    },
+    {
+      "id": "miners_delight:improvised_barbecue_stick",
+      "required": false
+    }
+  ]
+}

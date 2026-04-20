@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "cosmopolitan:block/herbal_cookie_tiles",
+    "side": "cosmopolitan:block/herbal_cookie_tiles",
+    "top": "cosmopolitan:block/herbal_cookie_tiles"
+  }
+}

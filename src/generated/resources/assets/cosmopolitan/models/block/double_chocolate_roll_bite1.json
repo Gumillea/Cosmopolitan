@@ -1,0 +1,6 @@
+{
+  "parent": "cosmopolitan:block/double_roll_bite1",
+  "textures": {
+    "roll": "cosmopolitan:block/chocolate_roll"
+  }
+}

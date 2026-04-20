@@ -13,7 +13,7 @@
         },
         {
           "type": "forge:item_exists",
-          "item": "respiteful:green_tea_ice_cream"
+          "item": "minecraft:air"
         }
       ],
       "recipe": {

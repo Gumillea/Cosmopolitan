@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "forge:not",
+      "value":             {
+        "type": "forge:tag_empty",
+        "tag": "forge:eggs/salmon"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "farmersdelight:salmon_slice"
+    },
+    {
+      "item": "farmersdelight:salmon_slice"
+    },
+    {
+      "item": "farmersdelight:cooked_rice"
+    },
+    {
+      "tag": "forge:cream"
+    },
+    {
+      "tag": "forge:eggs/salmon"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:flower_love",
+    "count": 2
+  }
+}

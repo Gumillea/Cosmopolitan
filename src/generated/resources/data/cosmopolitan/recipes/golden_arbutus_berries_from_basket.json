@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:golden_arbutus_berries_basket"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "cosmopolitan:golden_arbutus_berries"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:husbandry/safely_harvest_honey",
+  "criteria": {
+    "eat_herbal_cookie": {
+      "trigger": "cosmopolitan:herbal_cookie"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.eat_herbal_cookie.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "cosmopolitan:herbal_cookie"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.eat_herbal_cookie.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_herbal_cookie"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

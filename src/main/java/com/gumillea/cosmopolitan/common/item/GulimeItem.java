@@ -4,6 +4,7 @@ import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.misc.CosmoCriteriaTriggers;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.gumillea.cosmopolitan.core.util.CosmoUtils;
 import com.teamabnormals.neapolitan.common.item.HealingItem;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanBiomes;
 import net.minecraft.core.Holder;
@@ -61,10 +62,7 @@ public class GulimeItem extends GummyItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         if (level.isClientSide || !(entity instanceof Player player)) return;
         if (this.large) return;
-
-        long time = level.getGameTime();
-        if (time % CosmoConfig.Common.GULIME_TICK.get() != 0) return;
-        if (level.getRandom().nextFloat() < CosmoConfig.Common.GULIME_CHANCE.get()) return;
+        if (!CosmoUtils.tickRandom(level, CosmoConfig.Common.GULIME_TICK.get(), CosmoConfig.Common.GULIME_CHANCE.get())) return;
 
         int gulimes = 0;
         for (ItemStack invStack : player.getInventory().items) {

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "cosmopolitan:config",
+      "value": "enable_flavored_syrup"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:strange_berry_syrup_block"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:berry_syrup_bottle",
+    "count": 4,
+    "nbt": "{berrySyrupFlavor:\"strange\"}"
+  }
+}

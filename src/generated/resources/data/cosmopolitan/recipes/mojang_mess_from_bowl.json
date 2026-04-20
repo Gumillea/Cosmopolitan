@@ -1,0 +1,56 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bowl"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:golden_apple"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:meringue"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:meringue"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:cream"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "item": "minecraft:golden_apple"
+          },
+          {
+            "item": "cosmopolitan:meringue"
+          },
+          {
+            "item": "cosmopolitan:meringue"
+          },
+          {
+            "tag": "forge:cream"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:mojang_mess"
+        }
+      }
+    }
+  ]
+}

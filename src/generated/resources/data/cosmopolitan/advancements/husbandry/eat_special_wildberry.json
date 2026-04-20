@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "eat_special_wildberry": {
+      "trigger": "cosmopolitan:wildberry"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.eat_special_wildberry.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "cosmopolitan:wildberry"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.eat_special_wildberry.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_special_wildberry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

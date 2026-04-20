@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:tuber"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "cosmopolitan:cut_tubers"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

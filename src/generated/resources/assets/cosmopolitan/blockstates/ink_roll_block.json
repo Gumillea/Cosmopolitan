@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "bites=0,double=false,facing=east": {
+      "model": "cosmopolitan:block/ink_roll",
+      "y": 90
+    },
+    "bites=0,double=false,facing=north": {
+      "model": "cosmopolitan:block/ink_roll"
+    },
+    "bites=0,double=false,facing=south": {
+      "model": "cosmopolitan:block/ink_roll",
+      "y": 180
+    },
+    "bites=0,double=false,facing=west": {
+      "model": "cosmopolitan:block/ink_roll",
+      "y": 270
+    },
+    "bites=0,double=true,facing=east": {
+      "model": "cosmopolitan:block/double_ink_roll",
+      "y": 90
+    },
+    "bites=0,double=true,facing=north": {
+      "model": "cosmopolitan:block/double_ink_roll"
+    },
+    "bites=0,double=true,facing=south": {
+      "model": "cosmopolitan:block/double_ink_roll",
+      "y": 180
+    },
+    "bites=0,double=true,facing=west": {
+      "model": "cosmopolitan:block/double_ink_roll",
+      "y": 270
+    },
+    "bites=1,double=false,facing=east": {
+      "model": "cosmopolitan:block/ink_roll_bite1",
+      "y": 90
+    },
+    "bites=1,double=false,facing=north": {
+      "model": "cosmopolitan:block/ink_roll_bite1"
+    },
+    "bites=1,double=false,facing=south": {
+      "model": "cosmopolitan:block/ink_roll_bite1",
+      "y": 180
+    },
+    "bites=1,double=false,facing=west": {
+      "model": "cosmopolitan:block/ink_roll_bite1",
+      "y": 270
+    },
+    "bites=1,double=true,facing=east": {
+      "model": "cosmopolitan:block/double_ink_roll_bite1",
+      "y": 90
+    },
+    "bites=1,double=true,facing=north": {
+      "model": "cosmopolitan:block/double_ink_roll_bite1"
+    },
+    "bites=1,double=true,facing=south": {
+      "model": "cosmopolitan:block/double_ink_roll_bite1",
+      "y": 180
+    },
+    "bites=1,double=true,facing=west": {
+      "model": "cosmopolitan:block/double_ink_roll_bite1",
+      "y": 270
+    },
+    "bites=2,double=false,facing=east": {
+      "model": "cosmopolitan:block/ink_roll_bite2",
+      "y": 90
+    },
+    "bites=2,double=false,facing=north": {
+      "model": "cosmopolitan:block/ink_roll_bite2"
+    },
+    "bites=2,double=false,facing=south": {
+      "model": "cosmopolitan:block/ink_roll_bite2",
+      "y": 180
+    },
+    "bites=2,double=false,facing=west": {
+      "model": "cosmopolitan:block/ink_roll_bite2",
+      "y": 270
+    },
+    "bites=2,double=true,facing=east": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2",
+      "y": 90
+    },
+    "bites=2,double=true,facing=north": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2"
+    },
+    "bites=2,double=true,facing=south": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2",
+      "y": 180
+    },
+    "bites=2,double=true,facing=west": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2",
+      "y": 270
+    },
+    "bites=3,double=false,facing=east": {
+      "model": "cosmopolitan:block/ink_roll_bite2",
+      "y": 90
+    },
+    "bites=3,double=false,facing=north": {
+      "model": "cosmopolitan:block/ink_roll_bite2"
+    },
+    "bites=3,double=false,facing=south": {
+      "model": "cosmopolitan:block/ink_roll_bite2",
+      "y": 180
+    },
+    "bites=3,double=false,facing=west": {
+      "model": "cosmopolitan:block/ink_roll_bite2",
+      "y": 270
+    },
+    "bites=3,double=true,facing=east": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2",
+      "y": 90
+    },
+    "bites=3,double=true,facing=north": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2"
+    },
+    "bites=3,double=true,facing=south": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2",
+      "y": 180
+    },
+    "bites=3,double=true,facing=west": {
+      "model": "cosmopolitan:block/double_ink_roll_bite2",
+      "y": 270
+    }
+  }
+}

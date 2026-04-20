@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:flower_pot"
+        }
+      ],
+      "name": "potted_wildberry_bush_pot",
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "cosmopolitan:wildberry"
+        }
+      ],
+      "name": "potted_wildberry_bush_crop",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "cosmopolitan:blocks/potted_wildberry_bush"
+}

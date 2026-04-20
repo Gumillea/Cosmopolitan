@@ -1,0 +1,18 @@
+{
+  "values": [
+    "cosmopolitan:baked_fiddlehead",
+    "cosmopolitan:wheatgrass",
+    {
+      "id": "biomesoplenty:sprout",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:bush",
+      "required": false
+    },
+    {
+      "id": "delightful:chopped_clover",
+      "required": false
+    }
+  ]
+}

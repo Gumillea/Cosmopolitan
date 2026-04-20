@@ -1,0 +1,53 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/lime"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/pomegranate"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "collectorsreap:pink_dragon_fruit"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "A": {
+            "item": "cosmopolitan:wafer"
+          },
+          "B": {
+            "item": "cosmopolitan:collective_ice_cream"
+          }
+        },
+        "pattern": [
+          "A",
+          "B",
+          "A"
+        ],
+        "result": {
+          "count": 2,
+          "item": "cosmopolitan:collective_ice_cream_sandwich"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

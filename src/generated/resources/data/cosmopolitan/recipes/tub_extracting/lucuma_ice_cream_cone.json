@@ -1,0 +1,24 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "collectorsreap"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "cosmopolitan:wafer_cone"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "cosmopolitan:lucuma_ice_cream"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cosmopolitan:lucuma_ice_cream_cone"
+  }
+}

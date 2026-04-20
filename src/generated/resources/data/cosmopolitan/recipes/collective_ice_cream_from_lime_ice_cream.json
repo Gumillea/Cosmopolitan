@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "collectorsreap:lime_ice_cream"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/pomegranate"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "collectorsreap:pink_dragon_fruit"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "collectorsreap:lime_ice_cream"
+          },
+          {
+            "tag": "forge:fruits/pomegranate"
+          },
+          {
+            "item": "collectorsreap:pink_dragon_fruit"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:collective_ice_cream"
+        }
+      }
+    }
+  ]
+}

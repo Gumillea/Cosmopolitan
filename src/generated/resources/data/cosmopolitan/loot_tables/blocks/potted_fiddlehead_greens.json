@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:flower_pot"
+        }
+      ],
+      "name": "potted_fiddlehead_greens_pot",
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "cosmopolitan:fiddlehead"
+        }
+      ],
+      "name": "potted_fiddlehead_greens_crop",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "cosmopolitan:blocks/potted_fiddlehead_greens"
+}

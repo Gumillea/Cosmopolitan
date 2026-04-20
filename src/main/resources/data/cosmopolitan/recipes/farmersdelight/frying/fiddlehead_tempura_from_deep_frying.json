@@ -1,0 +1,14 @@
+{
+  "type": "casualness_delight:deep_frying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "casualness_delight"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:crops/fiddleheads"
+  },
+  "cookingtime": 100,
+  "result": "cosmopolitan:fiddlehead_tempura"
+}

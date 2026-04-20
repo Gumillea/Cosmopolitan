@@ -1,0 +1,83 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:cooked_fishes/cod"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:cooked_fishes/cod"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:mashed_potato"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:green_sauce"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:salad_ingredients"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:salad_ingredients"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:crops/tomato"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "tag": "forge:cooked_fishes/cod"
+          },
+          {
+            "tag": "forge:cooked_fishes/cod"
+          },
+          {
+            "item": "cosmopolitan:mashed_potato"
+          },
+          {
+            "item": "cosmopolitan:green_sauce"
+          },
+          {
+            "tag": "forge:salad_ingredients"
+          },
+          {
+            "tag": "forge:salad_ingredients"
+          },
+          {
+            "tag": "forge:crops/tomato"
+          }
+        ],
+        "result": {
+          "count": 2,
+          "item": "cosmopolitan:baked_cod_with_mashed_potatoes"
+        }
+      }
+    }
+  ]
+}

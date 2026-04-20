@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "cosmopolitan:config",
+        "value": "enable_flavored_syrup"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:berries"
+    },
+    {
+      "tag": "forge:berries"
+    },
+    {
+      "tag": "forge:berries"
+    },
+    {
+      "tag": "forge:berries"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:berry_syrup_bottle"
+  }
+}

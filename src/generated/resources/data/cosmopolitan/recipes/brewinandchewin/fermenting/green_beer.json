@@ -1,0 +1,29 @@
+{
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "count": 1000,
+    "fluid": "brewinandchewin:beer"
+  },
+  "experience": 1.0,
+  "fermentingtime": 9600,
+  "ingredients": [
+    {
+      "item": "minecraft:rabbit_foot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "cosmopolitan:herbal_powder"
+    },
+    {
+      "item": "cosmopolitan:wheatgrass"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "cosmopolitan:green_beer"
+  },
+  "temperature": 3
+}

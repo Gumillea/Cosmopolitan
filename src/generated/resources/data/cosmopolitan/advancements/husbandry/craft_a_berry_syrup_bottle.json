@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "berry_syrup_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:berry_syrup_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.craft_a_berry_syrup_bottle.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "cosmopolitan:berry_syrup_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.craft_a_berry_syrup_bottle.title"
+    }
+  },
+  "requirements": [
+    [
+      "berry_syrup_bottle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

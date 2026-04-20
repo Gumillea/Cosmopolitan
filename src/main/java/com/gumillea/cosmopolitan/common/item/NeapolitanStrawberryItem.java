@@ -15,16 +15,16 @@ public class NeapolitanStrawberryItem extends NeapolitanIceCreamItem {
         this.hAmount = hAmount;
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
+    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity living) {
         CosmoUtils.applyHealing(hAmount, living);
-        return super.finishUsingItem(stack, level, living);
+        return super.finishUsingItem(itemStack, level, living);
     }
 
     public SoundEvent getDrinkingSound() {
-        return this.gettFrozen() > 0 ? NeapolitanSoundEvents.ICE_CREAM_EAT.get() : SoundEvents.GENERIC_EAT;
+        return this.getFrozen() > 0 ? NeapolitanSoundEvents.ICE_CREAM_EAT.get() : SoundEvents.GENERIC_EAT;
     }
 
     public SoundEvent getEatingSound() {
-        return this.gettFrozen() > 0 ? NeapolitanSoundEvents.ICE_CREAM_EAT.get() : SoundEvents.GENERIC_EAT;
+        return this.getFrozen() > 0 ? NeapolitanSoundEvents.ICE_CREAM_EAT.get() : SoundEvents.GENERIC_EAT;
     }
 }

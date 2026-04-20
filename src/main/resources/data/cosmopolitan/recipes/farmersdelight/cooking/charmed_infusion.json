@@ -1,0 +1,43 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ars_nouveau"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 600,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "item": "ars_nouveau:sourceberry_bush"
+          },
+          {
+            "item": "ars_nouveau:magebloom"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:charmed_infusion"
+        }
+      }
+    }
+  ]
+}

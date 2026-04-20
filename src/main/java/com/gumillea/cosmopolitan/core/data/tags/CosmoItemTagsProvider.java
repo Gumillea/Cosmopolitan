@@ -3,6 +3,7 @@ package com.gumillea.cosmopolitan.core.data.tags;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
+import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import com.teamabnormals.blueprint.core.other.tags.BlueprintItemTags;
@@ -51,12 +52,19 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(BlueprintItemTags.PIG_FOOD).add(
                 CosmoItems.FIDDLEHEAD.get(),
+                CosmoItems.CHARD.get(),
                 CosmoItems.WHEATGRASS.get()
         );
 
         this.tag(CosmoItemTags.APPLE).add(
                 Items.APPLE
         );
+
+        this.tag(CosmoItemTags.SUGARCANE).add(
+                Items.SUGAR_CANE,
+                CosmoItems.SUGARCANE_PIECES.get()
+        );
+
 
         this.tag(CosmoItemTags.CARROT).add(
                 Items.CARROT
@@ -84,16 +92,18 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 CosmoItems.WATTLESEEDS.get()
         );
 
-        this.tag(CosmoItemTags.BREAD).add(
-                CosmoItems.BUSH_BREAD.get(),
-                CosmoItems.BAGEL.get()
-        );
-
         this.tag(CosmoItemTags.FERMENTED_DRINKS).add(
                 CosmoItems.TWILIGHT_CHARTREUSE.get(),
                 CosmoItems.SMOGGY_APEROL.get(),
                 CosmoItems.WILDBERRY_PUNCH.get(),
+                CosmoItems.CACHACA.get(),
+                CosmoItems.NEVERENDING_NIGHT.get(),
+                CosmoItems.MORNING_FOG.get(),
                 CosmoItems.ROOT_BEER.get()
+        );
+
+        this.tag(CosmoItemTags.SYRUP).add(
+                CosmoItems.MOLASSES_BOTTLE.get()
         );
 
         this.tag(CosmoItemTags.CATTAILS)
@@ -209,8 +219,11 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.COOKIE).add(
                 CosmoItems.PAW_COOKIE.get(),
+                CosmoItems.MOLASSES_COOKIE.get(),
                 CosmoItems.BIRCH_COOKIE.get(),
                 CosmoItems.HERBAL_COOKIE.get(),
+                CosmoItems.HOWLING_COOKIE.get(),
+                CosmoItems.ARBUTUS_BERRY_COOKIE.get(),
                 Items.COOKIE
         );
 
@@ -218,11 +231,23 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 Items.CHORUS_FRUIT
         );
 
+        this.tag(CosmoItemTags.FUNGUIS).add(
+                CosmoItems.FUNGUIS_BOTTLE.get(),
+                CosmoItems.WARPED_FUNGUIS_BOTTLE.get(),
+                CosmoItems.SOULBLIGHT_FUNGUIS_BOTTLE.get()
+        );
+
+        this.tag(CosmoItemTags.SALMON_EGGS)
+                .addOptional(CosmoCompat.id("croptopia", "roe"))
+                .addOptional(CosmoCompat.id("youkaisfeasts", "roe"));
+
         this.tag(CosmoItemTags.CHERRY)
                 .addOptional(CosmoCompat.id(CosmoCompat.SD, "cherry"));
 
         this.tag(CosmoItemTags.BERRIES).add(
                 CosmoItems.WILDBERRY.get(),
+                CosmoItems.SPINALBERRY.get(),
+                CosmoItems.BOILBERRY.get(),
                 CosmoItems.ARBUTUS_BERRIES.get()
         );
 
@@ -231,7 +256,8 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.VEGETABLES).add(
-                CosmoItems.FIDDLEHEAD.get()
+                CosmoItems.FIDDLEHEAD.get(),
+                CosmoItems.CHARD.get()
         );
 
         this.tag(CosmoItemTags.NUTS).add(
@@ -239,18 +265,35 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         );
 
         this.tag(CosmoItemTags.SALAD_INGREDIENTS).add(
-                CosmoItems.FIDDLEHEAD.get()
+                CosmoItems.FIDDLEHEAD.get(),
+                CosmoItems.CHARD.get()
         );
 
         this.tag(CosmoItemTags.HERBAL_POWDER_INGREDIENTS).add(
                 CosmoItems.BAKED_FIDDLEHEAD.get(),
-                CosmoItems.WHEATGRASS.get()
-        );
+                CosmoItems.WHEATGRASS.get())
+                .addOptional(CosmoCompat.id(CosmoCompat.BOP, "sprout"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BOP, "bush"))
+                .addOptional(CosmoCompat.id(CosmoCompat.DF, "chopped_clover"))
+        ;
+
+        this.tag(CosmoItemTags.KYKEON_INGREDIENTS).add(
+                        Blocks.SCULK.asItem())
+                .addOptional(CosmoCompat.id(CosmoCompat.QUA, "ancient_fruit"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AN, "experience_gem"))
+                .addOptional(CosmoCompat.id("create", "experience_nugget"))
+        ;
 
         this.tag(CosmoItemTags.FIDDLEHEADS)
                 .add(CosmoItems.FIDDLEHEAD.get())
                 .addOptional(CosmoCompat.id("alexscaves", "fiddlehead"))
                 .addOptional(CosmoCompat.id(CosmoCompat.TF, "fiddlehead"))
+        ;
+
+        this.tag(CosmoItemTags.RED_BEAN)
+                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "adzuki_beans"))
+                .addOptional(CosmoCompat.id("youkaishomecoming", "redbean"))
+                .addOptional(CosmoCompat.id("youkaisfeasts", "redbean"))
         ;
 
         this.tag(CosmoItemTags.PUMPKINS)
@@ -268,15 +311,24 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.CREAM).add(
                 CosmoItems.CREAM.get(),
                 CosmoItems.CREAM_BUCKET.get())
-                .addOptional(CosmoCompat.id("braziliandelight", "heavy_cream_bucket"));
+                .addOptional(CosmoCompat.id("braziliandelight", "heavy_cream_bucket"))
+                .addOptional(CosmoCompat.id("youkaisfeasts", "bowl_of_cream"));
 
         this.tag(CosmoItemTags.CONDENSED_MILK).add(
                 CosmoItems.CONDENSED_MILK_BOTTLE.get(),
-                CosmoItems.CONDENSED_MILK_BUCKET.get())
-                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "milk_bottle"));
+                CosmoItems.CONDENSED_MILK_BUCKET.get());
 
         this.tag(CosmoItemTags.MILK_BOTTLE)
                 .addOptional(CosmoCompat.id(CosmoCompat.NEA, "milk_bottle"))
+        ;
+
+        this.tag(CosmoItemTags.FISH_SLICE)
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "cod_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.FD, "salmon_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "pike_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.AD, "perch_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.CR, "platinum_bass_slice"))
+                .addOptional(CosmoCompat.id("aquaculture", "fish_fillet_raw"))
         ;
 
         this.tag(CosmoItemTags.CAKE_SLICES)
@@ -287,8 +339,27 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
                 .addOptional(CosmoCompat.id(CosmoCompat.AD, "adzuki_cake_slice"))
                 .addOptional(CosmoCompat.id(CosmoCompat.AD, "chocolate_cake_slice"))
                 .addOptional(CosmoCompat.id(CosmoCompat.AD, "mint_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "carrot_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "berry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "cheesecake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "glow_berry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "chocolate_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "ice_cream_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "rose_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "chorus_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.VC, "book_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.EX, "chorus_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.EX, "jelly_ring_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.EX, "zure_berry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.EX, "nightshade_berry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.EX, "ether_bulb_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.SEA, "pumpkin_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.SEA, "sweet_berry_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.SEA, "beetroot_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.PEC, "aloe_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.PEC, "passion_fruit_cake_slice"))
+                .addOptional(CosmoCompat.id(CosmoCompat.PEC, "yucca_cake_slice"))
         ;
-
 
         this.tag(CosmoItemTags.JAMS).add(
                 CosmoItems.BERRY_SYRUP_BOTTLE.get(),
@@ -340,19 +411,55 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.TWO_THIRST_ITEMS)
                 .addTag(CosmoItemTags.ICE_CREAM)
                 .add(
+                        CosmoItems.SNOW_CONE.get(),
+                        CosmoItems.COSMIC_SNOW_CONE.get(),
+                        CosmoItems.BERRY_SYRUP_SHAVED_ICE_CONE.get(),
+                        CosmoItems.BERRY_SYRUP_SHAVED_ICE.get(),
+
                         CosmoItems.BIRCH_SAP_BOTTLE.get(),
+
                         CosmoItems.BLISTERBERRY_POPSICLE.get(),
+                        CosmoItems.GAMBLERS_POPSICLE.get(),
+                        CosmoItems.TRANQUIL_SPLIT_POPSICLE.get(),
+                        CosmoItems.ARDENT_SPLIT_POPSICLE.get(),
+                        CosmoItems.BERRY_POPSICLE.get(),
+
                         CosmoItems.BLISTERBERRY_SORBET.get(),
                         CosmoItems.DROOPFRUIT_SORBET.get()
                 );
 
         this.tag(CosmoItemTags.FIVE_THIRST_ITEMS)
                 .add(
+                        CosmoItems.WILDBERRY_PUNCH.get(),
+                        CosmoItems.ROOT_BEER.get(),
+                        CosmoItems.TWILIGHT_CHARTREUSE.get(),
+                        CosmoItems.SMOGGY_APEROL.get(),
+                        CosmoItems.NEVERENDING_NIGHT.get(),
+                        CosmoItems.MORNING_FOG.get(),
+                        CosmoItems.CACHACA.get(),
+
+                        CosmoItems.ICED_AMERICANO.get(),
+                        CosmoItems.CHORUS_FRUIT_AMERICANO.get(),
+                        CosmoItems.BERRY_SYRUP_AMERICANO.get(),
+                        CosmoItems.ORANGE_AMERICANO.get(),
+                        CosmoItems.STRAWBERRY_MATCHA_LATTE.get(),
+                        CosmoItems.MOCHA.get(),
+                        CosmoItems.TISANE.get(),
+                        CosmoItems.GREENDAY_JUICE.get(),
+                        CosmoItems.CHARMED_INFUSION.get(),
+
+                        CosmoItems.GAMBLERS_POPSICLE_DOUBLE.get(),
+                        CosmoItems.TRANQUIL_SPLIT_POPSICLE_DOUBLE.get(),
+                        CosmoItems.ARDENT_SPLIT_POPSICLE_DOUBLE.get(),
+                        CosmoItems.BERRY_DOUBLE_POPSICLE.get(),
                         CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get(),
+                        CosmoItems.LIME_DOUBLE_POPSICLE.get(),
+
                         CosmoItems.SPRING_SODA.get(),
                         CosmoItems.SUMMER_CORDIAL.get(),
                         CosmoItems.AUTUMN_TEA.get(),
                         CosmoItems.WINTER_GLOGG.get(),
+
                         CosmoItems.COSMOPOLITAN_COCKTAIL.get(),
                         CosmoItems.ENCHANTED_COSMOPOLITAN_COCKTAIL.get()
                 );
@@ -360,14 +467,56 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.COOLING_ITEMS)
                 .addTag(CosmoItemTags.ICE_CREAM)
                 .add(
+                        CosmoItems.SPAGHETTIEIS.get(),
+                        CosmoItems.SNOW_CONE.get(),
+                        CosmoItems.COSMIC_SNOW_CONE.get(),
+                        CosmoItems.BERRY_SYRUP_SHAVED_ICE_CONE.get(),
+                        CosmoItems.BERRY_SYRUP_SHAVED_ICE.get(),
+                        CosmoItems.GAMBLERS_POPSICLE_DOUBLE.get(),
+                        CosmoItems.GAMBLERS_POPSICLE.get(),
+                        CosmoItems.TRANQUIL_SPLIT_POPSICLE_DOUBLE.get(),
+                        CosmoItems.TRANQUIL_SPLIT_POPSICLE.get(),
+                        CosmoItems.ARDENT_SPLIT_POPSICLE_DOUBLE.get(),
+                        CosmoItems.ARDENT_SPLIT_POPSICLE.get(),
+                        CosmoItems.BERRY_DOUBLE_POPSICLE.get(),
+                        CosmoItems.BERRY_POPSICLE.get(),
                         CosmoItems.BLISTERBERRY_POPSICLE.get(),
                         CosmoItems.BLISTERBERRY_DOUBLE_POPSICLE.get(),
                         CosmoItems.BLISTERBERRY_SORBET.get(),
                         CosmoItems.DROOPFRUIT_SORBET.get()
                 );
 
+        this.tag(CosmoItemTags.HEATING_ITEMS)
+                .add(
+                        CosmoItems.FARINA.get(),
+                        CosmoItems.WILD_RISOTTO.get(),
+                        CosmoItems.GHOSTCREAM.get(),
+                        CosmoItems.WARPED_GHOSTCREAM.get(),
+                        CosmoItems.SOULBLIGHT_GHOSTCREAM.get(),
+                        CosmoItems.STOBHACH_GAELACH.get(),
+                        CosmoItems.STOBHACH_GAELACH_CUP.get(),
+                        CosmoItems.GREEN_CREAM_STEW_CUP.get(),
+                        CosmoItems.GREEN_CREAM_STEW.get(),
+                        CosmoItems.GREEN_CREAM_STEW_CUP.get(),
+                        CosmoItems.ABC_SOUP.get(),
+                        CosmoItems.ABC_SOUP_CUP.get(),
+                        CosmoItems.LUSH_STEW.get(),
+                        CosmoItems.LUSH_STEW_CUP.get()
+                );
+
+        this.tag(CosmoItemTags.INGRAINED_SOURCES)
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "cave_carrot"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "baked_cave_carrot"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "vegan_patty"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "vegan_wrap"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "vegan_hamburger"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "vegan_steak_and_potatoes"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "pasta_with_veggieballs"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "cave_soup"))
+                .addOptional(CosmoCompat.id(CosmoCompat.MD, "improvised_barbecue_stick"))
+        ;
+
         this.tag(CosmoItemTags.EXUBERANT_SOURCES)
-                .addTag(CosmoItemTags.APPLE)
                 .addOptional(CosmoCompat.id(CosmoCompat.BAC, "apple_jelly"))
                 .addOptional(CosmoCompat.id(CosmoCompat.FD, "apple_pie_slice"))
                 .addOptional(CosmoCompat.id(CosmoCompat.BF, "apple_stew"))
@@ -426,7 +575,7 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
 
         this.tag(CosmoItemTags.TRACER_SOURCES)
                 .addTag(CosmoItemTags.GLOW_BERRY)
-                .addOptional(CosmoCompat.id(CosmoCompat.NEA, "glowgurt"))
+                .addOptional(CosmoCompat.id(CosmoCompat.BG, "glowgurt"))
                 .addOptional(CosmoCompat.id(CosmoCompat.BAC, "glow_berry_marmalade"))
                 .addOptional(CosmoCompat.id(CosmoCompat.BAC, "pickled_pickles"))
                 .addOptional(CosmoCompat.id(CosmoCompat.MD, "glow_ink_pasta"))
@@ -450,6 +599,25 @@ public class CosmoItemTagsProvider extends ItemTagsProvider {
         this.tag(CosmoItemTags.BLACK_COFFEE)
                 .addOptional(CosmoCompat.id(CosmoCompat.FR, "coffee"))
                 .addOptional(CosmoCompat.id("youkaishomecoming", "espresso"))
+                .addOptional(CosmoCompat.id("caffeinated", "coffee_bottle"))
                 .addOptional(CosmoCompat.id("croptopia", "coffee"));
+
+        this.tag(CosmoItemTags.FLAVORED_ITEM).add(
+                CosmoItems.BERRY_SYRUP_BOTTLE.get(),
+                CosmoItems.BERRY_CHEESECAKE_BAR.get(),
+                CosmoItems.BERRY_SYRUP_AMERICANO.get(),
+                CosmoItems.BERRY_SYRUP_GUMMY.get(),
+                CosmoItems.BERRY_SYRUP_SHAVED_ICE.get(),
+                CosmoItems.BERRY_SYRUP_SHAVED_ICE_CONE.get(),
+                CosmoItems.BERRY_POPSICLE.get(),
+                CosmoItems.BERRY_DOUBLE_POPSICLE.get()
+        );
+
+        this.tag(CosmoItemTags.BERRY_SYRUP_BLOCK).add(
+                CosmoBlocks.SWEET_BERRY_SYRUP_BLOCK.get().asItem(),
+                CosmoBlocks.SOUR_BERRY_SYRUP_BLOCK.get().asItem(),
+                CosmoBlocks.BITTER_BERRY_SYRUP_BLOCK.get().asItem(),
+                CosmoBlocks.SPICY_BERRY_SYRUP_BLOCK.get().asItem(),
+                CosmoBlocks.STRANGE_BERRY_SYRUP_BLOCK.get().asItem());
     }
 }

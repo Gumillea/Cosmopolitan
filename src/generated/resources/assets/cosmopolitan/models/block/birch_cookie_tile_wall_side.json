@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "cosmopolitan:block/birch_cookie_tiles"
+  }
+}

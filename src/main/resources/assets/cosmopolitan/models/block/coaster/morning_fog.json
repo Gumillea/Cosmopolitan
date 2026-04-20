@@ -1,0 +1,7 @@
+{
+  "parent": "brewinandchewin:block/coaster_tankard",
+  "textures": {
+    "particle": "cosmopolitan:block/coaster/morning_fog",
+    "tankard": "cosmopolitan:block/coaster/morning_fog"
+  }
+}

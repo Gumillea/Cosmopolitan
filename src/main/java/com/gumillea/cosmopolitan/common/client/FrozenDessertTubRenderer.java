@@ -40,7 +40,7 @@ public class FrozenDessertTubRenderer implements BlockEntityRenderer<FrozenDesse
         try {
             CosmoIceCreamFluidType.setTubContext(true);
 
-            float fill = (float) stack.getAmount() / FrozenDessertTubBlockEntity.capacity;
+            float fill = (float) stack.getAmount() / tub.getTank().getCapacity();
             float height = BASE_HEIGHT + (INNER_MAX - BASE_HEIGHT) * fill;
 
             Direction facing = tub.getBlockState().getValue(FrozenDessertTubBlock.FACING);

@@ -1,0 +1,22 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:ingrained",
+        "providers": [
+          {
+            "tag": "cosmopolitan:ingrained_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

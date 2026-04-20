@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/berry_syrup_americano1",
+      "predicate": {
+        "minecraft:flavor_type": 1.0
+      }
+    },
+    {
+      "model": "cosmopolitan:item/berry_syrup_americano2",
+      "predicate": {
+        "minecraft:flavor_type": 2.0
+      }
+    },
+    {
+      "model": "cosmopolitan:item/berry_syrup_americano3",
+      "predicate": {
+        "minecraft:flavor_type": 3.0
+      }
+    },
+    {
+      "model": "cosmopolitan:item/berry_syrup_americano4",
+      "predicate": {
+        "minecraft:flavor_type": 4.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/berry_syrup_americano0"
+  }
+}

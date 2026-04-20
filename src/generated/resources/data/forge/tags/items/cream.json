@@ -5,6 +5,10 @@
     {
       "id": "braziliandelight:heavy_cream_bucket",
       "required": false
+    },
+    {
+      "id": "youkaisfeasts:bowl_of_cream",
+      "required": false
     }
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "cosmopolitan:block/cubecake_cake1",
+  "textures": {
+    "cubecake": "cosmopolitan:block/wheatgrass_cubecake"
+  }
+}

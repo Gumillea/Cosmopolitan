@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cosmopolitan:arbutus_berries_basket": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:arbutus_berries_basket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:arbutus_berries_from_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cosmopolitan:arbutus_berries_basket",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:arbutus_berries_from_basket"
+    ]
+  },
+  "sends_telemetry_event": false
+}

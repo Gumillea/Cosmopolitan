@@ -1,0 +1,32 @@
+{
+  "parent": "cosmopolitan:husbandry/craft_a_berry_syrup_bottle",
+  "criteria": {
+    "has_all_four_flavors": {
+      "trigger": "cosmopolitan:all_flavors"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.has_all_four_flavors.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "cosmopolitan:cosmopolitan_cocktail"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.has_all_four_flavors.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_all_four_flavors"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

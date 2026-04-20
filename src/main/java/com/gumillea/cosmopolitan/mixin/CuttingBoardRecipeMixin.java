@@ -21,9 +21,8 @@ public class CuttingBoardRecipeMixin {
     @Unique
     private CompoundTag TAG;
 
-    @Inject(method = "matches(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/world/level/Level;)Z",
-            at = @At("RETURN"), cancellable = true)
-    private void onMatches(RecipeWrapper inv, Level level, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "matches(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/world/level/Level;)Z", at = @At("RETURN"), cancellable = true)
+    private void cosmo$onMatches(RecipeWrapper inv, Level level, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {
             ItemStack input = inv.getItem(0);
             if (!input.isEmpty() && input.hasTag()) {
@@ -34,9 +33,8 @@ public class CuttingBoardRecipeMixin {
         }
     }
 
-    @Inject(method = "assemble(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;",
-            at = @At("RETURN"), cancellable = true)
-    private void onAssemble(RecipeWrapper inv, RegistryAccess access, CallbackInfoReturnable<ItemStack> cir) {
+    @Inject(method = "assemble(Lnet/minecraftforge/items/wrapper/RecipeWrapper;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
+    private void cosmo$onAssemble(RecipeWrapper inv, RegistryAccess access, CallbackInfoReturnable<ItemStack> cir) {
         if (TAG != null) {
             ItemStack result = cir.getReturnValue();
             if (!result.isEmpty()) {
@@ -49,7 +47,7 @@ public class CuttingBoardRecipeMixin {
 
     @Inject(method = "rollResults(Lnet/minecraft/util/RandomSource;I)Ljava/util/List;",
             at = @At("RETURN"), cancellable = true)
-    private void onRollResults(RandomSource random, int i, CallbackInfoReturnable<List<ItemStack>> cir) {
+    private void cosmo$onRollResults(RandomSource random, int i, CallbackInfoReturnable<List<ItemStack>> cir) {
         if (TAG != null) {
             List<ItemStack> results = cir.getReturnValue();
             if (!results.isEmpty()) {

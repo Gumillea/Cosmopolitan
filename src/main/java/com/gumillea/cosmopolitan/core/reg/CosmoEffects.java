@@ -1,10 +1,10 @@
 package com.gumillea.cosmopolitan.core.reg;
 
+import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.effect.ExuberantEffect;
 import com.gumillea.cosmopolitan.common.effect.MarkedEffect;
 import com.gumillea.cosmopolitan.common.effect.PhototaxisEffect;
-import com.gumillea.cosmopolitan.common.effect.SatietyEffect;
 import com.teamabnormals.blueprint.common.effect.BlueprintMobEffect;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 import net.minecraft.world.effect.MobEffect;
@@ -30,9 +30,7 @@ public class CosmoEffects {
     public static final RegistryObject<MobEffect> PHOTOTAXIS = EFFECTS.register("phototaxis", PhototaxisEffect::new);
     public static final RegistryObject<MobEffect> INGRAINED = EFFECTS.register("ingrained", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0x734937));
 
-    public static final RegistryObject<MobEffect> SATIETY = EFFECTS.register("satiety", SatietyEffect::new);
-    public static final RegistryObject<MobEffect> LIBERATION = EFFECTS.register("liberation", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0x734937));
-    public static final RegistryObject<MobEffect> EMPATHY = EFFECTS.register("empathy", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0x734937));
+    public static final RegistryObject<MobEffect> OBSCURE = EFFECTS.register("obscure", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0xb3f5c7));
 
     public static final RegistryObject<MobEffect> ABYSMAL_TORCH = EFFECTS.register("abysmal_torch", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0x97B5D9));
     public static final RegistryObject<MobEffect> VARDOGER = EFFECTS.register("vardoger", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0xEE4A34));
@@ -44,10 +42,17 @@ public class CosmoEffects {
     public static final RegistryObject<Potion> IRON_HEART_LONG = POTIONS.register("iron_heart_long", () -> new Potion(new MobEffectInstance(MobEffects.POISON, 1600, 2), new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 1)));
     public static final RegistryObject<Potion> IRON_HEART_STRONG = POTIONS.register("iron_heart_strong", () -> new Potion(new MobEffectInstance(MobEffects.POISON, 800, 3), new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 2)));
 
-    public static final RegistryObject<Potion> LUSH = POTIONS.register("lush", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 1200, 1), new MobEffectInstance(MobEffects.GLOWING, 400)));
-    public static final RegistryObject<Potion> LUSH_LONG = POTIONS.register("lush_long", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 2000, 1), new MobEffectInstance(MobEffects.GLOWING, 1000)));
-    public static final RegistryObject<Potion> LUSH_STRONG = POTIONS.register("lush_strong", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 1200, 2), new MobEffectInstance(MobEffects.GLOWING, 200)));
+    public static final RegistryObject<Potion> LUSH = POTIONS.register("lush", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 1200, 1), new MobEffectInstance(MobEffects.DAMAGE_BOOST, 400)));
+    public static final RegistryObject<Potion> LUSH_LONG = POTIONS.register("lush_long", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 2000, 1), new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1000)));
+    public static final RegistryObject<Potion> LUSH_STRONG = POTIONS.register("lush_strong", () -> new Potion(new MobEffectInstance(PHOTOTAXIS.get(), 1200, 2), new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200)));
 
+    public static final RegistryObject<Potion> PANIC = POTIONS.register("panic", () -> new Potion(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1800, 1), new MobEffectInstance(MobEffects.BLINDNESS, 1800)));
+    public static final RegistryObject<Potion> PANIC_LONG = POTIONS.register("panic_long", () -> new Potion(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 3600, 1), new MobEffectInstance(MobEffects.BLINDNESS, 3600)));
+    public static final RegistryObject<Potion> PANIC_STRONG = POTIONS.register("panic_strong", () -> new Potion(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1800, 2), new MobEffectInstance(MobEffects.BLINDNESS, 1800)));
+
+    public static final RegistryObject<Potion> WRATH = POTIONS.register("wrath", () -> new Potion(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1800, 1), new MobEffectInstance(MobEffects.WITHER, 1800)));
+    public static final RegistryObject<Potion> WRATH_LONG = POTIONS.register("wrath_long", () -> new Potion(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 3600, 1), new MobEffectInstance(MobEffects.WITHER, 3600)));
+    public static final RegistryObject<Potion> WRATH_STRONG = POTIONS.register("wrath_strong", () -> new Potion(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1800, 2), new MobEffectInstance(MobEffects.WITHER, 1800, 1)));
 
     public static void registerBrewingRecipes() {
         DataUtil.addMix(Potions.AWKWARD, CosmoItems.IRON_FIDDLEHEAD.get(), IRON_HEART.get());
@@ -57,5 +62,17 @@ public class CosmoEffects {
         DataUtil.addMix(Potions.AWKWARD, CosmoItems.GOLDEN_ARBUTUS_BERRIES.get(), LUSH.get());
         DataUtil.addMix(LUSH.get(), Items.GLOWSTONE_DUST, LUSH_STRONG.get());
         DataUtil.addMix(LUSH.get(), Items.REDSTONE, LUSH_LONG.get());
+
+        if (CosmoConfig.Common.SPINALBERRY_CHANCE.get() > 0) {
+            DataUtil.addMix(Potions.SWIFTNESS, CosmoItems.SPINALBERRY.get(), PANIC.get());
+            DataUtil.addMix(PANIC.get(), Items.GLOWSTONE_DUST, PANIC_STRONG.get());
+            DataUtil.addMix(PANIC.get(), Items.REDSTONE, PANIC_LONG.get());
+        }
+
+        if (CosmoConfig.Common.BOILBERRY_CHANCE.get() > 0) {
+            DataUtil.addMix(Potions.STRENGTH, CosmoItems.BOILBERRY.get(), WRATH.get());
+            DataUtil.addMix(WRATH.get(), Items.GLOWSTONE_DUST, WRATH_STRONG.get());
+            DataUtil.addMix(WRATH.get(), Items.REDSTONE, WRATH_LONG.get());
+        }
     }
 }

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "windswept"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "tag": "forge:vegetables/ginger"
+    },
+    {
+      "item": "cosmopolitan:molasses_bottle"
+    },
+    {
+      "item": "windswept:holly_berries"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:yule_log"
+  }
+}

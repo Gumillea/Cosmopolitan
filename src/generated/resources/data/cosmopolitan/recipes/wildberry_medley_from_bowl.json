@@ -1,0 +1,53 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bowl"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wildberry"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wildberry"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wildberry"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wildberry"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "item": "cosmopolitan:wildberry"
+          },
+          {
+            "item": "cosmopolitan:wildberry"
+          },
+          {
+            "item": "cosmopolitan:wildberry"
+          },
+          {
+            "item": "cosmopolitan:wildberry"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:wildberry_medley"
+        }
+      }
+    }
+  ]
+}

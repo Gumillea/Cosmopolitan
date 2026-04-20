@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cosmopolitan:wattleseed_sack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:wattleseed_sack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:wattleseeds_from_wattleseed_sack"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cosmopolitan:wattleseed_sack",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:wattleseeds_from_wattleseed_sack"
+    ]
+  },
+  "sends_telemetry_event": false
+}

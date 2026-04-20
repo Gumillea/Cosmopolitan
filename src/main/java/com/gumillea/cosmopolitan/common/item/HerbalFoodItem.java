@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -32,20 +33,40 @@ public class HerbalFoodItem extends EffectItem {
         super(properties);
     }
 
-    public static void saveMobEffect(ItemStack stack, MobEffect effect, int i) {
+    public static void saveMobEffect(ItemStack stack, MobEffect effect, int duration) {
         CompoundTag compoundtag = stack.getOrCreateTag();
-        ListTag listtag = compoundtag.getList(EFFECTS_TAG, 9);
-        CompoundTag compoundtag1 = new CompoundTag();
-        compoundtag1.putInt(EFFECT_ID_TAG, MobEffect.getId(effect));
-        ForgeHooks.saveMobEffect(compoundtag1, "forge:effect_id", effect);
-        compoundtag1.putInt(EFFECT_DURATION_TAG, i);
-        listtag.add(compoundtag1);
-        compoundtag.put(EFFECTS_TAG, listtag);
+        ListTag list = compoundtag.getList(EFFECTS_TAG, 10);
+
+        int effectId = MobEffect.getId(effect);
+        boolean found = false;
+
+        int addedDuration = stack.is(CosmoItems.TISANE.get()) && effect != MobEffects.SATURATION ? duration * 2 : duration;
+
+        for (int i = 0; i < list.size(); ++i) {
+            CompoundTag tag = list.getCompound(i);
+            if (tag.getInt(EFFECT_ID_TAG) == effectId) {
+                tag.putInt(EFFECT_DURATION_TAG, tag.getInt(EFFECT_DURATION_TAG) + addedDuration);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            CompoundTag newEffectTag = new CompoundTag();
+            newEffectTag.putInt(EFFECT_ID_TAG, effectId);
+
+            ForgeHooks.saveMobEffect(newEffectTag, "forge:effect_id", effect);
+            newEffectTag.putInt(EFFECT_DURATION_TAG, addedDuration);
+
+            list.add(newEffectTag);
+        }
+
+        compoundtag.put(EFFECTS_TAG, list);
     }
 
     private static void listPotionEffects(ItemStack stack, Consumer<MobEffectInstance> consumer) {
         CompoundTag compoundtag = stack.getTag();
-        if (compoundtag != null && compoundtag.contains(EFFECTS_TAG, 9)) {
+        if (compoundtag != null) {
             ListTag listtag = compoundtag.getList(EFFECTS_TAG, 10);
 
             for(int i = 0; i < listtag.size(); ++i) {
@@ -54,7 +75,7 @@ public class HerbalFoodItem extends EffectItem {
                 if (compoundtag1.contains(EFFECT_DURATION_TAG, 99)) {
                     int duration = compoundtag1.getInt(EFFECT_DURATION_TAG);
                     if (stack.is(CosmoItems.TISANE.get())) {
-                        j = duration == 1 ? duration : duration * 2;
+                        j = duration <= 1 ? duration : duration * 2;
                     } else {
                         j = duration / 2 < 1 ? duration : duration / 2;
                     }
@@ -90,13 +111,13 @@ public class HerbalFoodItem extends EffectItem {
         if (living instanceof ServerPlayer serverPlayer && this == CosmoItems.HERBAL_COOKIE.get()) CosmoCriteriaTriggers.HERBAL_COOKIE.trigger(serverPlayer);
 
         if (this == CosmoItems.TISANE.get()) {
+            ItemStack glass = new ItemStack(Items.GLASS_BOTTLE);
             if (itemStack.isEmpty()) {
-                return new ItemStack(this.getCraftingRemainingItem());
+                return glass;
             } else {
                 if (living instanceof Player player && !player.getAbilities().instabuild) {
-                    ItemStack stack = new ItemStack(this.getCraftingRemainingItem());
-                    if (!player.getInventory().add(stack)) {
-                        player.drop(stack, false);
+                    if (!player.getInventory().add(glass)) {
+                        player.drop(glass, false);
                     }
                 }
                 return itemStack;

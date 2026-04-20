@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "cosmopolitan:ectocaramel"
+    },
+    "B": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cosmopolitan:occult_apple"
+  },
+  "show_notification": true
+}

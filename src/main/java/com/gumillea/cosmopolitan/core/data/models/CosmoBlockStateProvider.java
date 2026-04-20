@@ -2,11 +2,11 @@ package com.gumillea.cosmopolitan.core.data.models;
 
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.block.FDPieBlock;
+import com.gumillea.cosmopolitan.common.block.RollCakeBlock;
 import com.gumillea.cosmopolitan.core.misc.CosmoBlockFamilies;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
-import net.brnbrd.delightful.Util;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +17,6 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import vectorwing.farmersdelight.common.block.PieBlock;
 
 public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
 
@@ -81,9 +80,15 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.block(CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.COFFEE_ICE_CREAM_BRICKS);
 
-        this.syrupBlock(CosmoBlocks.BERRY_SYRUP_BLOCK);
+        this.syrupBlock(CosmoBlocks.SWEET_BERRY_SYRUP_BLOCK);
+        this.syrupBlock(CosmoBlocks.SOUR_BERRY_SYRUP_BLOCK);
+        this.syrupBlock(CosmoBlocks.BITTER_BERRY_SYRUP_BLOCK);
+        this.syrupBlock(CosmoBlocks.SPICY_BERRY_SYRUP_BLOCK);
+        this.syrupBlock(CosmoBlocks.STRANGE_BERRY_SYRUP_BLOCK);
+
         this.syrupBlock(CosmoBlocks.BIRCH_SAP_BLOCK);
         this.syrupBlock(CosmoBlocks.STEELEAF_NECTAR_BLOCK);
+        this.syrupBlock(CosmoBlocks.MOLASSES_BLOCK);
 
         this.crossBlock(CosmoBlocks.LIFELIGHT);
 
@@ -101,11 +106,17 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.directionalBlock(CosmoBlocks.FIDDLEHEAD_CRATE);
         this.directionalBlock(CosmoBlocks.IRON_FIDDLEHEAD_CRATE);
         this.directionalBlock(CosmoBlocks.TUBER_CRATE);
+        this.directionalBlock(CosmoBlocks.WATTLESEED_SACK);
 
         this.pieBlock(CosmoBlocks.WATER_PIE);
+        this.pieBlock(CosmoBlocks.SHOOFLY_PIE);
         this.cubecakeBlock(CosmoBlocks.GLOW_BERRY_CUBECAKE);
         this.cubecakeBlock(CosmoBlocks.WHEATGRASS_CUBECAKE);
         this.cubecakeBlock(CosmoBlocks.WARPED_VELVET_CUBECAKE);
+        this.rollCakeBlock(CosmoBlocks.JELLY_ROLL);
+        this.rollCakeBlock(CosmoBlocks.INK_ROLL);
+        this.rollCakeBlock(CosmoBlocks.CHOCOLATE_ROLL);
+        this.rollCakeBlock(CosmoBlocks.YULE_LOG);
     }
 
     public void syrupBlock(RegistryObject<Block> block) {
@@ -190,6 +201,25 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
             BlockModelBuilder model = models()
                     .withExistingParent("block/" + path + suffix, modLoc("block/cubecake" + suffix))
                     .texture("cubecake", CosmoCompat.id(Cosmopolitan.MODID, "block/" + path));
+
+            return ConfiguredModel.builder().modelFile(model).rotationY(((int) facing.toYRot() + 180) % 360).build();
+        });
+    }
+
+    public void rollCakeBlock(RegistryObject<Block> block) {
+        String path = block.getId().getPath().replace("_block", "");
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            int bites = state.getValue(FDPieBlock.BITES);
+            boolean d = state.getValue(RollCakeBlock.DOUBLE);
+            Direction facing = state.getValue(FDPieBlock.FACING);
+            int rollBites = Math.min(bites, 2);
+            String suffix = rollBites > 0 ? "_bite" + rollBites : "";
+            String suffix2 = d ? "double_" : "";
+
+            BlockModelBuilder model = models()
+                    .withExistingParent("block/" + suffix2 + path + suffix, modLoc("block/" + suffix2 + "roll" + suffix))
+                    .texture("roll", CosmoCompat.id(Cosmopolitan.MODID, "block/" + path));
 
             return ConfiguredModel.builder().modelFile(model).rotationY(((int) facing.toYRot() + 180) % 360).build();
         });

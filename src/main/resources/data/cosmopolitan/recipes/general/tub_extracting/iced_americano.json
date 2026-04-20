@@ -1,5 +1,11 @@
 {
   "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ],
   "ingredient": [
     {
       "type": "forge:nbt",

@@ -1,0 +1,69 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bowl"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/strawberry"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/strawberry"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:meringue"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:meringue"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:cream"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "tag": "forge:fruits/strawberry"
+          },
+          {
+            "tag": "forge:fruits/strawberry"
+          },
+          {
+            "item": "cosmopolitan:meringue"
+          },
+          {
+            "item": "cosmopolitan:meringue"
+          },
+          {
+            "tag": "forge:cream"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:eton_mess"
+        }
+      }
+    }
+  ]
+}

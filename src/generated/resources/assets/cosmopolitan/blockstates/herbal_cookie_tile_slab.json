@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cosmopolitan:block/herbal_cookie_tile_slab"
+    },
+    "type=double": {
+      "model": "cosmopolitan:block/herbal_cookie_tiles"
+    },
+    "type=top": {
+      "model": "cosmopolitan:block/herbal_cookie_tile_slab_top"
+    }
+  }
+}

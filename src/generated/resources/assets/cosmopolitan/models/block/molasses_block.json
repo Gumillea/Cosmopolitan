@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/honey_block",
+  "textures": {
+    "down": "cosmopolitan:block/molasses_block",
+    "particle": "cosmopolitan:block/molasses_block",
+    "side": "cosmopolitan:block/molasses_block",
+    "up": "cosmopolitan:block/molasses_block"
+  }
+}

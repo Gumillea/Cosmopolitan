@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "netherexp"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:slime_cone"
+    },
+    {
+      "item": "cosmopolitan:warped_funguis_bottle"
+    },
+    {
+      "item": "cosmopolitan:spinalberry"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:warped_ghostcream"
+  }
+}

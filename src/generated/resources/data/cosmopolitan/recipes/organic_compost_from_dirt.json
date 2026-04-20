@@ -1,0 +1,81 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:dirt"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bone_meal"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bone_meal"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "farmersdelight:tree_bark"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "farmersdelight:tree_bark"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:dirt"
+          },
+          {
+            "item": "minecraft:bone_meal"
+          },
+          {
+            "item": "minecraft:bone_meal"
+          },
+          {
+            "item": "farmersdelight:tree_bark"
+          },
+          {
+            "item": "farmersdelight:tree_bark"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          }
+        ],
+        "result": {
+          "item": "farmersdelight:organic_compost"
+        }
+      }
+    }
+  ]
+}

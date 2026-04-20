@@ -7,7 +7,6 @@ import net.minecraft.world.effect.MobEffect;
 
 public class CosmoEffectTags {
     public static final TagKey<MobEffect> BLACKLIST = mobEffectTag("blacklist");
-    public static final TagKey<MobEffect> CONVERTIBLE_BY_CAROTENE = mobEffectTag("convertible_by_carotene");
 
     public CosmoEffectTags() {}
 

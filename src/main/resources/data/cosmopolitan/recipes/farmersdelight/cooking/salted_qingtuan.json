@@ -1,0 +1,33 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 0.35,
+        "ingredients": [
+          {
+            "tag": "forge:dough"
+          },
+          {
+            "tag": "forge:eggs"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "item": "cosmopolitan:salted_qingtuan"
+        }
+      }
+    }
+  ]
+}

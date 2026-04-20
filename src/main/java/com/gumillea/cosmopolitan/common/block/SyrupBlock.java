@@ -4,6 +4,7 @@ import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -76,5 +77,15 @@ public class SyrupBlock extends HalfTransparentBlock {
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         double sap = this == CosmoBlocks.BIRCH_SAP_BLOCK.get() ? 2.0D : 0.5D;
         entity.makeStuckInBlock(state, new Vec3(0.5D, sap, 0.5D));
+
+        if (!world.isClientSide() && this == CosmoBlocks.STEELEAF_NECTAR_BLOCK.get() && entity instanceof LivingEntity living) {
+            int armor = living.getArmorValue();
+            float health = living.getHealth();
+
+            if (health > 1 && armor < 4) {
+                living.hurt(world.damageSources().magic(), 1.0F);
+            }
+
+        }
     }
 }

@@ -14,16 +14,29 @@ public class FrozenDessertItem extends EffectItem {
     private final int tFrozen;
 
     public FrozenDessertItem(Properties properties, boolean bowl, int tFrozen) {
-        super(properties.stacksTo(bowl ? 1 : 64));
+        super(properties.stacksTo(bowl && tFrozen > 100 ? 1 : 64));
         this.tFrozen = tFrozen;
         this.bowl = bowl;
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
-        ItemStack itemstack = super.finishUsingItem(stack, level, living);
+    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity living) {
         living.setTicksFrozen(living.getTicksFrozen() + tFrozen);
 
-        return !bowl || living instanceof Player && ((Player)living).getAbilities().instabuild ? itemstack : new ItemStack(Items.BOWL);
+        if (!bowl || this.getCraftingRemainingItem() == null) return super.finishUsingItem(itemStack, level, living);
+
+        if (itemStack.isEmpty()) {
+            return new ItemStack(this.getCraftingRemainingItem());
+        } else {
+            if (living instanceof Player player && !player.getAbilities().instabuild) {
+                ItemStack remainingStack = new ItemStack(this.getCraftingRemainingItem());
+                if (!player.getInventory().add(remainingStack)) {
+                    player.drop(remainingStack, false);
+                }
+            }
+
+            return super.finishUsingItem(itemStack, level, living);
+        }
+
     }
 
     public SoundEvent getDrinkingSound() {
@@ -34,7 +47,7 @@ public class FrozenDessertItem extends EffectItem {
         return CosmoCompat.nea ? NeapolitanSoundEvents.ICE_CUBES_EAT.get() : SoundEvents.GENERIC_EAT;
     }
 
-    public int gettFrozen() {
+    public int getFrozen() {
         return tFrozen;
     }
 

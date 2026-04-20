@@ -1,0 +1,47 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:berry_syrup_shaved_ice"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:berry_syrup_shaved_ice"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:berry_syrup_shaved_ice_cone"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:husbandry/tame_an_animal",
+  "criteria": {
+    "feed_wheatgrass": {
+      "trigger": "cosmopolitan:wheatgrass"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.feed_wheatgrass.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "cosmopolitan:paw_cookie"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.feed_wheatgrass.title"
+    }
+  },
+  "requirements": [
+    [
+      "feed_wheatgrass"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

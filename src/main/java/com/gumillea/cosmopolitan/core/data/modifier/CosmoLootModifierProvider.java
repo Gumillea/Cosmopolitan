@@ -112,6 +112,19 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                         .add(LootItem.lootTableItem(CosmoItems.FIDDLEHEAD.get())
                                 .apply(ApplyExplosionDecay.explosionDecay())
                                 .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.05F, 0.055555557F, 0.0625F, 0.08333334F, 0.25F))).build()), false));
+        //chard
+        this.entry("beetroots").selects("blocks/beetroots")
+                .addModifier(new LootPoolsModifier(Collections.singletonList(
+                        LootPool.lootPool().name("cosmopolitan:chard")
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(CosmoItems.CHARD.get())
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.BEETROOTS)
+                                                .setProperties(StatePropertiesPredicate.Builder.properties()
+                                                        .hasProperty(BlockStateProperties.AGE_4, 3)))
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                        .apply(ApplyExplosionDecay.explosionDecay()))
+                                .build()
+                ), false));
         //wheatgrass
         this.entry("wheat").selects("blocks/wheat")
                 .addModifier(new LootPoolsModifier(Collections.singletonList(
@@ -163,12 +176,40 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
                                 .add(LootItem.lootTableItem(CosmoItems.KABLOOM_PIPS.get()))
                                 .build()), false));
         //enchanted_cosmopolitan
+        this.entry("village_taiga_house").selects(new ResourceLocation[]{BuiltInLootTables.VILLAGE_TAIGA_HOUSE})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.TAIGA_GULIME.get()).build(),
+                        LootItem.lootTableItem(CosmoItems.EMERALD_CANDY.get()).build())));
+        this.entry("village_snowy_house").selects(new ResourceLocation[]{BuiltInLootTables.VILLAGE_SNOWY_HOUSE})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.EMERALD_CANDY.get()).build())));
+        this.entry("village_desert_house").selects(new ResourceLocation[]{BuiltInLootTables.VILLAGE_DESERT_HOUSE})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.ARID_GULIME.get()).build(),
+                        LootItem.lootTableItem(CosmoItems.EMERALD_CANDY.get()).build())));
+        this.entry("village_plains_house").selects(new ResourceLocation[]{BuiltInLootTables.VILLAGE_PLAINS_HOUSE})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.WILDBERRY.get()).setWeight(5).build(),
+                        LootItem.lootTableItem(CosmoItems.WHEATGRASS.get()).setWeight(5).build(),
+                        LootItem.lootTableItem(CosmoItems.EMERALD_CANDY.get()).build())));
+        this.entry("village_savanna_house").selects(new ResourceLocation[]{BuiltInLootTables.VILLAGE_SAVANNA_HOUSE})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.WATTLESEEDS.get()).setWeight(6).build(),
+                        LootItem.lootTableItem(CosmoItems.EMERALD_CANDY.get()).build(),
+                        LootItem.lootTableItem(CosmoItems.BUSH_BREAD.get()).build())));
+        this.entry("abandoned_mineshaft").selects(new ResourceLocation[]{BuiltInLootTables.ABANDONED_MINESHAFT})
+                .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
+                        LootItem.lootTableItem(CosmoItems.GEODE_BREAD.get()).setWeight(4).build(),
+                        LootItem.lootTableItem(CosmoItems.ENCHANTED_GOLDEN_ARBUTUS_BERRIES.get()).build())));
         this.entry("ancien_city").selects(new ResourceLocation[]{BuiltInLootTables.ANCIENT_CITY})
                 .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
-                        LootItem.lootTableItem(CosmoItems.KYKEON.get()).setWeight(10).build())));
+                        LootItem.lootTableItem(CosmoItems.ENCHANTED_GOLDEN_ARBUTUS_BERRIES.get()).build(),
+                        LootItem.lootTableItem(CosmoItems.KYKEON.get()).build(),
+                        LootItem.lootTableItem(CosmoItems.GEODE_BREAD.get()).setWeight(8).build())));
         this.entry("stronghold_library").selects(new ResourceLocation[]{BuiltInLootTables.STRONGHOLD_LIBRARY})
                 .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
-                        LootItem.lootTableItem(CosmoItems.KYKEON.get()).setWeight(15).build())));
+                        LootItem.lootTableItem(CosmoItems.ENCHANTED_GOLDEN_ARBUTUS_BERRIES.get()).setWeight(3).build(),
+                        LootItem.lootTableItem(CosmoItems.KYKEON.get()).setWeight(8).build())));
         }
 
 }

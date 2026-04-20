@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "windswept:pinecone"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/glow_berries"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:moss"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:snowball"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "windswept:pinecone"
+          },
+          {
+            "tag": "forge:fruits/glow_berries"
+          },
+          {
+            "tag": "forge:moss"
+          },
+          {
+            "item": "minecraft:snowball"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:lush_snow_cone"
+        }
+      }
+    }
+  ]
+}

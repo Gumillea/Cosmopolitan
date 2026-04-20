@@ -1,0 +1,67 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glass_bottle"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:arbutus_berries"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:arbutus_berries"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_berries"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_berries"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_berries"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:sugar"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:glass_bottle"
+          },
+          {
+            "item": "cosmopolitan:arbutus_berries"
+          },
+          {
+            "item": "cosmopolitan:arbutus_berries"
+          },
+          {
+            "item": "minecraft:glow_berries"
+          },
+          {
+            "item": "minecraft:glow_berries"
+          },
+          {
+            "item": "minecraft:glow_berries"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:lush_confiture_bottle"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "modifiers": [
+    {
+      "type": "entries",
+      "config": {
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "cosmopolitan:wattleseeds",
+            "weight": 6
+          },
+          {
+            "type": "minecraft:item",
+            "name": "cosmopolitan:emerald_candy"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "cosmopolitan:bush_bread"
+          }
+        ],
+        "index": 0,
+        "replace": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:chests/village/village_savanna_house"
+}

@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:glazed_fish"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:glazed_fish"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "farmersdelight:cooked_rice"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:glazed_fish"
+          },
+          {
+            "item": "cosmopolitan:glazed_fish"
+          },
+          {
+            "item": "farmersdelight:cooked_rice"
+          }
+        ],
+        "result": {
+          "count": 2,
+          "item": "cosmopolitan:glazed_fish_roll"
+        }
+      }
+    }
+  ]
+}

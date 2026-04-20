@@ -1,0 +1,87 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_golden_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gold_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_herbal_poweder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:herbal_powder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rabbit_foot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:rabbit_foot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tankard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brewinandchewin:tankard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:brewinandchewin/fermenting/green_beer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wheatgrass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:wheatgrass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tankard",
+      "has_rabbit_foot",
+      "has_golden_ingot",
+      "has_wheatgrass",
+      "has_herbal_poweder",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:brewinandchewin/fermenting/green_beer"
+    ]
+  },
+  "sends_telemetry_event": true
+}

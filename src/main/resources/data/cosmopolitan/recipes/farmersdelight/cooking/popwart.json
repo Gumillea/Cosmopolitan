@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 300,
+        "experience": 1.5,
+        "ingredients": [
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "cosmopolitan:ectocaramel"
+          }
+        ],
+        "recipe_book_tab": "meals",
+        "container": {
+          "item": "minecraft:bowl"
+        },
+        "result": {
+          "item": "cosmopolitan:popwart"
+        }
+      }
+    }
+  ]
+}

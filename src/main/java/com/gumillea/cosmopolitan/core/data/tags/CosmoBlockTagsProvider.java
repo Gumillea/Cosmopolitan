@@ -6,7 +6,6 @@ import com.gumillea.cosmopolitan.core.util.CosmoBlockTags;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -97,19 +96,25 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.PAW_COOKIE_TILE_WALL.get(),
                 CosmoBlocks.PAW_COOKIE_TILE_STAIRS.get(),
 
-                CosmoBlocks.WHEATGRASS_BALE.get()
+                CosmoBlocks.WHEATGRASS_BALE.get(),
+                CosmoBlocks.EXHAUSTED_SHROOMLIGHT.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(
                 CosmoBlocks.WILDBERRIES_BASKET.get(),
                 CosmoBlocks.FIDDLEHEAD_CRATE.get(),
                 CosmoBlocks.IRON_FIDDLEHEAD_CRATE.get(),
-                CosmoBlocks.SAPPY_BIRCH_LOG.get()
+                CosmoBlocks.SAPPY_BIRCH_LOG.get(),
+                CosmoBlocks.WATTLESEED_SACK.get()
         );
         this.tag(BlockTags.BIRCH_LOGS).add(
                 CosmoBlocks.SAPPY_BIRCH_LOG.get()
         );
         this.tag(BlockTags.CLIMBABLE).add(
-                CosmoBlocks.BERRY_SYRUP_BLOCK.get()
+                CosmoBlocks.SWEET_BERRY_SYRUP_BLOCK.get(),
+                CosmoBlocks.SOUR_BERRY_SYRUP_BLOCK.get(),
+                CosmoBlocks.BITTER_BERRY_SYRUP_BLOCK.get(),
+                CosmoBlocks.SPICY_BERRY_SYRUP_BLOCK.get(),
+                CosmoBlocks.STRANGE_BERRY_SYRUP_BLOCK.get()
         );
         this.tag(BlockTags.SLABS).add(
                 CosmoBlocks.BIRCH_COOKIE_TILE_SLAB.get(),
@@ -135,6 +140,7 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 Blocks.SNOW_BLOCK,
                 Blocks.POWDER_SNOW)
                 .addTag(BlockTags.ICE);
+
 
         this.tag(CosmoBlockTags.EXUBERANT_SOURCES)
                 .addOptional(CosmoCompat.id(CosmoCompat.FD, "apple_pie"));

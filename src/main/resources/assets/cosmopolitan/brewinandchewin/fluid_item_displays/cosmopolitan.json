@@ -1,10 +1,46 @@
 {
+  "cosmopolitan:berry_syrup": {
+    "id": "cosmopolitan:berry_syrup_bottle",
+    "tag": {
+      "berrySyrupFlavor": "sweet"
+    }
+  },
+  "cosmopolitan:berry_syrup_sour": {
+    "id": "cosmopolitan:berry_syrup_bottle",
+    "tag": {
+      "berrySyrupFlavor": "sour"
+    }
+  },
+  "cosmopolitan:berry_syrup_bitter": {
+    "id": "cosmopolitan:berry_syrup_bottle",
+    "tag": {
+      "berrySyrupFlavor": "bitter"
+    }
+  },
+  "cosmopolitan:berry_syrup_spicy": {
+    "id": "cosmopolitan:berry_syrup_bottle",
+    "tag": {
+      "berrySyrupFlavor": "spicy"
+    }
+  },
+  "cosmopolitan:berry_syrup_strange": {
+    "id": "cosmopolitan:berry_syrup_bottle",
+    "tag": {
+      "berrySyrupFlavor": "strange"
+    }
+  },
   "cosmopolitan:cream": "cosmopolitan:cream",
   "cosmopolitan:birch_sap": "cosmopolitan:birch_sap_bottle",
-  "cosmopolitan:berry_syrup": "cosmopolitan:berry_syrup_bottle",
   "cosmopolitan:steeleaf_nectar": "cosmopolitan:steeleaf_nectar",
   "cosmopolitan:twilight_chartreuse": "cosmopolitan:twilight_chartreuse",
   "cosmopolitan:smoggy_aperol": "cosmopolitan:smoggy_aperol",
   "cosmopolitan:wildberry_punch": "cosmopolitan:wildberry_punch",
-  "cosmopolitan:root_beer": "cosmopolitan:root_beer"
+  "cosmopolitan:root_beer": "cosmopolitan:root_beer",
+  "cosmopolitan:green_beer": "cosmopolitan:green_beer",
+  "cosmopolitan:cachaca": "cosmopolitan:cachaca",
+  "cosmopolitan:molasses": "cosmopolitan:molasses_bottle",
+  "cosmopolitan:generic_romance": "cosmopolitan:generic_romance",
+  "cosmopolitan:exotic_mirage": "cosmopolitan:exotic_mirage",
+  "cosmopolitan:neverending_night": "cosmopolitan:neverending_night",
+  "cosmopolitan:morning_fog": "cosmopolitan:morning_fog"
 }

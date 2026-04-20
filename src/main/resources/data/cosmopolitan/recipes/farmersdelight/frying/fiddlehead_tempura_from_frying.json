@@ -1,0 +1,19 @@
+{
+  "type": "frycooks_delight:frying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "frycooks_delight"
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:crops/fiddleheads"
+    }
+  ],
+  "result": [
+    {
+      "item": "cosmopolitan:fiddlehead_tempura"
+    }
+  ]
+}

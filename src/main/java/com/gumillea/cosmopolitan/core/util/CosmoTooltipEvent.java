@@ -3,16 +3,19 @@ package com.gumillea.cosmopolitan.core.util;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.WheatgrassItem;
+import com.gumillea.cosmopolitan.core.misc.BerrfectFlavorHelper;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.food.FoodProperties;
@@ -41,11 +44,14 @@ public class CosmoTooltipEvent {
         var properties = stack.getFoodProperties(Minecraft.getInstance().player);
         int nutrition = properties == null ? 0 : properties.getNutrition();
 
-        if (CosmoConfig.Common.APPLE_FLAVOR.get() && stack.is(CosmoItemTags.EXUBERANT_SOURCES)) {
-            int duration = (nutrition < 10 ? 10 - nutrition : 1) * 300;
-            appendItem(tooltip, CosmoEffects.EXUBERANT.get(), duration, 0);
+        if (CosmoConfig.Common.CARROT_FLAVOR.get() && stack.is(CosmoItemTags.CAROTENE_SOURCES)) {
+            tooltip.add(Component.translatable("tooltip." + Cosmopolitan.MODID + ".carrot").withStyle(ChatFormatting.BLUE));
         }
 
+        if (CosmoConfig.Common.APPLE_FLAVOR.get() && stack.is(CosmoItemTags.EXUBERANT_SOURCES)) {
+            int duration = (nutrition < 10 ? 10 - nutrition : 1) * 900;
+            appendItem(tooltip, CosmoEffects.EXUBERANT.get(), duration, 0);
+        }
         if (CosmoConfig.Common.GLOW_BERRY_FLAVOR.get() && stack.is(CosmoItemTags.TRACER_SOURCES)) {
             int duration = nutrition < 10 ? 300 : 600;
             int amplifier = nutrition < 10 ? 0 : 1;
@@ -53,11 +59,15 @@ public class CosmoTooltipEvent {
         }
         if (CosmoConfig.Common.DROOPFRUIT_FLAVOR.get() && stack.is(CosmoItemTags.ABYSMAL_TORCH_SOURCES)) {
             int amplifier = nutrition < 10 ? 0 : 1;
-            appendItem(tooltip, CosmoEffects.ABYSMAL_TORCH.get(), 600, amplifier);
+            appendItem(tooltip, CosmoEffects.ABYSMAL_TORCH.get(), -1, amplifier);
         }
         if (CosmoConfig.Common.BLISTERBERRY_FLAVOR.get() && stack.is(CosmoItemTags.VARDOGER_SOURCES)) {
             int duration = (int) ((nutrition < 10 ? 300 : 600) * 1.5);
             appendItem(tooltip, CosmoEffects.VARDOGER.get(), duration, 0);
+        }
+        if (CosmoConfig.Common.MORE_INGRAINED_SOURCES.get() && stack.is(CosmoItemTags.INGRAINED_SOURCES)) {
+            int duration = (nutrition < 10 ? 300 : 600);
+            appendItem(tooltip, CosmoEffects.INGRAINED.get(), duration, 0);
         }
     }
 
@@ -69,12 +79,38 @@ public class CosmoTooltipEvent {
 
         List<Component> tooltip = event.getToolTip();
         if (tag.getBoolean("has_condensed_milk")) {
-            tooltip.add(Component.literal("❖ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasoned.condensed_milk")).withStyle(style -> style.withColor(0xFFF8E0)));
+            CosmoUtils.shiftTooltip(tooltip,
+                    Component.literal("◆ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasoned.condensed_milk.info")).withStyle(style -> style.withColor(0xFFF8E0)),
+                    Component.literal("◆ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasoned.condensed_milk")).withStyle(style -> style.withColor(0xFFF8E0))
+            );
         }
 
         if (tag.getBoolean("has_cream")) {
-            tooltip.add(Component.literal("❖ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasoned.cream")).withStyle(style -> style.withColor(0xF7D7B4)));
+            CosmoUtils.shiftTooltip(tooltip,
+                    Component.literal("◆ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasoned.cream.info")).withStyle(style -> style.withColor(0xFFF8E0)),
+                    Component.literal("◆ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasoned.cream")).withStyle(style -> style.withColor(0xFFF8E0))
+            );
         }
+
+        if (CosmoConfig.Common.FLAVORED_SYRUP.get() && tag.contains(BerrfectFlavorHelper.KEY)) {
+            String flavor = stack.getTag().getString(BerrfectFlavorHelper.KEY);
+
+            switch (flavor) {
+                case "sour" -> appendFlavoredItem(event, "sour", 0xFFDC6C);
+                case "sweet" -> appendFlavoredItem(event, "sweet", 0xF65095);
+                case "bitter" -> appendFlavoredItem(event, "bitter", 0x4CCD5C);
+                case "spicy" -> appendFlavoredItem(event, "spicy", 0xD22525);
+                case "strange" -> appendFlavoredItem(event, "strange", 0x9578AA);
+            }
+        }
+    }
+
+    private static void appendFlavoredItem(ItemTooltipEvent event, String flavor, int color) {
+        List<Component> tooltip = event.getToolTip();
+        CosmoUtils.shiftTooltip(tooltip,
+                Component.literal("❖ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".flavor." + flavor + ".info")).withStyle(style -> style.withColor(color)),
+                Component.literal("❖ ").append(Component.translatable("tooltip." + Cosmopolitan.MODID + ".flavor." + flavor)).withStyle(style -> style.withColor(color))
+        );
     }
 
     private static void appendItem(List<Component> tooltip, MobEffect effect, int duration, int amplifier) {
@@ -96,10 +132,10 @@ public class CosmoTooltipEvent {
         for (Pair<MobEffectInstance, Float> pair : properties.getEffects()) {
             MobEffectInstance effectInstance = pair.getFirst();
             float probability = pair.getSecond();
-
-            if (effectInstance.getEffect() == CosmoEffects.PLACEHOLDER.get()) continue;
-
             MobEffect effect = effectInstance.getEffect();
+
+            if (effect == CosmoEffects.PLACEHOLDER.get()) continue;
+
             MutableComponent effectDescription = Component.translatable(effect.getDescriptionId());
 
             if (effectInstance.getAmplifier() > 0) {

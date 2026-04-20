@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:tranquil_split_popsicle_double"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "cosmopolitan:tranquil_split_popsicle"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

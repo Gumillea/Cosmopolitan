@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:slime_ball"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:sugar"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:herbal_powder"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "minecraft:slime_ball"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:slime_cone"
+        }
+      }
+    }
+  ]
+}

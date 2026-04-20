@@ -8,7 +8,7 @@
   "fermentingtime": 9600,
   "ingredients": [
     {
-      "item": "minecraft:hanging_roots"
+      "tag": "forge:crops/tuber"
     },
     {
       "item": "farmersdelight:tree_bark"

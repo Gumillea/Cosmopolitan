@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "cosmopolitan:block/wattleseed_sack",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "cosmopolitan:block/wattleseed_sack",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cosmopolitan:block/wattleseed_sack",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "cosmopolitan:block/wattleseed_sack",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "cosmopolitan:block/wattleseed_sack"
+    },
+    "facing=west": {
+      "model": "cosmopolitan:block/wattleseed_sack",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

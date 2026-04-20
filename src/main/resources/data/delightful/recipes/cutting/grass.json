@@ -19,6 +19,9 @@
       "item": "minecraft:wheat_seeds"
     },
     {
+      "item": "cosmopolitan:herbal_powder"
+    },
+    {
       "item": "cosmopolitan:wildberry",
       "chance": 0.5
     },

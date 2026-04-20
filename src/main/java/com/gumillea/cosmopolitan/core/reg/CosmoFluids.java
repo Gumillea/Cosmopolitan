@@ -26,10 +26,35 @@ public class CosmoFluids {
     public static final RegistryObject<FlowingFluid> FLOWING_CONDENSED_MILK = FLUIDS.register("flowing_condensed_milk", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.CONDENSED_MILK_PROPERTIES));
     public static final ForgeFlowingFluid.Properties CONDENSED_MILK_PROPERTIES = new ForgeFlowingFluid.Properties(CONDENSED_MILK_TYPE, CONDENSED_MILK, FLOWING_CONDENSED_MILK);
 
-    public static final RegistryObject<FluidType> BERRY_SYRUP_TYPE = FLUID_TYPES.register("berry_syrup", () -> new CosmoFluidType("berry_syrup"));
-    public static final RegistryObject<FlowingFluid> BERRY_SYRUP = FLUIDS.register("berry_syrup", () -> new ForgeFlowingFluid.Source(CosmoFluids.BERRY_SYRUP_PROPERTIES));
-    public static final RegistryObject<FlowingFluid> FLOWING_BERRY_SYRUP = FLUIDS.register("flowing_berry_syrup", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.BERRY_SYRUP_PROPERTIES));
-    public static final ForgeFlowingFluid.Properties BERRY_SYRUP_PROPERTIES = new ForgeFlowingFluid.Properties(BERRY_SYRUP_TYPE, BERRY_SYRUP, FLOWING_BERRY_SYRUP);
+    public static final RegistryObject<FluidType> MOLASSES_TYPE = FLUID_TYPES.register("molasses", () -> new CosmoFluidType("molasses"));
+    public static final RegistryObject<FlowingFluid> MOLASSES = FLUIDS.register("molasses", () -> new ForgeFlowingFluid.Source(CosmoFluids.MOLASSES_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_MOLASSES = FLUIDS.register("flowing_molasses", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.MOLASSES_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties MOLASSES_PROPERTIES = new ForgeFlowingFluid.Properties(MOLASSES_TYPE, MOLASSES, FLOWING_MOLASSES);
+
+    public static final RegistryObject<FluidType> SWEET_BERRY_SYRUP_TYPE = FLUID_TYPES.register("berry_syrup", () -> new CosmoFluidType("berry_syrup_sweet"));
+    public static final RegistryObject<FlowingFluid> SWEET_BERRY_SYRUP = FLUIDS.register("berry_syrup", () -> new ForgeFlowingFluid.Source(CosmoFluids.SWEET_BERRY_SYRUP_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_SWEET_BERRY_SYRUP = FLUIDS.register("flowing_berry_syrup", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.SWEET_BERRY_SYRUP_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties SWEET_BERRY_SYRUP_PROPERTIES = new ForgeFlowingFluid.Properties(SWEET_BERRY_SYRUP_TYPE, SWEET_BERRY_SYRUP, FLOWING_SWEET_BERRY_SYRUP);
+
+    public static final RegistryObject<FluidType> SOUR_BERRY_SYRUP_TYPE = FLUID_TYPES.register("berry_syrup_sour", () -> new CosmoFluidType("berry_syrup_sour"));
+    public static final RegistryObject<FlowingFluid> SOUR_BERRY_SYRUP = FLUIDS.register("berry_syrup_sour", () -> new ForgeFlowingFluid.Source(CosmoFluids.SOUR_BERRY_SYRUP_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_SOUR_BERRY_SYRUP = FLUIDS.register("flowing_berry_syrup_sour", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.SOUR_BERRY_SYRUP_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties SOUR_BERRY_SYRUP_PROPERTIES = new ForgeFlowingFluid.Properties(SOUR_BERRY_SYRUP_TYPE, SOUR_BERRY_SYRUP, FLOWING_SOUR_BERRY_SYRUP);
+
+    public static final RegistryObject<FluidType> BITTER_BERRY_SYRUP_TYPE = FLUID_TYPES.register("berry_syrup_bitter", () -> new CosmoFluidType("berry_syrup_bitter"));
+    public static final RegistryObject<FlowingFluid> BITTER_BERRY_SYRUP = FLUIDS.register("berry_syrup_bitter", () -> new ForgeFlowingFluid.Source(CosmoFluids.BITTER_BERRY_SYRUP_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_BITTER_BERRY_SYRUP = FLUIDS.register("flowing_berry_syrup_bitter", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.BITTER_BERRY_SYRUP_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties BITTER_BERRY_SYRUP_PROPERTIES = new ForgeFlowingFluid.Properties(BITTER_BERRY_SYRUP_TYPE, BITTER_BERRY_SYRUP, FLOWING_BITTER_BERRY_SYRUP);
+
+    public static final RegistryObject<FluidType> SPICY_BERRY_SYRUP_TYPE = FLUID_TYPES.register("berry_syrup_spicy", () -> new CosmoFluidType("berry_syrup_spicy"));
+    public static final RegistryObject<FlowingFluid> SPICY_BERRY_SYRUP = FLUIDS.register("berry_syrup_spicy", () -> new ForgeFlowingFluid.Source(CosmoFluids.SPICY_BERRY_SYRUP_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_SPICY_BERRY_SYRUP = FLUIDS.register("flowing_berry_syrup_spicy", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.SPICY_BERRY_SYRUP_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties SPICY_BERRY_SYRUP_PROPERTIES = new ForgeFlowingFluid.Properties(SPICY_BERRY_SYRUP_TYPE, SPICY_BERRY_SYRUP, FLOWING_SPICY_BERRY_SYRUP);
+
+    public static final RegistryObject<FluidType> STRANGE_BERRY_SYRUP_TYPE = FLUID_TYPES.register("berry_syrup_strange", () -> new CosmoFluidType("berry_syrup_strange"));
+    public static final RegistryObject<FlowingFluid> STRANGE_BERRY_SYRUP = FLUIDS.register("berry_syrup_strange", () -> new ForgeFlowingFluid.Source(CosmoFluids.STRANGE_BERRY_SYRUP_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_STRANGE_BERRY_SYRUP = FLUIDS.register("flowing_berry_syrup_strange", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.STRANGE_BERRY_SYRUP_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties STRANGE_BERRY_SYRUP_PROPERTIES = new ForgeFlowingFluid.Properties(STRANGE_BERRY_SYRUP_TYPE, STRANGE_BERRY_SYRUP, FLOWING_STRANGE_BERRY_SYRUP);
 
     public static final RegistryObject<FluidType> BIRCH_SAP_TYPE = FLUID_TYPES.register("birch_sap", () -> new CosmoFluidType("birch_sap"));
     public static final RegistryObject<FlowingFluid> BIRCH_SAP = FLUIDS.register("birch_sap", () -> new ForgeFlowingFluid.Source(CosmoFluids.BIRCH_SAP_PROPERTIES));
@@ -40,7 +65,6 @@ public class CosmoFluids {
     public static final RegistryObject<FlowingFluid> STEELEAF_NECTAR = FLUIDS.register("steeleaf_nectar", () -> new ForgeFlowingFluid.Source(CosmoFluids.STEELEAF_NECTAR_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_STEELEAF_NECTAR = FLUIDS.register("flowing_steeleaf_nectar", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.STEELEAF_NECTAR_PROPERTIES));
     public static final ForgeFlowingFluid.Properties STEELEAF_NECTAR_PROPERTIES = new ForgeFlowingFluid.Properties(STEELEAF_NECTAR_TYPE, STEELEAF_NECTAR, FLOWING_STEELEAF_NECTAR);
-
     //bnc
     public static final RegistryObject<FluidType> WILDBERRY_PUNCH_TYPE = FLUID_TYPES.register("wildberry_punch", () -> new BnCAlcoholFluidType(-1015936));
     public static final RegistryObject<FlowingFluid> WILDBERRY_PUNCH = FLUIDS.register("wildberry_punch", () -> new ForgeFlowingFluid.Source(CosmoFluids.WILDBERRY_PUNCH_PROPERTIES));
@@ -61,6 +85,36 @@ public class CosmoFluids {
     public static final RegistryObject<FlowingFluid> SMOGGY_APEROL = FLUIDS.register("smoggy_aperol", () -> new ForgeFlowingFluid.Source(CosmoFluids.SMOGGY_APEROL_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_SMOGGY_APEROL = FLUIDS.register("flowing_smoggy_aperol", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.SMOGGY_APEROL_PROPERTIES));
     public static final ForgeFlowingFluid.Properties SMOGGY_APEROL_PROPERTIES = new ForgeFlowingFluid.Properties(SMOGGY_APEROL_TYPE, SMOGGY_APEROL, FLOWING_SMOGGY_APEROL);
+
+    public static final RegistryObject<FluidType> CACHACA_TYPE = FLUID_TYPES.register("cachaca", () -> new BnCAlcoholFluidType(-2818170));
+    public static final RegistryObject<FlowingFluid> CACHACA = FLUIDS.register("cachaca", () -> new ForgeFlowingFluid.Source(CosmoFluids.CACHACA_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_CACHACA = FLUIDS.register("flowing_cachaca", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.CACHACA_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties CACHACA_PROPERTIES = new ForgeFlowingFluid.Properties(CACHACA_TYPE, CACHACA, FLOWING_CACHACA);
+
+    public static final RegistryObject<FluidType> NEVERENDING_NIGHT_TYPE = FLUID_TYPES.register("neverending_night", () -> new BnCAlcoholFluidType(-6991119));
+    public static final RegistryObject<FlowingFluid> NEVERENDING_NIGHT = FLUIDS.register("neverending_night", () -> new ForgeFlowingFluid.Source(CosmoFluids.NEVERENDING_NIGHT_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_NEVERENDING_NIGHT = FLUIDS.register("flowing_neverending_night", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.NEVERENDING_NIGHT_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties NEVERENDING_NIGHT_PROPERTIES = new ForgeFlowingFluid.Properties(NEVERENDING_NIGHT_TYPE, NEVERENDING_NIGHT, FLOWING_NEVERENDING_NIGHT);
+
+    public static final RegistryObject<FluidType> MORNING_FOG_TYPE = FLUID_TYPES.register("morning_fog", () -> new BnCAlcoholFluidType(-1416573));
+    public static final RegistryObject<FlowingFluid> MORNING_FOG = FLUIDS.register("morning_fog", () -> new ForgeFlowingFluid.Source(CosmoFluids.MORNING_FOG_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_MORNING_FOG = FLUIDS.register("flowing_morning_fog", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.MORNING_FOG_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties MORNING_FOG_PROPERTIES = new ForgeFlowingFluid.Properties(MORNING_FOG_TYPE, MORNING_FOG, FLOWING_MORNING_FOG);
+
+    public static final RegistryObject<FluidType> EXOTIC_MIRAGE_TYPE = FLUID_TYPES.register("exotic_mirage", () -> new BnCAlcoholFluidType(-4925701));
+    public static final RegistryObject<FlowingFluid> EXOTIC_MIRAGE = FLUIDS.register("exotic_mirage", () -> new ForgeFlowingFluid.Source(CosmoFluids.EXOTIC_MIRAGE_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_EXOTIC_MIRAGE = FLUIDS.register("flowing_exotic_mirage", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.EXOTIC_MIRAGE_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties EXOTIC_MIRAGE_PROPERTIES = new ForgeFlowingFluid.Properties(EXOTIC_MIRAGE_TYPE, EXOTIC_MIRAGE, FLOWING_EXOTIC_MIRAGE);
+
+    public static final RegistryObject<FluidType> GENERIC_ROMANCE_TYPE = FLUID_TYPES.register("generic_romance", () -> new BnCAlcoholFluidType(-6937793));
+    public static final RegistryObject<FlowingFluid> GENERIC_ROMANCE = FLUIDS.register("generic_romance", () -> new ForgeFlowingFluid.Source(CosmoFluids.GENERIC_ROMANCE_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_GENERIC_ROMANCE = FLUIDS.register("flowing_generic_romance", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.GENERIC_ROMANCE_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties GENERIC_ROMANCE_PROPERTIES = new ForgeFlowingFluid.Properties(GENERIC_ROMANCE_TYPE, GENERIC_ROMANCE, FLOWING_GENERIC_ROMANCE);
+
+    public static final RegistryObject<FluidType> GREEN_BEER_TYPE = FLUID_TYPES.register("green_beer", () -> new BnCAlcoholFluidType(-15739563));
+    public static final RegistryObject<FlowingFluid> GREEN_BEER = FLUIDS.register("green_beer", () -> new ForgeFlowingFluid.Source(CosmoFluids.GREEN_BEER_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_GREEN_BEER = FLUIDS.register("flowing_green_beer", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.GREEN_BEER_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties GREEN_BEER_PROPERTIES = new ForgeFlowingFluid.Properties(GREEN_BEER_TYPE, GREEN_BEER, FLOWING_GREEN_BEER);
 
 
     //neapolitan
@@ -148,6 +202,17 @@ public class CosmoFluids {
     public static final RegistryObject<FlowingFluid> POMEGRANATE_ICE_CREAM = FLUIDS.register("pomegranate_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.POMEGRANATE_ICE_CREAM_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_POMEGRANATE_ICE_CREAM = FLUIDS.register("flowing_pomegranate_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.POMEGRANATE_ICE_CREAM_PROPERTIES));
     public static final ForgeFlowingFluid.Properties POMEGRANATE_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(POMEGRANATE_ICE_CREAM_TYPE, POMEGRANATE_ICE_CREAM, FLOWING_POMEGRANATE_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> LUCUMA_ICE_CREAM_TYPE = FLUID_TYPES.register("lucuma_ice_cream", () -> new CosmoIceCreamFluidType("lucuma"));
+    public static final RegistryObject<FlowingFluid> LUCUMA_ICE_CREAM = FLUIDS.register("lucuma_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.LUCUMA_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_LUCUMA_ICE_CREAM = FLUIDS.register("flowing_lucuma_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.LUCUMA_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties LUCUMA_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(LUCUMA_ICE_CREAM_TYPE, LUCUMA_ICE_CREAM, FLOWING_LUCUMA_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> PINK_DRAGON_FRUIT_ICE_CREAM_TYPE = FLUID_TYPES.register("pink_dragon_fruit_ice_cream", () -> new CosmoIceCreamFluidType("pink_dragon_fruit"));
+    public static final RegistryObject<FlowingFluid> PINK_DRAGON_FRUIT_ICE_CREAM = FLUIDS.register("pink_dragon_fruit_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.PINK_DRAGON_FRUIT_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_PINK_DRAGON_FRUIT_ICE_CREAM = FLUIDS.register("flowing_pink_dragon_fruit_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.PINK_DRAGON_FRUIT_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties PINK_DRAGON_FRUIT_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(PINK_DRAGON_FRUIT_ICE_CREAM_TYPE, PINK_DRAGON_FRUIT_ICE_CREAM, FLOWING_PINK_DRAGON_FRUIT_ICE_CREAM);
+
     //delightful
     public static final RegistryObject<FluidType> MATCHA_ICE_CREAM_TYPE = FLUID_TYPES.register("matcha_ice_cream", () -> new CosmoIceCreamFluidType("matcha"));
     public static final RegistryObject<FlowingFluid> MATCHA_ICE_CREAM = FLUIDS.register("matcha_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.MATCHA_ICE_CREAM_PROPERTIES));

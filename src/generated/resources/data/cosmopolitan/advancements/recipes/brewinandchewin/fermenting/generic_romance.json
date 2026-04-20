@@ -1,0 +1,74 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glistering_melon_slice": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glistering_melon_slice"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_herbal_poweder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:herbal_powder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rose_bush": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:rose_bush"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tankard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brewinandchewin:tankard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cosmopolitan:brewinandchewin/fermenting/generic_romance"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_tankard",
+      "has_rose_bush",
+      "has_glistering_melon_slice",
+      "has_herbal_poweder",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cosmopolitan:brewinandchewin/fermenting/generic_romance"
+    ]
+  },
+  "sends_telemetry_event": true
+}

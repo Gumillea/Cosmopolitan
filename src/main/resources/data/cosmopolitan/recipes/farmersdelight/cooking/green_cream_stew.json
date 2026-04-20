@@ -21,6 +21,12 @@
           },
           {
             "tag": "forge:salad_ingredients"
+          },
+          {
+            "tag": "forge:crops/carrot"
+          },
+          {
+            "tag": "forge:crops/potato"
           }
         ],
         "recipe_book_tab": "meals",

@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/geode_bread1",
+      "predicate": {
+        "minecraft:damage": 0.25
+      }
+    },
+    {
+      "model": "cosmopolitan:item/geode_bread2",
+      "predicate": {
+        "minecraft:damage": 0.5
+      }
+    },
+    {
+      "model": "cosmopolitan:item/geode_bread3",
+      "predicate": {
+        "minecraft:damage": 0.75
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/geode_bread0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "pattern": [
+    "ABA",
+    "CDC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:wheat"
+    },
+    "B": {
+      "item": "cosmopolitan:molasses_bottle"
+    },
+    "C": {
+      "tag": "forge:milk"
+    },
+    "D": {
+      "item": "farmersdelight:pie_crust"
+    }
+  },
+  "result": {
+    "item": "cosmopolitan:shoofly_pie"
+  }
+}

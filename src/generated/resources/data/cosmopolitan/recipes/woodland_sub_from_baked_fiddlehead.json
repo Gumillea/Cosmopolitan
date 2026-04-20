@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:bread"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:baked_fiddlehead"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:baked_fiddlehead"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:cooked_fishes/salmon"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "tag": "forge:bread"
+          },
+          {
+            "item": "cosmopolitan:baked_fiddlehead"
+          },
+          {
+            "item": "cosmopolitan:baked_fiddlehead"
+          },
+          {
+            "tag": "forge:cooked_fishes/salmon"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:woodland_sub"
+        }
+      }
+    }
+  ]
+}

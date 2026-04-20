@@ -1,0 +1,13 @@
+{
+  "values": [
+    "cosmopolitan:fiddlehead",
+    {
+      "id": "alexscaves:fiddlehead",
+      "required": false
+    },
+    {
+      "id": "twilightforest:fiddlehead",
+      "required": false
+    }
+  ]
+}

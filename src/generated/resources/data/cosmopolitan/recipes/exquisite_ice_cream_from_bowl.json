@@ -1,0 +1,79 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:bowl"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/chorus"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "exquisito:midnight_ingredients"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "exquisito:jelly_ring"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:milk"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:ice_cubes"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:sugar"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:bowl"
+          },
+          {
+            "tag": "forge:fruits/chorus"
+          },
+          {
+            "tag": "exquisito:midnight_ingredients"
+          },
+          {
+            "item": "exquisito:jelly_ring"
+          },
+          {
+            "tag": "forge:milk"
+          },
+          {
+            "tag": "forge:ice_cubes"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:exquisite_ice_cream"
+        }
+      }
+    }
+  ]
+}

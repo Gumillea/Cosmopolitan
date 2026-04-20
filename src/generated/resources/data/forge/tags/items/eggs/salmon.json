@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "croptopia:roe",
+      "required": false
+    },
+    {
+      "id": "youkaisfeasts:roe",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 250,
+  "filling": true,
+  "fluid": "cosmopolitan:generic_romance",
+  "output": {
+    "item": "cosmopolitan:generic_romance"
+  },
+  "strict": false
+}

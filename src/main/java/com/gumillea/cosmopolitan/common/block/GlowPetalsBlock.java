@@ -26,18 +26,18 @@ public class GlowPetalsBlock extends Block {
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.stepOn(level, pos, state, entity);
         if (entity instanceof LivingEntity living && living.hasEffect(CosmoEffects.MARKED.get())) return;
 
-        Vec3 movement = entity.getDeltaMovement();
-        Vec3 boosted = new Vec3(movement.x * 1.1, movement.y, movement.z * 1.1);
-        entity.setDeltaMovement(boosted);
+        Vec3 m = entity.getDeltaMovement();
+        double speed = m.x * m.x + m.z * m.z;
+        if (speed < 0.36) {
+            entity.setDeltaMovement(m.x * 1.05, m.y, m.z * 1.05);
+        }
     }
-
     @Override
     public void onPlace(BlockState state, Level level, BlockPos pos, BlockState state1, boolean b) {
         if (!level.isClientSide) {
-            level.scheduleTick(pos, this, 300);
+            level.scheduleTick(pos, this, 400);
         }
     }
 

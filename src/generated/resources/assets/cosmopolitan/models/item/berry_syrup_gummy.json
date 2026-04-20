@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/berry_syrup_gummy1",
+      "predicate": {
+        "minecraft:flavor_type": 1.0
+      }
+    },
+    {
+      "model": "cosmopolitan:item/berry_syrup_gummy2",
+      "predicate": {
+        "minecraft:flavor_type": 2.0
+      }
+    },
+    {
+      "model": "cosmopolitan:item/berry_syrup_gummy3",
+      "predicate": {
+        "minecraft:flavor_type": 3.0
+      }
+    },
+    {
+      "model": "cosmopolitan:item/berry_syrup_gummy4",
+      "predicate": {
+        "minecraft:flavor_type": 4.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/berry_syrup_gummy0"
+  }
+}

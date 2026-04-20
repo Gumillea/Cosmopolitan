@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:wattleseed_sack"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "cosmopolitan:wattleseeds"
+  }
+}

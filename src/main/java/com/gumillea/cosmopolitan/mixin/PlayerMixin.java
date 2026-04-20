@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class PlayerMixin {
 
     @Inject(method = "getDigSpeed", at = @At("RETURN"), cancellable = true, remap = false)
-    private void addedPhototaxisSpeed(BlockState state, BlockPos pos, CallbackInfoReturnable<Float> cir) {
+    private void cosmo$addedPhototaxisSpeed(BlockState state, BlockPos pos, CallbackInfoReturnable<Float> cir) {
         Player player = (Player)(Object)this;
         if (player.hasEffect(CosmoEffects.PHOTOTAXIS.get())) {
             Level level = player.level();

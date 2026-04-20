@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/mojang_mess1",
+      "predicate": {
+        "minecraft:using": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/mojang_mess0"
+  }
+}

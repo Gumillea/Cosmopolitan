@@ -1,8 +1,11 @@
 {
   "values": [
     "cosmopolitan:paw_cookie",
+    "cosmopolitan:molasses_cookie",
     "cosmopolitan:birch_cookie",
     "cosmopolitan:herbal_cookie",
+    "cosmopolitan:howling_cookie",
+    "cosmopolitan:arbutus_berry_cookie",
     "minecraft:cookie"
   ]
 }

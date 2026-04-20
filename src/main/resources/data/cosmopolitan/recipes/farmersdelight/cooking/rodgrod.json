@@ -1,0 +1,44 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "tag": "forge:berries"
+          },
+          [
+            {
+              "tag": "forge:crops/potato"
+            },
+            {
+              "tag": "forge:crops/tuber"
+            }
+          ],
+          {
+            "item": "cosmopolitan:berry_syrup_bottle"
+          },
+          {
+            "tag": "forge:milk"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:rodgrod"
+        }
+      }
+    }
+  ]
+}

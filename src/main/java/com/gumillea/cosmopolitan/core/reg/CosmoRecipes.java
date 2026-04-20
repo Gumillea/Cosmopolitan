@@ -17,7 +17,7 @@ public class CosmoRecipes {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPE = DeferredRegister.create(Registries.RECIPE_TYPE, Cosmopolitan.MODID);
 
     public static final RegistryObject<RecipeSerializer<?>> HERBAL_COOKIE = RECIPE_SERIALIZERS.register("herbal_cookie", () -> new SimpleCraftingRecipeSerializer<>(HerbalCookieRecipe::new));
-
+    public static final RegistryObject<RecipeSerializer<?>> BERRY_SYRUP_BOTTLE = RECIPE_SERIALIZERS.register("berry_syrup_bottle", () -> new SimpleCraftingRecipeSerializer<>(BerrySyrupBottleRecipe::new));
     //public static final RegistryObject<RecipeSerializer<?>> JELLY_BEANS = RECIPE_SERIALIZERS.register("jean_beans", () -> new SimpleCraftingRecipeSerializer<>(JellyBeansRecipe::new));
 
     public static final RegistryObject<RecipeSerializer<TubInjectRecipe>> TUB_INJECT_SERIALIZER = RECIPE_SERIALIZERS.register("tub_injecting", TubInjectRecipe.Serializer::new);

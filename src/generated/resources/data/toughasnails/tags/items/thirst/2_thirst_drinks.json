@@ -1,8 +1,16 @@
 {
   "values": [
     "#neapolitan:ice_cream",
+    "cosmopolitan:snow_cone",
+    "cosmopolitan:cosmic_snow_cone",
+    "cosmopolitan:berry_syrup_shaved_ice_cone",
+    "cosmopolitan:berry_syrup_shaved_ice",
     "cosmopolitan:birch_sap_bottle",
     "cosmopolitan:blisterberry_popsicle",
+    "cosmopolitan:gamblers_popsicle",
+    "cosmopolitan:tranquil_split_popsicle",
+    "cosmopolitan:ardent_split_popsicle",
+    "cosmopolitan:berry_popsicle",
     "cosmopolitan:blisterberry_sorbet",
     "cosmopolitan:droopfruit_sorbet"
   ]

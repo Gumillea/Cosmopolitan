@@ -1,10 +1,14 @@
 package com.gumillea.cosmopolitan.common.item;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
+import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.gumillea.cosmopolitan.core.util.CosmoEvents;
+import com.gumillea.cosmopolitan.core.util.CosmoUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -12,13 +16,16 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
 import umpaz.brewinandchewin.common.registry.BnCEffects;
 
 import javax.annotation.Nullable;
@@ -41,17 +48,44 @@ public class BnCDrinkItem extends DrinkItem {
         return this.fluid;
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
         if (!level.isClientSide) {
-            Optional<Pair<MobEffectInstance, Float>> tipsy = stack.getFoodProperties(consumer).getEffects().stream().filter((pair) -> ((MobEffectInstance)pair.getFirst()).getEffect() == BnCEffects.TIPSY.get()).findFirst();
-            this.affectConsumer(consumer, tipsy.map((pair) -> pair.getFirst().getDuration()).orElse(0), (Integer)tipsy.map((pair) -> ((MobEffectInstance)pair.getFirst()).getAmplifier()).orElse(-1));
+            Optional<Pair<MobEffectInstance, Float>> tipsy = stack.getFoodProperties(living).getEffects().stream().filter((pair) -> pair.getFirst().getEffect() == BnCEffects.TIPSY.get()).findFirst();
+            this.affectConsumer(living, tipsy.map((pair) -> pair.getFirst().getDuration()).orElse(0), tipsy.map((pair) -> pair.getFirst().getAmplifier()).orElse(-1));
+
+            if (living instanceof Player player && this == CosmoItems.GENERIC_ROMANCE.get()) {
+                AABB box = player.getBoundingBox().inflate(8);
+
+                List<Animal> animals = level.getEntitiesOfClass(Animal.class, box, animal -> !animal.isBaby() && !animal.isInLove());
+                int count = 0;
+                for (Animal animal : animals) {
+                    animal.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300));
+                    animal.setInLove(player);
+                    count++;
+                    if (count >= 4) break;
+                }
+
+                player.getCooldowns().addCooldown(this, 2400);
+            }
+
+            if (this == CosmoItems.WILDBERRY_PUNCH.get()) {
+                CompoundTag data = living.getPersistentData().getCompound("Berrfect");
+                List<MobEffectInstance> effects = living.getActiveEffects().stream().filter(inst -> data.contains(ForgeRegistries.MOB_EFFECTS.getKey(inst.getEffect()).toString())).map(MobEffectInstance::new).toList();
+                if (!effects.isEmpty()) {
+                    CosmoUtils.applyHealing(0.5F * effects.size(), living);
+                    for (MobEffectInstance inst : effects) {
+                        living.removeEffect(inst.getEffect());
+                    }
+                }
+            }
+
         }
 
         ItemStack containerStack = stack.getCraftingRemainingItem();
         if (stack.isEdible()) {
-            super.finishUsingItem(stack, level, consumer);
+            super.finishUsingItem(stack, level, living);
         } else {
-            Player player = consumer instanceof Player ? (Player)consumer : null;
+            Player player = living instanceof Player ? (Player)living : null;
             if (player instanceof ServerPlayer) {
                 CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer)player, stack);
             }
@@ -67,9 +101,9 @@ public class BnCDrinkItem extends DrinkItem {
         if (stack.isEmpty()) {
             return containerStack;
         } else {
-            if (consumer instanceof Player) {
-                Player player = (Player)consumer;
-                if (!((Player)consumer).getAbilities().instabuild && !player.getInventory().add(containerStack)) {
+            if (living instanceof Player) {
+                Player player = (Player)living;
+                if (!((Player)living).getAbilities().instabuild && !player.getInventory().add(containerStack)) {
                     player.drop(containerStack, false);
                 }
             }
@@ -77,7 +111,6 @@ public class BnCDrinkItem extends DrinkItem {
             return stack;
         }
     }
-
 
     public void affectConsumer(LivingEntity consumer, int duration, int potency) {
         if (consumer.hasEffect(BnCEffects.TIPSY.get())) {

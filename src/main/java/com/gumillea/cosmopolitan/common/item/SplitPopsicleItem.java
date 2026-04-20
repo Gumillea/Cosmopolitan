@@ -18,11 +18,11 @@ public class SplitPopsicleItem extends FrozenDessertItem{
         this.duration = duration;
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity living) {
+    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity living) {
         if (!level.isClientSide) {
             CosmoUtils.gainRandomEffect(level, living, effect1, effect2, duration);
         }
-        return super.finishUsingItem(stack, level, living);
+        return super.finishUsingItem(itemStack, level, living);
     }
 
 }

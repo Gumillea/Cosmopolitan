@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "netherexp"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "gardens_of_the_dead"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "cosmopolitan:slime_cone"
+    },
+    {
+      "item": "cosmopolitan:soulblight_funguis_bottle"
+    },
+    {
+      "item": "cosmopolitan:spinalberry"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:soulblight_ghostcream"
+  }
+}

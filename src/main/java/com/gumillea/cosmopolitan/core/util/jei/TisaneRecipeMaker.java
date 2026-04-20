@@ -1,8 +1,10 @@
 package com.gumillea.cosmopolitan.core.util.jei;
 
+import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.HerbalFoodItem;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
+import com.gumillea.cosmopolitan.core.util.CosmoUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.NonNullList;
@@ -50,18 +52,8 @@ public class TisaneRecipeMaker {
                     int newDuration = duration <= 1 ? duration : duration * 2;
                     HerbalFoodItem.saveMobEffect(output, effect, newDuration);
 
-                    return new CookingPotRecipe(
-                            new ResourceLocation("cosmopolitan", "jei.tisane." + BuiltInRegistries.BLOCK.getKey(flowerBlock).getPath()),
-                            "jei.cosmopolitan.tisane",
-                            CookingPotRecipeBookTab.DRINKS,
-                            inputs,
-                            output,
-                            new ItemStack(Items.HONEY_BOTTLE),
-                            1F,
-                            1800
-                    );
-                })
-                .toList();
+                    return new CookingPotRecipe(CosmoUtils.id(Cosmopolitan.MODID, "jei.tisane." + BuiltInRegistries.BLOCK.getKey(flowerBlock).getPath()), "jei.cosmopolitan.tisane", CookingPotRecipeBookTab.DRINKS, inputs, output, new ItemStack(Items.HONEY_BOTTLE), 1F, 3600);
+                }).toList();
     }
 
     private TisaneRecipeMaker() {

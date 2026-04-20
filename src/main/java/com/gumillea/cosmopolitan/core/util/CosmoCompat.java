@@ -7,7 +7,6 @@ import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.exquisito.core.reg.ExquisitoEffects;
 import com.sammy.minersdelight.setup.MDFoodValues;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericMobEffects;
-import com.teamabnormals.neapolitan.common.item.HealingItem;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import mod.schnappdragon.habitat.core.registry.HabitatEffects;
 import net.brdle.collectorsreap.common.effect.CREffects;
@@ -18,12 +17,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -73,8 +70,14 @@ public class CosmoCompat {
     public static final boolean fd = ModList.get().isLoaded(FD);
     public static final String FR  = "farmersrespite";
     public static final boolean fr = ModList.get().isLoaded(FR);
+    public static final String FRD  = "frightsdelight";
+    public static final boolean frd = ModList.get().isLoaded(FRD);
+    public static final String GD  = "gardens_of_the_dead";
+    public static final boolean gd = ModList.get().isLoaded(GD);
     public static final String HA  = "habitat";
     public static final boolean ha = ModList.get().isLoaded(HA);
+    public static final String JA  = "netherexp";
+    public static final boolean ja = ModList.get().isLoaded(JA);
     public static final String KK  = "kitchenkarrot";
     public static final boolean kk = ModList.get().isLoaded(KK);
     public static final String MB = "manors_bounty";
@@ -107,6 +110,10 @@ public class CosmoCompat {
     public static final boolean ug = ModList.get().isLoaded(UG);
     public static final String VC  = "vanillacookbook";
     public static final boolean vc = ModList.get().isLoaded(VC);
+    public static final String WS  = "windswept";
+    public static final boolean ws = ModList.get().isLoaded(WS);
+    public static final String WD  = "windswept_delights";
+    public static final boolean wd = ModList.get().isLoaded(WD);
 
     //ars_nouveau
     public static final MobEffect MANA_REGEN = an ? modEffect(AN, "mana_regen") : CosmoEffects.PLACEHOLDER.get();
@@ -143,6 +150,7 @@ public class CosmoCompat {
     public static final MobEffectInstance COMFORT_STEW = fd ? new MobEffectInstance(ModEffects.COMFORT.get(), 6000) : new MobEffectInstance(MobEffects.REGENERATION, 100);
 
     public static Item COPPER_CUP = md ? ForgeRegistries.ITEMS.getValue(new ResourceLocation(CosmoCompat.MD, "copper_cup")) : Items.BOWL;
+
     public static FoodProperties CUP (FoodProperties food) {
         return md ? MDFoodValues.cupFoodProperties(food) : Foods.APPLE;
     }
@@ -163,10 +171,8 @@ public class CosmoCompat {
     public static final MobEffect BERSERKING = nea ? (NeapolitanMobEffects.BERSERKING.get()) : CosmoEffects.PLACEHOLDER.get();
     public static final MobEffect HARMONY = nea ? (NeapolitanMobEffects.HARMONY.get()) : CosmoEffects.PLACEHOLDER.get();
     public static final MobEffect SUGAR_RUSH = nea ? (NeapolitanMobEffects.SUGAR_RUSH.get()) : CosmoEffects.PLACEHOLDER.get();
+    public static final MobEffect CHOCOLATE = nea ? (NeapolitanMobEffects.SUGAR_RUSH.get()) : MobEffects.MOVEMENT_SPEED;
     public static final MobEffect VANILLA_SCENT = nea ? (NeapolitanMobEffects.VANILLA_SCENT.get()) : CosmoEffects.PLACEHOLDER.get();
-
-
-
 
     //respiteful
     public static final MobEffect VITALITY = rf ? modEffect(RF, "vitality") : CosmoEffects.PLACEHOLDER.get();
@@ -193,7 +199,7 @@ public class CosmoCompat {
     public static final MobEffect BEETROOT = sea ? (SeasonalsMobEffects.ROOTED.get()) : CosmoEffects.INGRAINED.get();
     public static final MobEffect STUFFED = sea ? (SeasonalsMobEffects.STUFFED.get()) : CosmoEffects.PLACEHOLDER.get();
     public static final MobEffect THORN_RESISTANCE_ICE_CREAM = sea ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : CosmoEffects.PLACEHOLDER.get();
-    public static final MobEffect THORN_RESISTANCE = sea ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : MobEffects.REGENERATION;
+    public static final MobEffect SWEET_BERRIES = sea ? (SeasonalsMobEffects.THORN_RESISTANCE.get()) : MobEffects.REGENERATION;
 
     //twilight_delight
     public static MobEffect AURORA = tfd ? modEffect(TFD, "aurora_glowing"): MobEffects.MOVEMENT_SPEED;
@@ -207,8 +213,25 @@ public class CosmoCompat {
     public static Item GLACIER_MILKSHAKE = modItem(TFD, "glacier_milkshake");
     public static Item PHYTOCHEMICAL_ICE_CREAM = modItem(TFD, "phytochemical_ice_cream");
     public static Item PHYTOCHEMICAL_MILKSHAKE = modItem(TFD, "phytochemical_milkshake");
+    public static Item TORCHBERRIES = modItem(TF, "torchberries");
     public static Item TORCHBERRY_ICE_CREAM = modItem(TFD, "torchberry_ice_cream");
     public static Item TORCHBERRY_MILKSHAKE = modItem(TFD, "torchberry_milkshake");
+
+    //vintagedelight
+    public static Item GEARO_BERRY = modItem("vintagedelight", "gearo_berry");
+
+    //frightsdelight
+    public static Item SOUL_BERRY = modItem(FRD, "soul_berry");
+    public static Item WITHER_BERRY = modItem(FRD, "wither_berry");
+
+    //windswept
+    public static Item HOLLY_BERRIES = modItem(WS, "holly_berries");
+    public static Item WILD_BERRIES = modItem(WS, "wild_berries");
+    public static Item PINECONE = modItem(WS, "pinecone");
+    public static Item MIMOSA = modItem(WS, "mimosa");
+
+    public static MobEffect FROST_RESISTANCE = ws ? modEffect(WS, "frost_resistance"): CosmoEffects.PLACEHOLDER.get();
+    public static MobEffect THORNS = ws ? modEffect(WS, "thorns"): CosmoEffects.PLACEHOLDER.get();
 
     //sunflowerdelight
     public static MobEffect PURE_MIND = sud ? modEffect(SUD, "pure_mind"): CosmoEffects.PLACEHOLDER.get();
@@ -236,10 +259,10 @@ public class CosmoCompat {
     public static MobEffect modEffect(String modid, String path) {
         return ForgeRegistries.MOB_EFFECTS.getValue(id(modid, path));
     }
-    
+
     public static ResourceLocation id(String modid, String path) {
         return new ResourceLocation(modid, path);
     }
-    
+
 }
 

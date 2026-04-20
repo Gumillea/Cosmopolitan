@@ -1,0 +1,64 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:roasted_tuber"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:roasted_tuber"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:milk"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wafer_cone"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:roasted_tuber"
+          },
+          {
+            "item": "cosmopolitan:roasted_tuber"
+          },
+          {
+            "tag": "forge:milk"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:tuber_puree_cone"
+        }
+      }
+    }
+  ]
+}

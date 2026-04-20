@@ -1,0 +1,28 @@
+{
+  "type": "cosmopolitan:tub_extracting",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "farmersrespite:coffee"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": {
+        "amount": 250,
+        "name": "farmersrespite:coffee"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "farmersrespite:coffee"
+  }
+}

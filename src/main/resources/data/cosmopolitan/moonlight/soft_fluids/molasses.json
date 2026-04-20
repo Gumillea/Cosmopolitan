@@ -1,0 +1,32 @@
+{
+  "containers": [
+    {
+      "filled": [
+        "cosmopolitan:molasses_bottle"
+      ],
+      "empty": "minecraft:glass_bottle",
+      "capacity": "BOTTLE"
+    },
+    {
+      "filled": [
+        "cosmopolitan:molasses_block"
+      ],
+      "fill_sound": "minecraft:block.honey_block.place",
+      "empty_sound": "minecraft:block.honey_block.break",
+      "empty": "minecraft:air",
+      "capacity": "BLOCK"
+    }
+  ],
+  "equivalent_fluids": [
+    "cosmopolitan:molasses"
+  ],
+  "flowing_texture": "cosmopolitan:block/fluids/molasses",
+  "still_texture": "cosmopolitan:block/fluids/molasses",
+  "food": {
+    "item": "cosmopolitan:molasses_bottle"
+  },
+  "from_mod": "cosmopolitan",
+  "tint_method": "no_tint",
+  "translation_key": "fluid.cosmopolitan.molasses",
+  "use_texture_from": "cosmopolitan:molasses_block"
+}

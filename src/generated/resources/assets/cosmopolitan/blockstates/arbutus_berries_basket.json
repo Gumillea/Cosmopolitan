@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "cosmopolitan:block/arbutus_berries_basket",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "cosmopolitan:block/arbutus_berries_basket",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cosmopolitan:block/arbutus_berries_basket",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "cosmopolitan:block/arbutus_berries_basket",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "cosmopolitan:block/arbutus_berries_basket"
+    },
+    "facing=west": {
+      "model": "cosmopolitan:block/arbutus_berries_basket",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

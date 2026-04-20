@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "cosmopolitan:block/arbutus_berries_basket_bottom",
+    "side": "cosmopolitan:block/arbutus_berries_basket_side",
+    "top": "cosmopolitan:block/arbutus_berries_basket_top"
+  }
+}

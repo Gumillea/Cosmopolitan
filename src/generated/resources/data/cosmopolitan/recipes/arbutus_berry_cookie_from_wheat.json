@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:wheat"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:wheat"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:arbutus_berries"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:wheat"
+          },
+          {
+            "item": "minecraft:wheat"
+          },
+          {
+            "item": "cosmopolitan:arbutus_berries"
+          }
+        ],
+        "result": {
+          "count": 8,
+          "item": "cosmopolitan:arbutus_berry_cookie"
+        }
+      }
+    }
+  ]
+}

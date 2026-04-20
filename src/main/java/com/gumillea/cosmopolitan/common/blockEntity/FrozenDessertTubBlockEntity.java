@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.common.blockEntity;
 
 import com.gumillea.cosmopolitan.common.block.FrozenDessertTubBlock;
 import com.gumillea.cosmopolitan.core.reg.CosmoBlockEntityTypes;
+import com.gumillea.cosmopolitan.core.reg.CosmoBlocks;
 import com.gumillea.cosmopolitan.core.reg.CosmoFluids;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,35 +28,49 @@ import net.minecraftforge.fluids.capability.templates.FluidTank;
 import javax.annotation.Nullable;
 
 public class FrozenDessertTubBlockEntity extends BlockEntity {
-    public static final int capacity = 3000;
     private int remainingTime = 0;
     private boolean isProcessing = false;
 
-
-    private final FluidTank tank = new FluidTank(capacity) {
-        @Override
-        public int fill(FluidStack stack, FluidAction action) {
-            BlockState state = level.getBlockState(worldPosition);
-            if (!state.getValue(FrozenDessertTubBlock.OPEN)) return 0;
-            return super.fill(stack, action);
-        }
-        @Override
-        public FluidStack drain(FluidStack stack, FluidAction action) {
-            BlockState state = level.getBlockState(worldPosition);
-            if (!state.getValue(FrozenDessertTubBlock.OPEN)) return FluidStack.EMPTY;
-            return super.drain(stack, action);
-        }
-        @Override
-        protected void onContentsChanged() {
-            setChanged();
-            if (level != null && !level.isClientSide) {
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
-            }
-        }
-    };
+    private final FluidTank tank;
+    private LazyOptional<IFluidHandler> holder;
 
     public FrozenDessertTubBlockEntity(BlockPos pos, BlockState state) {
         super(CosmoBlockEntityTypes.FROZEN_DESSERT_TUB.get(), pos, state);
+
+        int capacity = getCapacity(state);
+        this.tank = createTank(capacity);
+        this.holder = LazyOptional.of(() -> tank);
+    }
+
+    private int getCapacity(BlockState state) {
+        Block block = state.getBlock();
+        return block == CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get() ? 4500 : 3000;
+    }
+
+    private FluidTank createTank(int capacity) {
+        return new FluidTank(capacity) {
+            @Override
+            public int fill(FluidStack stack, FluidAction action) {
+                BlockState state = level.getBlockState(worldPosition);
+                if (!state.getValue(FrozenDessertTubBlock.OPEN)) return 0;
+                return super.fill(stack, action);
+            }
+
+            @Override
+            public FluidStack drain(FluidStack stack, FluidAction action) {
+                BlockState state = level.getBlockState(worldPosition);
+                if (!state.getValue(FrozenDessertTubBlock.OPEN)) return FluidStack.EMPTY;
+                return super.drain(stack, action);
+            }
+
+            @Override
+            protected void onContentsChanged() {
+                setChanged();
+                if (level != null && !level.isClientSide) {
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+                }
+            }
+        };
     }
 
     public FluidTank getTank() {
@@ -119,8 +134,6 @@ public class FrozenDessertTubBlockEntity extends BlockEntity {
         tag.putInt("RemainingTime", this.remainingTime);
         tag.putBoolean("IsProcessing", this.isProcessing);
     }
-
-    private final LazyOptional<IFluidHandler> holder = LazyOptional.of(() -> tank);
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {

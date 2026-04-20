@@ -1,8 +1,12 @@
 package com.gumillea.cosmopolitan.common.item;
 
 import com.aizistral.enigmaticlegacy.registries.EnigmaticSounds;
+import com.gumillea.cosmopolitan.CosmoConfig;
+import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.gumillea.cosmopolitan.core.util.CosmoEvents;
+import com.gumillea.cosmopolitan.core.util.CosmoUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -19,15 +23,17 @@ import net.minecraft.world.level.gameevent.GameEvent;
 public class DurabilityFoodItem extends EffectItem{
 
     public final boolean isEternal;
+    public final boolean isFast;
 
-    public DurabilityFoodItem(Properties properties, int i, boolean isEternal) {
+    public DurabilityFoodItem(Properties properties, int i, boolean isEternal, boolean isFast) {
         super(properties.durability(i));
         this.isEternal = isEternal;
+        this.isFast = isFast;
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity entity) {
-        if (!this.isEdible() || (this.isEternal && itemStack.getDamageValue() == itemStack.getMaxDamage() - 1)) return itemStack;
+        if (!this.isEdible() || (this == CosmoItems.COSMIC_SNOW_CONE.get() && itemStack.getDamageValue() == itemStack.getMaxDamage() - 1)) return itemStack;
 
         level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), this.getEatingSound(), SoundSource.NEUTRAL, 1.0F, 1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.4F);
         eat(itemStack, level, entity);
@@ -36,7 +42,7 @@ public class DurabilityFoodItem extends EffectItem{
         itemStack.setDamageValue(itemStack.getDamageValue() + 1);
 
         if (entity instanceof Player player) {
-            if (this.isEternal && itemStack.getDamageValue() >= itemStack.getMaxDamage() - 2) {
+            if (this == CosmoItems.COSMIC_SNOW_CONE.get() && itemStack.getDamageValue() >= itemStack.getMaxDamage() - 2) {
                 player.getCooldowns().addCooldown(this, itemStack.getMaxDamage() * 300);
             }
 
@@ -70,18 +76,19 @@ public class DurabilityFoodItem extends EffectItem{
     @Override
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean b) {
         if (level.isClientSide || !this.isEternal || !(entity instanceof Player player)) return;
-
-        if (!player.getCooldowns().isOnCooldown(this)) {
-            if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
+        if (itemStack.getDamageValue() > 0) {
+            if (this == CosmoItems.COSMIC_SNOW_CONE.get() && !player.getCooldowns().isOnCooldown(this)) {
                 SoundEvent event = CosmoCompat.el ? EnigmaticSounds.EAT_REVERSE : this.getEatingSound();
                 itemStack.setDamageValue(0);
                 level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), event, SoundSource.NEUTRAL, 1.0F, 1.0F + (level.random.nextFloat() - level.random.nextFloat()) * 0.4F);
+            } else if (CosmoUtils.tickRandom(level, 1200, 0.4F)) {
+                itemStack.setDamageValue(itemStack.getDamageValue() - 1);
             }
         }
     }
 
     public int getUseDuration(ItemStack stack) {
-        return this == CosmoItems.MEADOW_BREAD.get() ? 32 : 48;
+        return isFast ? 32 : 48;
     }
 
     public boolean isBarVisible(ItemStack stack) {

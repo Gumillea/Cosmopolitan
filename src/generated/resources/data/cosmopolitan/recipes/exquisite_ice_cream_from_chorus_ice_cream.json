@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "exquisito:chorus_ice_cream"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "exquisito:midnight_ingredients"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "exquisito:jelly_ring"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "exquisito:chorus_ice_cream"
+          },
+          {
+            "tag": "exquisito:midnight_ingredients"
+          },
+          {
+            "item": "exquisito:jelly_ring"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:exquisite_ice_cream"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "cosmopolitan:block/birch_cookie_tiles",
+    "side": "cosmopolitan:block/birch_cookie_tiles",
+    "top": "cosmopolitan:block/birch_cookie_tiles"
+  }
+}

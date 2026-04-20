@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "farmersrespite:coffee",
+      "required": false
+    },
+    {
+      "id": "youkaishomecoming:espresso",
+      "required": false
+    },
+    {
+      "id": "caffeinated:coffee_bottle",
+      "required": false
+    },
+    {
+      "id": "croptopia:coffee",
+      "required": false
+    }
+  ]
+}

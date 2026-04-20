@@ -32,14 +32,16 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 // Adapted from: https://github.com/vectorwing/FarmersDelight/blob/1.20/src/main/java/vectorwing/farmersdelight/common/block/PieBlock.java
 public class FDPieBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, 3);;
+    public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, 3);
     protected static final VoxelShape SHAPE = Block.box(2.0F, 0.0F, 2.0F, 14.0F, 4.0F, 14.0F);
     public final Supplier<Item> pieSlice;
 
@@ -55,7 +57,8 @@ public class FDPieBlock extends Block {
 
     public ItemStack getPieItem() {
         ResourceLocation key = BuiltInRegistries.ITEM.getKey(getPieSliceItem().getItem());
-        return new ItemStack(CosmoCompat.modItem(Cosmopolitan.MODID, key.getPath().replace("_slice", "")));
+        return new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(new ResourceLocation(Cosmopolitan.MODID, key.getPath().replace("_slice", "")))));
+
     }
 
     public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {

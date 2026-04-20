@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "A": {
+      "type": "forge:nbt",
+      "count": 1,
+      "item": "cosmopolitan:berry_syrup_bottle",
+      "nbt": "{berrySyrupFlavor:\"bitter\"}"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "result": {
+    "item": "cosmopolitan:bitter_berry_syrup_block"
+  },
+  "show_notification": true
+}

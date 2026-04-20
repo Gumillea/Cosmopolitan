@@ -60,15 +60,16 @@ public class DrinkItem extends EffectItem {
         }
 
         if (!level.isClientSide) {
-            if (this == CosmoItems.BIRCH_SAP_BOTTLE.get()) living.removeEffect(MobEffects.DIG_SLOWDOWN);
-            if (this == CosmoItems.BERRY_SYRUP_BOTTLE.get()) living.removeEffect(MobEffects.WEAKNESS);
-
-            if (this == CosmoItems.ROOT_BEER.get()) {
+            if (this == CosmoItems.BIRCH_SAP_BOTTLE.get()) {
                 this.covertEffect(living, MobEffects.DIG_SLOWDOWN, MobEffects.DIG_SPEED);
             }
 
-            if (this == CosmoItems.WILDBERRY_PUNCH.get()) {
+            if (this == CosmoItems.MOLASSES_BOTTLE.get()) {
                 this.covertEffect(living, MobEffects.WEAKNESS, MobEffects.DAMAGE_BOOST);
+            }
+
+            if (this == CosmoItems.SUGARCANE_JUICE.get()) {
+                this.covertEffect(living, MobEffects.MOVEMENT_SLOWDOWN, MobEffects.MOVEMENT_SPEED);
             }
         }
 
@@ -88,13 +89,14 @@ public class DrinkItem extends EffectItem {
             CosmoEvents.creamEffect(level, living, itemStack);
         }
 
+        ItemStack remaining = this.getCraftingRemainingItem() == null ? new ItemStack(Items.GLASS_BOTTLE) : new ItemStack(this.getCraftingRemainingItem());
+
         if (itemStack.isEmpty()) {
-            return new ItemStack(this.getCraftingRemainingItem());
+            return remaining;
         } else {
             if (living instanceof Player player && !player.getAbilities().instabuild) {
-                ItemStack stack = new ItemStack(this.getCraftingRemainingItem());
-                if (!player.getInventory().add(stack)) {
-                    player.drop(stack, false);
+                if (!player.getInventory().add(remaining)) {
+                    player.drop(remaining, false);
                 }
             }
 

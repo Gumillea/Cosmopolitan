@@ -1,0 +1,66 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wheatgrass"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wheatgrass"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:salad_ingredients"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/lime"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:sugar"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glass_bottle"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:wheatgrass"
+          },
+          {
+            "item": "cosmopolitan:wheatgrass"
+          },
+          {
+            "tag": "forge:salad_ingredients"
+          },
+          {
+            "tag": "forge:fruits/lime"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "item": "minecraft:glass_bottle"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:greenday_juice"
+        }
+      }
+    }
+  ]
+}

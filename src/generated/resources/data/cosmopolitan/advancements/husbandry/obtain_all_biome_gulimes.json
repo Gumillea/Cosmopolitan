@@ -1,0 +1,101 @@
+{
+  "parent": "cosmopolitan:husbandry/restore_gulime",
+  "criteria": {
+    "arid_gulime": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:arid_gulime"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "chorus_gulime": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:chorus_gulime"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "taiga_gulime": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:taiga_gulime"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "underground_gulime": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:underground_gulime"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "warped_gulime": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cosmopolitan:warped_gulime"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.obtain_all_biome_gulimes.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "cosmopolitan:underground_gulime"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.obtain_all_biome_gulimes.title"
+    }
+  },
+  "requirements": [
+    [
+      "underground_gulime"
+    ],
+    [
+      "taiga_gulime"
+    ],
+    [
+      "chorus_gulime"
+    ],
+    [
+      "arid_gulime"
+    ],
+    [
+      "warped_gulime"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

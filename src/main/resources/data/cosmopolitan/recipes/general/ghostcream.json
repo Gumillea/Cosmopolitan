@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:slime_cone"
+    },
+    {
+      "item": "cosmopolitan:funguis_bottle"
+    },
+    {
+      "item": "cosmopolitan:spinalberry"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:ghostcream"
+  }
+}

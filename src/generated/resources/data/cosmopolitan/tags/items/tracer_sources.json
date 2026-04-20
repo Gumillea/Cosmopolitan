@@ -2,7 +2,7 @@
   "values": [
     "#forge:fruits/glow_berries",
     {
-      "id": "neapolitan:glowgurt",
+      "id": "berry_good:glowgurt",
       "required": false
     },
     {

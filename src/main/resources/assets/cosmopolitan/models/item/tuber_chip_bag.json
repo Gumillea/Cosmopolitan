@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "cosmopolitan:item/tuber_chip_bag_open0",
+      "predicate": {
+        "minecraft:damage": 0.111
+      }
+    },
+    {
+      "model": "cosmopolitan:item/tuber_chip_bag_open1",
+      "predicate": {
+        "minecraft:damage": 0.5
+      }
+    },
+    {
+      "model": "cosmopolitan:item/tuber_chip_bag_open2",
+      "predicate": {
+        "minecraft:using": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "cosmopolitan:item/tuber_chip_bag"
+  }
+}

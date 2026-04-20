@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "farmersdelight:cod_slice",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:salmon_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:pike_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:perch_slice",
+      "required": false
+    },
+    {
+      "id": "collectorsreap:platinum_bass_slice",
+      "required": false
+    },
+    {
+      "id": "aquaculture:fish_fillet_raw",
+      "required": false
+    }
+  ]
+}

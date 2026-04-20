@@ -9,16 +9,14 @@
         },
         {
           "type": "forge:item_exists",
-          "item": "respiteful:coffee_ice_cream_block"
+          "item": "minecraft:air"
         }
       ],
       "recipe": {
         "type": "minecraft:crafting_shaped",
         "category": "building",
         "key": {
-          "#": {
-            "item": "respiteful:coffee_ice_cream_block"
-          }
+          "#": []
         },
         "pattern": [
           "##",

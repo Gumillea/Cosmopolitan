@@ -1,0 +1,29 @@
+{
+  "parent": "cosmopolitan:husbandry/craft_a_berry_syrup_bottle",
+  "criteria": {
+    "has_a_sweet_flavor": {
+      "trigger": "cosmopolitan:sweet"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.cosmopolitan.husbandry.has_a_sweet_flavor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:sweet_berries"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.cosmopolitan.husbandry.has_a_sweet_flavor.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_a_sweet_flavor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

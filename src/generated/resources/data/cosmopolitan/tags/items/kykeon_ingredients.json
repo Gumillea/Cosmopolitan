@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:sculk",
+    {
+      "id": "quark:ancient_fruit",
+      "required": false
+    },
+    {
+      "id": "ars_nouveau:experience_gem",
+      "required": false
+    },
+    {
+      "id": "create:experience_nugget",
+      "required": false
+    }
+  ]
+}

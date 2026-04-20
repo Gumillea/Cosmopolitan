@@ -1,0 +1,53 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "windswept:pinecone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:wattleseeds"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "windswept:mimosa"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:snowball"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:sugar"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "windswept:pinecone"
+          },
+          {
+            "item": "cosmopolitan:wattleseeds"
+          },
+          {
+            "item": "windswept:mimosa"
+          },
+          {
+            "item": "minecraft:snowball"
+          },
+          {
+            "item": "minecraft:sugar"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:acacia_snow_cone"
+        }
+      }
+    }
+  ]
+}

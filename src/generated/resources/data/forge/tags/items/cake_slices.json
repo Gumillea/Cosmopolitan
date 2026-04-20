@@ -1,0 +1,112 @@
+{
+  "values": [
+    {
+      "id": "farmersdelight:cake_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:vanilla_cake_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:banana_cake_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:strawberry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:adzuki_cake_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:chocolate_cake_slice",
+      "required": false
+    },
+    {
+      "id": "abnormals_delight:mint_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:carrot_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:berry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:cheesecake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:glow_berry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:chocolate_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:ice_cream_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:rose_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:chorus_cake_slice",
+      "required": false
+    },
+    {
+      "id": "vanillacookbook:book_cake_slice",
+      "required": false
+    },
+    {
+      "id": "exquisito:chorus_cake_slice",
+      "required": false
+    },
+    {
+      "id": "exquisito:jelly_ring_cake_slice",
+      "required": false
+    },
+    {
+      "id": "exquisito:zure_berry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "exquisito:nightshade_berry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "exquisito:ether_bulb_cake_slice",
+      "required": false
+    },
+    {
+      "id": "seasonals:pumpkin_cake_slice",
+      "required": false
+    },
+    {
+      "id": "seasonals:sweet_berry_cake_slice",
+      "required": false
+    },
+    {
+      "id": "seasonals:beetroot_cake_slice",
+      "required": false
+    },
+    {
+      "id": "peculiars:aloe_cake_slice",
+      "required": false
+    },
+    {
+      "id": "peculiars:passion_fruit_cake_slice",
+      "required": false
+    },
+    {
+      "id": "peculiars:yucca_cake_slice",
+      "required": false
+    }
+  ]
+}

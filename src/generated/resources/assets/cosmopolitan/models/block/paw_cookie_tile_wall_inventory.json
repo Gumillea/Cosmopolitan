@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "cosmopolitan:block/paw_cookie_tiles"
+  }
+}

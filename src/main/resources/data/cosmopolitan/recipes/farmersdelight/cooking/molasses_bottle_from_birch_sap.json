@@ -1,0 +1,33 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 1200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "item": "cosmopolitan:birch_sap_bottle"
+          },
+          {
+            "item": "cosmopolitan:birch_sap_bottle"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:molasses_bottle"
+        }
+      }
+    }
+  ]
+}

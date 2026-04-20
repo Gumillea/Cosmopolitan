@@ -1,0 +1,36 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:dough"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:arbutus_berries"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "tag": "forge:dough"
+          },
+          {
+            "item": "cosmopolitan:arbutus_berries"
+          }
+        ],
+        "result": {
+          "count": 8,
+          "item": "cosmopolitan:arbutus_berry_cookie"
+        }
+      }
+    }
+  ]
+}

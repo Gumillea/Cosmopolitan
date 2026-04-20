@@ -2,6 +2,7 @@ package com.gumillea.cosmopolitan.common.effect;
 
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.reg.CosmoEffects;
+import com.gumillea.cosmopolitan.core.util.CosmoUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -20,19 +21,16 @@ public class ExuberantEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
         int duration = entity.getEffect(CosmoEffects.EXUBERANT.get()).getDuration();
-        Level level = entity.level();
-        RandomSource random = level.getRandom();
 
-        double x = entity.getX() + random.nextDouble();
-        double y = entity.getY() + 1.4;
-        double z = entity.getZ() + random.nextDouble();
-        level.addParticle(ParticleTypes.CHERRY_LEAVES, x, y, z, 0.0F, 0.0F, 0.0F);
-
-        if (duration == 2 && entity.getAbsorptionAmount() <= entity.getMaxHealth() * CosmoConfig.Common.EXUBERANT_MAXIMUM.get()) {
+        if (duration == 2) {
             if (entity instanceof Player player){
                 player.playSound(SoundEvents.BEEHIVE_ENTER, 1.5F, 1.0F);
             }
-            entity.setAbsorptionAmount(entity.getAbsorptionAmount() + (amplifier + 1) * 2);
+            if (CosmoConfig.Common.EXUBERANT_BALANCE.get()) {
+                CosmoUtils.applyHealing((amplifier + 1) * entity.getMaxHealth() * 0.3F , entity);
+            } else if (entity.getAbsorptionAmount() <= entity.getMaxHealth() * CosmoConfig.Common.EXUBERANT_MAXIMUM.get()) {
+                entity.setAbsorptionAmount(entity.getAbsorptionAmount() + (amplifier + 1) * 2);
+            }
         }
     }
 

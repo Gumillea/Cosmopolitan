@@ -4,11 +4,14 @@ import com.gumillea.cosmopolitan.core.reg.CosmoItems;
 import com.teamabnormals.blueprint.core.util.DataUtil;
 
 public class CosmoCompostableItems {
+
     public static void registerCompostableItems() {
         registerCompostable();
     }
+
     private static void registerCompostable() {
         DataUtil.registerCompostable(CosmoItems.JELLY_ROLL.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.YULE_LOG.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.CHOCOLATE_ROLL.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.NEAPOLITAN_ICE_CREAM_SANDWICH.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.SEASONAL_ICE_CREAM_SANDWICH.get(), 1.0F);
@@ -22,6 +25,10 @@ public class CosmoCompostableItems {
         DataUtil.registerCompostable(CosmoItems.CHORUS_GULIME.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.GLIMMERING_GULIME.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.STRAWBERRY_GULIME.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.ARID_GULIME.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.WARPED_GULIME.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.BUSH_BREAD.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.MEADOW_BREAD.get(), 1.0F);
 
         DataUtil.registerCompostable(CosmoItems.ADZUKI_ICE_CREAM_CONE.get(), 0.85F);
         DataUtil.registerCompostable(CosmoItems.BANANA_ICE_CREAM_CONE.get(), 0.85F);
@@ -61,10 +68,14 @@ public class CosmoCompostableItems {
         DataUtil.registerCompostable(CosmoItems.WOODLAND_SUB.get(), 0.85F);
         DataUtil.registerCompostable(CosmoItems.TRAVELERS_PANINI.get(), 0.85F);
         DataUtil.registerCompostable(CosmoItems.ROASTED_TUBER.get(), 0.85F);
+        DataUtil.registerCompostable(CosmoItems.GHOSTCREAM.get(), 0.85F);
+        DataUtil.registerCompostable(CosmoItems.WARPED_GHOSTCREAM.get(), 0.85F);
+        DataUtil.registerCompostable(CosmoItems.SOULBLIGHT_GHOSTCREAM.get(), 0.85F);
 
         DataUtil.registerCompostable(CosmoItems.ROASTED_MUSHROOM.get(), 0.65F);
         DataUtil.registerCompostable(CosmoItems.AURORA_KOHAKUTOU.get(), 0.65F);
         DataUtil.registerCompostable(CosmoItems.SNOW_CONE.get(), 0.65F);
+        DataUtil.registerCompostable(CosmoItems.SLIME_CONE.get(), 0.65F);
         DataUtil.registerCompostable(CosmoItems.WANDERING_GELATO.get(), 0.65F);
         DataUtil.registerCompostable(CosmoItems.MASHED_POTATO_CONE.get(), 0.65F);
         DataUtil.registerCompostable(CosmoItems.TUBER_PUREE_CONE.get(), 0.65F);
@@ -73,18 +84,26 @@ public class CosmoCompostableItems {
         DataUtil.registerCompostable(CosmoItems.RAINDROOP_CAKE.get(), 0.65F);
 
         DataUtil.registerCompostable(CosmoItems.ARBUTUS_BERRIES.get(), 0.5F);
+        DataUtil.registerCompostable(CosmoItems.BOILBERRY.get(), 0.5F);
+        DataUtil.registerCompostable(CosmoItems.SPINALBERRY.get(), 0.5F);
         DataUtil.registerCompostable(CosmoItems.BAKED_FIDDLEHEAD.get(), 0.5F);
         DataUtil.registerCompostable(CosmoItems.JELLY_ROLL_SLICE.get(), 0.5F);
+        DataUtil.registerCompostable(CosmoItems.YULE_LOG_SLICE.get(), 0.5F);
         DataUtil.registerCompostable(CosmoItems.CHOCOLATE_ROLL_SLICE.get(), 0.5F);
         DataUtil.registerCompostable(CosmoItems.WAFER.get(), 0.5F);
         DataUtil.registerCompostable(CosmoItems.WAFER_CONE.get(), 0.5F);
+        DataUtil.registerCompostable(CosmoItems.BAGASSE.get(), 0.5F);
+
         DataUtil.registerCompostable(CosmoItems.GULIME_SMALL.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.UNDERGROUND_GULIME_SMALL.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.TAIGA_GULIME_SMALL.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.CHORUS_GULIME_SMALL.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.GLIMMERING_GULIME_SMALL.get(), 1.0F);
         DataUtil.registerCompostable(CosmoItems.STRAWBERRY_GULIME_SMALL.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.ARID_GULIME_SMALL.get(), 1.0F);
+        DataUtil.registerCompostable(CosmoItems.WARPED_GULIME_SMALL.get(), 1.0F);
 
+        DataUtil.registerCompostable(CosmoItems.WATTLESEEDS.get(), 0.3F);
         DataUtil.registerCompostable(CosmoItems.WHEATGRASS.get(), 0.3F);
         DataUtil.registerCompostable(CosmoItems.FIDDLEHEAD.get(), 0.3F);
         DataUtil.registerCompostable(CosmoItems.WILDBERRY.get(), 0.3F);

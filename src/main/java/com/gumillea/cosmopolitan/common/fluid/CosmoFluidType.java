@@ -10,8 +10,7 @@ import net.minecraftforge.fluids.FluidType;
 import java.util.function.Consumer;
 
 public class CosmoFluidType extends FluidType {
-    private final ResourceLocation stillTexture;
-    private final ResourceLocation flowingTexture;
+    private final ResourceLocation texture;
 
     public CosmoFluidType(String texture) {
         super(FluidType.Properties.create()
@@ -20,20 +19,19 @@ public class CosmoFluidType extends FluidType {
                 .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
         );
 
-        this.stillTexture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/" + texture);
-        this.flowingTexture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/" + texture);
+        this.texture = new ResourceLocation(Cosmopolitan.MODID, "block/fluid/" + texture);
     }
     @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
         consumer.accept(new IClientFluidTypeExtensions() {
             @Override
             public ResourceLocation getStillTexture() {
-                return stillTexture;
+                return texture;
             }
 
             @Override
             public ResourceLocation getFlowingTexture() {
-                return flowingTexture;
+                return texture;
             }
         });
     }

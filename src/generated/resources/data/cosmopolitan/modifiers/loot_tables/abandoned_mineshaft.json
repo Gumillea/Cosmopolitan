@@ -1,0 +1,24 @@
+{
+  "modifiers": [
+    {
+      "type": "entries",
+      "config": {
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "cosmopolitan:geode_bread",
+            "weight": 4
+          },
+          {
+            "type": "minecraft:item",
+            "name": "cosmopolitan:enchanted_golden_arbutus_berries"
+          }
+        ],
+        "index": 0,
+        "replace": false
+      }
+    }
+  ],
+  "priority": "normal",
+  "selector": "minecraft:chests/abandoned_mineshaft"
+}
