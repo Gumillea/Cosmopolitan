@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "youkaishomecoming:cooked_mandrake_root",
+      "required": false
+    },
+    {
       "id": "miners_delight:cave_carrot",
       "required": false
     },

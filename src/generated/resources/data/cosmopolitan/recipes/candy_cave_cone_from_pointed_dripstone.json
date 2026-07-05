@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:pointed_dripstone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:caramel"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:candy_cane"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_lichen"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:pointed_dripstone"
+          },
+          {
+            "item": "alexscaves:caramel"
+          },
+          {
+            "item": "alexscaves:candy_cane"
+          },
+          {
+            "item": "minecraft:glow_lichen"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:candy_cave_cone"
+        }
+      }
+    }
+  ]
+}

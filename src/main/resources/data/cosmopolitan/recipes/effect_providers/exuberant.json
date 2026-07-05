@@ -10,6 +10,13 @@
         {
           "type": "cosmopolitan:config",
           "value": "enable_apple_flavor"
+        },
+        {
+          "type": "forge:not",
+          "value":         {
+            "type": "forge:tag_empty",
+            "tag": "cosmopolitan:exuberant_sources"
+          }
         }
       ],
       "recipe": {

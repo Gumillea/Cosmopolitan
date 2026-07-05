@@ -40,5 +40,6 @@ public class CosmoBerrfectDataProvider extends BerrfectDataProvider {
         add(CosmoCompat.GEARO_BERRY, 2, 2, 0, 1);
         add(CosmoCompat.SOUL_BERRY, 0, 2, 4, 0);
         add(CosmoCompat.WITHER_BERRY, 0, 0, 2, 4);
+        add(CosmoCompat.FROST_BERRIES, 1, 3, 1, 0);
     }
 }

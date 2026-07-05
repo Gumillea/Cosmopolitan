@@ -1,0 +1,42 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 600,
+        "experience": 0.5,
+        "ingredients": [
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "minecraft:nether_wart"
+          },
+          {
+            "item": "minecraft:crimson_roots"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container":           {
+          "type": "forge:nbt",
+          "item": "minecraft:potion",
+          "count": 1,
+          "nbt": "{Potion:\"minecraft:thick\"}"
+        },
+        "result": {
+          "item": "cosmopolitan:netheresso"
+        }
+      }
+    }
+  ]
+}

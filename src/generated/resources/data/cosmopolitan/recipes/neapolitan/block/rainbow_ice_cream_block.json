@@ -1,0 +1,39 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:rainbow_ice_cream"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "building",
+        "key": {
+          "A": {
+            "item": "minecraft:snow_block"
+          },
+          "B": {
+            "item": "smc:rainbow_ice_cream"
+          }
+        },
+        "pattern": [
+          "AAA",
+          "ABA",
+          "AAA"
+        ],
+        "result": {
+          "count": 8,
+          "item": "cosmopolitan:rainbow_ice_cream_block"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

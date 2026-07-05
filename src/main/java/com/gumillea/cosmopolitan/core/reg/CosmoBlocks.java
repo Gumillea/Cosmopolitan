@@ -20,6 +20,7 @@ public class CosmoBlocks {
     //Placeable
     public static final RegistryObject<Block> WATER_PIE = HELPER.createBlockNoItem("water_pie_block", () -> new FDPieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.WATER_PIE_SLICE));
     public static final RegistryObject<Block> SHOOFLY_PIE = HELPER.createBlockNoItem("shoofly_pie_block", () -> new FDPieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.SHOOFLY_PIE_SLICE));
+    public static final RegistryObject<Block> MOSS_PIE = HELPER.createBlockNoItem("moss_pie_block", () -> new FDPieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.MOSS_PIE_SLICE));
 
     public static final RegistryObject<Block> GLOW_BERRY_CUBECAKE = HELPER.createBlockNoItem("glow_berry_cubecake_block", () -> new CubecakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.GLOW_BERRY_CUBECAKE));
     public static final RegistryObject<Block> WHEATGRASS_CUBECAKE = HELPER.createBlockNoItem("wheatgrass_cubecake_block", () -> new CubecakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), CosmoItems.WHEATGRASS_CUBECAKE));
@@ -115,6 +116,13 @@ public class CosmoBlocks {
 
     public static final RegistryObject<Block> POMEGRANATE_ICE_CREAM_BRICKS = HELPER.createBlock("pomegranate_ice_cream_bricks", () -> new Block(Properties.POMEGRANATE_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> LIME_ICE_CREAM_BRICKS = HELPER.createBlock("lime_ice_cream_bricks", () -> new Block(Properties.LIME_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> PINK_DRAGON_FRUIT_ICE_CREAM_BRICKS = HELPER.createBlock("pink_dragon_fruit_ice_cream_bricks", () -> new Block(Properties.PINK_DRAGON_FRUIT_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> LUCUMA_ICE_CREAM_BRICKS = HELPER.createBlock("lucuma_ice_cream_bricks", () -> new Block(Properties.LUCUMA_ICE_CREAM_BLOCK));
+
+    public static final RegistryObject<Block> ASTERA_ICE_CREAM_BRICKS = HELPER.createBlock("astera_ice_cream_bricks", () -> new Block(Properties.ASTERA_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> BROCCOLI_ICE_CREAM_BRICKS = HELPER.createBlock("broccoli_ice_cream_bricks", () -> new Block(Properties.BROCCOLI_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> FROST_ICE_CREAM_BRICKS = HELPER.createBlock("frost_ice_cream_bricks", () -> new Block(Properties.FROST_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> RAINBOW_ICE_CREAM_BRICKS = HELPER.createBlock("rainbow_ice_cream_bricks", () -> new Block(Properties.RAINBOW_ICE_CREAM_BLOCK));
 
     //Chiseled Ice Cream Blocks
     public static final RegistryObject<Block> CHISELED_ADZUKI_ICE_CREAM_BLOCK = HELPER.createBlock("chiseled_adzuki_ice_cream_block", () -> new Block(Properties.ADZUKI_ICE_CREAM_BLOCK));
@@ -139,6 +147,12 @@ public class CosmoBlocks {
     public static final RegistryObject<Block> PHYTOCHEMICAL_ICE_CREAM_BLOCK = HELPER.createBlock("phytochemical_ice_cream_block", () -> new Block(Properties.PHYTOCHEMICAL_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> GLACIER_ICE_CREAM_BLOCK = HELPER.createBlock("glacier_ice_cream_block", () -> new Block(Properties.GLACIER_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> AURORA_ICE_CREAM_BLOCK = HELPER.createBlock("aurora_ice_cream_block", () -> new Block(Properties.AURORA_ICE_CREAM_BLOCK));
+
+    public static final RegistryObject<Block> ASTERA_ICE_CREAM_BLOCK = HELPER.createBlock("astera_ice_cream_block", () -> new Block(Properties.ASTERA_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> BROCCOLI_ICE_CREAM_BLOCK = HELPER.createBlock("broccoli_ice_cream_block", () -> new Block(Properties.BROCCOLI_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> FROST_ICE_CREAM_BLOCK = HELPER.createBlock("frost_ice_cream_block", () -> new Block(Properties.FROST_ICE_CREAM_BLOCK));
+    public static final RegistryObject<Block> RAINBOW_ICE_CREAM_BLOCK = HELPER.createBlock("rainbow_ice_cream_block", () -> new Block(Properties.RAINBOW_ICE_CREAM_BLOCK));
+
 
     //Storage Blocks
     public static final RegistryObject<Block> WHEATGRASS_BALE = HELPER.createBlock("wheatgrass_bale", () -> new HayBlock(BlockBehaviour.Properties.copy(Blocks.HAY_BLOCK)));
@@ -224,6 +238,15 @@ public class CosmoBlocks {
         public static final BlockBehaviour.Properties PHYTOCHEMICAL_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties GLACIER_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.SNOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
         public static final BlockBehaviour.Properties AURORA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
+
+        public static final BlockBehaviour.Properties ASTERA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
+        public static final BlockBehaviour.Properties BROCCOLI_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties FROST_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.SNOW).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties RAINBOW_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW).lightLevel(state -> 12);
+
+        public static final BlockBehaviour.Properties PINK_DRAGON_FRUIT_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_PINK).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+        public static final BlockBehaviour.Properties LUCUMA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.CHIME).strength(0.2F).sound(SoundType.SNOW);
+
 
         //cookie tiles
         public static final BlockBehaviour.Properties PAW_COOKIE = Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(2.0F, 3.0F).sound(SoundType.WOOD);

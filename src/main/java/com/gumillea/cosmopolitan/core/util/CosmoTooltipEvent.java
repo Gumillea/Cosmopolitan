@@ -47,7 +47,6 @@ public class CosmoTooltipEvent {
         if (CosmoConfig.Common.CARROT_FLAVOR.get() && stack.is(CosmoItemTags.CAROTENE_SOURCES)) {
             tooltip.add(Component.translatable("tooltip." + Cosmopolitan.MODID + ".carrot").withStyle(ChatFormatting.BLUE));
         }
-
         if (CosmoConfig.Common.APPLE_FLAVOR.get() && stack.is(CosmoItemTags.EXUBERANT_SOURCES)) {
             int duration = (nutrition < 10 ? 10 - nutrition : 1) * 900;
             appendItem(tooltip, CosmoEffects.EXUBERANT.get(), duration, 0);
@@ -68,6 +67,9 @@ public class CosmoTooltipEvent {
         if (CosmoConfig.Common.MORE_INGRAINED_SOURCES.get() && stack.is(CosmoItemTags.INGRAINED_SOURCES)) {
             int duration = (nutrition < 10 ? 300 : 600);
             appendItem(tooltip, CosmoEffects.INGRAINED.get(), duration, 0);
+        }
+        if (CosmoConfig.Common.COMFORT_REDESIGN.get() && stack.is(CosmoItemTags.COMFORT_SOURCES)) {
+            appendItem(tooltip, CosmoEffects.COMFORT.get(), 1200, 0);
         }
     }
 

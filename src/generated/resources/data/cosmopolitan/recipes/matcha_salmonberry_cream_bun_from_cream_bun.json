@@ -1,0 +1,67 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:matcha"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/salmonberries"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "tag": "forge:matcha"
+          },
+          {
+            "tag": "forge:fruits/salmonberries"
+          }
+        ],
+        "result": {
+          "count": 4,
+          "item": "cosmopolitan:matcha_salmonberry_cream_bun"
+        }
+      }
+    }
+  ]
+}

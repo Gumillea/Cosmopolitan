@@ -45,9 +45,8 @@ public class CuttingBoardRecipeMixin {
         }
     }
 
-    @Inject(method = "rollResults(Lnet/minecraft/util/RandomSource;I)Ljava/util/List;",
-            at = @At("RETURN"), cancellable = true)
-    private void cosmo$onRollResults(RandomSource random, int i, CallbackInfoReturnable<List<ItemStack>> cir) {
+    @Inject(method = "rollResults(Lnet/minecraft/util/RandomSource;ILnet/minecraftforge/items/wrapper/RecipeWrapper;)Ljava/util/List;", at = @At("RETURN"), cancellable = true)
+    private void cosmo$onRollResults(RandomSource random, int fortuneLevel, RecipeWrapper inventory, CallbackInfoReturnable<List<ItemStack>> cir){
         if (TAG != null) {
             List<ItemStack> results = cir.getReturnValue();
             if (!results.isEmpty()) {

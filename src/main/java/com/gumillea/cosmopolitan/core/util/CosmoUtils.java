@@ -24,6 +24,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
@@ -75,7 +76,7 @@ public class CosmoUtils {
 
     public static void addItem (Entity entity, Item item, int i) {
         if (entity instanceof Player player) {
-            player.addItem(new ItemStack(item, i));
+            ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(item, i));
         }
     }
 

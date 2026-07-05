@@ -1,0 +1,43 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "windswept"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "item": "windswept:holly_leaves"
+          },
+          {
+            "item": "windswept:holly_leaves"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          },
+          {
+            "item": "cosmopolitan:herbal_powder"
+          }
+        ],
+        "recipe_book_tab": "drinks",
+        "container": {
+          "item": "minecraft:glass_bottle"
+        },
+        "result": {
+          "item": "cosmopolitan:mate"
+        }
+      }
+    }
+  ]
+}

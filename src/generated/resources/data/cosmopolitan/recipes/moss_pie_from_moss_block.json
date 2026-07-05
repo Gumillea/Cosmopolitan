@@ -1,0 +1,49 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:moss_block"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:spore_blossom"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/glow_berries"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:brown_mushroom"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:moss_block"
+          },
+          {
+            "item": "minecraft:spore_blossom"
+          },
+          {
+            "tag": "forge:fruits/glow_berries"
+          },
+          {
+            "item": "minecraft:brown_mushroom"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:moss_pie"
+        }
+      }
+    }
+  ]
+}

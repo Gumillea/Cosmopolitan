@@ -1,5 +1,6 @@
 {
   "values": [
+    "cosmopolitan:sugarcane_juice",
     "cosmopolitan:wildberry_punch",
     "cosmopolitan:root_beer",
     "cosmopolitan:twilight_chartreuse",
@@ -10,12 +11,14 @@
     "cosmopolitan:iced_americano",
     "cosmopolitan:chorus_fruit_americano",
     "cosmopolitan:berry_syrup_americano",
+    "cosmopolitan:broccoli_americano",
     "cosmopolitan:orange_americano",
     "cosmopolitan:strawberry_matcha_latte",
-    "cosmopolitan:mocha",
     "cosmopolitan:tisane",
+    "cosmopolitan:mate",
     "cosmopolitan:greenday_juice",
     "cosmopolitan:charmed_infusion",
+    "cosmopolitan:dandelion_coffee",
     "cosmopolitan:gamblers_popsicle_double",
     "cosmopolitan:tranquil_split_popsicle_double",
     "cosmopolitan:ardent_split_popsicle_double",

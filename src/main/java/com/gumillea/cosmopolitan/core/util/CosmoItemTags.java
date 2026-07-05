@@ -70,6 +70,7 @@ public class CosmoItemTags {
     public static final TagKey<Item> COOKING_OIL = TagUtil.itemTag("forge", "cooking_oil");
     public static final TagKey<Item> KNIVES = TagUtil.itemTag("forge", "tools/knives");
     public static final TagKey<Item> SALMON_EGGS = TagUtil.itemTag("forge", "eggs/salmon");
+    public static final TagKey<Item> COOKED_SALMON = TagUtil.itemTag("forge", "cooked_fishes/salmon");
     public static final TagKey<Item> SYRUP = TagUtil.itemTag("forge", "syrup");
     public static final TagKey<Item> COOKED_COD = TagUtil.itemTag("forge", "cooked_fishes/cod");
 
@@ -79,6 +80,7 @@ public class CosmoItemTags {
 
     public static final TagKey<Item> ICE_CREAM = TagUtil.itemTag(CosmoCompat.NEA, "ice_cream");
     public static final TagKey<Item> ICE_CUBE = TagUtil.itemTag("forge", "ice_cubes");
+    public static final TagKey<Item> FROZEN_DESSERT_INGREDIENTS = TagUtil.itemTag("forge", "frozen_dessert_ingredients");
 
     public static final TagKey<Item> ICE_CREAM_CONES = TagUtil.itemTag(Cosmopolitan.MODID, "ice_cream_cones");
     public static final TagKey<Item> BIOME_GULIME = TagUtil.itemTag(Cosmopolitan.MODID, "biome_gulimes");
@@ -88,6 +90,7 @@ public class CosmoItemTags {
     public static final TagKey<Item> FUNGUIS = TagUtil.itemTag(Cosmopolitan.MODID, "funguis");
 
     public static final TagKey<Item> EXUBERANT_SOURCES = TagUtil.itemTag(Cosmopolitan.MODID, "exuberant_sources");
+    public static final TagKey<Item> COMFORT_SOURCES = TagUtil.itemTag(Cosmopolitan.MODID, "comfort_sources");
     public static final TagKey<Item> CAROTENE_SOURCES = TagUtil.itemTag(Cosmopolitan.MODID, "carotene_sources");
     public static final TagKey<Item> TRACER_SOURCES = TagUtil.itemTag(Cosmopolitan.MODID, "tracer_sources");
     public static final TagKey<Item> ABYSMAL_TORCH_SOURCES = TagUtil.itemTag(Cosmopolitan.MODID, "abysmal_torch_sources");

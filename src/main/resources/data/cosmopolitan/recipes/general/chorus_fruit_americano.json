@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:fruits/chorus"
+    },
+    {
+      "item": "cosmopolitan:iced_americano"
+    },
+    {
+      "item": "cosmopolitan:iced_americano"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:chorus_fruit_americano",
+    "count": 2
+  }
+}

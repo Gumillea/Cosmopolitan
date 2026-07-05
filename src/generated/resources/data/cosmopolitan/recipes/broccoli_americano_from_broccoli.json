@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:iced_americano"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:iced_americano"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "smc:broccoli"
+          },
+          {
+            "item": "cosmopolitan:iced_americano"
+          },
+          {
+            "item": "cosmopolitan:iced_americano"
+          }
+        ],
+        "result": {
+          "count": 2,
+          "item": "cosmopolitan:broccoli_americano"
+        }
+      }
+    }
+  ]
+}

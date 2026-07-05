@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class CosmoItemProperties {
     );
 
     public static void registerItemProperties() {
+        if (!FMLEnvironment.dist.isClient()) return;
         // Based on the item property implementation from Snowy Spirit by MehVahdJukaar: https://github.com/MehVahdJukaar/SnowySpirit/blob/1.20/common/src/main/java/net/mehvahdjukaar/snowyspirit/reg/ClientRegistry.java
         ItemProperties.register(CosmoItems.WILDBERRY.get(), new ResourceLocation("shape"), (stack, level, entity, s) -> (stack.hasTag() && stack.getTag().contains("icon")) || !CosmoConfig.Client.WILDBERRY_DISPLAY.get() ? 0F : (System.identityHashCode(stack) % 9) / 8F);
 

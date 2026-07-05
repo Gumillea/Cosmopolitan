@@ -18,7 +18,6 @@ import com.gumillea.cosmopolitan.core.util.CosmoItemTags;
 import com.gumillea.exquisito.core.reg.ExquisitoBlocks;
 import com.gumillea.exquisito.core.reg.ExquisitoItems;
 import com.gumillea.exquisito.core.util.tags.ExquisitoItemTags;
-import com.sammy.minersdelight.setup.MDItems;
 import com.simibubi.create.content.fluids.transfer.EmptyingRecipe;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
@@ -37,7 +36,6 @@ import net.brnbrd.delightful.common.block.DelightfulBlocks;
 import net.brnbrd.delightful.common.item.DelightfulItems;
 import net.brnbrd.delightful.data.tags.DelightfulItemTags;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -45,6 +43,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -99,24 +98,14 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         cookieTilesRecipe(finished, CosmoBlockFamilies.HERBAL_COOKIE_FAMILY);
         cookieTilesRecipe(finished, CosmoBlockFamilies.PAW_COOKIE_FAMILY);
 
+        cuttingRecipe(finished, CosmoItems.MOSS_PIE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES), CosmoItems.MOSS_PIE_SLICE.get(), 4);
         cuttingRecipe(finished, CosmoItems.TUBER.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES), CosmoItems.CUT_TUBERS.get(), 2);
         cuttingRecipe(finished, CosmoItems.GAMBLERS_POPSICLE_DOUBLE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES), CosmoItems.GAMBLERS_POPSICLE.get(), 2);
         cuttingRecipe(finished, CosmoItems.TRANQUIL_SPLIT_POPSICLE_DOUBLE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES), CosmoItems.TRANQUIL_SPLIT_POPSICLE.get(), 2);
         cuttingRecipe(finished, CosmoItems.ARDENT_SPLIT_POPSICLE_DOUBLE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES), CosmoItems.ARDENT_SPLIT_POPSICLE.get(), 2);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SOUL_TORCH, 8)
-                .define('A', CosmoItemTags.FUNGUIS)
-                .define('B', Items.STICK)
-                .pattern("A")
-                .pattern("B")
-                .unlockedBy("has_funguis",has(CosmoItemTags.FUNGUIS))
-                .save(finished);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER)
-                .define('A', CosmoItems.BAGASSE.get())
-                .pattern("AAA")
-                .unlockedBy("has_bagasse",has(CosmoItems.BAGASSE.get()))
-                .save(finished);
+        shapelessRecipe(finished, RecipeCategory.MISC, Items.SOUL_TORCH, 6, CosmoItemTags.FUNGUIS, ItemTags.COALS, Items.STICK);
+        shapelessRecipe(finished, RecipeCategory.MISC, Items.PAPER, 3, CosmoItems.BAGASSE.get(), CosmoItems.BAGASSE.get(), CosmoItems.BAGASSE.get(), CosmoItems.BAGASSE.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, CosmoItems.OCCULT_APPLE.get(), 2)
                 .define('A', CosmoItems.ECTOCARAMEL.get())
@@ -145,14 +134,30 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
                 .save(finished);
 
         shapelessRecipe(finished, RecipeCategory.MISC, ModBlocks.ORGANIC_COMPOST.get().asItem(), 1, Items.DIRT, Items.BONE_MEAL, Items.BONE_MEAL, ModItems.TREE_BARK.get(), ModItems.TREE_BARK.get(), CosmoItems.BAGASSE.get(), CosmoItems.BAGASSE.get(), CosmoItems.BAGASSE.get(), CosmoItems.BAGASSE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.MOSS_PIE.get(), 1, Items.MOSS_BLOCK, Items.SPORE_BLOSSOM, CosmoItemTags.GLOW_BERRY, Items.BROWN_MUSHROOM);
+
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoItemTags.MOSS, CosmoItemTags.GLOW_BERRY, Items.GLOW_LICHEN);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.CANDY_CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoCompat.CARAMEL, CosmoCompat.CANDY_CANE, Items.GLOW_LICHEN);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.PRIMORDIAL_CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoCompat.TREE_STAR, CosmoCompat.PINE_NUTS, Items.GLOW_LICHEN);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.MAGNETIC_CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoCompat.RAW_AZURE_NEODYMIUM, CosmoCompat.RAW_SCARLET_NEODYMIUM, Items.GLOW_LICHEN);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.TOXIC_CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoCompat.SULFUR_DUST, CosmoCompat.GREEN_SOYLENT, Items.GLOW_LICHEN);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.FORLORN_CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoCompat.PURE_DARKNESS, CosmoCompat.MOTH_DUST, Items.GLOW_LICHEN);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.ABYSSAL_CAVE_CONE.get(), 1, Items.POINTED_DRIPSTONE, CosmoCompat.LANTERNFISH, CosmoCompat.BIOLUMINESSCENCE, Items.GLOW_LICHEN);
+
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BLISTERBERRY_DROOPFRUIT_CREAM_BUN.get(), 4, CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoCompat.BLISTERBERRY, CosmoCompat.DROOPFRUIT);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.ECTOCARAMEL_POMEGRANATE_CREAM_BUN.get(), 4, CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.ECTOCARAMEL.get(), CosmoItemTags.POMEGRANATE);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.MATCHA_SALMONBERRY_CREAM_BUN.get(), 4, CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), DelightfulItemTags.MATCHA, CosmoItemTags.SALMONBERRIES);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_DUO_CREAM_BUN.get(), 4, CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItemTags.SWEET_BERRY, CosmoItemTags.GLOW_BERRY);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.COLORFUL_CREAM_BUN.get(), 4, CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoItems.CREAM_BUN.get(), CosmoCompat.BROCCOLI, CosmoCompat.FROST_BERRIES, CosmoCompat.STAR_DUST);
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.ORGANIC_MUFFIN.get(), 3, CosmoCompat.BROCCOLI, CosmoCompat.BROCCOLI, CosmoCompat.BROCCOLI, CosmoItemTags.SWEET_BERRY);
 
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.ARBUTUS_BERRY_COOKIE.get(), 8, Items.WHEAT, Items.WHEAT, CosmoItems.ARBUTUS_BERRIES.get());
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.ARBUTUS_BERRY_COOKIE.get(), 8, CosmoItemTags.DOUGH, CosmoItems.ARBUTUS_BERRIES.get());
 
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.HOWLING_COOKIE.get(), 8, Items.NETHER_WART, Items.NETHER_WART, CosmoItems.ECTOCARAMEL.get(), CosmoItems.BOILBERRY.get());
 
-        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_SYRUP_SHAVED_ICE.get(), 1, Items.BOWL, DelightfulItemTags.ICE_CUBES, CosmoItemTags.MILK, CosmoItems.BERRY_SYRUP_BOTTLE.get());
-        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_SYRUP_SHAVED_ICE_CONE.get(), 3, CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), DelightfulItemTags.ICE_CUBES, CosmoItemTags.MILK, CosmoItems.BERRY_SYRUP_BOTTLE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_SYRUP_SHAVED_ICE.get(), 1, Items.BOWL, CosmoItemTags.FROZEN_DESSERT_INGREDIENTS, CosmoItemTags.MILK, CosmoItems.BERRY_SYRUP_BOTTLE.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_SYRUP_SHAVED_ICE_CONE.get(), 3, CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItemTags.FROZEN_DESSERT_INGREDIENTS, CosmoItemTags.MILK, CosmoItems.BERRY_SYRUP_BOTTLE.get());
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_SYRUP_SHAVED_ICE_CONE.get(), 3, CosmoItems.BERRY_SYRUP_SHAVED_ICE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get(), CosmoItems.WAFER_CONE.get());
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BAKED_COD_WITH_MASHED_POTATOES.get(), 2, CosmoItemTags.COOKED_COD, CosmoItemTags.COOKED_COD, CosmoItems.MASHED_POTATO.get(), CosmoItems.GREEN_SAUCE.get(), CosmoItemTags.SALAD_INGREDIENTS, CosmoItemTags.SALAD_INGREDIENTS, CosmoItemTags.TOMATO);
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.GLAZED_FISH_ROLL.get(), 2, CosmoItems.GLAZED_FISH.get(), CosmoItems.GLAZED_FISH.get(), ModItems.COOKED_RICE.get());
@@ -169,6 +174,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.MOJANG_MESS.get(), 1, Items.BOWL, Items.GOLDEN_APPLE, CosmoItems.MERINGUE.get(), CosmoItems.MERINGUE.get(), CosmoItemTags.CREAM);
 
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BERRY_SYRUP_AMERICANO.get(), 2, CosmoItems.BERRY_SYRUP_BOTTLE.get(), CosmoItems.ICED_AMERICANO.get(), CosmoItems.ICED_AMERICANO.get());
+        shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.BROCCOLI_AMERICANO.get(), 2, CosmoCompat.BROCCOLI, CosmoItems.ICED_AMERICANO.get(), CosmoItems.ICED_AMERICANO.get());
 
         shapelessRecipe(finished, RecipeCategory.FOOD, CosmoItems.WILDBERRY_MEDLEY.get(), 1, Items.BOWL, CosmoItems.WILDBERRY.get(), CosmoItems.WILDBERRY.get(), CosmoItems.WILDBERRY.get(), CosmoItems.WILDBERRY.get());
 
@@ -301,6 +307,14 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerIceCreamBlocksRecipe(finished, CosmoItems.CARROT_ICE_CREAM.get(), CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get());
         registerIceCreamBlocksRecipe(finished, CosmoItems.GLOW_BERRY_ICE_CREAM.get(), CosmoBlocks.GLOW_BERRY_ICE_CREAM_BLOCK.get());
 
+        registerIceCreamBlocksRecipe(finished, CosmoCompat.ASTERA_ICE_CREAM, CosmoBlocks.ASTERA_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, CosmoCompat.BROCCOLI_ICE_CREAM, CosmoBlocks.BROCCOLI_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, CosmoCompat.FROST_ICE_CREAM, CosmoBlocks.FROST_ICE_CREAM_BLOCK.get());
+        registerIceCreamBlocksRecipe(finished, CosmoCompat.RAINBOW_ICE_CREAM, CosmoBlocks.RAINBOW_ICE_CREAM_BLOCK.get());
+
+        registerFourBlocksRecipe(finished, CRBlocks.PINK_DRAGON_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.PINK_DRAGON_FRUIT_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CRBlocks.LUCUMA_ICE_CREAM_BLOCK.get(), CosmoBlocks.LUCUMA_ICE_CREAM_BRICKS.get());
+
         registerFourBlocksRecipe(finished, NeapolitanBlocks.STRAWBERRY_ICE_CREAM_BLOCK.get(), CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, NeapolitanBlocks.VANILLA_ICE_CREAM_BLOCK.get(), CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, NeapolitanBlocks.CHOCOLATE_ICE_CREAM_BLOCK.get(), CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS.get());
@@ -323,6 +337,10 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFourBlocksRecipe(finished, PeculiarsBlocks.ALOE_ICE_CREAM_BLOCK.get(), CosmoBlocks.ALOE_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, PeculiarsBlocks.PASSION_FRUIT_ICE_CREAM_BLOCK.get(), CosmoBlocks.PASSION_FRUIT_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, PeculiarsBlocks.YUCCA_ICE_CREAM_BLOCK.get(), CosmoBlocks.YUCCA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.ASTERA_ICE_CREAM_BLOCK.get(), CosmoBlocks.ASTERA_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.BROCCOLI_ICE_CREAM_BLOCK.get(), CosmoBlocks.BROCCOLI_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.FROST_ICE_CREAM_BLOCK.get(), CosmoBlocks.FROST_ICE_CREAM_BRICKS.get());
+        registerFourBlocksRecipe(finished, CosmoBlocks.RAINBOW_ICE_CREAM_BLOCK.get(), CosmoBlocks.RAINBOW_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(CosmoCompat.id(CosmoCompat.RF, "green_tea_ice_cream_block")), CosmoBlocks.GREEN_TEA_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(CosmoCompat.id(CosmoCompat.RF, "yellow_tea_ice_cream_block")), CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS.get());
         registerFourBlocksRecipe(finished, ForgeRegistries.BLOCKS.getValue(CosmoCompat.id(CosmoCompat.RF, "black_tea_ice_cream_block")), CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get());
@@ -354,7 +372,6 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerBoth(finished, Items.MILK_BUCKET, Items.BUCKET, ForgeRegistries.FLUIDS.getValue(CosmoCompat.id("minecraft", "milk")), 1000);
 
         registerBoth(finished, NeapolitanItems.MILK_BOTTLE.get(), Items.GLASS_BOTTLE, ForgeRegistries.FLUIDS.getValue(CosmoCompat.id("minecraft", "milk")), 250);
-        registerBoth(finished, MDItems.MILK_CUP.get(), MDItems.COPPER_CUP.get(), ForgeRegistries.FLUIDS.getValue(CosmoCompat.id("minecraft", "milk")), 500);
         registerBoth(finished, CCItems.GOLDEN_MILK_BUCKET.get(), CCItems.GOLDEN_BUCKET.get(), ForgeRegistries.FLUIDS.getValue(CosmoCompat.id("minecraft", "milk")), 1000);
 
         registerBoth(finished, CosmoItems.CONDENSED_MILK_BUCKET.get(), Items.BUCKET, CosmoFluids.CONDENSED_MILK.get(), 1000);
@@ -368,6 +385,17 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerFlavorRecipes(finished, CosmoCompat.YELLOW_TEA_ICE_CREAM, null, CosmoFluids.YELLOW_TEA_ICE_CREAM.get(), CosmoCompat.RF);
         registerFlavorRecipesWithoutMilkshake(finished, CosmoCompat.BLACK_TEA_ICE_CREAM, null, CosmoFluids.BLACK_TEA_ICE_CREAM.get(), CosmoCompat.RF);
         registerFlavorRecipesWithoutMilkshake(finished, CosmoCompat.COFFEE_ICE_CREAM, null, CosmoFluids.COFFEE_ICE_CREAM.get(), CosmoCompat.RF);
+
+        registerConeRecipe(finished, CosmoCompat.STAR_DUST, CosmoCompat.ASTERA_ICE_CREAM, CosmoItems.ASTERA_ICE_CREAM_CONE.get());
+        registerConeRecipe(finished, CosmoCompat.BROCCOLI, CosmoCompat.BROCCOLI_ICE_CREAM, CosmoItems.BROCCOLI_ICE_CREAM_CONE.get());
+        registerConeRecipe(finished, CosmoCompat.FROST_BERRIES, CosmoCompat.FROST_ICE_CREAM, CosmoItems.FROST_ICE_CREAM_CONE.get());
+
+        registerFlavorRecipes(finished, CosmoCompat.ASTERA_ICE_CREAM, CosmoCompat.ASTERA_MILKSHAKE, CosmoFluids.ASTERA_ICE_CREAM.get(), CosmoCompat.SMC);
+        registerFlavorRecipes(finished, CosmoCompat.BROCCOLI_ICE_CREAM, CosmoCompat.BROCCOLI_MILKSHAKE, CosmoFluids.BROCCOLI_ICE_CREAM.get(), CosmoCompat.SMC);
+        registerFlavorRecipes(finished, CosmoCompat.FROST_ICE_CREAM, CosmoCompat.FROST_MILKSHAKE, CosmoFluids.FROST_ICE_CREAM.get(), CosmoCompat.SMC);
+        registerFlavorRecipes(finished, CosmoCompat.RAINBOW_ICE_CREAM, CosmoCompat.RAINBOW_MILKSHAKE, CosmoFluids.RAINBOW_ICE_CREAM.get(), CosmoCompat.SMC);
+
+        iceCreamSandwichRecipe(finished, CosmoCompat.SMC_ICE_CREAM, CosmoCompat.STAR_DUST, CosmoCompat.BROCCOLI, CosmoCompat.FROST_BERRIES);
 
         registerFlavorRecipes(finished, CRItems.LUCUMA_ICE_CREAM.get(), CRItems.LUCUMA_MILKSHAKE.get(), CosmoFluids.LUCUMA_ICE_CREAM.get(), CosmoCompat.CR);
         registerFlavorRecipes(finished, CRItems.PINK_DRAGON_FRUIT_ICE_CREAM.get(), CRItems.PINK_DRAGON_FRUIT_MILKSHAKE.get(), CosmoFluids.PINK_DRAGON_FRUIT_ICE_CREAM.get(), CosmoCompat.CR);
@@ -448,6 +476,8 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerIceCreamInteraction(finished, DelightfulItemTags.FRUITS_SALMONBERRIES, CosmoFluids.SALMONBERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.DF);
         registerIceCreamInteraction(finished, DelightfulItemTags.FRUITS_LIME, CosmoFluids.LIME_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
         registerIceCreamInteraction(finished, DelightfulItemTags.FRUITS_POMEGRANATE, CosmoFluids.POMEGRANATE_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
+        registerIceCreamInteraction(finished, CRItems.LUCUMA.get(), CosmoFluids.LUCUMA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
+        registerIceCreamInteraction(finished, CRItems.PINK_DRAGON_FRUIT.get(), CosmoFluids.PINK_DRAGON_FRUIT_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.CR);
 
         registerIceCreamInteraction(finished, TFItems.TORCHBERRIES.get(), CosmoFluids.TORCHBERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.TFD);
 
@@ -455,6 +485,11 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         registerIceCreamInteraction(finished, FRItems.YELLOW_TEA_LEAVES.get(), CosmoFluids.YELLOW_TEA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.RF);
         registerIceCreamInteraction(finished, FRItems.BLACK_TEA_LEAVES.get(), CosmoFluids.BLACK_TEA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.RF);
         registerIceCreamInteraction(finished, FRItems.COFFEE_BEANS.get(), CosmoFluids.COFFEE_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.RF);
+
+        registerIceCreamInteraction(finished, CosmoCompat.BROCCOLI, CosmoFluids.BROCCOLI_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SMC);
+        registerIceCreamInteraction(finished, CosmoCompat.FROST_BERRIES, CosmoFluids.FROST_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SMC);
+        registerIceCreamInteraction(finished, CosmoCompat.STAR_DUST, CosmoFluids.ASTERA_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SMC);
+        registerIceCreamInteraction(finished, CosmoCompat.RAINBOW_CHIP, CosmoFluids.RAINBOW_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SMC);
 
         registerIceCreamInteraction(finished, CosmoItemTags.CHERRY, CosmoFluids.CHERRY_ICE_CREAM.get(), CosmoCompat.NEA, CosmoCompat.SD);
 
@@ -472,6 +507,8 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
         berrySyrupRecipes(finished);
     }
 
+
+
     public static Consumer<FinishedRecipe> withModCondition(Consumer<FinishedRecipe> finished, String id) {
         return (recipe) -> ConditionalRecipe.builder()
                 .addCondition(new ModLoadedCondition(id))
@@ -482,7 +519,7 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
     private void cuttingRecipe (Consumer<FinishedRecipe> finished, Item ingredient, Ingredient tool, ItemLike mainResult, int count) {
         ResourceLocation key = ForgeRegistries.ITEMS.getKey(ingredient);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ingredient), tool, mainResult, count)
-                .build(finished, CosmoCompat.id(Cosmopolitan.MODID, "farmersdelight/cutting/" + key.getPath()));
+                .save(finished, CosmoCompat.id(Cosmopolitan.MODID, "farmersdelight/cutting/" + key.getPath()));
     }
 
     private void tricolorIceCreamRecipe(Consumer<FinishedRecipe> finished, ItemLike result, ItemLike iceCream, Object ingredientA, Object ingredientB, Object ingredientC) {
@@ -944,10 +981,12 @@ public class CosmoRecipeProvider extends BlueprintRecipeProvider {
 
         String coneName = name + "_cone";
         Item coneItem = CosmoItems.WAFER_CONE.get();
-        registerTubRecipe(consumer, coneName, CosmoRecipes.TUB_EXTRACT_SERIALIZER.get(), conds, List.of(itemIngredient(coneItem), fluidIngredient(iceCreamFluid, 250)), List.of(resultItem(ForgeRegistries.ITEMS.getValue(CosmoCompat.id(Cosmopolitan.MODID, coneName)), 1)));
+        Item coneResult = ForgeRegistries.ITEMS.getValue(CosmoCompat.id(Cosmopolitan.MODID, coneName));
+        if (coneResult != null && coneResult != Items.AIR) registerTubRecipe(consumer, coneName, CosmoRecipes.TUB_EXTRACT_SERIALIZER.get(), conds, List.of(itemIngredient(coneItem), fluidIngredient(iceCreamFluid, 250)), List.of(resultItem(ForgeRegistries.ITEMS.getValue(CosmoCompat.id(Cosmopolitan.MODID, coneName)), 1)));
 
         String shakeName = name + "_milkshake";
-        registerTubRecipe(consumer, shakeName, CosmoRecipes.TUB_EXTRACT_SERIALIZER.get(), conds, List.of(tagIngredient("forge:milk/milk_bottle"), fluidIngredient(iceCreamFluid, 250)), List.of(resultItem(milkshakeItem, 1)));
+        Item shakeResult = ForgeRegistries.ITEMS.getValue(CosmoCompat.id(Cosmopolitan.MODID, coneName));
+        if (shakeResult != null && shakeResult != Items.AIR) registerTubRecipe(consumer, shakeName, CosmoRecipes.TUB_EXTRACT_SERIALIZER.get(), conds, List.of(tagIngredient("forge:milk/milk_bottle"), fluidIngredient(iceCreamFluid, 250)), List.of(resultItem(milkshakeItem, 1)));
     }
 
     private void registerTubRecipe(Consumer<FinishedRecipe> consumer, String name, RecipeSerializer<?> serializer, List<ICondition> conditions, List<JsonObject> ingredients, List<JsonObject> results) {

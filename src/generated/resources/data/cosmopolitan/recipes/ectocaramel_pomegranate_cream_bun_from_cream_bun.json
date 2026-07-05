@@ -1,0 +1,64 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:ectocaramel"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/pomegranate"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:ectocaramel"
+          },
+          {
+            "tag": "forge:fruits/pomegranate"
+          }
+        ],
+        "result": {
+          "count": 4,
+          "item": "cosmopolitan:ectocaramel_pomegranate_cream_bun"
+        }
+      }
+    }
+  ]
+}

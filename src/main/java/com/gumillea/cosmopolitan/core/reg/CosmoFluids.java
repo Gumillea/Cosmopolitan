@@ -323,4 +323,24 @@ public class CosmoFluids {
     public static final RegistryObject<FlowingFluid> CHERRY_ICE_CREAM = FLUIDS.register("cherry_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.CHERRY_ICE_CREAM_PROPERTIES));
     public static final RegistryObject<FlowingFluid> FLOWING_CHERRY_ICE_CREAM = FLUIDS.register("flowing_cherry_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.CHERRY_ICE_CREAM_PROPERTIES));
     public static final ForgeFlowingFluid.Properties CHERRY_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(CHERRY_ICE_CREAM_TYPE, CHERRY_ICE_CREAM, FLOWING_CHERRY_ICE_CREAM);
+    //SMC
+    public static final RegistryObject<FluidType> ASTERA_ICE_CREAM_TYPE = FLUID_TYPES.register("astera_ice_cream", () -> new CosmoIceCreamFluidType("astera"));
+    public static final RegistryObject<FlowingFluid> ASTERA_ICE_CREAM = FLUIDS.register("astera_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.ASTERA_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_ASTERA_ICE_CREAM = FLUIDS.register("flowing_astera_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.ASTERA_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties ASTERA_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(ASTERA_ICE_CREAM_TYPE, ASTERA_ICE_CREAM, FLOWING_ASTERA_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> BROCCOLI_ICE_CREAM_TYPE = FLUID_TYPES.register("broccoli_ice_cream", () -> new CosmoIceCreamFluidType("broccoli"));
+    public static final RegistryObject<FlowingFluid> BROCCOLI_ICE_CREAM = FLUIDS.register("broccoli_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.BROCCOLI_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_BROCCOLI_ICE_CREAM = FLUIDS.register("flowing_broccoli_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.BROCCOLI_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties BROCCOLI_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(BROCCOLI_ICE_CREAM_TYPE, BROCCOLI_ICE_CREAM, FLOWING_BROCCOLI_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> FROST_ICE_CREAM_TYPE = FLUID_TYPES.register("frost_ice_cream", () -> new CosmoIceCreamFluidType("frost"));
+    public static final RegistryObject<FlowingFluid> FROST_ICE_CREAM = FLUIDS.register("frost_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.FROST_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_FROST_ICE_CREAM = FLUIDS.register("flowing_frost_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.FROST_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties FROST_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(FROST_ICE_CREAM_TYPE, FROST_ICE_CREAM, FLOWING_FROST_ICE_CREAM);
+
+    public static final RegistryObject<FluidType> RAINBOW_ICE_CREAM_TYPE = FLUID_TYPES.register("rainbow_ice_cream", () -> new CosmoIceCreamFluidType("rainbow"));
+    public static final RegistryObject<FlowingFluid> RAINBOW_ICE_CREAM = FLUIDS.register("rainbow_ice_cream", () -> new ForgeFlowingFluid.Source(CosmoFluids.RAINBOW_ICE_CREAM_PROPERTIES));
+    public static final RegistryObject<FlowingFluid> FLOWING_RAINBOW_ICE_CREAM = FLUIDS.register("flowing_rainbow_ice_cream", () -> new ForgeFlowingFluid.Flowing(CosmoFluids.RAINBOW_ICE_CREAM_PROPERTIES));
+    public static final ForgeFlowingFluid.Properties RAINBOW_ICE_CREAM_PROPERTIES = new ForgeFlowingFluid.Properties(RAINBOW_ICE_CREAM_TYPE, RAINBOW_ICE_CREAM, FLOWING_RAINBOW_ICE_CREAM);
 }

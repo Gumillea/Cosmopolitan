@@ -1,0 +1,7 @@
+#Allows food items to display their mob effects in tooltips.
+effectTooltip = true
+#Allows the seasoned effect to display a special icon background.
+seasonedEffectIcon = true
+#Allows Wildberry to be displayed in various textures.
+wildberryDisplay = false
+

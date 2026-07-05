@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cosmopolitan:item/forlorn_cave_cone"
+  }
+}

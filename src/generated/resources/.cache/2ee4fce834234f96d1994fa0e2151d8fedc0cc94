@@ -1,9 +1,10 @@
-// 1.20.1	2026-04-18T20:11:43.6019375	Berrfect Flavor Data
+// 1.20.1	2026-06-04T00:32:53.8538689	Berrfect Flavor Data
 6ab8338fe2051699ae3cd38876a0bf56be319534 data/cosmopolitan/berrfect/flavors/air.json
 db5bc2e4ced0564c6f0dd76d331f6869c8cc32d3 data/cosmopolitan/berrfect/flavors/arbutus_berries.json
 4fb9be6773362e20b9dba6f593c3df25038afd68 data/cosmopolitan/berrfect/flavors/blisterberry.json
 d6eeef2cb65bd60eac29a6dece7c6c516557f940 data/cosmopolitan/berrfect/flavors/boilberry.json
 600966e4391b1a733c377557edd0066687188ba7 data/cosmopolitan/berrfect/flavors/droopvine_item.json
+6461e60aceff6f0df66a86cebda1f0df6f13d1af data/cosmopolitan/berrfect/flavors/frost_berries.json
 53339c08c1604d12f7f4590d5529109681e6dec4 data/cosmopolitan/berrfect/flavors/fruits_bayberry.json
 4dbb1aa62f872e921a69dc23dbd54e12ad475f80 data/cosmopolitan/berrfect/flavors/fruits_blueberries.json
 fa264fb635e1bc13bac44d268ea067385bf7a393 data/cosmopolitan/berrfect/flavors/fruits_cherry.json

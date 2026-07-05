@@ -60,6 +60,8 @@ public class CosmoConfig
         public static ForgeConfigSpec.BooleanValue TWILIGHT_DELIGHT_RECIPE_TWEAKS;
         @ConfigKey("seasonals_recipe_tweaks")
         public static ForgeConfigSpec.BooleanValue SEASONALS_RECIPE_TWEAKS;
+        @ConfigKey("comfort_redesign")
+        public static ForgeConfigSpec.BooleanValue COMFORT_REDESIGN;
 
         public static ForgeConfigSpec.BooleanValue EXUBERANT_BALANCE;
         public static ForgeConfigSpec.DoubleValue EXUBERANT_MAXIMUM;
@@ -154,6 +156,7 @@ public class CosmoConfig
             builder.push("Tweaks");
             FOOD_MODIFICATION = builder.comment("Allows the food modifications for vanilla and compatible mods.").define("enableModifications", true);
             CAFFEINE_TWEAKS = builder.comment("Allows players to delay the spawning of Phantoms while gaining the Caffeine effect from Farmer's Respite.").define("enableCaffeineTweak", true);
+            COMFORT_REDESIGN = builder.comment("Allows the redesigned version of Farmer's Delight's Comfort effect to return.").define("enableComfortRedesign", true);
             builder.push("Farming");
             BERRY_GOOD_COMPAT_TWEAKS = builder.comment("Allows tweaks to some of the recipes in Twilight's Flavours & Delights.").define("berryGoodTweaks", true);
             builder.pop();

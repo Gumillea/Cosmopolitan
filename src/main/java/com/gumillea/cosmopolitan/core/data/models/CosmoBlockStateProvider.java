@@ -39,6 +39,10 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.block(CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.GLACIER_ICE_CREAM_BLOCK);
         this.block(CosmoBlocks.AURORA_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.ASTERA_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.BROCCOLI_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.FROST_ICE_CREAM_BLOCK);
+        this.block(CosmoBlocks.RAINBOW_ICE_CREAM_BLOCK);
 
         this.block(CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS);
@@ -79,6 +83,12 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
         this.block(CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS);
         this.block(CosmoBlocks.COFFEE_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.ASTERA_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.BROCCOLI_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.FROST_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.RAINBOW_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.PINK_DRAGON_FRUIT_ICE_CREAM_BRICKS);
+        this.block(CosmoBlocks.LUCUMA_ICE_CREAM_BRICKS);
 
         this.syrupBlock(CosmoBlocks.SWEET_BERRY_SYRUP_BLOCK);
         this.syrupBlock(CosmoBlocks.SOUR_BERRY_SYRUP_BLOCK);
@@ -110,6 +120,7 @@ public class CosmoBlockStateProvider extends BlueprintBlockStateProvider {
 
         this.pieBlock(CosmoBlocks.WATER_PIE);
         this.pieBlock(CosmoBlocks.SHOOFLY_PIE);
+        this.pieBlock(CosmoBlocks.MOSS_PIE);
         this.cubecakeBlock(CosmoBlocks.GLOW_BERRY_CUBECAKE);
         this.cubecakeBlock(CosmoBlocks.WHEATGRASS_CUBECAKE);
         this.cubecakeBlock(CosmoBlocks.WARPED_VELVET_CUBECAKE);

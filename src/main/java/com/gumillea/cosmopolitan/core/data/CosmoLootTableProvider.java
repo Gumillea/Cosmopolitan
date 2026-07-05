@@ -110,6 +110,12 @@ public class CosmoLootTableProvider extends LootTableProvider {
             this.dropSelf(CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS.get());
             this.dropSelf(CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get());
             this.dropSelf(CosmoBlocks.COFFEE_ICE_CREAM_BRICKS.get());
+            this.dropSelf(CosmoBlocks.ASTERA_ICE_CREAM_BRICKS.get());
+            this.dropSelf(CosmoBlocks.BROCCOLI_ICE_CREAM_BRICKS.get());
+            this.dropSelf(CosmoBlocks.FROST_ICE_CREAM_BRICKS.get());
+            this.dropSelf(CosmoBlocks.RAINBOW_ICE_CREAM_BRICKS.get());
+            this.dropSelf(CosmoBlocks.PINK_DRAGON_FRUIT_ICE_CREAM_BRICKS.get());
+            this.dropSelf(CosmoBlocks.LUCUMA_ICE_CREAM_BRICKS.get());
 
             this.dropSelf(CosmoBlocks.CHISELED_VANILLA_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.CHISELED_ADZUKI_ICE_CREAM_BLOCK.get());
@@ -130,6 +136,10 @@ public class CosmoLootTableProvider extends LootTableProvider {
             this.dropSelf(CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.KABLOOM_ICE_CREAM_BLOCK.get());
             this.dropSelf(CosmoBlocks.SOURCE_BERRY_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.ASTERA_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.BROCCOLI_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.FROST_ICE_CREAM_BLOCK.get());
+            this.dropSelf(CosmoBlocks.RAINBOW_ICE_CREAM_BLOCK.get());
 
             this.dropSelf(CosmoBlocks.SAPPY_BIRCH_LOG.get());
             this.dropSelf(CosmoBlocks.MASHED_POTATO_BLOCK.get());
@@ -166,6 +176,7 @@ public class CosmoLootTableProvider extends LootTableProvider {
 
             this.dropNothing(CosmoBlocks.WATER_PIE.get());
             this.dropNothing(CosmoBlocks.SHOOFLY_PIE.get());
+            this.dropNothing(CosmoBlocks.MOSS_PIE.get());
             this.dropNothing(CosmoBlocks.GLOW_BERRY_CUBECAKE.get());
             this.dropNothing(CosmoBlocks.WHEATGRASS_CUBECAKE.get());
             this.dropNothing(CosmoBlocks.CHORUS_FRUIT_CUBECAKE.get());

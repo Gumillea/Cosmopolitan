@@ -3,6 +3,7 @@ package com.gumillea.cosmopolitan.common.item;
 import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
+import com.gumillea.cosmopolitan.core.util.CosmoTooltipEvent;
 import com.teamtea.eclipticseasons.api.constant.solar.SolarTerm;
 import com.teamtea.eclipticseasons.common.core.SolarHolders;
 import com.teamtea.eclipticseasons.common.core.solar.SolarDataManager;
@@ -112,6 +113,8 @@ public class SeasonalDrinkItem extends DrinkItem{
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (!CosmoConfig.Client.EFFECT_TOOLTIP.get()) return;
+
+        CosmoTooltipEvent.addEffectTooltip(this, stack, tooltip);
 
         if (isSpring || isSummer) {
             MutableComponent coldDrink = Component.translatable("tooltip." + Cosmopolitan.MODID + ".seasonal_drink.when_consumed.cold");

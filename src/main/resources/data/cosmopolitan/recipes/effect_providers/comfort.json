@@ -1,0 +1,33 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "jeed"
+        },
+        {
+          "type": "cosmopolitan:config",
+          "value": "comfort_redesign"
+        },
+        {
+          "type": "forge:not",
+          "value":         {
+            "type": "forge:tag_empty",
+            "tag": "cosmopolitan:comfort_sources"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "jeed:effect_provider",
+        "effect": "cosmopolitan:comfort",
+        "providers": [
+          {
+            "tag": "cosmopolitan:comfort_sources"
+          }
+        ]
+      }
+    }
+  ]
+}

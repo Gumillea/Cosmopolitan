@@ -1,0 +1,47 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:bagasse"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:bagasse"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          },
+          {
+            "item": "cosmopolitan:bagasse"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "minecraft:paper"
+        }
+      }
+    }
+  ]
+}

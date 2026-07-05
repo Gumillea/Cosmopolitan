@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:pointed_dripstone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:pure_darkness"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:moth_dust"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_lichen"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:pointed_dripstone"
+          },
+          {
+            "item": "alexscaves:pure_darkness"
+          },
+          {
+            "item": "alexscaves:moth_dust"
+          },
+          {
+            "item": "minecraft:glow_lichen"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:forlorn_cave_cone"
+        }
+      }
+    }
+  ]
+}

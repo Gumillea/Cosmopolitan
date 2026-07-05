@@ -2,6 +2,10 @@
   "values": [
     "minecraft:snow_block",
     "minecraft:powder_snow",
-    "#minecraft:ice"
+    "#minecraft:ice",
+    {
+      "id": "brewinandchewin:ice_crate",
+      "required": false
+    }
   ]
 }

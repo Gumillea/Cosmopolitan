@@ -1,17 +1,8 @@
 package com.gumillea.cosmopolitan.common.item;
 
-import com.gumillea.cosmopolitan.CosmoConfig;
 import com.gumillea.cosmopolitan.core.reg.CosmoItems;
-import com.gumillea.cosmopolitan.core.util.CosmoEffectTags;
-import com.gumillea.cosmopolitan.core.util.CosmoEvents;
-import com.gumillea.cosmopolitan.core.util.CosmoUtils;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +12,6 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CocktailItem extends DrinkItem {

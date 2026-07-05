@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value":     {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:thick\"}"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "item": "cosmopolitan:herbal_powder"
+    },
+    {
+      "item": "cosmopolitan:herbal_powder"
+    }
+  ],
+  "result": {
+    "item": "cosmopolitan:netheresso"
+  }
+}

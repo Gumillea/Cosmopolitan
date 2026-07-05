@@ -10,6 +10,13 @@
         {
           "type": "cosmopolitan:config",
           "value": "enable_carrot_flavor"
+        },
+        {
+          "type": "forge:not",
+          "value":         {
+            "type": "forge:tag_empty",
+            "tag": "cosmopolitan:carotene_sources"
+          }
         }
       ],
       "recipe": {

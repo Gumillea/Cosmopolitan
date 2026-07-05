@@ -1,7 +1,7 @@
-// 1.20.1	2026-03-27T10:12:37.5720875	Object Modifiers (loot_tables): cosmopolitan
+// 1.20.1	2026-07-02T21:44:54.0732598	Object Modifiers (loot_tables): cosmopolitan
 b1f892633fb69e7067ab37791fc550e0f6eb5252 data/cosmopolitan/modifiers/loot_tables/abandoned_mineshaft.json
 9c54a700320a59c7528b3b5ffe9f23efa90765bc data/cosmopolitan/modifiers/loot_tables/acacia_leaves.json
-880e099662d83e0d689cb4d619e379ef01de37cd data/cosmopolitan/modifiers/loot_tables/ancien_city.json
+30a6525a10999bc8f8e32cfaa9d8dffacea393ae data/cosmopolitan/modifiers/loot_tables/ancien_city.json
 fc908513313320fbe0c98a8710bf34d75fa4815a data/cosmopolitan/modifiers/loot_tables/azalea_leaves.json
 f01f8e5a6a6b3dac78cf5faa3f2c55a4c2dcc836 data/cosmopolitan/modifiers/loot_tables/beetroots.json
 dfc19b434c0955ea709b1eee60775d9e31cada41 data/cosmopolitan/modifiers/loot_tables/blisterberry_bush.json
@@ -12,7 +12,7 @@ f3be6338e3f597c8d6d38063285391ecbb18acfa data/cosmopolitan/modifiers/loot_tables
 a21687ca17cc67c8d8b830eeeae717aa81d30cca data/cosmopolitan/modifiers/loot_tables/kabloom_bush.json
 aebdcefba37947b1c38c164aa3a75ed737c2462c data/cosmopolitan/modifiers/loot_tables/large_fern.json
 46157a748bf793eae1c987674978fc7c16f411dd data/cosmopolitan/modifiers/loot_tables/sourceberry_bush.json
-0cda6fca2c8fa2fb4f9a65a7dbee6c1ba55d600c data/cosmopolitan/modifiers/loot_tables/stronghold_library.json
+ab7688227a440d91f5f35e3b0533f8f83b05bfac data/cosmopolitan/modifiers/loot_tables/stronghold_library.json
 a007ccb9c32de1107f7a047d7190bd0f76376670 data/cosmopolitan/modifiers/loot_tables/tall_grass.json
 1907cb26ba8904b85c46fa2d1375363f8e33d184 data/cosmopolitan/modifiers/loot_tables/village_desert_house.json
 4a26e852bfb9a04ed39e9eb8e43f2fe0e5874326 data/cosmopolitan/modifiers/loot_tables/village_plains_house.json

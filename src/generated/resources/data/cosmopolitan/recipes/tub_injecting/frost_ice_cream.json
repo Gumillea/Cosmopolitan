@@ -1,0 +1,22 @@
+{
+  "type": "cosmopolitan:tub_injecting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "smc"
+    }
+  ],
+  "ingredient": {
+    "item": "smc:frost_ice_cream"
+  },
+  "result": [
+    {
+      "count": 1,
+      "item": "minecraft:bowl"
+    },
+    {
+      "amount": 750,
+      "fluid": "cosmopolitan:frost_ice_cream"
+    }
+  ]
+}

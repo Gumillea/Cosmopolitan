@@ -1,0 +1,30 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1,
+        "ingredients": [
+          {
+            "item": "minecraft:big_dripleaf"
+          },
+          {
+            "tag": "farmersdelight:cabbage_roll_ingredients"
+          }
+        ],
+        "recipe_book_tab": "misc",
+        "result": {
+          "item": "cosmopolitan:dripleaf_roll"
+        }
+      }
+    }
+  ]
+}

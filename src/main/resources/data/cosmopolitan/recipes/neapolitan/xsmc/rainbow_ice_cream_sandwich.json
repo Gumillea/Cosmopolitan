@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "smc"
+    }
+  ],
+  "key": {
+    "A": {
+      "item": "cosmopolitan:wafer"
+    },
+    "B": {
+      "item": "smc:rainbow_ice_cream"
+    }
+  },
+  "pattern": [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "cosmopolitan:rainbow_ice_cream_sandwich_smc",
+    "count": 2
+  }
+}

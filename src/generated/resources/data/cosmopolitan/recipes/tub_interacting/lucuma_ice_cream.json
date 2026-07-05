@@ -1,0 +1,30 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "collectorsreap"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "collectorsreap:lucuma"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "requiresCooling": true,
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:lucuma_ice_cream"
+  }
+}

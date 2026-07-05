@@ -1,0 +1,67 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/sweet_berries"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/glow_berries"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "tag": "forge:fruits/sweet_berries"
+          },
+          {
+            "tag": "forge:fruits/glow_berries"
+          }
+        ],
+        "result": {
+          "count": 4,
+          "item": "cosmopolitan:berry_duo_cream_bun"
+        }
+      }
+    }
+  ]
+}

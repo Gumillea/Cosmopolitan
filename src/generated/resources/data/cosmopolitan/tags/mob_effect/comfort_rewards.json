@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:haste",
+    "minecraft:luck",
+    "minecraft:speed",
+    "minecraft:strength",
+    "minecraft:health_boost"
+  ]
+}

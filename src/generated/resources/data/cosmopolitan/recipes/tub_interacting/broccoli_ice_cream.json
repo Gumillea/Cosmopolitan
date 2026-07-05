@@ -1,0 +1,30 @@
+{
+  "type": "cosmopolitan:tub_interacting",
+  "baseCount": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "smc"
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "fluid": {
+        "amount": 1,
+        "name": "cosmopolitan:cream"
+      }
+    }
+  ],
+  "requiresCooling": true,
+  "result": {
+    "amount": 1,
+    "fluid": "cosmopolitan:broccoli_ice_cream"
+  }
+}

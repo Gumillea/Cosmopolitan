@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(LightTexture.class)
 public class LightTextureMixin {
 
-    @Redirect(method = "updateLightTexture", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;hasEffect(Lnet/minecraft/world/effect/MobEffect;)Z"))
+    @Redirect(method = "updateLightTexture", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;hasEffect(Lnet/minecraft/world/effect/MobEffect;)Z"), require = 0)
     private boolean cosmo$allowCarotene(LocalPlayer player, MobEffect effect) {
         if (effect == MobEffects.NIGHT_VISION && player.hasEffect(CosmoEffects.CAROTENE.get())) {
             return true;
@@ -22,11 +22,11 @@ public class LightTextureMixin {
         return player.hasEffect(effect);
     }
 
-    @Redirect(method = "updateLightTexture", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;getNightVisionScale(Lnet/minecraft/world/entity/LivingEntity;F)F"))
+    @Redirect(method = "updateLightTexture", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;getNightVisionScale(Lnet/minecraft/world/entity/LivingEntity;F)F"), require = 0)
     private float cosmo$applyCarotene(LivingEntity living, float f) {
         float scale = GameRenderer.getNightVisionScale(living, f);
         if (living.hasEffect(CosmoEffects.CAROTENE.get()) && !living.hasEffect(MobEffects.NIGHT_VISION)) {
-            return 0.06F;
+            return 0.1F;
         }
         return scale;
     }

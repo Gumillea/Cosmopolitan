@@ -204,12 +204,10 @@ public class CosmoLootModifierProvider extends LootModifierProvider {
         this.entry("ancien_city").selects(new ResourceLocation[]{BuiltInLootTables.ANCIENT_CITY})
                 .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
                         LootItem.lootTableItem(CosmoItems.ENCHANTED_GOLDEN_ARBUTUS_BERRIES.get()).build(),
-                        LootItem.lootTableItem(CosmoItems.KYKEON.get()).build(),
                         LootItem.lootTableItem(CosmoItems.GEODE_BREAD.get()).setWeight(8).build())));
         this.entry("stronghold_library").selects(new ResourceLocation[]{BuiltInLootTables.STRONGHOLD_LIBRARY})
                 .addModifier(new LootPoolEntriesModifier(false, 0, List.of(
-                        LootItem.lootTableItem(CosmoItems.ENCHANTED_GOLDEN_ARBUTUS_BERRIES.get()).setWeight(3).build(),
-                        LootItem.lootTableItem(CosmoItems.KYKEON.get()).setWeight(8).build())));
+                        LootItem.lootTableItem(CosmoItems.ENCHANTED_GOLDEN_ARBUTUS_BERRIES.get()).setWeight(3).build())));
         }
 
 }

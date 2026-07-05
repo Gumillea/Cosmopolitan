@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "cosmopolitan:funguis"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "minecraft:coals"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:stick"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "tag": "cosmopolitan:funguis"
+          },
+          {
+            "tag": "minecraft:coals"
+          },
+          {
+            "item": "minecraft:stick"
+          }
+        ],
+        "result": {
+          "count": 6,
+          "item": "minecraft:soul_torch"
+        }
+      }
+    }
+  ]
+}

@@ -73,9 +73,6 @@ public class Cosmopolitan {
 
         CosmoLootConditions.LOOT_CONDITION_TYPES.register(modEventBus);
 
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> CosmoItems::setupTabEditors);
-
-
         context.registerConfig(ModConfig.Type.COMMON, CosmoConfig.COMMON_SPEC);
         context.registerConfig(ModConfig.Type.CLIENT, CosmoConfig.CLIENT_SPEC);
     }

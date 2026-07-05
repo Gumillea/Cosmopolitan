@@ -1,0 +1,35 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "collectorsreap"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cooking",
+        "cookingtime": 200,
+        "experience": 1.0,
+        "ingredients": [
+          {
+            "item": "cosmopolitan:spinalberry"
+          },
+          {
+            "item": "minecraft:sugar"
+          },
+          {
+            "tag": "cosmopolitan:funguis"
+          },
+          {
+            "item": "minecraft:kelp"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:spinalberry_gummy"
+        }
+      }
+    }
+  ]
+}

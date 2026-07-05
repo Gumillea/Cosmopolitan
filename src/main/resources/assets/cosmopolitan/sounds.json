@@ -1,0 +1,10 @@
+{
+  "music_disc.woc": {
+    "sounds": [
+      {
+        "name": "cosmopolitan:records/woc",
+        "stream": true
+      }
+    ]
+  }
+}

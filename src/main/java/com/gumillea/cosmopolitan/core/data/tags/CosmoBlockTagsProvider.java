@@ -21,6 +21,10 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
     @Override
     public void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+                CosmoBlocks.APPLE_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.CARROT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.GLOW_BERRY_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.ENCHANTED_FRUIT_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.STRAWBERRY_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.VANILLA_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.CHOCOLATE_ICE_CREAM_BRICKS.get(),
@@ -54,6 +58,12 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.YELLOW_TEA_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.BLACK_TEA_ICE_CREAM_BRICKS.get(),
                 CosmoBlocks.COFFEE_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.ASTERA_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.BROCCOLI_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.FROST_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.RAINBOW_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.PINK_DRAGON_FRUIT_ICE_CREAM_BRICKS.get(),
+                CosmoBlocks.LUCUMA_ICE_CREAM_BRICKS.get(),
 
                 CosmoBlocks.APPLE_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CARROT_ICE_CREAM_BLOCK.get(),
@@ -66,6 +76,10 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
                 CosmoBlocks.PHYTOCHEMICAL_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.GLACIER_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.AURORA_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.ASTERA_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.BROCCOLI_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.FROST_ICE_CREAM_BLOCK.get(),
+                CosmoBlocks.RAINBOW_ICE_CREAM_BLOCK.get(),
 
                 CosmoBlocks.CHISELED_CHOCOLATE_ICE_CREAM_BLOCK.get(),
                 CosmoBlocks.CHISELED_BANANA_ICE_CREAM_BLOCK.get(),
@@ -78,7 +92,8 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 CosmoBlocks.IRON_FROZEN_DESSERT_TUB.get(),
-                CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get()
+                CosmoBlocks.COPPER_FROZEN_DESSERT_TUB.get(),
+                CosmoBlocks.NETHERITE_FROZEN_DESSERT_TUB.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 CosmoBlocks.BIRCH_COOKIE_TILE.get(),
@@ -139,16 +154,9 @@ public class CosmoBlockTagsProvider extends BlockTagsProvider {
         this.tag(CosmoBlockTags.COOLING_SOURCES).add(
                 Blocks.SNOW_BLOCK,
                 Blocks.POWDER_SNOW)
-                .addTag(BlockTags.ICE);
+                .addTag(BlockTags.ICE)
+                .addOptional(CosmoCompat.id(CosmoCompat.BAC, "ice_crate"));;
 
 
-        this.tag(CosmoBlockTags.EXUBERANT_SOURCES)
-                .addOptional(CosmoCompat.id(CosmoCompat.FD, "apple_pie"));
-
-        this.tag(CosmoBlockTags.CAROTENE_SOURCES)
-                .addOptional(CosmoCompat.id(CosmoCompat.VC, "carrot_cake"));
-
-        this.tag(CosmoBlockTags.TRACER_SOURCES)
-                .addOptional(CosmoCompat.id(CosmoCompat.VC, "glow_berry_cake"));
     }
 }

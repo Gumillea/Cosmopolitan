@@ -1,0 +1,52 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:pointed_dripstone"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:moss"
+          }
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/glow_berries"
+          }
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_lichen"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:pointed_dripstone"
+          },
+          {
+            "tag": "forge:moss"
+          },
+          {
+            "tag": "forge:fruits/glow_berries"
+          },
+          {
+            "item": "minecraft:glow_lichen"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:cave_cone"
+        }
+      }
+    }
+  ]
+}

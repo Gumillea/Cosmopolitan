@@ -1,5 +1,6 @@
 {
   "values": [
+    "cosmopolitan:netheresso",
     {
       "id": "farmersrespite:coffee",
       "required": false

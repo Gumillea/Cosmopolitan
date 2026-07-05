@@ -10,10 +10,6 @@
           },
           {
             "type": "minecraft:item",
-            "name": "cosmopolitan:kykeon"
-          },
-          {
-            "type": "minecraft:item",
             "name": "cosmopolitan:geode_bread",
             "weight": 8
           }

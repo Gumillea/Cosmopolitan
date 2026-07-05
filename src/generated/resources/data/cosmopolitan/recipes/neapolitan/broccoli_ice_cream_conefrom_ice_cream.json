@@ -1,0 +1,43 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "neapolitan"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli_ice_cream"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "smc:broccoli_ice_cream"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          },
+          {
+            "item": "cosmopolitan:wafer_cone"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:broccoli_ice_cream_cone"
+        }
+      }
+    }
+  ]
+}

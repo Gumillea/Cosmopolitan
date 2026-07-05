@@ -1,0 +1,61 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "undergarden:blisterberry"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "undergarden:droopvine_item"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "undergarden:blisterberry"
+          },
+          {
+            "item": "undergarden:droopvine_item"
+          }
+        ],
+        "result": {
+          "count": 4,
+          "item": "cosmopolitan:blisterberry_droopfruit_cream_bun"
+        }
+      }
+    }
+  ]
+}

@@ -55,6 +55,7 @@ public class CosmoAdvancementProvider implements ForgeAdvancementProvider.Advanc
         createAdvancement("has_all_four_flavors", "husbandry", new ResourceLocation(Cosmopolitan.MODID, "husbandry/craft_a_berry_syrup_bottle"), CosmoItems.COSMOPOLITAN_COCKTAIL.get(), FrameType.CHALLENGE, true, true, true)
                 .addCriterion("has_all_four_flavors", CosmoCriteriaTriggers.ALL_FLAVORS.createInstance())
                 .rewards(AdvancementRewards.Builder.experience(50))
+                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation(Cosmopolitan.MODID, "advancements/rewards/has_all_four_flavors")))
                 .save(consumer, Cosmopolitan.MODID + ":husbandry/has_all_four_flavors");
 
         createAdvancement("plant_potted_crop", "husbandry", new ResourceLocation("husbandry/plant_seed"), Items.FLOWER_POT, FrameType.TASK, true, true, false)

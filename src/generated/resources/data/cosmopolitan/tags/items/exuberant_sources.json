@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "youkaishomecoming:candy_apple",
+      "required": false
+    },
+    {
       "id": "brewinandchewin:apple_jelly",
       "required": false
     },

@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:pointed_dripstone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:tree_star"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:pine_nuts"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_lichen"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:pointed_dripstone"
+          },
+          {
+            "item": "alexscaves:tree_star"
+          },
+          {
+            "item": "alexscaves:pine_nuts"
+          },
+          {
+            "item": "minecraft:glow_lichen"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:primordial_cave_cone"
+        }
+      }
+    }
+  ]
+}

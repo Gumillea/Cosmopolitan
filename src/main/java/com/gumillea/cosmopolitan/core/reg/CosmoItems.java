@@ -3,7 +3,7 @@ package com.gumillea.cosmopolitan.core.reg;
 import com.gumillea.cosmopolitan.Cosmopolitan;
 import com.gumillea.cosmopolitan.common.item.*;
 import com.gumillea.cosmopolitan.core.util.CosmoCompat;
-import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
+import com.teamabnormals.blueprint.common.item.BlueprintRecordItem;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -14,9 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import static net.minecraft.world.item.crafting.Ingredient.of;
-
-
-import static net.minecraft.world.item.CreativeModeTabs.FOOD_AND_DRINKS;
 
 @Mod.EventBusSubscriber(modid = Cosmopolitan.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CosmoItems {
@@ -67,7 +64,7 @@ public class CosmoItems {
 
     public static final RegistryObject<Item> HERBAL_POWDER = HELPER.createItem("herbal_powder", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.SNACK)));
     public static final RegistryObject<Item> HERBAL_COOKIE = HELPER.createItem("herbal_cookie", () -> new HerbalFoodItem(new Item.Properties().food(CosmopolitanFoods.HERBAL_COOKIE)));
-    public static final RegistryObject<Item> TISANE = HELPER.createItem("tisane", () -> new HerbalFoodItem(new Item.Properties().food(CosmopolitanFoods.DRINK).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
+    public static final RegistryObject<Item> TISANE = HELPER.createItem("tisane", () -> new HerbalFoodItem(new Item.Properties().food(CosmopolitanFoods.COMFORT_DRINK).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
 
     public static final RegistryObject<Item> SWEET_QINGTUAN = HELPER.createItem("sweet_qingtuan", () -> new SpecialFoodItem(new Item.Properties().food(CosmopolitanFoods.QINGTUAN)));
     public static final RegistryObject<Item> SALTED_QINGTUAN = HELPER.createItem("salted_qingtuan", () -> new SpecialFoodItem(new Item.Properties().food(CosmopolitanFoods.QINGTUAN)));
@@ -103,6 +100,8 @@ public class CosmoItems {
     public static final RegistryObject<Item> POTATO_WEDGES = HELPER.createItem("potato_wedges", () -> new Item(new Item.Properties().food(CosmopolitanFoods.BAKED_POTATO_SLICES)));
     public static final RegistryObject<Item> MASHED_POTATO = HELPER.createItem("mashed_potato", () -> new BowlFoodItem(new Item.Properties().stacksTo(16).food(CosmopolitanFoods.MASHED_POTATO).craftRemainder(Items.BOWL)));
     public static final RegistryObject<Item> MASHED_POTATO_CONE = HELPER.createItem("mashed_potato_cone", () -> new Item(new Item.Properties().food(CosmopolitanFoods.MASHED_POTATO_CONE)));
+
+    public static final RegistryObject<Item> DRIPLEAF_ROLL = HELPER.createItem("dripleaf_roll", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.DRIPLEAF_ROLL)));
 
     public static final RegistryObject<Item> ROASTED_MUSHROOM = HELPER.createItem("roasted_mushroom", () -> new Item(new Item.Properties().food(CosmopolitanFoods.ROASTED_MUSHROOM)));
     public static final RegistryObject<Item> FLYING_DUTCHMAN_BURGER = HELPER.createItem("flying_dutchman_burger", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.FLYING_DUTCHMAN_BURGER)));
@@ -141,6 +140,14 @@ public class CosmoItems {
     public static final RegistryObject<Item> ACACIA_SNOW_CONE = HELPER.createItem("acacia_snow_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.ACACIA_SNOW_CONE).craftRemainder(CosmoCompat.PINECONE), true, 100));
     public static final RegistryObject<Item> LUSH_SNOW_CONE = HELPER.createItem("lush_snow_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.LUSH_SNOW_CONE).craftRemainder(CosmoCompat.PINECONE), true, 100));
 
+    public static final RegistryObject<Item> CAVE_CONE = HELPER.createItem("cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.CAVE_CONE)));
+    public static final RegistryObject<Item> ABYSSAL_CAVE_CONE = HELPER.createItem("abyssal_cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.ABYSSAL_CAVE_CONE)));
+    public static final RegistryObject<Item> CANDY_CAVE_CONE = HELPER.createItem("candy_cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.CANDY_CAVE_CONE)));
+    public static final RegistryObject<Item> FORLORN_CAVE_CONE = HELPER.createItem("forlorn_cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.CAVE_CONE)));
+    public static final RegistryObject<Item> PRIMORDIAL_CAVE_CONE = HELPER.createItem("primordial_cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.PRIMORDIAL_CAVE_CONE)));
+    public static final RegistryObject<Item> MAGNETIC_CAVE_CONE = HELPER.createItem("magnetic_cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.MAGNETIC_CAVE_CONE)));
+    public static final RegistryObject<Item> TOXIC_CAVE_CONE = HELPER.createItem("toxic_cave_cone", () -> new CaveConeItem(new Item.Properties().food(CosmopolitanFoods.CAVE_CONE)));
+
     public static final RegistryObject<Item> CONDENSED_MILK_BUCKET = HELPER.createItem("condensed_milk_bucket", () -> new DrinkItem(new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).food(CosmopolitanFoods.CONDENSED_MILK), true, true));
     public static final RegistryObject<Item> CONDENSED_MILK_BOTTLE = HELPER.createItem("condensed_milk_bottle", () -> new DrinkItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(CosmopolitanFoods.CONDENSED_MILK), true, true));
     public static final RegistryObject<Item> PENUCHE = HELPER.createItem("penuche", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.PENUCHE)));
@@ -158,10 +165,17 @@ public class CosmoItems {
     public static final RegistryObject<Item> STRAWBERRY_VANILLA_CREAM_BUN = HELPER.createItem("strawberry_vanilla_cream_bun", () -> new NeapolitanStrawberryItem(new Item.Properties().food(CosmopolitanFoods.STRAWBERRY_VANILLA_CREAM_BUN), false, 0, 2));
     public static final RegistryObject<Item> ADZUKI_MINT_CREAM_BUN = HELPER.createItem("adzuki_mint_cream_bun", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.MINT_ADZUKI_CREAM_BUN)));
 
+    public static final RegistryObject<Item> BERRY_DUO_CREAM_BUN = HELPER.createItem("berry_duo_cream_bun", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.BERRY_DUO_CREAM_BUN)));
+    public static final RegistryObject<Item> ECTOCARAMEL_POMEGRANATE_CREAM_BUN = HELPER.createItem("ectocaramel_pomegranate_cream_bun", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.ECTOCARAMEL_POMEGRANATE_CREAM_BUN)));
+    public static final RegistryObject<Item> MATCHA_SALMONBERRY_CREAM_BUN = HELPER.createItem("matcha_salmonberry_cream_bun", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.MATCHA_SALMONBERRY_CREAM_BUN)));
+    public static final RegistryObject<Item> BLISTERBERRY_DROOPFRUIT_CREAM_BUN = HELPER.createItem("blisterberry_droopfruit_cream_bun", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.BLISTERBERRY_DROOPFRUIT_CREAM_BUN)));
+
     public static final RegistryObject<Item> WATER_PIE = HELPER.createItem("water_pie", () -> new EdibleBlockItem(CosmoBlocks.WATER_PIE.get(), new Item.Properties().food(CosmopolitanFoods.WATER_PIE)));
     public static final RegistryObject<Item> WATER_PIE_SLICE = HELPER.createItem("water_pie_slice", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.WATER_PIE_SLICE)));
-    public static final RegistryObject<Item> SHOOFLY_PIE = HELPER.createItem("shoofly_pie", () -> new EdibleBlockItem(CosmoBlocks.SHOOFLY_PIE.get(), new Item.Properties().food(CosmopolitanFoods.WATER_PIE)));
-    public static final RegistryObject<Item> SHOOFLY_PIE_SLICE = HELPER.createItem("shoofly_pie_slice", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.WATER_PIE_SLICE)));
+    public static final RegistryObject<Item> SHOOFLY_PIE = HELPER.createItem("shoofly_pie", () -> new EdibleBlockItem(CosmoBlocks.SHOOFLY_PIE.get(), new Item.Properties().food(CosmopolitanFoods.SHOOFLY_PIE)));
+    public static final RegistryObject<Item> SHOOFLY_PIE_SLICE = HELPER.createItem("shoofly_pie_slice", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.SHOOFLY_PIE_SLICE)));
+    public static final RegistryObject<Item> MOSS_PIE = HELPER.createItem("moss_pie", () -> new EdibleBlockItem(CosmoBlocks.MOSS_PIE.get(), new Item.Properties().food(CosmopolitanFoods.MOSS_PIE)));
+    public static final RegistryObject<Item> MOSS_PIE_SLICE = HELPER.createItem("moss_pie_slice", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.MOSS_PIE_SLICE)));
 
     public static final RegistryObject<Item> WOODLAND_SUB = HELPER.createItem("woodland_sub", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.WOODLAND_SUB)));
 
@@ -173,18 +187,18 @@ public class CosmoItems {
     public static final RegistryObject<Item> SPRING_SODA = HELPER.createItem("spring_soda", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.DRINK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, "spring"));
     public static final RegistryObject<Item> ICE_CREAM_FLOAT = HELPER.createItem("ice_cream_float", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.ICE_CREAM_FLOAT).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, "spring"));
     public static final RegistryObject<Item> SUMMER_CORDIAL = HELPER.createItem("summer_cordial", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.DRINK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, "summer"));
-    public static final RegistryObject<Item> AUTUMN_TEA = HELPER.createItem("autumn_tea", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.DRINK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, "autumn"));
-    public static final RegistryObject<Item> WINTER_GLOGG = HELPER.createItem("winter_glogg", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.DRINK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, "winter"));
+    public static final RegistryObject<Item> AUTUMN_TEA = HELPER.createItem("autumn_tea", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.COMFORT_DRINK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, "autumn"));
+    public static final RegistryObject<Item> WINTER_GLOGG = HELPER.createItem("winter_glogg", () -> new SeasonalDrinkItem(new Item.Properties().food(CosmopolitanFoods.COMFORT_DRINK).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, "winter"));
     public static final RegistryObject<Item> KYKEON = HELPER.createItem("kykeon", () -> new KykeonItem(new Item.Properties().food(CosmopolitanFoods.DRINK).craftRemainder(Items.GLASS_BOTTLE).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> ABC_SOUP = HELPER.createItem("abc_soup", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.ABC_SOUP).craftRemainder(Items.BOWL).stacksTo(16)));
-    public static final RegistryObject<Item> ABC_SOUP_CUP = HELPER.createItem("abc_soup_cup", () -> new MDCupItem(new Item.Properties(), CosmopolitanFoods.ABC_SOUP));
+    public static final RegistryObject<Item> ABC_SOUP_CUP = HELPER.createItem("abc_soup_cup", () -> new MDCupItem(new Item.Properties().food(CosmopolitanFoods.ABC_SOUP_CUP)));
     public static final RegistryObject<Item> LUSH_STEW = HELPER.createItem("lush_stew", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.LUSH_STEW).craftRemainder(Items.BOWL).stacksTo(16)));
-    public static final RegistryObject<Item> LUSH_STEW_CUP = HELPER.createItem("lush_stew_cup", () -> new MDCupItem(new Item.Properties(), CosmopolitanFoods.LUSH_STEW));
+    public static final RegistryObject<Item> LUSH_STEW_CUP = HELPER.createItem("lush_stew_cup", () -> new MDCupItem(new Item.Properties().food(CosmopolitanFoods.LUSH_STEW_CUP)));
     public static final RegistryObject<Item> JELLO_SALAD = HELPER.createItem("jello_salad", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.JELLO_SALAD).craftRemainder(Items.BOWL).stacksTo(16)));
-    public static final RegistryObject<Item> JELLO_SALAD_CUP = HELPER.createItem("jello_salad_cup", () -> new MDCupItem(new Item.Properties(), CosmopolitanFoods.JELLO_SALAD));
+    public static final RegistryObject<Item> JELLO_SALAD_CUP = HELPER.createItem("jello_salad_cup", () -> new MDCupItem(new Item.Properties().food(CosmopolitanFoods.JELLO_SALAD_CUP)));
     public static final RegistryObject<Item> STOBHACH_GAELACH = HELPER.createItem("stobhach_gaelach", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.STOBHACH_GAELACH).craftRemainder(Items.BOWL).stacksTo(16)));
-    public static final RegistryObject<Item> STOBHACH_GAELACH_CUP = HELPER.createItem("stobhach_gaelach_cup", () -> new MDCupItem(new Item.Properties(), CosmopolitanFoods.STOBHACH_GAELACH));
+    public static final RegistryObject<Item> STOBHACH_GAELACH_CUP = HELPER.createItem("stobhach_gaelach_cup", () -> new MDCupItem(new Item.Properties().food(CosmopolitanFoods.STOBHACH_GAELACH_CUP)));
 
     public static final RegistryObject<Item> GULIME = HELPER.createItem("gulime", () -> new GulimeItem(new Item.Properties().food(CosmopolitanFoods.GULIME), true, CosmoItems.GULIME_SMALL));
     public static final RegistryObject<Item> GULIME_SMALL = HELPER.createItem("gulime_small", () -> new GulimeItem(new Item.Properties().food(CosmopolitanFoods.GULIME_SMALL), false, CosmoItems.GULIME));
@@ -209,7 +223,7 @@ public class CosmoItems {
     public static final RegistryObject<Item> POTATO_PANCAKES = HELPER.createItem("potato_pancakes", () -> new Item(new Item.Properties().food(CosmopolitanFoods.POTATO_PANCAKES)));
     public static final RegistryObject<Item> GREEN_SAUCE = HELPER.createItem("green_sauce", () -> new BowlFoodItem(new Item.Properties().food(CosmopolitanFoods.GREEN_SAUCE)));
     public static final RegistryObject<Item> GREEN_CREAM_STEW = HELPER.createItem("green_cream_stew", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.GREEN_STEW).stacksTo(16).craftRemainder(Items.BOWL)));
-    public static final RegistryObject<Item> GREEN_CREAM_STEW_CUP = HELPER.createItem("green_cream_stew_cup",  () -> new MDCupItem(new Item.Properties(), CosmopolitanFoods.GREEN_STEW));
+    public static final RegistryObject<Item> GREEN_CREAM_STEW_CUP = HELPER.createItem("green_cream_stew_cup",  () -> new MDCupItem(new Item.Properties().food(CosmopolitanFoods.GREEN_STEW)));
 
     public static final RegistryObject<Item> GREEN_PASTA = HELPER.createItem("green_pasta", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.GREEN_PASTA).craftRemainder(Items.BOWL).stacksTo(16)));
     public static final RegistryObject<Item> BAKED_COD_WITH_MASHED_POTATOES = HELPER.createItem("baked_cod_with_mashed_potatoes", () -> new EffectBowlItem(new Item.Properties().food(CosmopolitanFoods.BAKED_COD_WITH_PESTO).craftRemainder(Items.BOWL).stacksTo(16)));
@@ -368,13 +382,21 @@ public class CosmoItems {
     public static final RegistryObject<Item> COLLECTIVE_ICE_CREAM_SANDWICH = HELPER.createItem("collective_ice_cream_sandwich", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.COLLECTIVE_ICE_CREAM_SANDWICH), false, 100));
     public static final RegistryObject<Item> SUNNY_ICE_CREAM_SANDWICH = HELPER.createItem("sunny_ice_cream_sandwich", () -> new NeapolitanStrawberryItem(new Item.Properties().food(CosmopolitanFoods.SUNNY_ICE_CREAM_SANDWICH), false, 100, 1.0F));
 
-    //abnormals x farmersrespite
+    //kofi
+    public static final RegistryObject<Item> NETHERESSO = HELPER.createItem("netheresso", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.COFFEE).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, false));
     public static final RegistryObject<Item> ICED_AMERICANO = HELPER.createItem("iced_americano", () -> new IcedDrinkItem(new Item.Properties().food(CosmopolitanFoods.COFFEE).stacksTo(16), false, false));
     public static final RegistryObject<Item> MOCHA = HELPER.createItem("mocha", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.MOCHA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, false));
-    public static final RegistryObject<Item> STRAWBERRY_MATCHA_LATTE = HELPER.createItem("strawberry_matcha_latte", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.GLOW_BERRY_MILKSHAKE).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, false));
+    public static final RegistryObject<Item> CHA_JAU = HELPER.createItem("cha_jau", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.CHA_JAU).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), false, false));
+
+    public static final RegistryObject<Item> STRAWBERRY_MATCHA_LATTE = HELPER.createItem("strawberry_matcha_latte", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.TEA).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16), true, false));
+
     public static final RegistryObject<Item> BERRY_SYRUP_AMERICANO = HELPER.createItem("berry_syrup_americano", () -> new IcedDrinkItem(new Item.Properties().food(CosmopolitanFoods.COFFEE).stacksTo(16), false, false));
     public static final RegistryObject<Item> CHORUS_FRUIT_AMERICANO = HELPER.createItem("chorus_fruit_americano", () -> new IcedDrinkItem(new Item.Properties().food(CosmopolitanFoods.CHORUS_FRUIT_AMERICANO).stacksTo(16), false, false));
     public static final RegistryObject<Item> ORANGE_AMERICANO = HELPER.createItem("orange_americano", () -> new IcedDrinkItem(new Item.Properties().food(CosmopolitanFoods.ORANGE_AMERICANO).stacksTo(16), false, false));
+    public static final RegistryObject<Item> BROCCOLI_AMERICANO = HELPER.createItem("broccoli_americano", () -> new IcedDrinkItem(new Item.Properties().food(CosmopolitanFoods.BROCCOLI_AMERICANO).stacksTo(16), false, false));
+
+    public static final RegistryObject<Item> MATE = HELPER.createItem("mate", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.MATE), false, false));
+    public static final RegistryObject<Item> DANDELION_COFFEE = HELPER.createItem("dandelion_coffee", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.DANDELION_COFFEE), false, false));
 
     //collectorsreap
     public static final RegistryObject<Item> GREENDAY_JUICE = HELPER.createItem("greenday_juice", () -> new DrinkItem(new Item.Properties().food(CosmopolitanFoods.GREENDAY_JUICE), false, false));
@@ -388,7 +410,8 @@ public class CosmoItems {
     public static final RegistryObject<Item> BERRY_SYRUP_GUMMY = HELPER.createItem("berry_syrup_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.GUMMY)));
     public static final RegistryObject<Item> BLISTERBERRY_GUMMY = HELPER.createItem("blisterberry_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.BLISTERBERRY_GUMMY)));
     public static final RegistryObject<Item> DROOPFRUIT_GUMMY = HELPER.createItem("droopfruit_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.DROOPFRUIT_GUMMY)));
-
+    public static final RegistryObject<Item> BOILBERRY_GUMMY = HELPER.createItem("boilberry_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.BOILBERRY_GUMMY)));
+    public static final RegistryObject<Item> SPINALBERRY_GUMMY = HELPER.createItem("spinalberry_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.SPINALBERRY_GUMMY)));
     //abnormals x habitat
     public static final RegistryObject<Item> KABLOOM_PIPS = HELPER.createItem("kabloom_pips", () -> new ItemNameBlockItem(CosmoCompat.KABLOOM_BLOCK, new Item.Properties()));
 
@@ -433,24 +456,26 @@ public class CosmoItems {
     //enigmaticlegacy
     public static final RegistryObject<Item> COSMIC_SNOW_CONE = HELPER.createItem("cosmic_snow_cone", () -> new DurabilityFoodItem(new Item.Properties().food(CosmopolitanFoods.COSMIC_SNOW_CONE).rarity(Rarity.EPIC), 2, true, true));
 
+    //smc
+    public static final RegistryObject<Item> ASTERA_ICE_CREAM_CONE = HELPER.createItem("astera_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.ASTERA_ICE_CREAM_CONE), false, 80));
+    public static final RegistryObject<Item> BROCCOLI_ICE_CREAM_CONE = HELPER.createItem("broccoli_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.BROCCOLI_ICE_CREAM_CONE), false, 80));
+    public static final RegistryObject<Item> FROST_ICE_CREAM_CONE = HELPER.createItem("frost_ice_cream_cone", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.FROST_ICE_CREAM_CONE), false, 80));
+    public static final RegistryObject<Item> SMC_ICE_CREAM_SANDWICH = HELPER.createItem("smc_ice_cream_sandwich", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.SMC_ICE_CREAM_SANDWICH), false, 80));
+    public static final RegistryObject<Item> RAINBOW_ICE_CREAM_SANDWICH_SMC = HELPER.createItem("rainbow_ice_cream_sandwich_smc", () -> new NeapolitanIceCreamItem(new Item.Properties().food(CosmopolitanFoods.RAINBOW_ICE_CREAM_SANDWICH_SMC), false, 80));
+
+    public static final RegistryObject<Item> ORGANIC_MUFFIN = HELPER.createItem("organic_muffin", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.ORGANIC_MUFFIN)));
+    public static final RegistryObject<Item> COLORFUL_CREAM_BUN = HELPER.createItem("colorful_cream_bun", () -> new EffectItem(new Item.Properties().food(CosmopolitanFoods.COLORFUL_CREAM_BUN)));
+
+    public static final RegistryObject<Item> ASTERA_GUMMY = HELPER.createItem("astera_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.ASTERA_GUMMY)));
+    public static final RegistryObject<Item> BROCCOLI_GUMMY = HELPER.createItem("broccoli_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.BROCCOLI_GUMMY)));
+    public static final RegistryObject<Item> FROST_GUMMY = HELPER.createItem("frost_gummy", () -> new GummyItem(new Item.Properties().food(CosmopolitanFoods.FROST_GUMMY)));
+
     //cocktails
     public static final RegistryObject<Item> COSMOPOLITAN_COCKTAIL = HELPER.createItem("cosmopolitan_cocktail", () -> new CocktailItem(new Item.Properties().food(CosmopolitanFoods.DRINK).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> ENCHANTED_COSMOPOLITAN_COCKTAIL = HELPER.createItem("enchanted_cosmopolitan_cocktail", () -> new CocktailItem(new Item.Properties().food(CosmopolitanFoods.DRINK).stacksTo(1).craftRemainder(Items.GLASS_BOTTLE).rarity(Rarity.RARE)));
 
-    public static void setupTabEditors() {
-        CreativeModeTabContentsPopulator.mod(Cosmopolitan.MODID)
-                .tab(FOOD_AND_DRINKS)
-                .addItemsAfter(of(Items.MELON_SLICE), ARBUTUS_BERRIES, GOLDEN_ARBUTUS_BERRIES)
-                .addItemsAfter(of(Items.SWEET_BERRIES), WILDBERRY)
-                .addItemsAfter(of(Items.BEETROOT), CHARD, FIDDLEHEAD, BAKED_FIDDLEHEAD, IRON_FIDDLEHEAD, TUBER, ROASTED_TUBER)
-                .addItemsBefore(of(Items.CARROT), WHEATGRASS)
-                .addItemsAfter(of(Items.DRIED_KELP), ROASTED_MUSHROOM)
-                .addItemsAfter(of(Items.RABBIT_STEW), LUSH_STEW, STOBHACH_GAELACH)
-                .addItemsAfter(of(Items.HONEY_BOTTLE), BIRCH_SAP_BOTTLE, BERRY_SYRUP_BOTTLE, LUSH_CONFITURE_BOTTLE)
-                .addItemsAfter(of(Items.COOKIE), BIRCH_COOKIE, MOLASSES_COOKIE, PAW_COOKIE)
-                .addItemsAfter(of(Items.MILK_BUCKET), CONDENSED_MILK_BUCKET, CONDENSED_MILK_BUCKET, CREAM_BUCKET, CREAM)
-        ;
-    }
+    //disc
+    public static final RegistryObject<Item> MUSIC_DISC_WOC = HELPER.createItem("music_disc_woc", () -> new BlueprintRecordItem(10, CosmoSoundEvents.MUSIC_DISC_WOC, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 151));
 
     static class CosmopolitanFoods {
         //general
@@ -496,7 +521,7 @@ public class CosmoItems {
 
         public static final FoodProperties ECTOCARAMEL = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoEffects.OBSCURE.get(), 800), 1.0F).build();
         public static final FoodProperties HOWLING_COOKIE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoEffects.OBSCURE.get(), 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200), 0.5F).build();
-        public static final FoodProperties OCCULT_APPLE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoEffects.OBSCURE.get(), 1200, 2), 1.0F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1), 1.0F).build();
+        public static final FoodProperties OCCULT_APPLE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoEffects.OBSCURE.get(), 1200, 2), 1.0F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1), 1.0F).alwaysEat().build();
         public static final FoodProperties POPWART = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.5F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 400), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.OBSCURE.get(), 400), 1.0F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 400), 1.0F).build();
 
         public static final FoodProperties WILDBERRY_MEDLEY = (new FoodProperties.Builder()).nutrition(6).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100), 1.0F).build();
@@ -518,10 +543,10 @@ public class CosmoItems {
         public static final FoodProperties MEADOW_BREAD = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F).build();
         public static final FoodProperties GEODE_BREAD = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.7F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 400), 1.0F).build();
 
-        public static final FoodProperties FARINA = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 400), 1.0F).build();
+        public static final FoodProperties FARINA = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 400), 1.0F).build();
 
         public static final FoodProperties RODGROD = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.SWEET_BERRIES, 600), 1.0F).build();
-        public static final FoodProperties RICE_PUDDING = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 600), 1.0F).build();
+        public static final FoodProperties RICE_PUDDING = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 200), 1.0F).build();
         public static final FoodProperties TRIFLE = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.6F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200), 1.0F).build();
         public static final FoodProperties ZEBRA_CAKE = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.5F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CHOCOLATE, 600), 1.0F).build();
 
@@ -529,6 +554,11 @@ public class CosmoItems {
         public static final FoodProperties CHOCOLATE_BANANA_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH, 600, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.AGILITY, 200), 1.0F).build();
         public static final FoodProperties STRAWBERRY_VANILLA_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.VANILLA_SCENT, 400), 1.0F).build();
         public static final FoodProperties MINT_ADZUKI_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.BERSERKING, 800), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.HARMONY, 400), 1.0F).build();
+        public static final FoodProperties BERRY_DUO_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.SWEET_BERRIES, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 400), 1.0F).build();
+        public static final FoodProperties ECTOCARAMEL_POMEGRANATE_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.POMEGRANATE, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.OBSCURE.get(), 600), 1.0F).build();
+        public static final FoodProperties BLISTERBERRY_DROOPFRUIT_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoEffects.VARDOGER.get(), 600), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), -1), 1.0F).build();
+        public static final FoodProperties MATCHA_SALMONBERRY_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.TEA_POLYPHENOLS, 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 600), 1.0F).build();
+        public static final FoodProperties COLORFUL_CREAM_BUN = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RESISTANCE, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.FROST_RESISTANCE_SMC, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.STAR_LIGHT, 300), 1.0F).build();
 
         public static final FoodProperties GLOW_BERRY_CUBECAKE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.5F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 300), 1.0F).build();
         public static final FoodProperties WHEATGRASS_CUBECAKE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.5F).build();
@@ -550,13 +580,16 @@ public class CosmoItems {
         public static final FoodProperties ARID_GULIME = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.1F).effect(() -> new MobEffectInstance(MobEffects.JUMP, 200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.PINK_PITAYA, 200), 1.0F).build();
         public static final FoodProperties ARID_GULIME_SMALL = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(MobEffects.JUMP, 200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.PINK_PITAYA, 200), 1.0F).fast().build();
 
-        public static final FoodProperties LUSH_STEW = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).effect(() -> CosmoCompat.COMFORT_STEW, 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 400), 1.0F).build();
+        public static final FoodProperties LUSH_STEW = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 400), 1.0F).build();
+        public static final FoodProperties LUSH_STEW_CUP = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 150), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).fast().build();
+
         public static final FoodProperties JELLO_SALAD = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.6F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400), 1.0F).build();
+        public static final FoodProperties JELLO_SALAD_CUP = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).fast().build();
 
         //farmersdelight
         public static final FoodProperties POTATO_PANCAKES = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.8F).build();
         public static final FoodProperties GREEN_SAUCE = (new FoodProperties.Builder()).nutrition(4).saturationMod(1F).build();
-        public static final FoodProperties GREEN_STEW = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 6000), 1.0F).build();
+        public static final FoodProperties GREEN_STEW = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 1800), 1.0F).build();
 
         public static final FoodProperties GREEN_PASTA = (new FoodProperties.Builder()).nutrition(16).saturationMod(0.7F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 6000), 1.0F).build();
         public static final FoodProperties BAKED_COD_WITH_PESTO = (new FoodProperties.Builder()).nutrition(16).saturationMod(0.7F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 6000), 1.0F).build();
@@ -564,8 +597,12 @@ public class CosmoItems {
         public static final FoodProperties BEETROOT_MIXED_RICE = (new FoodProperties.Builder()).nutrition(14).saturationMod(1.0F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 2400), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.BEETROOT, 600, 1), 1.0F).build();
         public static final FoodProperties SPAGHETTIEIS = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.VANILLA_SCENT, 1200), 1.0F).build();
 
-        public static final FoodProperties ABC_SOUP = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 6000), 1.0F).build();
-        public static final FoodProperties STOBHACH_GAELACH = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 2400), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.INGRAINED.get(), 2400), 1.0F).build();
+        public static final FoodProperties ABC_SOUP = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 1200), 1.0F).build();
+        public static final FoodProperties ABC_SOUP_CUP = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 600), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).fast().build();
+
+        public static final FoodProperties STOBHACH_GAELACH = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.INGRAINED.get(), 2400), 1.0F).build();
+        public static final FoodProperties STOBHACH_GAELACH_CUP = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.NOURISHMENT, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.INGRAINED.get(), 1200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).fast().build();
+
         public static final FoodProperties FLYING_DUTCHMAN_BURGER = (new FoodProperties.Builder()).nutrition(8).saturationMod(1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200), 1.0F).build();
 
         public static final FoodProperties QINGTUAN = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.3F).build();
@@ -596,8 +633,16 @@ public class CosmoItems {
         public static final FoodProperties ARBUTUS_BERRY_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoEffects.PHOTOTAXIS.get(), 100, 2), 1.0F).alwaysEat().fast().build();
         public static final FoodProperties BLISTERBERRY_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoEffects.VARDOGER.get(), 200, 2), 1.0F).alwaysEat().fast().build();
         public static final FoodProperties DROOPFRUIT_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoEffects.ABYSMAL_TORCH.get(), -1, 1), 1.0F).alwaysEat().fast().build();
+
         public static final FoodProperties MENDOSTEEN_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoCompat.RECOVERY, 200, 2), 1.0F).alwaysEat().fast().build();
         public static final FoodProperties BASTION_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoCompat.DEFENCE, 200, 2), 1.0F).alwaysEat().fast().build();
+
+        public static final FoodProperties ASTERA_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoCompat.STAR_LIGHT, 200, 2), 1.0F).alwaysEat().fast().build();
+        public static final FoodProperties BROCCOLI_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RESISTANCE, 200, 2), 1.0F).alwaysEat().fast().build();
+        public static final FoodProperties FROST_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(CosmoCompat.FROST_RESISTANCE_SMC, 200, 2), 1.0F).alwaysEat().fast().build();
+
+        public static final FoodProperties BOILBERRY_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 2), 1.0F).effect(() -> new MobEffectInstance(MobEffects.WITHER, 200, 1), 1.0F).alwaysEat().fast().build();
+        public static final FoodProperties SPINALBERRY_GUMMY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.0F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 2), 1.0F).effect(() -> new MobEffectInstance(MobEffects.BLINDNESS, 200), 1.0F).alwaysEat().fast().build();
 
         public static final FoodProperties GREENDAY_JUICE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.LIME, 600), 1.0F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1.0F).alwaysEat().fast().build();
 
@@ -671,9 +716,9 @@ public class CosmoItems {
         public static final FoodProperties KABLOOM_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.BLAST_ENDURANCE, 200, 2), 1.0F).build();
 
         public static final FoodProperties SALMONBERRY_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 200), 1.0F).build();
-        public static final FoodProperties MATCHA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 140), 1.0F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 160), 1.0F).build();
-        public static final FoodProperties DELIGHTFUL_ICE_CREAM = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 500), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 400), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MANA_REGEN, 600), 1.0F).build();
-        public static final FoodProperties DELIGHTFUL_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 250), 1.0F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MANA_REGEN, 300), 1.0F).build();
+        public static final FoodProperties MATCHA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.TEA_POLYPHENOLS, 160, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 100), 1.0F).build();
+        public static final FoodProperties DELIGHTFUL_ICE_CREAM = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 500), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.TEA_POLYPHENOLS, 400), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 300), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MANA_REGEN, 600), 1.0F).build();
+        public static final FoodProperties DELIGHTFUL_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 250), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.TEA_POLYPHENOLS, 200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 150), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MANA_REGEN, 300), 1.0F).build();
 
         public static final FoodProperties LIME_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.CORROSION, 400, 1), 1.0F).build();
         public static final FoodProperties POMEGRANATE_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.VOLATILITY, 540, 1), 1.0F).build();
@@ -686,8 +731,14 @@ public class CosmoItems {
         public static final FoodProperties GREEN_TEA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.VITALITY, 200, 1), 1.0F).build();
         public static final FoodProperties YELLOW_TEA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.TENACITY, 200, 1), 1.0F).build();
         public static final FoodProperties BLACK_TEA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.MATURITY, 200, 1), 1.0F).build();
-        public static final FoodProperties COFFEE_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 400, 2), 1.0F).build();
+        public static final FoodProperties COFFEE_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED_ICE_CREAM, 400, 2), 1.0F).build();
         public static final FoodProperties RESPITEFUL_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.VITALITY, 460), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.TENACITY, 460), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MATURITY, 460), 1.0F).build();
+
+        public static final FoodProperties ASTERA_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.STAR_LIGHT, 400), 1.0F).build();
+        public static final FoodProperties BROCCOLI_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RESISTANCE, 400), 1.0F).build();
+        public static final FoodProperties FROST_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.FROST_RESISTANCE_SMC, 400), 1.0F).build();
+        public static final FoodProperties SMC_ICE_CREAM_SANDWICH = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.STAR_LIGHT, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RESISTANCE, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.FROST_RESISTANCE_SMC, 600), 1.0F).build();
+        public static final FoodProperties RAINBOW_ICE_CREAM_SANDWICH_SMC = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.RAINBOW, 460), 1.0F).build();
 
         public static final FoodProperties GLOWY_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 400), 1.0F).build();
         public static final FoodProperties FLAVORED_ICE_CREAM_CONE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 400), 1.0F).build();
@@ -707,13 +758,13 @@ public class CosmoItems {
 
         //bnc
         public static final FoodProperties ALCOHOL_DRINK = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1200), 1.0F).alwaysEat().build();
-        public static final FoodProperties NEVERENDING_NIGHT = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1200, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MANA_REGEN, 1200), 1.0F).alwaysEat().build();
-        public static final FoodProperties MORNING_FOG = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1200, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.EARENDEL, 1200), 1.0F).alwaysEat().build();
+        public static final FoodProperties NEVERENDING_NIGHT = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1200, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.MANA_REGEN, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.FRESH_COOL, 600), 1.0F).alwaysEat().build();
+        public static final FoodProperties MORNING_FOG = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1200, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.EARENDEL, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.FEVER_SPICY, 600), 1.0F).alwaysEat().build();
         public static final FoodProperties GREEN_BEER = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1200, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1200), 1.0F).effect(() -> new MobEffectInstance(MobEffects.LUCK, 1200), 1.0F).alwaysEat().build();
 
-        public static final FoodProperties ROOT_BEER = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 600), 1.0F).alwaysEat().build();
+        public static final FoodProperties ROOT_BEER = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100), 1.0F).alwaysEat().build();
         public static final FoodProperties ICE_CREAM_FLOAT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.VANILLA_SCENT, 200), 1.0F).alwaysEat().build();
-        public static final FoodProperties BLACK_COW = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).effect(() -> new MobEffectInstance(CosmoCompat.COMFORT, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.VANILLA_SCENT, 200), 1.0F).alwaysEat().build();
+        public static final FoodProperties BLACK_COW = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.VANILLA_SCENT, 200), 1.0F).alwaysEat().build();
 
         public static final FoodProperties TWILIGHT_CHARTREUSE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1800), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1800), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RANGE, 1200), 1.0F).alwaysEat().build();
         public static final FoodProperties SMOGGY_APEROL = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TIPSY, 1800), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.INTOXICATION, 1800), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.VARDOGER.get(), 1200), 1.0F).alwaysEat().build();
@@ -728,9 +779,14 @@ public class CosmoItems {
         public static final FoodProperties TRAVELERS_PANINI = (new FoodProperties.Builder()).nutrition(10).saturationMod(1.0F).effect(() -> new MobEffectInstance(MobEffects.LUCK, 600), 1.0F).effect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 600), 1.0F).build();
         public static final FoodProperties WATER_PIE = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.2F).build();
         public static final FoodProperties WATER_PIE_SLICE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F).fast().build();
+        public static final FoodProperties SHOOFLY_PIE = (new FoodProperties.Builder()).nutrition(12).saturationMod(0.2F).build();
+        public static final FoodProperties SHOOFLY_PIE_SLICE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.2F).fast().build();
+        public static final FoodProperties MOSS_PIE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.2F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 600), 1.0F).build();
+        public static final FoodProperties MOSS_PIE_SLICE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).fast().effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 125), 1.0F).build();
 
         public static final FoodProperties CHARD = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.6F).fast().build();
         public static final FoodProperties CHARD_ROLLS = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.8F).build();
+        public static final FoodProperties DRIPLEAF_ROLL = (new FoodProperties.Builder()).nutrition(4).saturationMod(1F).effect(() -> new MobEffectInstance(CosmoCompat.PEACE, 400), 1.0F).build();
 
         public static final FoodProperties TUBER = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.4F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200), 0.3F).effect(() -> new MobEffectInstance(CosmoEffects.INGRAINED.get(), 300), 1.0F).build();
         public static final FoodProperties CUT_TUBERS = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100), 0.3F).effect(() -> new MobEffectInstance(CosmoEffects.INGRAINED.get(), 150), 1.0F).fast().build();
@@ -754,16 +810,31 @@ public class CosmoItems {
         public static final FoodProperties TUBER_PUREE_CONE_WITH_CONFITURE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).effect(() -> new MobEffectInstance(CosmoEffects.INGRAINED.get(), 600), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.PHOTOTAXIS.get(), 200), 1.0F).effect(() -> new MobEffectInstance(CosmoEffects.TRACER.get(), 200), 1.0F).build();
         public static final FoodProperties ARBUTUS_BERRY_COOKIE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).fast().effect(() -> new MobEffectInstance(CosmoEffects.PHOTOTAXIS.get(), 100), 1.0F).build();
 
-        public static final FoodProperties COFFEE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 5400, 1), 1.0F).alwaysEat().build();
-        public static final FoodProperties ORANGE_AMERICANO = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 3200), 1.0F).alwaysEat().build();
-        public static final FoodProperties CHORUS_FRUIT_AMERICANO = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.CHORUS_FRUIT, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 3200), 1.0F).alwaysEat().build();
-        public static final FoodProperties MOCHA = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH, 1600), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, 3200), 1.0F).alwaysEat().build();
+        public static final FoodProperties COFFEE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED,  CosmoCompat.CAFFEINATED_DURATION(5400), 1), 1.0F).alwaysEat().build();
+        public static final FoodProperties CHA_JAU = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED,  CosmoCompat.CAFFEINATED_DURATION(2400), 1), 1.0F).alwaysEat().fast().build();
+        public static final FoodProperties ORANGE_AMERICANO = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, CosmoCompat.CAFFEINATED_DURATION(3200)), 1.0F).alwaysEat().build();
+        public static final FoodProperties CHORUS_FRUIT_AMERICANO = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.CHORUS_FRUIT, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, CosmoCompat.CAFFEINATED_DURATION(3200)), 1.0F).alwaysEat().build();
+        public static final FoodProperties BROCCOLI_AMERICANO = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RESISTANCE, 1200), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, CosmoCompat.CAFFEINATED_DURATION(3200)), 1.0F).alwaysEat().build();
+
+        public static final FoodProperties MOCHA = (new FoodProperties.Builder()).nutrition(2).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH, 1600, 1), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, CosmoCompat.CAFFEINATED_DURATION(3200)), 1.0F).alwaysEat().build();
+        public static final FoodProperties MATE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.THORNS, 600), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.CAFFEINATED, CosmoCompat.CAFFEINATED_DURATION(2400)), 1.0F).alwaysEat().build();
+        public static final FoodProperties TEA = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoCompat.TEA_POLYPHENOLS, 800), 1.0F).alwaysEat().build();
+        public static final FoodProperties DANDELION_COFFEE = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoEffects.COMFORT.get(), 4800), 1.0F).alwaysEat().build();
+        public static final FoodProperties COMFORT_DRINK = (new FoodProperties.Builder()).effect(() -> new MobEffectInstance(CosmoEffects.COMFORT.get(), 1200), 1.0F).alwaysEat().build();
+
+        public static final FoodProperties CAVE_CONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.8F).build();
+        public static final FoodProperties ABYSSAL_CAVE_CONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.DEEPSIGHT, 400), 1.0F).build();
+        public static final FoodProperties CANDY_CAVE_CONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH_ALEX, 200), 0.2F).build();
+        public static final FoodProperties PRIMORDIAL_CAVE_CONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.RAGE, 600), 1.0F).build();
+        public static final FoodProperties MAGNETIC_CAVE_CONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.MAGNETIZING, 600), 1.0F).build();
+
+        public static final FoodProperties ORGANIC_MUFFIN = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.POISON_RESISTANCE, 200), 0.5F).effect(() -> new MobEffectInstance(CosmoCompat.SWEET_BERRIES, 100), 0.25F).build();
 
         public static final FoodProperties BAGEL = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).build();
         public static final FoodProperties BAGEL_SANDWICH = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F).build();
         public static final FoodProperties BACON_EGG_BAGEL = (new FoodProperties.Builder()).nutrition(9).saturationMod(0.8F).build();
         public static final FoodProperties BERRY_CREAM_CHEESE_BAGEL = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.8F).build();
-        public static final FoodProperties MATCHA_CREAM_INK_BAGEL = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.8F).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 800), 1.0F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200), 1.0F).build();
+        public static final FoodProperties MATCHA_CREAM_INK_BAGEL = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.8F).effect(() -> new MobEffectInstance(CosmoCompat.TEA_POLYPHENOLS, 800), 1.0F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200), 1.0F).build();
         public static final FoodProperties NEAPOLITAN_ICE_CREAM_BAGEL = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.6F).effect(() -> new MobEffectInstance(CosmoCompat.SUGAR_RUSH, 200, 2), 1.0F).effect(() -> new MobEffectInstance(CosmoCompat.VANILLA_SCENT, 100), 1.0F).build();
     }
 

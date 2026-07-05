@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "cosmopolitan:moss_pie"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "cosmopolitan:moss_pie_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:fruits/sweet_berries"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "smc:broccoli"
+          },
+          {
+            "item": "smc:broccoli"
+          },
+          {
+            "item": "smc:broccoli"
+          },
+          {
+            "tag": "forge:fruits/sweet_berries"
+          }
+        ],
+        "result": {
+          "count": 3,
+          "item": "cosmopolitan:organic_muffin"
+        }
+      }
+    }
+  ]
+}

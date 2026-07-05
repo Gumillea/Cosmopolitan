@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-18T20:38:04.5290552	Tags for minecraft:item mod id cosmopolitan
+// 1.20.1	2026-07-05T00:06:52.2488052	Tags for minecraft:item mod id cosmopolitan
 e749c334772746840c187317d6a23aa6698ad770 data/berrfect/tags/items/berry_syrup_block.json
 3973b294cab1fc4dd7a5f550db31e132f74b0c5e data/berrfect/tags/items/flavored_items.json
 7c92c92f43504165d3dbe6075c51bbe8b32e1aca data/blueprint/tags/items/chicken_food.json
@@ -7,23 +7,25 @@ c80c65fe605f2002ad7baa78fdfc268543b64b7a data/brewinandchewin/tags/items/ferment
 f2386f28918a72073a589f3b819e044dae304d40 data/cosmopolitan/tags/items/abysmal_torch_sources.json
 893f36ba39048f4ea7645dcad546f5034fe2486c data/cosmopolitan/tags/items/biome_gulimes.json
 628fcf892d0b35d9730907c37570dbe5170b8077 data/cosmopolitan/tags/items/carotene_sources.json
-37213af63a66d28e0eee18b64711040c9d454e26 data/cosmopolitan/tags/items/exuberant_sources.json
+1fc191260513ecfd8b56a9cd420d9b78f3905b07 data/cosmopolitan/tags/items/comfort_sources.json
+084adae5dfa9b7ea0af76c9bca950c8e4b35e33b data/cosmopolitan/tags/items/exuberant_sources.json
 c5804eeb3665509bf1cf20128bdb8dc77c4f62c0 data/cosmopolitan/tags/items/funguis.json
 c037c810282e3edbafb705d04e1067298f39ea6b data/cosmopolitan/tags/items/herbal_powder_ingredients.json
-efe1ad71cfcbaf824be5ad950532f968fb76ab89 data/cosmopolitan/tags/items/ice_cream_cones.json
-f7d4517259faad0a810a79eac39c2d4a277ab994 data/cosmopolitan/tags/items/ingrained_sources.json
+324cec30312e68f1749f0a1477b8d47e64ddeb15 data/cosmopolitan/tags/items/ice_cream_cones.json
+1392e054dfc28ee9cb6d7c85107b7f5cbdf9b461 data/cosmopolitan/tags/items/ingrained_sources.json
 2300a71368c749fc245415e8321bb3e100215227 data/cosmopolitan/tags/items/kykeon_ingredients.json
 70c0efc97b3c0526c3ee9a504ba671ea81a6cc56 data/cosmopolitan/tags/items/tracer_sources.json
 653a914a92b5723b28c55731f1fbf6ee9fba4aec data/cosmopolitan/tags/items/vardoger_sources.json
 e2c5c4e38e8d52029a7b2fdf1f8afc2034f9629b data/create/tags/items/upright_on_belt.json
 294dd1a4ff64e77953d906ee6cb9397b33d49a0a data/eclipticseasons/tags/items/crops/all_seasons.json
 294dd1a4ff64e77953d906ee6cb9397b33d49a0a data/eclipticseasons/tags/items/crops/average_humid.json
-af8bb9b682c0482df4f39c06893aa68f15ff5e69 data/forge/tags/items/berries.json
+25063b33851f0070865f50d167fc16494734bff5 data/forge/tags/items/berries.json
 41e574cabd21ca0e3af3983f5cd9168a98e213e3 data/forge/tags/items/cake_slices.json
 3627352f35a99f345d31df5c43fe145478631f98 data/forge/tags/items/cattails.json
 25093b4c17b8b5f98c63dc3e27ae9a68bd9d68a8 data/forge/tags/items/chocolate.json
-33ef41b67fb850fd35c39ca0d63812e95fd6d02a data/forge/tags/items/coffees/black.json
+0f88e0f638edbcf7d05dcf774eeda0b86b9b8c53 data/forge/tags/items/coffees/black.json
 648d0504a9c8f2ce140f40e54f1c12503ace928a data/forge/tags/items/condensed_milk.json
+606f7f87c60718be3fdbf8a3491ad3fb2edf83b4 data/forge/tags/items/cooked_fishes/salmon.json
 32e9ecda354526097189372c4335ced94224b796 data/forge/tags/items/cookies.json
 378aecc24fcd7263ffd7198fdb63fc1464b4c189 data/forge/tags/items/cream.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/forge/tags/items/crops.json
@@ -35,6 +37,7 @@ dda429493d9490c66555fabf9571a6f4155592d2 data/forge/tags/items/crops/sugarcane.j
 f033b245b07fe1ee2e5a1296b0d8d4eb4f388c9d data/forge/tags/items/crops/tuber.json
 5fa69961d70fa0ac7efcc68173df91c62c16e08a data/forge/tags/items/eggs/salmon.json
 df0612539a0262efd5ad5bc4207bc0b80234d125 data/forge/tags/items/fish_slices.json
+247dc841afeeecd6aaa8b743192b03131e1b53ab data/forge/tags/items/frozen_dessert_ingredients.json
 bf099b0360aa99bb7ec79fe6c0071f3ed0a37592 data/forge/tags/items/fruits.json
 b33dde3cf95c3f821d49bc84b8c46f9fd65289e8 data/forge/tags/items/fruits/apple.json
 ec051f2240735f3946628a24424560bef6e61162 data/forge/tags/items/fruits/cherry.json
@@ -46,7 +49,7 @@ d8965e0ac8a2b587b4b271dcf3bf94c3c5add2fe data/forge/tags/items/grain.json
 cca912b8575728152a9cad2dbdfcae8ccfd4e39c data/forge/tags/items/jams.json
 c760608ec71fb669fd1cce4980d52aa45dbe0913 data/forge/tags/items/milk.json
 cc0ad57e179d30a25f1e7b87fb921153d917a1db data/forge/tags/items/milk/milk_bottle.json
-efe6d58e86177a50d0cd62cbaa1b811e7f7c0715 data/forge/tags/items/moss.json
+5e9d7feed64d8b7a37537bd42358c9551161710e data/forge/tags/items/moss.json
 188695540a87fdb046b5eb58c5762c2e78b5b26b data/forge/tags/items/nuts.json
 f9a6617524ca4298156314736ac62ef87e784329 data/forge/tags/items/pumpkins.json
 11a405ac4846e4b5be2ca9af947665cf0fee1fb5 data/forge/tags/items/salad_ingredients.json
@@ -54,8 +57,9 @@ f9a6617524ca4298156314736ac62ef87e784329 data/forge/tags/items/pumpkins.json
 723f8728832e2b08de3d8ab39e313fd26c4797ea data/forge/tags/items/syrup.json
 11a405ac4846e4b5be2ca9af947665cf0fee1fb5 data/forge/tags/items/vegetables.json
 60b141fff663640ea07fb8ae8c8c96a7aa2b2435 data/minecraft/tags/items/birch_logs.json
+f0890dca7b1e3c9dd8d7488836e6afc31e888071 data/minecraft/tags/items/music_discs.json
 b77f536dfd81b7401dccc896a4ccc7ee4092d211 data/minecraft/tags/items/piglin_loved.json
-6f028cd49ed5aff8ee936f6f8a8795cc71d6f6c8 data/neapolitan/tags/items/ice_cream.json
+b8100b644e183d426672ddf9faceb96256795ef7 data/neapolitan/tags/items/ice_cream.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/sereneseasons/tags/items/autumn_crops.json
 002c893f6118a9c9e862c691bafe83bfe142d943 data/sereneseasons/tags/items/spring_crops.json
 33eae720567fd44dba8d27ec9b29619513b7c903 data/sereneseasons/tags/items/summer_crops.json
@@ -63,5 +67,5 @@ b77f536dfd81b7401dccc896a4ccc7ee4092d211 data/minecraft/tags/items/piglin_loved.
 294dd1a4ff64e77953d906ee6cb9397b33d49a0a data/sereneseasons/tags/items/year_round_crops.json
 b580ef8443858354107bc72a17d788ee9aa8c599 data/toughasnails/tags/items/cooling_consumed_items.json
 ae095c7b62d7410e407e8596f23c8bd83c3ff6c9 data/toughasnails/tags/items/heating_consumed_items.json
-5b738eed256aba1c2bd36ca28381e45b0f589823 data/toughasnails/tags/items/thirst/2_thirst_drinks.json
-c841c5a57c040fb0a6abc9533a464703098f51ac data/toughasnails/tags/items/thirst/5_thirst_drinks.json
+53f2f56bf8790f6abcbb7c7949c97d56cc6bf7f2 data/toughasnails/tags/items/thirst/2_thirst_drinks.json
+b9d6d599673a77e9b5c3405914f4001bc639d65e data/toughasnails/tags/items/thirst/5_thirst_drinks.json

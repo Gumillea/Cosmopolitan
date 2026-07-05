@@ -1,0 +1,46 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:pointed_dripstone"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:lanternfish"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "alexscaves:bioluminesscence"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "minecraft:glow_lichen"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "minecraft:pointed_dripstone"
+          },
+          {
+            "item": "alexscaves:lanternfish"
+          },
+          {
+            "item": "alexscaves:bioluminesscence"
+          },
+          {
+            "item": "minecraft:glow_lichen"
+          }
+        ],
+        "result": {
+          "item": "cosmopolitan:abyssal_cave_cone"
+        }
+      }
+    }
+  ]
+}

@@ -34,6 +34,8 @@ public class CosmoEffects {
 
     public static final RegistryObject<MobEffect> ABYSMAL_TORCH = EFFECTS.register("abysmal_torch", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0x97B5D9));
     public static final RegistryObject<MobEffect> VARDOGER = EFFECTS.register("vardoger", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0xEE4A34));
+    //The icon and design of this status effect are based on Farmer's Delight by vectorwing: https://github.com/vectorwing/FarmersDelight/blob/1.20/src/main/java/vectorwing/farmersdelight/common/effect/ComfortEffect.java. Used and modified under the MIT License.
+    public static final RegistryObject<MobEffect> COMFORT = EFFECTS.register("comfort", () -> new BlueprintMobEffect(MobEffectCategory.BENEFICIAL, 0xA6EBFF));
 
     public static final RegistryObject<MobEffect> PLACEHOLDER = EFFECTS.register("placeholder", () -> new BlueprintMobEffect(MobEffectCategory.NEUTRAL, 0));
 

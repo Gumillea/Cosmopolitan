@@ -19,7 +19,7 @@
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",
-            "tag": "forge:ice_cubes"
+            "tag": "forge:frozen_dessert_ingredients"
           }
         },
         {
@@ -48,7 +48,7 @@
             "item": "cosmopolitan:wafer_cone"
           },
           {
-            "tag": "forge:ice_cubes"
+            "tag": "forge:frozen_dessert_ingredients"
           },
           {
             "tag": "forge:milk"

@@ -1,0 +1,68 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "cosmopolitan:cream_bun"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:broccoli"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:frost_berries"
+        },
+        {
+          "type": "forge:item_exists",
+          "item": "smc:star_dust"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "cosmopolitan:cream_bun"
+          },
+          {
+            "item": "smc:broccoli"
+          },
+          {
+            "item": "smc:frost_berries"
+          },
+          {
+            "item": "smc:star_dust"
+          }
+        ],
+        "result": {
+          "count": 4,
+          "item": "cosmopolitan:colorful_cream_bun"
+        }
+      }
+    }
+  ]
+}

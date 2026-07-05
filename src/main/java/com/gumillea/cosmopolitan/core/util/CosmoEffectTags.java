@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffect;
 
 public class CosmoEffectTags {
     public static final TagKey<MobEffect> BLACKLIST = mobEffectTag("blacklist");
+    public static final TagKey<MobEffect> COMFORT_REWARDS = mobEffectTag("comfort_rewards");
 
     public CosmoEffectTags() {}
 
